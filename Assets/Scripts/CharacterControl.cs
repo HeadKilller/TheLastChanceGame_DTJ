@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class CharacterControl : MonoBehaviour
 {
@@ -48,12 +49,15 @@ public class CharacterControl : MonoBehaviour
 
     private void Update()
     {
+        if (EventSystem.current.IsPointerOverGameObject()) return;
         GetMouseMovement();
     }
 
     private void FixedUpdate()
     {
         //Debug.Log(_isGrounded);
+
+        if (EventSystem.current.IsPointerOverGameObject()) return;
 
         if (_isGrounded)
         {

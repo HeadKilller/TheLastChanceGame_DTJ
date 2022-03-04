@@ -3,30 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public abstract class Items
+[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
+public class Items : ScriptableObject
 {
 
-    private int id;
-    private string name;
-    private string description;
-    private Image icon;
+    new public string name = "New Item";
+    public string description = "Description";
 
-
-    private bool isCraftable;
-    private bool isStackable;
-
-    private Dictionary<string, int> recipe;
-    private Dictionary<string, float> itemModifiers;
-
-
-    //public Items()
-    
-}
-
-public class Material : Items
-{
-
-
+    public Sprite icon = null;
 
 }

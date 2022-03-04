@@ -36,9 +36,9 @@ public class PlayerInteraction : MonoBehaviour
         {
             if(raycastHit.transform != null && raycastHit.transform.name != "Floor")
             {
-                Debug.Log(raycastHit.transform.name);
+                //Debug.Log(raycastHit.transform.name);
 
-                raycastHit.transform.localScale *= 0.5f;
+                raycastHit.transform.gameObject.GetComponent<ItemData>().DropItem();
             }
         }
     }
