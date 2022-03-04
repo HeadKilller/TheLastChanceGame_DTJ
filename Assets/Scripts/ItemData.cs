@@ -8,9 +8,16 @@ public class ItemData : MonoBehaviour
 
     bool isDropped;
 
+
+    public Items Item
+    {
+        get { return item; }
+    }
+
     private void Awake()
     {
         isDropped = false;
+        
     }
 
     private void FixedUpdate()
@@ -25,11 +32,15 @@ public class ItemData : MonoBehaviour
 
     public void DropItem()
     {
+
+        //TODO: Passar para RigidBody e arranjar maneira de nao passar pelo chao quando cai.
+
         float scale = 0.3f;
 
         transform.localScale = new Vector3(scale, scale, scale);
+        transform.position = new Vector3(transform.position.x, 1.5f, transform.position.z);
         isDropped = true;
-        GetComponent<BoxCollider>().isTrigger = true;
+        GetComponent<Collider>().isTrigger = true;
 
 
     }

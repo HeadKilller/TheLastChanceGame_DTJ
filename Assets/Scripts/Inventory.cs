@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
-using System.Linq;
+using TMPro;
 
 public class Inventory : MonoBehaviour
 {
@@ -19,17 +19,22 @@ public class Inventory : MonoBehaviour
     GameObject[] inventorySlots;
 
     int inventorySize;
+    int slotMaxCapacity;
 
     Dictionary<GameObject, Items> inventory_with_Item;
+    Dictionary<GameObject, int> inventorySlotCurrentCapacity;
 
     private void Awake()
     {
         instance = this;
 
         inventorySize = 20;
+        slotMaxCapacity = 99;
+
         inventory = new ItemData[inventorySize];
         inventorySlots = new GameObject[inventorySize];
         inventory_with_Item = new Dictionary<GameObject, Items>();
+        inventorySlotCurrentCapacity = new Dictionary<GameObject, int>();
 
         int count = 1;
 
@@ -38,6 +43,7 @@ public class Inventory : MonoBehaviour
             if (child.gameObject.name == "InventorySlot" + count.ToString())
             {
                 inventory_with_Item.Add(child.gameObject, null);
+                inventorySlotCurrentCapacity.Add(child.gameObject, 0);
                 count++;
             }
         }
@@ -56,15 +62,47 @@ public class Inventory : MonoBehaviour
 
         bool foundEmptySlot = false;
 
-        foreach (var slot in inventory_with_Item)
+        if (item.isStackable)
         {
-            if (slot.Value == null)
+
+            foreach(var slot in inventory_with_Item)
             {
-                inventory_with_Item[slot.Key] = item;
-                foundEmptySlot = true;
-                ActivateSlot(slot.Key);
-                break;
+                if (slot.Value == null) continue;
+
+                if(slot.Value.name == item.name && inventorySlotCurrentCapacity[slot.Key] < slotMaxCapacity)
+                {
+                    inventorySlotCurrentCapacity[slot.Key]++;
+                    TextMeshProUGUI text = slot.Key.GetComponentInChildren<TextMeshProUGUI>();
+                    if(text != null)
+                        text.SetText(inventorySlotCurrentCapacity[slot.Key].ToString());
+
+                    foundEmptySlot = true;
+
+                }
             }
+
+        }
+
+        if (!foundEmptySlot)
+        {
+            foreach (var slot in inventory_with_Item)
+            {           
+
+                if (slot.Value == null)
+                {
+                    inventory_with_Item[slot.Key] = item;
+
+                    inventorySlotCurrentCapacity[slot.Key]++;
+                    TextMeshProUGUI text = slot.Key.GetComponentInChildren<TextMeshProUGUI>();
+                    if(text != null)
+                        text.SetText(inventorySlotCurrentCapacity[slot.Key].ToString());
+
+                    foundEmptySlot = true;
+                    ActivateSlot(slot.Key);
+                    break;
+                }
+            }
+
         }
 
         if (!foundEmptySlot) return;
@@ -73,10 +111,12 @@ public class Inventory : MonoBehaviour
         Debug.Log("Picking up " + item.name);
 
     }
+    
 
     public void RemoveItem(GameObject _gameObject)
     {
         inventory_with_Item[_gameObject] = null;
+        inventorySlotCurrentCapacity[_gameObject] = 0;
         DeActivateSlot(_gameObject);
     }
 
