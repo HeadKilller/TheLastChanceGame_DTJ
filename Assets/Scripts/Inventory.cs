@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,20 +6,21 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 
+
 public class Inventory : MonoBehaviour
 {
 
     [SerializeField] GameObject inventoryGameObject;
     [SerializeField] GameObject inventorySlotsParent;
 
+    [SerializeField] int inventorySize;
+
+
     public static Inventory instance;
 
     PlayerInputControl playerInputControl;
+       
 
-    ItemData[] inventory;
-    GameObject[] inventorySlots;
-
-    int inventorySize;
     int slotMaxCapacity;
 
     Dictionary<GameObject, Items> inventory_with_Item;
@@ -28,11 +30,8 @@ public class Inventory : MonoBehaviour
     {
         instance = this;
 
-        inventorySize = 20;
         slotMaxCapacity = 99;
 
-        inventory = new ItemData[inventorySize];
-        inventorySlots = new GameObject[inventorySize];
         inventory_with_Item = new Dictionary<GameObject, Items>();
         inventorySlotCurrentCapacity = new Dictionary<GameObject, int>();
 
@@ -115,9 +114,37 @@ public class Inventory : MonoBehaviour
 
     public void RemoveItem(GameObject _gameObject)
     {
+
+
+        #region TO RESOLVE
+
+        /*if (inventorySlotCurrentCapacity[_gameObject] > 1)
+        {
+            int numberToDestroy = N_ofItemstoDestroyWindow(_gameObject);
+
+
+            inventorySlotCurrentCapacity[_gameObject] -= numberToDestroy;
+        }
+        else
+        {
+            inventory_with_Item[_gameObject] = null;
+            inventorySlotCurrentCapacity[_gameObject] = 0;
+
+            DeActivateSlot(_gameObject);
+
+        }
+        */
+        #endregion
+
         inventory_with_Item[_gameObject] = null;
         inventorySlotCurrentCapacity[_gameObject] = 0;
+
         DeActivateSlot(_gameObject);
+
+        TextMeshProUGUI text = _gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        if (text != null)
+            text.SetText(inventorySlotCurrentCapacity[_gameObject].ToString());
+
     }
 
     public void InventoryOpen_Close(InputAction.CallbackContext context)
@@ -175,6 +202,39 @@ public class Inventory : MonoBehaviour
                 child.GetComponent<Button>().enabled = false;
             }
         }
+    }
+
+    private int N_ofItemstoDestroyWindow(GameObject _gameObject)
+    {
+        int finalNumber = -1;
+
+        GameObject windowGameObject = _gameObject.transform.Find("DropItemsConfirmation").gameObject;
+
+        windowGameObject.SetActive(!windowGameObject.activeSelf);
+
+        Slider slider = windowGameObject.GetComponentInChildren<Slider>();
+        Button confirmButton = windowGameObject.transform.Find("ConfirmButton").GetComponent<Button>();
+
+
+        slider.maxValue = inventorySlotCurrentCapacity[_gameObject];
+
+        int tempNumber = 0;
+
+        confirmButton.onClick.AddListener(() => { tempNumber = GetSliderValue(slider);
+            Debug.Log("Olá");
+                                                  windowGameObject.SetActive(!windowGameObject.activeSelf);        
+        });
+
+        finalNumber = tempNumber;
+
+        Debug.Log(finalNumber);
+
+        return finalNumber;
+    }
+
+    int GetSliderValue(Slider slider)
+    {
+        return (int) slider.value;
     }
 
 }

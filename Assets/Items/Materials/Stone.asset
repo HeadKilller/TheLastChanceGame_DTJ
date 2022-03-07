@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Stone
   m_EditorClassIdentifier: 
   itemType: 0
-  name: New Item
-  description: Description
+  name: Stone
+  description: Used to craft certain items.
   isCraftable: 0
-  isStackable: 0
-  icon: {fileID: 0}
+  isStackable: 1
+  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   modifiers: 
   modifiersValue: []
   modifiersOperator: 
