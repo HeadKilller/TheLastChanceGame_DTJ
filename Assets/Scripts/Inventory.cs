@@ -12,9 +12,11 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] GameObject inventoryGameObject;
     [SerializeField] GameObject inventorySlotsParent;
-
+    [SerializeField] GameObject windowGameObject;
+ 
     [SerializeField] int inventorySize;
 
+    [SerializeField] Slider confirmationWindowSlider;
 
     public static Inventory instance;
 
@@ -22,6 +24,8 @@ public class Inventory : MonoBehaviour
        
 
     int slotMaxCapacity;
+
+    GameObject gameObjectToDestroy;
 
     Dictionary<GameObject, Items> inventory_with_Item;
     Dictionary<GameObject, int> inventorySlotCurrentCapacity;
@@ -34,6 +38,8 @@ public class Inventory : MonoBehaviour
 
         inventory_with_Item = new Dictionary<GameObject, Items>();
         inventorySlotCurrentCapacity = new Dictionary<GameObject, int>();
+
+        gameObjectToDestroy = null;
 
         int count = 1;
 
@@ -52,6 +58,8 @@ public class Inventory : MonoBehaviour
         playerInputControl.UI.Enable();
 
         playerInputControl.UI.Inventory.performed += InventoryOpen_Close;
+
+        confirmationWindowSlider.onValueChanged.AddListener(delegate { ChangeSliderValue(); });
     }
 
     
@@ -136,15 +144,23 @@ public class Inventory : MonoBehaviour
         */
         #endregion
 
-        inventory_with_Item[_gameObject] = null;
-        inventorySlotCurrentCapacity[_gameObject] = 0;
 
-        DeActivateSlot(_gameObject);
+        windowGameObject.SetActive(true);
 
-        TextMeshProUGUI text = _gameObject.GetComponentInChildren<TextMeshProUGUI>();
-        if (text != null)
-            text.SetText(inventorySlotCurrentCapacity[_gameObject].ToString());
+        confirmationWindowSlider.maxValue = inventorySlotCurrentCapacity[_gameObject];
 
+        gameObjectToDestroy = _gameObject;
+
+        //inventory_with_Item[_gameObject] = null;
+        //inventorySlotCurrentCapacity[_gameObject] = 0;
+
+        //DeActivateSlot(_gameObject);
+
+        //TextMeshProUGUI text = _gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        //if (text != null && inventorySlotCurrentCapacity[_gameObject] != 0)
+        //    text.SetText(inventorySlotCurrentCapacity[_gameObject].ToString());
+        //if (text != null && inventorySlotCurrentCapacity[_gameObject] == 0)
+        //    text.SetText("");
     }
 
     public void InventoryOpen_Close(InputAction.CallbackContext context)
@@ -163,6 +179,14 @@ public class Inventory : MonoBehaviour
 
         }
 
+
+    }
+
+    public void Close_Inventory()
+    {
+        inventoryGameObject.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
     }
 
@@ -204,37 +228,37 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private int N_ofItemstoDestroyWindow(GameObject _gameObject)
+    public void DestroyItem()
     {
-        int finalNumber = -1;
-
-        GameObject windowGameObject = _gameObject.transform.Find("DropItemsConfirmation").gameObject;
-
-        windowGameObject.SetActive(!windowGameObject.activeSelf);
-
-        Slider slider = windowGameObject.GetComponentInChildren<Slider>();
-        Button confirmButton = windowGameObject.transform.Find("ConfirmButton").GetComponent<Button>();
 
 
-        slider.maxValue = inventorySlotCurrentCapacity[_gameObject];
+        if (confirmationWindowSlider.value <= inventorySlotCurrentCapacity[gameObjectToDestroy])
+            inventorySlotCurrentCapacity[gameObjectToDestroy] -= (int)confirmationWindowSlider.value;
+        else
+            inventorySlotCurrentCapacity[gameObjectToDestroy] = 0;
 
-        int tempNumber = 0;
 
-        confirmButton.onClick.AddListener(() => { tempNumber = GetSliderValue(slider);
-            Debug.Log("Olá");
-                                                  windowGameObject.SetActive(!windowGameObject.activeSelf);        
-        });
+        TextMeshProUGUI text = gameObjectToDestroy.GetComponentInChildren<TextMeshProUGUI>();
+        if (text != null && inventorySlotCurrentCapacity[gameObjectToDestroy] != 0)
+            text.SetText(inventorySlotCurrentCapacity[gameObjectToDestroy].ToString());
+        if (text != null && inventorySlotCurrentCapacity[gameObjectToDestroy] == 0)
+            text.SetText("");
 
-        finalNumber = tempNumber;
+        if(inventorySlotCurrentCapacity[gameObjectToDestroy] == 0)
+        {
+            DeActivateSlot(gameObjectToDestroy);
+        }
 
-        Debug.Log(finalNumber);
+        confirmationWindowSlider.value = 0;
 
-        return finalNumber;
+        windowGameObject.SetActive(false);
+
     }
 
-    int GetSliderValue(Slider slider)
+    public void ChangeSliderValue(/*Slider slider, TMP_Text textTMP*/)
     {
-        return (int) slider.value;
+        //textTMP.text = slider.value.ToString();
     }
 
+    
 }
