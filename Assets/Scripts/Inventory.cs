@@ -255,9 +255,16 @@ public class Inventory : MonoBehaviour
 
     }
 
-    public void ChangeSliderValue(/*Slider slider, TMP_Text textTMP*/)
+    public void ChangeSliderValue()
     {
-        //textTMP.text = slider.value.ToString();
+        TMP_Text textTMP = confirmationWindowSlider.GetComponentInChildren<TMP_Text>();
+
+        int value = (int)confirmationWindowSlider.value;
+
+        Debug.Log(value);
+
+        if (textTMP != null)
+            textTMP.text = value.ToString("0.0");
     }
 
     
