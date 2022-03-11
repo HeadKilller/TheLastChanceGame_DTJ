@@ -53,6 +53,33 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FireSemi"",
+                    ""type"": ""Button"",
+                    ""id"": ""40293bef-6b2d-4a93-9156-e2902039eaf8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FireAuto"",
+                    ""type"": ""Button"",
+                    ""id"": ""c4e602cd-7367-472b-8908-78aa1a1a2671"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Equip"",
+                    ""type"": ""Button"",
+                    ""id"": ""ef19b19c-4f0c-441f-9b59-314bae4e6d50"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +159,39 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
                     ""action"": ""CameraMovement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""150d0453-7d59-4214-9aa7-ed5d96535f25"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FireSemi"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe0089cd-c519-4ea4-ac26-73411e8a72b4"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FireAuto"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2f20e178-1dcf-414e-b5f6-a072ba675453"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Equip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -171,6 +231,9 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
         m_PlayerOnFoot_Movement = m_PlayerOnFoot.FindAction("Movement", throwIfNotFound: true);
         m_PlayerOnFoot_Jump = m_PlayerOnFoot.FindAction("Jump", throwIfNotFound: true);
         m_PlayerOnFoot_CameraMovement = m_PlayerOnFoot.FindAction("CameraMovement", throwIfNotFound: true);
+        m_PlayerOnFoot_FireSemi = m_PlayerOnFoot.FindAction("FireSemi", throwIfNotFound: true);
+        m_PlayerOnFoot_FireAuto = m_PlayerOnFoot.FindAction("FireAuto", throwIfNotFound: true);
+        m_PlayerOnFoot_Equip = m_PlayerOnFoot.FindAction("Equip", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Inventory = m_UI.FindAction("Inventory", throwIfNotFound: true);
@@ -236,6 +299,9 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerOnFoot_Movement;
     private readonly InputAction m_PlayerOnFoot_Jump;
     private readonly InputAction m_PlayerOnFoot_CameraMovement;
+    private readonly InputAction m_PlayerOnFoot_FireSemi;
+    private readonly InputAction m_PlayerOnFoot_FireAuto;
+    private readonly InputAction m_PlayerOnFoot_Equip;
     public struct PlayerOnFootActions
     {
         private @PlayerInputControl m_Wrapper;
@@ -243,6 +309,9 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_PlayerOnFoot_Movement;
         public InputAction @Jump => m_Wrapper.m_PlayerOnFoot_Jump;
         public InputAction @CameraMovement => m_Wrapper.m_PlayerOnFoot_CameraMovement;
+        public InputAction @FireSemi => m_Wrapper.m_PlayerOnFoot_FireSemi;
+        public InputAction @FireAuto => m_Wrapper.m_PlayerOnFoot_FireAuto;
+        public InputAction @Equip => m_Wrapper.m_PlayerOnFoot_Equip;
         public InputActionMap Get() { return m_Wrapper.m_PlayerOnFoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -261,6 +330,15 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
                 @CameraMovement.started -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnCameraMovement;
                 @CameraMovement.performed -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnCameraMovement;
                 @CameraMovement.canceled -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnCameraMovement;
+                @FireSemi.started -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnFireSemi;
+                @FireSemi.performed -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnFireSemi;
+                @FireSemi.canceled -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnFireSemi;
+                @FireAuto.started -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnFireAuto;
+                @FireAuto.performed -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnFireAuto;
+                @FireAuto.canceled -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnFireAuto;
+                @Equip.started -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnEquip;
+                @Equip.performed -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnEquip;
+                @Equip.canceled -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnEquip;
             }
             m_Wrapper.m_PlayerOnFootActionsCallbackInterface = instance;
             if (instance != null)
@@ -274,6 +352,15 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
                 @CameraMovement.started += instance.OnCameraMovement;
                 @CameraMovement.performed += instance.OnCameraMovement;
                 @CameraMovement.canceled += instance.OnCameraMovement;
+                @FireSemi.started += instance.OnFireSemi;
+                @FireSemi.performed += instance.OnFireSemi;
+                @FireSemi.canceled += instance.OnFireSemi;
+                @FireAuto.started += instance.OnFireAuto;
+                @FireAuto.performed += instance.OnFireAuto;
+                @FireAuto.canceled += instance.OnFireAuto;
+                @Equip.started += instance.OnEquip;
+                @Equip.performed += instance.OnEquip;
+                @Equip.canceled += instance.OnEquip;
             }
         }
     }
@@ -316,6 +403,9 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnCameraMovement(InputAction.CallbackContext context);
+        void OnFireSemi(InputAction.CallbackContext context);
+        void OnFireAuto(InputAction.CallbackContext context);
+        void OnEquip(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

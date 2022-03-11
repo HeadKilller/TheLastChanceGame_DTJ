@@ -5,6 +5,8 @@ using UnityEngine;
 public class ItemData : MonoBehaviour
 {
     [SerializeField] Items item;
+    [SerializeField] Guns gun;
+    [SerializeField] GameObject playerGameObject;
 
     bool isDropped;
 
@@ -12,6 +14,10 @@ public class ItemData : MonoBehaviour
     public Items Item
     {
         get { return item; }
+    }
+    public Guns Gun
+    {
+        get { return gun; }
     }
 
     private void Awake()
@@ -26,7 +32,7 @@ public class ItemData : MonoBehaviour
         {
             Vector3 rotation_while_dropped = new Vector3(0f, 5f, 0f);
 
-            transform.Rotate(rotation_while_dropped);
+            transform.Rotate(rotation_while_dropped, Space.World);
         }
     }
 
@@ -35,12 +41,28 @@ public class ItemData : MonoBehaviour
 
         //TODO: Passar para RigidBody e arranjar maneira de nao passar pelo chao quando cai.
 
+        
+
         float scale = 0.3f;
 
         transform.localScale = new Vector3(scale, scale, scale);
+
+        //transform.position = playerGameObject.transform.position + playerGameObject.transform.forward * 2;
+
         transform.position = new Vector3(transform.position.x, 1.5f, transform.position.z);
+
         isDropped = true;
-        GetComponent<Collider>().isTrigger = true;
+
+        try
+        {
+
+            GetComponent<Collider>().isTrigger = true;
+
+        }
+        catch
+        {
+            GetComponentInChildren<Collider>().isTrigger = true;
+        }
 
 
     }

@@ -111,3 +111,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 09836985ba210454b9fd47a3bb7032f3, type: 2}
+  playerGameObject: {fileID: 6402846261237682757, guid: 67a73f0e5fef69945a9b4dffd498c3f4, type: 3}

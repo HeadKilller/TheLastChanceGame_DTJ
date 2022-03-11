@@ -12,11 +12,14 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] GameObject inventoryGameObject;
     [SerializeField] GameObject inventorySlotsParent;
-    [SerializeField] GameObject windowGameObject;
- 
-    [SerializeField] int inventorySize;
 
-    [SerializeField] Slider confirmationWindowSlider;
+
+    [SerializeField] GameObject confirmationWindow_GameObject;
+ 
+    [SerializeField] Slider confirmationWindow_Slider;
+
+    
+    [SerializeField] int inventorySize;
 
     public static Inventory instance;
 
@@ -32,16 +35,24 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
+        #region Variables Initialization
+
         instance = this;
 
-        slotMaxCapacity = 99;
 
         inventory_with_Item = new Dictionary<GameObject, Items>();
         inventorySlotCurrentCapacity = new Dictionary<GameObject, int>();
 
+        #endregion
+
+        #region Variables First Values
+
         gameObjectToDestroy = null;
+        slotMaxCapacity = 99;
 
         int count = 1;
+
+
 
         foreach (Transform child in inventorySlotsParent.GetComponentsInChildren<Transform>())
         {
@@ -53,16 +64,27 @@ public class Inventory : MonoBehaviour
             }
         }
 
+        #endregion
+
+        #region Player Input
+
         playerInputControl = new PlayerInputControl();
 
         playerInputControl.UI.Enable();
 
         playerInputControl.UI.Inventory.performed += InventoryOpen_Close;
 
-        confirmationWindowSlider.onValueChanged.AddListener(delegate { ChangeSliderValue(); });
+        #endregion
+
+        #region Button Listeners
+
+        confirmationWindow_Slider.onValueChanged.AddListener(delegate { ChangeSliderValue(); });
+
+        #endregion
     }
 
-    
+
+    #region Inventory
 
     public void AddItem(GameObject _gameObject, Items item)
     {
@@ -145,9 +167,9 @@ public class Inventory : MonoBehaviour
         #endregion
 
 
-        windowGameObject.SetActive(true);
+        confirmationWindow_GameObject.SetActive(true);
 
-        confirmationWindowSlider.maxValue = inventorySlotCurrentCapacity[_gameObject];
+        confirmationWindow_Slider.maxValue = inventorySlotCurrentCapacity[_gameObject];
 
         gameObjectToDestroy = _gameObject;
 
@@ -166,6 +188,7 @@ public class Inventory : MonoBehaviour
     public void InventoryOpen_Close(InputAction.CallbackContext context)
     {
         inventoryGameObject.SetActive(!inventoryGameObject.activeSelf);
+
         if (inventoryGameObject.activeSelf)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -232,8 +255,8 @@ public class Inventory : MonoBehaviour
     {
 
 
-        if (confirmationWindowSlider.value <= inventorySlotCurrentCapacity[gameObjectToDestroy])
-            inventorySlotCurrentCapacity[gameObjectToDestroy] -= (int)confirmationWindowSlider.value;
+        if (confirmationWindow_Slider.value <= inventorySlotCurrentCapacity[gameObjectToDestroy])
+            inventorySlotCurrentCapacity[gameObjectToDestroy] -= (int)confirmationWindow_Slider.value;
         else
             inventorySlotCurrentCapacity[gameObjectToDestroy] = 0;
 
@@ -249,23 +272,38 @@ public class Inventory : MonoBehaviour
             DeActivateSlot(gameObjectToDestroy);
         }
 
-        confirmationWindowSlider.value = 0;
+        confirmationWindow_Slider.value = 0;
 
-        windowGameObject.SetActive(false);
+        confirmationWindow_GameObject.SetActive(false);
 
     }
 
     public void ChangeSliderValue()
     {
-        TMP_Text textTMP = confirmationWindowSlider.GetComponentInChildren<TMP_Text>();
 
-        int value = (int)confirmationWindowSlider.value;
+        TMP_Text textTMP = null;
+
+        foreach (var child in confirmationWindow_GameObject.GetComponentsInChildren<TMP_Text>()){
+            if (child.name == "SliderValue")
+                textTMP = child;
+
+        }
+
+        int value = (int)confirmationWindow_Slider.value;
 
         Debug.Log(value);
 
         if (textTMP != null)
-            textTMP.text = value.ToString("0.0");
+            textTMP.text = value.ToString();
     }
 
-    
+    #endregion
+
+    #region Equipment
+
+
+
+    #endregion
+
+
 }

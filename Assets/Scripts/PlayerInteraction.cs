@@ -23,7 +23,7 @@ public class PlayerInteraction : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(fireHotKey))
+        if (Input.GetKeyDown(fireHotKey) && gameObject.GetComponent<Player>().SelectedGun == null)
         {
             Hit();
         }
@@ -34,9 +34,9 @@ public class PlayerInteraction : MonoBehaviour
     {
         if(Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out raycastHit, raycastMaxRange))
         {
-            if(raycastHit.transform != null && raycastHit.transform.name != "Floor")
+            if(raycastHit.transform != null && raycastHit.transform.tag != "Environment" && raycastHit.transform.gameObject.layer != 5)
             {
-                //Debug.Log(raycastHit.transform.name);
+                Debug.Log(raycastHit.transform.gameObject.GetComponent<ItemData>());
 
                 raycastHit.transform.gameObject.GetComponent<ItemData>().DropItem();
             }
