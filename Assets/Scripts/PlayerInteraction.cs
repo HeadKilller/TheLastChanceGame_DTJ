@@ -23,7 +23,7 @@ public class PlayerInteraction : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(fireHotKey) && gameObject.GetComponent<Player>().SelectedGun == null)
+        if (Input.GetKeyDown(fireHotKey) && gameObject.GetComponent<PlayerGun>().SelectedGun == null)
         {
             Hit();
         }

@@ -70,7 +70,7 @@ public class ItemData : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (this.item != null && other.tag == "Player")
         {
             Inventory.instance.AddItem(gameObject, item);
         }
