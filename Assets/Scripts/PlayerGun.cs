@@ -85,7 +85,7 @@ public class PlayerGun : MonoBehaviour
         playerInputControl.PlayerOnFoot.ReloadGun.performed += ReloadGun;
 
         playerInputControl.PlayerOnFoot.ChangeGun.performed += ChangeGun;
-        playerInputControl.PlayerOnFoot.ChangeGun.canceled += SelectGun;
+        playerInputControl.PlayerOnFoot.ChangeGun.canceled += GunSelected;
 
         playerInputControl.PlayerOnFoot.FireSemi.performed += FireSemi;
 
@@ -177,56 +177,35 @@ public class PlayerGun : MonoBehaviour
 
     }
 
-    public void SelectGun(InputAction.CallbackContext context)
-    {      
-        var selectedGunRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D rayHit;
-        
+    public void GunSelected(InputAction.CallbackContext context)
+    {
 
-        if( rayHit = Physics2D.Raycast(selectedGunRay.origin, selectedGunRay.direction))
+
+        if (selectedGun != null)
         {
-
-            Debug.Log(rayHit.transform.name);
-
-            if(rayHit.transform.gameObject == handGun_Slot)
-            {
-                if(equippedGuns[handGun_Slot] != null)
-                {
-                    selectedGun = equippedGuns[handGun_Slot];
-                }
-            }
-
-            else if (rayHit.transform.gameObject == assaultGun_Slot)
-            {
-                if (equippedGuns[assaultGun_Slot] != null)
-                {
-                    selectedGun = equippedGuns[assaultGun_Slot];
-
-                }
-            }
-
-            else
-            {
-                selectedGun = null;
-            }
-
-        }
-
-        if(selectedGun != null)
-        {
-
             selectedGun.SetActive(true);
 
-            fireRate = selectedGun.GetComponent<ItemData>().Gun.rateOfFire / 60f;
-            magCapacity = selectedGun.GetComponent<ItemData>().Gun.magCapacity;
+            switch (selectedGun.GetComponent<ItemData>().Gun.gunType)
+            {
+                case GunType.HandGun:
 
-            currentBullets = magCapacity;
-            currentMags = selectedGun.GetComponent<ItemData>().Gun.init_MagNum;
+                    handGun_Slot.GetComponent<Button>().interactable = false;
+                    break;
+                case GunType.AssaultRifle:
+
+                    assaultGun_Slot.GetComponent<Button>().interactable = false;
+                    break;
+
+            }
+            
+            currentBulletsText.text = currentBullets.ToString() + " / " + currentMags.ToString();
+
+            currentBulletsPanel.SetActive(true);
 
 
         }
-        
-        changeGunPanel.SetActive(false);
+
+            changeGunPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
@@ -277,11 +256,13 @@ public class PlayerGun : MonoBehaviour
                 {
                     case GunType.HandGun:
 
-                        equippedGuns[handGun_Slot] = selectedGun;
+                        equippedGuns[handGun_Slot] = equippedGun;
+                        handGun_Slot.GetComponent<Button>().interactable = true;
                         break;
                     case GunType.AssaultRifle:
 
-                        equippedGuns[assaultGun_Slot] = selectedGun;
+                        equippedGuns[assaultGun_Slot] = equippedGun;
+                        assaultGun_Slot.GetComponent<Button>().interactable = true;
                         break;
                 }
 
@@ -300,8 +281,57 @@ public class PlayerGun : MonoBehaviour
 
     }
 
+    public void SelectGun(Button button)
+    {
 
+        if (equippedGuns[button.gameObject] == selectedGun) return;
+
+        if(selectedGun != null)
+        {
+            selectedGun.gameObject.SetActive(false);
+
+            switch (selectedGun.GetComponent<ItemData>().Gun.gunType)
+            {
+                case GunType.HandGun:
+
+                    handGun_Slot.GetComponent<Button>().interactable = true;
+                    break;
+                case GunType.AssaultRifle:
+
+                    assaultGun_Slot.GetComponent<Button>().interactable = true;
+                    break;
+
+            }
+
+            SaveGunInfo(selectedGun);
+        }
+
+        Debug.Log(selectedGun);
+
+        selectedGun = equippedGuns[button.gameObject];
+
+        if(selectedGun != null)
+        {
+            fireRate = selectedGun.GetComponent<ItemData>().Gun.rateOfFire / 60f;
+            magCapacity = selectedGun.GetComponent<ItemData>().Gun.magCapacity;
+
+            currentBullets = magCapacity;
+            currentMags = selectedGun.GetComponent<ItemData>().Gun.init_MagNum;
+        }
+
+        Debug.Log(selectedGun);
+
+    }
    
+    void SaveGunInfo(GameObject gunGameObject)
+    {
+
+    }
+
+    void LoadGunInfo(GameObject gunGameObject)
+    {
+
+    }
 
 }
 
