@@ -22,7 +22,7 @@ public class CharacterControl : MonoBehaviour
     Vector3 cameraOffset;
 
 
-    bool _isGrounded;
+    //bool _isGrounded;
 
     float rotationX = 0f, rotationY = 0f;
     float mouseX, mouseY;
@@ -57,14 +57,15 @@ public class CharacterControl : MonoBehaviour
     {
         //Debug.Log(_isGrounded);
 
-        if (EventSystem.current.IsPointerOverGameObject()) return;
 
-        if (_isGrounded)
+        if (CheckGrounded())
         {
             Move();
         }
 
         firstPersonCamera.transform.position = transform.position + cameraOffset;
+        
+        if (EventSystem.current.IsPointerOverGameObject()) return;
 
         CameraMovement();
     }
@@ -97,7 +98,7 @@ public class CharacterControl : MonoBehaviour
     private void Jump_performed(InputAction.CallbackContext context)
     {
 
-        if (_isGrounded)
+        if (CheckGrounded())
         {
 
             Vector3 playerJumpForce = new Vector3(0f, jumpForce, 0f);
@@ -128,20 +129,41 @@ public class CharacterControl : MonoBehaviour
 
     }
 
-    private void OnCollisionStay(Collision collision)
+    private bool CheckGrounded()
     {
-        if (collision.collider.gameObject.layer == 6)
-        {
-            _isGrounded = true;
-        }
+        bool isGrounded;
+
+        RaycastHit groundBoxCastHit;
+
+        Vector3 boxCenter = transform.position - transform.up * transform.localScale.y / 2f;
+        Vector3 halfExtents = new Vector3(0.1f, 0.1f, 0.1f);
+
+        Physics.BoxCast(boxCenter, halfExtents, -transform.up, out groundBoxCastHit);
+
+        Debug.Log(groundBoxCastHit.collider);
+
+        if (groundBoxCastHit.collider.tag != "Player")
+            isGrounded = true;
+        else
+            isGrounded = false;
+
+        return isGrounded;
     }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.collider.gameObject.layer == 6)
-        {
-            _isGrounded = false;
-        }
-    }
+    //private void OnCollisionStay(Collision collision)
+    //{
+    //    if (collision.collider.gameObject.layer == 6)
+    //    {
+    //        _isGrounded = true;
+    //    }
+    //}
+
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.collider.gameObject.layer == 6)
+    //    {
+    //        _isGrounded = false;
+    //    }
+    //}
 
 }

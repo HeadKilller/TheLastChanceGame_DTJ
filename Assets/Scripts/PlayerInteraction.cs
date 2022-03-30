@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,7 +26,14 @@ public class PlayerInteraction : MonoBehaviour
 
         if (Input.GetKeyDown(fireHotKey) && gameObject.GetComponent<PlayerGun>().SelectedGun == null)
         {
-            Hit();
+            try
+            {
+                Hit();
+            }
+            catch(Exception e)
+            {
+                Debug.Log("Error : " + e);
+            }
         }
 
     }

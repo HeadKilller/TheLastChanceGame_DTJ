@@ -239,6 +239,17 @@ public class PlayerGun : MonoBehaviour
 
             equippedGun = raycastHit.transform.gameObject;
 
+            try
+            {
+                GunType _gunTest = equippedGun.GetComponent<ItemData>().Gun.gunType;
+            }
+            catch
+            {
+
+                equippedGun = null;
+
+            }
+
             if (equippedGun != null)
             {
 
