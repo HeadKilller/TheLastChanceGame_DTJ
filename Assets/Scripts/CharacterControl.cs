@@ -130,6 +130,7 @@ public class CharacterControl : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
+<<<<<<< Updated upstream
         if (collision.collider.gameObject.layer == 6)
         {
             _isGrounded = true;
@@ -143,5 +144,27 @@ public class CharacterControl : MonoBehaviour
             _isGrounded = false;
         }
     }
+=======
+        bool isGrounded;
+
+        RaycastHit groundBoxCastHit;
+
+        Vector3 boxCenter = transform.position - transform.up * transform.localScale.y / 2f;
+        Vector3 halfExtents = new Vector3(0.1f, 0.1f, 0.1f);
+
+        Physics.BoxCast(boxCenter, halfExtents, -transform.up, out groundBoxCastHit);
+
+        //Debug.Log(groundBoxCastHit.collider);
+
+        if (groundBoxCastHit.collider.tag != "Player")
+            isGrounded = true;
+        else
+            isGrounded = false;
+
+        return isGrounded;
+    }
+
+    
+>>>>>>> Stashed changes
 
 }

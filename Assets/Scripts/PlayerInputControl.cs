@@ -53,6 +53,54 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+<<<<<<< Updated upstream
+=======
+                },
+                {
+                    ""name"": ""FireSemi"",
+                    ""type"": ""Button"",
+                    ""id"": ""40293bef-6b2d-4a93-9156-e2902039eaf8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FireAuto"",
+                    ""type"": ""Button"",
+                    ""id"": ""c4e602cd-7367-472b-8908-78aa1a1a2671"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""ef19b19c-4f0c-441f-9b59-314bae4e6d50"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ReloadGun"",
+                    ""type"": ""Button"",
+                    ""id"": ""d3ea25a8-84e7-4666-a24e-3a7440197d62"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeGun"",
+                    ""type"": ""Button"",
+                    ""id"": ""a3b8bfa9-b1ed-4682-85d4-39bb64cc1d53"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+>>>>>>> Stashed changes
                 }
             ],
             ""bindings"": [
@@ -132,6 +180,64 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
                     ""action"": ""CameraMovement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+<<<<<<< Updated upstream
+=======
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""150d0453-7d59-4214-9aa7-ed5d96535f25"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FireSemi"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe0089cd-c519-4ea4-ac26-73411e8a72b4"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FireAuto"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2f20e178-1dcf-414e-b5f6-a072ba675453"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6193d419-5f8e-4214-ad62-60e6475b804a"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ReloadGun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a3dc131a-3c19-4b09-b668-c0c4fc0e9ab5"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": ""Hold(duration=0.2)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeGun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+>>>>>>> Stashed changes
                 }
             ]
         },
@@ -171,6 +277,14 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
         m_PlayerOnFoot_Movement = m_PlayerOnFoot.FindAction("Movement", throwIfNotFound: true);
         m_PlayerOnFoot_Jump = m_PlayerOnFoot.FindAction("Jump", throwIfNotFound: true);
         m_PlayerOnFoot_CameraMovement = m_PlayerOnFoot.FindAction("CameraMovement", throwIfNotFound: true);
+<<<<<<< Updated upstream
+=======
+        m_PlayerOnFoot_FireSemi = m_PlayerOnFoot.FindAction("FireSemi", throwIfNotFound: true);
+        m_PlayerOnFoot_FireAuto = m_PlayerOnFoot.FindAction("FireAuto", throwIfNotFound: true);
+        m_PlayerOnFoot_Interact = m_PlayerOnFoot.FindAction("Interact", throwIfNotFound: true);
+        m_PlayerOnFoot_ReloadGun = m_PlayerOnFoot.FindAction("ReloadGun", throwIfNotFound: true);
+        m_PlayerOnFoot_ChangeGun = m_PlayerOnFoot.FindAction("ChangeGun", throwIfNotFound: true);
+>>>>>>> Stashed changes
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Inventory = m_UI.FindAction("Inventory", throwIfNotFound: true);
@@ -236,6 +350,14 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerOnFoot_Movement;
     private readonly InputAction m_PlayerOnFoot_Jump;
     private readonly InputAction m_PlayerOnFoot_CameraMovement;
+<<<<<<< Updated upstream
+=======
+    private readonly InputAction m_PlayerOnFoot_FireSemi;
+    private readonly InputAction m_PlayerOnFoot_FireAuto;
+    private readonly InputAction m_PlayerOnFoot_Interact;
+    private readonly InputAction m_PlayerOnFoot_ReloadGun;
+    private readonly InputAction m_PlayerOnFoot_ChangeGun;
+>>>>>>> Stashed changes
     public struct PlayerOnFootActions
     {
         private @PlayerInputControl m_Wrapper;
@@ -243,6 +365,14 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_PlayerOnFoot_Movement;
         public InputAction @Jump => m_Wrapper.m_PlayerOnFoot_Jump;
         public InputAction @CameraMovement => m_Wrapper.m_PlayerOnFoot_CameraMovement;
+<<<<<<< Updated upstream
+=======
+        public InputAction @FireSemi => m_Wrapper.m_PlayerOnFoot_FireSemi;
+        public InputAction @FireAuto => m_Wrapper.m_PlayerOnFoot_FireAuto;
+        public InputAction @Interact => m_Wrapper.m_PlayerOnFoot_Interact;
+        public InputAction @ReloadGun => m_Wrapper.m_PlayerOnFoot_ReloadGun;
+        public InputAction @ChangeGun => m_Wrapper.m_PlayerOnFoot_ChangeGun;
+>>>>>>> Stashed changes
         public InputActionMap Get() { return m_Wrapper.m_PlayerOnFoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -261,6 +391,24 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
                 @CameraMovement.started -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnCameraMovement;
                 @CameraMovement.performed -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnCameraMovement;
                 @CameraMovement.canceled -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnCameraMovement;
+<<<<<<< Updated upstream
+=======
+                @FireSemi.started -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnFireSemi;
+                @FireSemi.performed -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnFireSemi;
+                @FireSemi.canceled -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnFireSemi;
+                @FireAuto.started -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnFireAuto;
+                @FireAuto.performed -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnFireAuto;
+                @FireAuto.canceled -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnFireAuto;
+                @Interact.started -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnInteract;
+                @ReloadGun.started -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnReloadGun;
+                @ReloadGun.performed -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnReloadGun;
+                @ReloadGun.canceled -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnReloadGun;
+                @ChangeGun.started -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnChangeGun;
+                @ChangeGun.performed -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnChangeGun;
+                @ChangeGun.canceled -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnChangeGun;
+>>>>>>> Stashed changes
             }
             m_Wrapper.m_PlayerOnFootActionsCallbackInterface = instance;
             if (instance != null)
@@ -274,6 +422,24 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
                 @CameraMovement.started += instance.OnCameraMovement;
                 @CameraMovement.performed += instance.OnCameraMovement;
                 @CameraMovement.canceled += instance.OnCameraMovement;
+<<<<<<< Updated upstream
+=======
+                @FireSemi.started += instance.OnFireSemi;
+                @FireSemi.performed += instance.OnFireSemi;
+                @FireSemi.canceled += instance.OnFireSemi;
+                @FireAuto.started += instance.OnFireAuto;
+                @FireAuto.performed += instance.OnFireAuto;
+                @FireAuto.canceled += instance.OnFireAuto;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
+                @ReloadGun.started += instance.OnReloadGun;
+                @ReloadGun.performed += instance.OnReloadGun;
+                @ReloadGun.canceled += instance.OnReloadGun;
+                @ChangeGun.started += instance.OnChangeGun;
+                @ChangeGun.performed += instance.OnChangeGun;
+                @ChangeGun.canceled += instance.OnChangeGun;
+>>>>>>> Stashed changes
             }
         }
     }
@@ -316,6 +482,14 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnCameraMovement(InputAction.CallbackContext context);
+<<<<<<< Updated upstream
+=======
+        void OnFireSemi(InputAction.CallbackContext context);
+        void OnFireAuto(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
+        void OnReloadGun(InputAction.CallbackContext context);
+        void OnChangeGun(InputAction.CallbackContext context);
+>>>>>>> Stashed changes
     }
     public interface IUIActions
     {
