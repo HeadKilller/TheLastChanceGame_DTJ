@@ -140,7 +140,7 @@ public class CharacterControl : MonoBehaviour
 
         Physics.BoxCast(boxCenter, halfExtents, -transform.up, out groundBoxCastHit);
 
-        Debug.Log(groundBoxCastHit.collider);
+        //Debug.Log(groundBoxCastHit.collider);
 
         if (groundBoxCastHit.collider.tag != "Player")
             isGrounded = true;

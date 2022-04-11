@@ -92,7 +92,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             if(raycastHit.transform != null && raycastHit.transform.tag != "Environment" && raycastHit.transform.gameObject.layer != 5)
             {
-                Debug.Log(raycastHit.transform.gameObject.GetComponent<ItemData>());
+                //Debug.Log(raycastHit.transform.gameObject.GetComponent<ItemData>());
 
                 raycastHit.transform.gameObject.GetComponent<ItemData>().DropItem();
             }

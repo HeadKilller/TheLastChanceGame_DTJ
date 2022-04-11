@@ -137,7 +137,7 @@ public class Inventory : MonoBehaviour
         if (!foundEmptySlot) return;
 
         Destroy(_gameObject);
-        Debug.Log("Picking up " + item.name);
+        //Debug.Log("Picking up " + item.name);
 
     }
     
@@ -295,6 +295,31 @@ public class Inventory : MonoBehaviour
 
         if (textTMP != null)
             textTMP.text = value.ToString();
+    }
+
+    public bool CheckIfCanCraft(int materialsNumber, GameObject material)
+    {
+
+        bool canCraft = false;
+
+        foreach(var slot in inventory_with_Item)
+        {
+            
+            if(slot.Value != null && slot.Value.name == material.name)
+            {
+                string materialQuantity_String = slot.Key.GetComponentInChildren<TextMeshProUGUI>().text;
+
+                int materialQuantity_Integer = Int32.Parse(materialQuantity_String);
+
+                if(materialQuantity_Integer >= materialsNumber)
+                {
+                    canCraft = true;
+                }
+            } 
+        }
+
+        return canCraft;
+
     }
 
     #endregion
