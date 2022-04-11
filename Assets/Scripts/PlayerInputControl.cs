@@ -73,7 +73,7 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Equip"",
+                    ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""ef19b19c-4f0c-441f-9b59-314bae4e6d50"",
                     ""expectedControlType"": ""Button"",
@@ -207,7 +207,7 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Equip"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -273,7 +273,7 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
         m_PlayerOnFoot_CameraMovement = m_PlayerOnFoot.FindAction("CameraMovement", throwIfNotFound: true);
         m_PlayerOnFoot_FireSemi = m_PlayerOnFoot.FindAction("FireSemi", throwIfNotFound: true);
         m_PlayerOnFoot_FireAuto = m_PlayerOnFoot.FindAction("FireAuto", throwIfNotFound: true);
-        m_PlayerOnFoot_Equip = m_PlayerOnFoot.FindAction("Equip", throwIfNotFound: true);
+        m_PlayerOnFoot_Interact = m_PlayerOnFoot.FindAction("Interact", throwIfNotFound: true);
         m_PlayerOnFoot_ReloadGun = m_PlayerOnFoot.FindAction("ReloadGun", throwIfNotFound: true);
         m_PlayerOnFoot_ChangeGun = m_PlayerOnFoot.FindAction("ChangeGun", throwIfNotFound: true);
         // UI
@@ -343,7 +343,7 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerOnFoot_CameraMovement;
     private readonly InputAction m_PlayerOnFoot_FireSemi;
     private readonly InputAction m_PlayerOnFoot_FireAuto;
-    private readonly InputAction m_PlayerOnFoot_Equip;
+    private readonly InputAction m_PlayerOnFoot_Interact;
     private readonly InputAction m_PlayerOnFoot_ReloadGun;
     private readonly InputAction m_PlayerOnFoot_ChangeGun;
     public struct PlayerOnFootActions
@@ -355,7 +355,7 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
         public InputAction @CameraMovement => m_Wrapper.m_PlayerOnFoot_CameraMovement;
         public InputAction @FireSemi => m_Wrapper.m_PlayerOnFoot_FireSemi;
         public InputAction @FireAuto => m_Wrapper.m_PlayerOnFoot_FireAuto;
-        public InputAction @Equip => m_Wrapper.m_PlayerOnFoot_Equip;
+        public InputAction @Interact => m_Wrapper.m_PlayerOnFoot_Interact;
         public InputAction @ReloadGun => m_Wrapper.m_PlayerOnFoot_ReloadGun;
         public InputAction @ChangeGun => m_Wrapper.m_PlayerOnFoot_ChangeGun;
         public InputActionMap Get() { return m_Wrapper.m_PlayerOnFoot; }
@@ -382,9 +382,9 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
                 @FireAuto.started -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnFireAuto;
                 @FireAuto.performed -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnFireAuto;
                 @FireAuto.canceled -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnFireAuto;
-                @Equip.started -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnEquip;
-                @Equip.performed -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnEquip;
-                @Equip.canceled -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnEquip;
+                @Interact.started -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnInteract;
                 @ReloadGun.started -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnReloadGun;
                 @ReloadGun.performed -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnReloadGun;
                 @ReloadGun.canceled -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnReloadGun;
@@ -410,9 +410,9 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
                 @FireAuto.started += instance.OnFireAuto;
                 @FireAuto.performed += instance.OnFireAuto;
                 @FireAuto.canceled += instance.OnFireAuto;
-                @Equip.started += instance.OnEquip;
-                @Equip.performed += instance.OnEquip;
-                @Equip.canceled += instance.OnEquip;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
                 @ReloadGun.started += instance.OnReloadGun;
                 @ReloadGun.performed += instance.OnReloadGun;
                 @ReloadGun.canceled += instance.OnReloadGun;
@@ -463,7 +463,7 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
         void OnCameraMovement(InputAction.CallbackContext context);
         void OnFireSemi(InputAction.CallbackContext context);
         void OnFireAuto(InputAction.CallbackContext context);
-        void OnEquip(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
         void OnReloadGun(InputAction.CallbackContext context);
         void OnChangeGun(InputAction.CallbackContext context);
     }

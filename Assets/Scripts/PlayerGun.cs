@@ -24,7 +24,8 @@ public class PlayerGun : MonoBehaviour
 
     Dictionary<GameObject, GameObject> equippedGuns;
 
-    
+    ParticleSystem selectedWeapon_MuzzleFlash;
+
 
     PlayerInputControl playerInputControl;
 
@@ -58,7 +59,9 @@ public class PlayerGun : MonoBehaviour
 
         currentBulletsText.color = new Color(1, 1, 1);
 
+        selectedWeapon_MuzzleFlash = null;
         selectedGun = null;
+
         autoTimer = 0;
         fireRate = 0;
         magCapacity = 0;
@@ -79,8 +82,6 @@ public class PlayerGun : MonoBehaviour
 
 
         playerInputControl.PlayerOnFoot.Enable();
-
-        playerInputControl.PlayerOnFoot.Equip.performed += EquipGun;
 
         playerInputControl.PlayerOnFoot.ReloadGun.performed += ReloadGun;
 
@@ -108,28 +109,60 @@ public class PlayerGun : MonoBehaviour
     }
 
 
+    //public void FireSemi(InputAction.CallbackContext context)
+    //{
+
+    //    if (selectedGun != null && currentBullets > 0)
+    //    {
+
+    //        muzzleFlash.Play();
+    //        currentBullets--;
+
+    //        if (Physics.Raycast(mainCamera.transform.position, 
+    //            mainCamera.transform.forward, 
+    //            out raycastHit, 
+    //            selectedGun.GetComponent<ItemData>().Gun.maxRange))
+    //        {
+    //            Debug.Log("Semi has Hit : " + raycastHit.transform.name);
+
+    //            if(raycastHit.transform.gameObject != bulletHolePrefab)
+    //            {
+
+    //                    Instantiate(bulletHolePrefab, 
+    //                        raycastHit.point + raycastHit.normal * 0.001f, 
+    //                        Quaternion.LookRotation(raycastHit.normal, mainCamera.transform.up));
+
+    //            }
+
+
+    //        }
+
+    //    }
+
+
+    //}
     public void FireSemi(InputAction.CallbackContext context)
     {
-       
+
         if (selectedGun != null && currentBullets > 0)
         {
 
-            muzzleFlash.Play();
+            selectedWeapon_MuzzleFlash.Play();
             currentBullets--;
 
-            if (Physics.Raycast(mainCamera.transform.position, 
-                mainCamera.transform.forward, 
-                out raycastHit, 
+            if (Physics.Raycast(mainCamera.transform.position,
+                mainCamera.transform.forward,
+                out raycastHit,
                 selectedGun.GetComponent<ItemData>().Gun.maxRange))
             {
                 Debug.Log("Semi has Hit : " + raycastHit.transform.name);
 
-                if(raycastHit.transform.gameObject != bulletHolePrefab)
+                if (raycastHit.transform.gameObject != bulletHolePrefab && raycastHit.transform.name != "Player" && raycastHit.transform.tag != "Crafting Table")
                 {
-                    
-                        Instantiate(bulletHolePrefab, 
-                            raycastHit.point + raycastHit.normal * 0.001f, 
-                            Quaternion.LookRotation(raycastHit.normal, mainCamera.transform.up));
+
+                    Instantiate(bulletHolePrefab,
+                        raycastHit.point + raycastHit.normal * 0.001f,
+                        Quaternion.LookRotation(raycastHit.normal, mainCamera.transform.up));
 
                 }
 
@@ -140,25 +173,63 @@ public class PlayerGun : MonoBehaviour
 
 
     }
+    //public void FireAuto()
+    //{
+
+
+    //    if (currentBullets > 0 && autoTimer >= (1f / fireRate) ){
+
+    //        muzzleFlash.Play();
+    //        currentBullets--;
+
+    //        if (Physics.Raycast(mainCamera.transform.position,      
+    //        mainCamera.transform.forward,
+    //        out raycastHit,
+    //        selectedGun.GetComponent<ItemData>().Gun.maxRange))
+    //        {
+    //            Debug.Log("Auto has Hit : " + raycastHit.transform.name);
+
+    //            if (raycastHit.transform.gameObject != bulletHolePrefab)
+    //            {
+
+    //                Instantiate(bulletHolePrefab,
+    //                    raycastHit.point + raycastHit.normal * 0.001f,
+    //                    Quaternion.LookRotation(raycastHit.normal, mainCamera.transform.up));
+
+    //            }
+    //        }
+
+    //        autoTimer = 0f;
+
+    //        //Debug.Log(autoTimer);
+
+    //    }
+
+    //    autoTimer += Time.deltaTime;
+
+    //}
 
     public void FireAuto()
     {
 
 
-        if (currentBullets > 0 && autoTimer >= (1f / fireRate) ){
+        if (currentBullets > 0 && autoTimer >= (1f / fireRate))
+        {
 
-            muzzleFlash.Play();
+            selectedWeapon_MuzzleFlash.Play();
             currentBullets--;
 
-            if (Physics.Raycast(mainCamera.transform.position,      
+            if (Physics.Raycast(mainCamera.transform.position,
             mainCamera.transform.forward,
             out raycastHit,
             selectedGun.GetComponent<ItemData>().Gun.maxRange))
             {
                 Debug.Log("Auto has Hit : " + raycastHit.transform.name);
 
-                if (raycastHit.transform.gameObject != bulletHolePrefab)
+                if (raycastHit.transform.gameObject != bulletHolePrefab && raycastHit.transform.name != "Player" && raycastHit.transform.tag != "Crafting Table")
                 {
+
+                    Debug.Log("Hit Name" + raycastHit.transform.name);
 
                     Instantiate(bulletHolePrefab,
                         raycastHit.point + raycastHit.normal * 0.001f,
@@ -224,60 +295,94 @@ public class PlayerGun : MonoBehaviour
 
     }
 
-    public void EquipGun(InputAction.CallbackContext context)
+    //public void EquipGun(InputAction.CallbackContext context)
+    //{
+
+    //    float range = 20f;
+
+    //    if (Physics.Raycast(mainCamera.transform.position,
+    //        mainCamera.transform.forward,
+    //        out raycastHit,
+    //        range))
+    //    {
+
+    //        GameObject equippedGun;
+
+    //        equippedGun = raycastHit.transform.gameObject;
+
+    //        try
+    //        {
+    //            GunType _gunTest = equippedGun.GetComponent<ItemData>().Gun.gunType;
+    //        }
+    //        catch
+    //        {
+
+    //            equippedGun = null;
+
+    //        }
+
+    //        if (equippedGun != null)
+    //        {
+
+    //            equippedGun.transform.SetParent(gunPosition.transform);
+
+    //            equippedGun.transform.localPosition = Vector3.zero;
+    //            equippedGun.transform.localRotation = Quaternion.identity;
+
+    //            equippedGun.GetComponent<Rigidbody>().isKinematic = true;
+    //            equippedGun.GetComponentInChildren<Collider>().isTrigger = true;
+
+    //            equippedGun.SetActive(false);
+
+    //            switch (equippedGun.GetComponent<ItemData>().Gun.gunType)
+    //            {
+    //                case GunType.HandGun:
+
+    //                    equippedGuns[handGun_Slot] = equippedGun;
+    //                    handGun_Slot.GetComponent<Button>().interactable = true;
+    //                    break;
+    //                case GunType.AssaultRifle:
+
+    //                    equippedGuns[assaultGun_Slot] = equippedGun;
+    //                    assaultGun_Slot.GetComponent<Button>().interactable = true;
+    //                    break;
+    //            }
+
+    //        }
+    //    }
+
+    //}
+
+    public void EquipGun(GameObject equippedGun)
     {
 
-        float range = 20f;
-
-        if (Physics.Raycast(mainCamera.transform.position,
-            mainCamera.transform.forward,
-            out raycastHit,
-            range))
+        if (equippedGun != null)
         {
 
-            GameObject equippedGun;
+            equippedGun.transform.SetParent(gunPosition.transform);
 
-            equippedGun = raycastHit.transform.gameObject;
+            equippedGun.transform.localPosition = Vector3.zero;
+            equippedGun.transform.localRotation = Quaternion.identity;
 
-            try
+            equippedGun.GetComponent<Rigidbody>().isKinematic = true;
+            equippedGun.GetComponentInChildren<Collider>().isTrigger = true;
+
+            equippedGun.SetActive(false);
+
+            switch (equippedGun.GetComponent<ItemData>().Gun.gunType)
             {
-                GunType _gunTest = equippedGun.GetComponent<ItemData>().Gun.gunType;
+                case GunType.HandGun:
+
+                    equippedGuns[handGun_Slot] = equippedGun;
+                    handGun_Slot.GetComponent<Button>().interactable = true;
+                    break;
+                case GunType.AssaultRifle:
+
+                    equippedGuns[assaultGun_Slot] = equippedGun;
+                    assaultGun_Slot.GetComponent<Button>().interactable = true;
+                    break;
             }
-            catch
-            {
 
-                equippedGun = null;
-
-            }
-
-            if (equippedGun != null)
-            {
-
-                equippedGun.transform.SetParent(gunPosition.transform);
-
-                equippedGun.transform.localPosition = Vector3.zero;
-                equippedGun.transform.localRotation = Quaternion.identity;
-
-                equippedGun.GetComponent<Rigidbody>().isKinematic = true;
-                equippedGun.GetComponentInChildren<Collider>().isTrigger = true;
-
-                equippedGun.SetActive(false);
-
-                switch (equippedGun.GetComponent<ItemData>().Gun.gunType)
-                {
-                    case GunType.HandGun:
-
-                        equippedGuns[handGun_Slot] = equippedGun;
-                        handGun_Slot.GetComponent<Button>().interactable = true;
-                        break;
-                    case GunType.AssaultRifle:
-
-                        equippedGuns[assaultGun_Slot] = equippedGun;
-                        assaultGun_Slot.GetComponent<Button>().interactable = true;
-                        break;
-                }
-
-            }
         }
 
     }
@@ -328,6 +433,9 @@ public class PlayerGun : MonoBehaviour
 
             currentBullets = magCapacity;
             currentMags = selectedGun.GetComponent<ItemData>().Gun.init_MagNum;
+
+            selectedWeapon_MuzzleFlash = selectedGun.GetComponentInChildren<ParticleSystem>();
+
         }
 
         Debug.Log(selectedGun);

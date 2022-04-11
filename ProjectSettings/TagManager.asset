@@ -6,6 +6,7 @@ TagManager:
   tags:
   - UI
   - Environment
+  - CraftingTable
   layers:
   - Default
   - TransparentFX
