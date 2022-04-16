@@ -6,7 +6,8 @@ TagManager:
   tags:
   - UI
   - Environment
-  - CraftingTable
+  - Crafting Table
+  - Gun
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Machete
   m_EditorClassIdentifier: 
   itemType: 0
-  name: New Item
+  name: Machete
   description: Description
   isCraftable: 0
   isStackable: 0
