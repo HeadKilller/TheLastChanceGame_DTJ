@@ -150,20 +150,32 @@ public class PlayerGun : MonoBehaviour
             selectedWeapon_MuzzleFlash.Play();
             currentBullets--;
 
+            Guns currentGun_Info = selectedGun.GetComponent<ItemData>().Gun;
+
+            int dmg = currentGun_Info.damage;
+
             if (Physics.Raycast(mainCamera.transform.position,
                 mainCamera.transform.forward,
                 out raycastHit,
-                selectedGun.GetComponent<ItemData>().Gun.maxRange))
+                currentGun_Info.maxRange))
             {
-                Debug.Log("Semi has Hit : " + raycastHit.transform.name);
+                //Debug.Log("Semi has Hit : " + raycastHit.transform.name);
 
-                if (raycastHit.transform.gameObject != bulletHolePrefab && raycastHit.transform.name != "Player" && raycastHit.transform.tag != "Crafting Table")
+                if (raycastHit.transform.gameObject != bulletHolePrefab && 
+                    raycastHit.transform.name != "Player" && 
+                    raycastHit.transform.tag != "Crafting Table" && 
+                    raycastHit.transform.tag != "Zombie")
                 {
 
                     Instantiate(bulletHolePrefab,
                         raycastHit.point + raycastHit.normal * 0.001f,
                         Quaternion.LookRotation(raycastHit.normal, mainCamera.transform.up));
 
+                }
+
+                if(raycastHit.transform.tag == "Zombie")
+                {
+                    raycastHit.transform.gameObject.GetComponent<ZombieBehavior>().ZombieHit(dmg);
                 }
 
 
@@ -219,23 +231,39 @@ public class PlayerGun : MonoBehaviour
             selectedWeapon_MuzzleFlash.Play();
             currentBullets--;
 
+            Guns currentGun_Info = selectedGun.GetComponent<ItemData>().Gun;
+            int dmg = currentGun_Info.damage;
+
             if (Physics.Raycast(mainCamera.transform.position,
             mainCamera.transform.forward,
             out raycastHit,
-            selectedGun.GetComponent<ItemData>().Gun.maxRange))
+            currentGun_Info.maxRange))
             {
-                Debug.Log("Auto has Hit : " + raycastHit.transform.name);
+                //Debug.Log("Auto has Hit : " + raycastHit.transform.name);
 
-                if (raycastHit.transform.gameObject != bulletHolePrefab && raycastHit.transform.name != "Player" && raycastHit.transform.tag != "Crafting Table")
+                if (raycastHit.transform.gameObject != bulletHolePrefab && 
+                    raycastHit.transform.name != "Player" && 
+                    raycastHit.transform.tag != "Crafting Table")
                 {
 
-                    Debug.Log("Hit Name" + raycastHit.transform.name);
+                    if (raycastHit.transform.tag == "Zombie")
+                    {
+                        raycastHit.transform.gameObject.GetComponent<ZombieBehavior>().ZombieHit(dmg);
+                    }
+                    else
+                    {
 
-                    Instantiate(bulletHolePrefab,
-                        raycastHit.point + raycastHit.normal * 0.001f,
-                        Quaternion.LookRotation(raycastHit.normal, mainCamera.transform.up));
+                        //Debug.Log("Auto Hit Tag" + raycastHit.transform.tag);
+
+                        Instantiate(bulletHolePrefab,
+                            raycastHit.point + raycastHit.normal * 0.001f,
+                            Quaternion.LookRotation(raycastHit.normal, mainCamera.transform.up));
+
+                    }
 
                 }
+
+                
             }
 
             autoTimer = 0f;
@@ -422,7 +450,7 @@ public class PlayerGun : MonoBehaviour
             SaveGunInfo(selectedGun);
         }
 
-        Debug.Log(selectedGun);
+        //Debug.Log(selectedGun);
 
         selectedGun = equippedGuns[button.gameObject];
 
@@ -438,7 +466,7 @@ public class PlayerGun : MonoBehaviour
 
         }
 
-        Debug.Log(selectedGun);
+        //Debug.Log(selectedGun);
 
     }
    

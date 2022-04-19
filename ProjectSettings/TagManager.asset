@@ -8,6 +8,7 @@ TagManager:
   - Environment
   - Crafting Table
   - Gun
+  - Zombie
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,7 @@ public class Guns : ScriptableObject
 
     public int rateOfFire;
 
-    public float damage;
+    public int damage;
 
     public float maxRange;
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using System;
 
 public class CharacterControl : MonoBehaviour
 {
@@ -142,10 +143,20 @@ public class CharacterControl : MonoBehaviour
 
         //Debug.Log(groundBoxCastHit.collider);
 
-        if (groundBoxCastHit.collider.tag != "Player")
-            isGrounded = true;
-        else
+        try
+        {
+
+            if (groundBoxCastHit.collider.tag != "Player")
+                isGrounded = true;
+            else
+                isGrounded = false;
+
+        }
+        catch(Exception e)
+        {
+            Debug.LogError("Exception: " + e.Message);
             isGrounded = false;
+        }
 
         return isGrounded;
     }

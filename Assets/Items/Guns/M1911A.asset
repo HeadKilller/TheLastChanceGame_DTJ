@@ -16,5 +16,5 @@ MonoBehaviour:
   magCapacity: 7
   init_MagNum: 2
   rateOfFire: 85
-  damage: 30
+  damage: 15
   maxRange: 50
