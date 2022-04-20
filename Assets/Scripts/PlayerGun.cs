@@ -21,6 +21,7 @@ public class PlayerGun : MonoBehaviour
 
     [SerializeField] GameObject handGun_Slot;
     [SerializeField] GameObject assaultGun_Slot;
+    [SerializeField] GameObject unarmed_Slot;
 
     Dictionary<GameObject, GameObject> equippedGuns;
     Dictionary<GunType, int> bulletsNumber;
@@ -56,6 +57,12 @@ public class PlayerGun : MonoBehaviour
     private void Start()
     {
         bulletsNumber = new Dictionary<GunType, int>();
+        equippedGuns = new Dictionary<GameObject, GameObject>();
+
+        equippedGuns.Add(handGun_Slot, null);
+        equippedGuns.Add(assaultGun_Slot, null);
+
+        unarmed_Slot.GetComponent<Button>().interactable = true;
 
         currentBulletsText = currentBulletsPanel.GetComponentInChildren<TMP_Text>();
         bulletsIcon = currentBulletsPanel.GetComponentInChildren<Image>();
@@ -79,13 +86,7 @@ public class PlayerGun : MonoBehaviour
     private void Awake()
     {
 
-        playerInputControl = new PlayerInputControl();
-
-        equippedGuns = new Dictionary<GameObject, GameObject>();
-
-        equippedGuns.Add(handGun_Slot, null);
-        equippedGuns.Add(assaultGun_Slot, null);
-
+        playerInputControl = new PlayerInputControl();       
 
         playerInputControl.PlayerOnFoot.Enable();
 
@@ -118,7 +119,7 @@ public class PlayerGun : MonoBehaviour
     public void FireSemi(InputAction.CallbackContext context)
     {
 
-        if (selectedGun != null && currentBullets > 0)
+        if (selectedGun != null && currentBullets > 0 && !changeGunPanel.activeInHierarchy)
         {
 
             selectedWeapon_MuzzleFlash.Play();
@@ -165,7 +166,7 @@ public class PlayerGun : MonoBehaviour
     {
 
 
-        if (currentBullets > 0 && autoTimer >= (1f / fireRate))
+        if (currentBullets > 0 && autoTimer >= (1f / fireRate) && !changeGunPanel.activeInHierarchy)
         {
 
             selectedWeapon_MuzzleFlash.Play();
@@ -322,7 +323,35 @@ public class PlayerGun : MonoBehaviour
     public void SelectGun(Button button)
     {
         
+        if(button.gameObject == unarmed_Slot)
+        {
+
+            if(selectedGun != null)
+            {
+                GunType tempGunType = selectedGun.GetComponent<ItemData>().Gun.gunType;
+
+                switch (tempGunType)
+                {
+                    case GunType.HandGun:
+                        handGun_Slot.GetComponent<Button>().interactable = true;
+                        break;
+                    case GunType.AssaultRifle:
+                        assaultGun_Slot.GetComponent<Button>().interactable = true;
+                        break;
+                }
+
+                selectedGun.gameObject.SetActive(false);
+                SaveGunInfo(tempGunType);
+                selectedGun = null;
+
+                currentBulletsPanel.SetActive(false);
+            }
+
+            return;
+        }
+
         if (equippedGuns[button.gameObject] == selectedGun) return;
+
 
         //Testa se já tem alguma arma selecionada.
         if(selectedGun != null)
@@ -370,30 +399,35 @@ public class PlayerGun : MonoBehaviour
 
     }
    
+    public void PickMunition(string name)
+    {
+        switch (name)
+        {
+            case "HandGun_Munition":
+                bulletsNumber[GunType.HandGun] += 14;
+                break;
+
+            case "AssaultRifle_Munition":
+                bulletsNumber[GunType.AssaultRifle] += 60;
+                break;
+        }
+    }
+
     //Save o número de balas 
     void SaveGunInfo(GunType tempGunType)
     {
 
-        //if(tempGunType == GunType.HandGun)
-        //{
 
-            bulletsNumber[tempGunType] = (int)(currentMags * magCapacity + currentBullets) ;
+         bulletsNumber[tempGunType] = (int)(currentMags * magCapacity + currentBullets) ;
 
-        //}
-        //if (tempGunType == GunType.AssaultRifle)
-        //{
-
-            //bulletsNumber[tempGunType] = (int)(currentMags * magCapacity + currentBullets);
-
-        //}
+        
     }
 
     //Load o número de balas
     void LoadGunInfo(GunType tempGunType)
     {
         
-        //if(tempGunType == GunType.HandGun)
-        //{
+        
 
             currentMags = bulletsNumber[tempGunType] / magCapacity;
             currentBullets = bulletsNumber[tempGunType] % magCapacity;
@@ -404,20 +438,7 @@ public class PlayerGun : MonoBehaviour
                 currentMags -= 1;
             }
 
-        //}
-        //if (tempGunType == GunType.AssaultRifle)
-        //{
-
-            //currentMags = bulletsNumber[tempGunType] / magCapacity;
-            //currentBullets = bulletsNumber[tempGunType] % magCapacity;
-
-            //if (currentBullets == 0 && currentBullets > 0)
-            //{
-            //    currentBullets = magCapacity;
-            //    currentMags -= 1;
-            //}
-
-        //}
+        
     }
 
 }

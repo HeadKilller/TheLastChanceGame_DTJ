@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CheckGrounded : MonoBehaviour
 {
-    LayerMask playerLayer;
+    [SerializeField] LayerMask playerLayer;
+    [SerializeField] LayerMask postProcessingLayer;
 
     private bool isGrounded;
 
@@ -28,19 +29,23 @@ public class CheckGrounded : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.layer != playerLayer)
+        if (other.gameObject.layer != playerLayer && other.gameObject.layer != postProcessingLayer && other.name != "Post-Processing")
         {
-            Debug.Log(other.name);
+            Debug.Log("Stay: " + other.name);
+
             isGrounded = true;
+            Debug.Log(IsGrounded);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer != playerLayer)
+        if (other.gameObject.layer != playerLayer && other.gameObject.layer != postProcessingLayer && other.tag != "Post-Processing")
         {
-            Debug.Log(other.name);
+            Debug.Log("Exit: " + other.name);
+
             isGrounded = false;
+            Debug.Log(IsGrounded);
         }
     }
 }

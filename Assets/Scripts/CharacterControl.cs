@@ -133,60 +133,6 @@ public class CharacterControl : MonoBehaviour
 
     }
 
-    //private bool CheckGrounded()
-    //{
-    //    bool isGrounded;
-
-    //    RaycastHit groundBoxCastHit;
-
-    //    Vector3 boxCenter = transform.position - transform.up * transform.localScale.y;
-    //    Vector3 halfExtents = new Vector3(0.1f, 0.1f, 0.1f);
-
-    //    Physics.BoxCast(boxCenter, halfExtents, -transform.up, out groundBoxCastHit);
-
-    //    //Physics.BoxCast(boxCenter)
-
-    //    //Debug.Log(groundBoxCastHit.collider);
-    //    Debug.DrawRay(boxCenter, -transform.up * transform.localScale.y, Color.blue);
-
-    //    try
-    //    {
-
-
-    //        if (groundBoxCastHit.collider.tag != "Player")
-    //        {
-    //            isGrounded = true;
-    //            //Debug.Log(groundBoxCastHit.collider.name);
-    //        }
-    //        else
-    //            isGrounded = false;
-
-    //    }
-    //    catch(Exception e)
-    //    {
-    //        Debug.LogError("Exception: " + e.Message);
-    //        isGrounded = false;
-    //    }
-
-    //    return isGrounded;
-    //}
-
-    //private void OnCollisionStay(Collision collision)
-    //{
-    //    if (collision.collider.gameObject.layer == 6)
-    //    {
-    //        _isGrounded = true;
-    //    }
-    //}
-
-    //private void OnCollisionExit(Collision collision)
-    //{
-    //    if (collision.collider.gameObject.layer == 6)
-    //    {
-    //        _isGrounded = false;
-    //    }
-    //}
-
     bool CheckGrounded()
     {
 

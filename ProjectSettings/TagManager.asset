@@ -9,6 +9,8 @@ TagManager:
   - Crafting Table
   - Gun
   - Zombie
+  - Post-Processing
+  - Munition
   layers:
   - Default
   - TransparentFX

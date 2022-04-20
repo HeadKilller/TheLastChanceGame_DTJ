@@ -36,9 +36,12 @@ public class ZombieBehavior : MonoBehaviour
     private void MoveTowards()
     {
         Vector3 targetDirection = playerTransform.position - transform.position;
-        Vector3 newDirectionm = Vector3.RotateTowards(transform.forward, targetDirection, 0.7f, 0f);
 
-        transform.rotation = Quaternion.LookRotation(newDirectionm);
+        targetDirection.y = 0f;
+
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 0.7f, 0f);
+
+        transform.rotation = Quaternion.LookRotation(newDirection);
 
         transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, zombieSpeed * Time.fixedDeltaTime);
     }
