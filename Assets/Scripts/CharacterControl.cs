@@ -22,6 +22,7 @@ public class CharacterControl : MonoBehaviour
 
     Vector3 cameraOffset;
 
+    CheckGrounded checkGrounded;
 
     //bool _isGrounded;
 
@@ -32,6 +33,8 @@ public class CharacterControl : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;
+
+        checkGrounded = GetComponentInChildren<CheckGrounded>();
     }
 
 
@@ -130,51 +133,43 @@ public class CharacterControl : MonoBehaviour
 
     }
 
-    private void OnDrawGizmos()
-    {
-        Vector3 boxCenter = transform.position - transform.up * transform.localScale.y / 5f;
-        Vector3 halfExtents = new Vector3(0.1f, 0.1f, 0.1f);
+    //private bool CheckGrounded()
+    //{
+    //    bool isGrounded;
 
-        Gizmos.DrawCube(boxCenter, halfExtents * 2);
-    }
+    //    RaycastHit groundBoxCastHit;
 
-    private bool CheckGrounded()
-    {
-        bool isGrounded;
+    //    Vector3 boxCenter = transform.position - transform.up * transform.localScale.y;
+    //    Vector3 halfExtents = new Vector3(0.1f, 0.1f, 0.1f);
 
-        RaycastHit groundBoxCastHit;
+    //    Physics.BoxCast(boxCenter, halfExtents, -transform.up, out groundBoxCastHit);
 
-        Vector3 boxCenter = transform.position - transform.up * transform.localScale.y / 5f;
-        Vector3 halfExtents = new Vector3(0.1f, 0.1f, 0.1f);
+    //    //Physics.BoxCast(boxCenter)
 
-        Physics.BoxCast(boxCenter, halfExtents, -transform.up, out groundBoxCastHit);
+    //    //Debug.Log(groundBoxCastHit.collider);
+    //    Debug.DrawRay(boxCenter, -transform.up * transform.localScale.y, Color.blue);
 
-        //Physics.BoxCast(boxCenter)
-
-        //Debug.Log(groundBoxCastHit.collider);
+    //    try
+    //    {
 
 
-        try
-        {
+    //        if (groundBoxCastHit.collider.tag != "Player")
+    //        {
+    //            isGrounded = true;
+    //            //Debug.Log(groundBoxCastHit.collider.name);
+    //        }
+    //        else
+    //            isGrounded = false;
 
+    //    }
+    //    catch(Exception e)
+    //    {
+    //        Debug.LogError("Exception: " + e.Message);
+    //        isGrounded = false;
+    //    }
 
-            if (groundBoxCastHit.collider.tag != "Player")
-            {
-                isGrounded = true;
-                Debug.Log(groundBoxCastHit.collider.name);
-            }
-            else
-                isGrounded = false;
-
-        }
-        catch(Exception e)
-        {
-            Debug.LogError("Exception: " + e.Message);
-            isGrounded = false;
-        }
-
-        return isGrounded;
-    }
+    //    return isGrounded;
+    //}
 
     //private void OnCollisionStay(Collision collision)
     //{
@@ -192,4 +187,10 @@ public class CharacterControl : MonoBehaviour
     //    }
     //}
 
+    bool CheckGrounded()
+    {
+
+        return checkGrounded.IsGrounded;
+
+    }
 }

@@ -50,7 +50,7 @@ public class PlayerInteraction : MonoBehaviour
     private void Interact(InputAction.CallbackContext context)
     {
 
-        float range = 20f;
+        float range = 100f;
 
         if (Physics.Raycast(mainCamera.transform.position,
             mainCamera.transform.forward,

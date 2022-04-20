@@ -383,7 +383,7 @@ public class PlayerGun : MonoBehaviour
         //if (tempGunType == GunType.AssaultRifle)
         //{
 
-            bulletsNumber[tempGunType] = (int)(currentMags * magCapacity + currentBullets);
+            //bulletsNumber[tempGunType] = (int)(currentMags * magCapacity + currentBullets);
 
         //}
     }
@@ -398,7 +398,7 @@ public class PlayerGun : MonoBehaviour
             currentMags = bulletsNumber[tempGunType] / magCapacity;
             currentBullets = bulletsNumber[tempGunType] % magCapacity;
 
-            if(currentBullets == 0)
+            if(currentBullets == 0 && currentMags > 0)
             {
                 currentBullets = magCapacity;
                 currentMags -= 1;
@@ -408,14 +408,14 @@ public class PlayerGun : MonoBehaviour
         //if (tempGunType == GunType.AssaultRifle)
         //{
 
-            currentMags = bulletsNumber[tempGunType] / magCapacity;
-            currentBullets = bulletsNumber[tempGunType] % magCapacity;
+            //currentMags = bulletsNumber[tempGunType] / magCapacity;
+            //currentBullets = bulletsNumber[tempGunType] % magCapacity;
 
-            if (currentBullets == 0)
-            {
-                currentBullets = magCapacity;
-                currentMags -= 1;
-            }
+            //if (currentBullets == 0 && currentBullets > 0)
+            //{
+            //    currentBullets = magCapacity;
+            //    currentMags -= 1;
+            //}
 
         //}
     }
