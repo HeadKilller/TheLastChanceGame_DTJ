@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8631923470523158929}
   - component: {fileID: 8631923470523158928}
+  - component: {fileID: 1015397171}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -81,3 +82,26 @@ MonoBehaviour:
   confirmationWindow_GameObject: {fileID: 0}
   confirmationWindow_Slider: {fileID: 0}
   inventorySize: 10
+--- !u!114 &1015397171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8631923470523158926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623ef1ccc33c7744e8442553cb4ce270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CraftingMenu_Canvas: {fileID: 0}
+  CraftingItems_List: {fileID: 0}
+  ItemsIcon: []
+  Crafting_Slots:
+  - {fileID: 0}
+  Crafting_Items:
+  - {fileID: 8659228589199624702, guid: f42a7c4e1ecf6294ab025abf2998cad5, type: 3}
+  Materials_List:
+  - {fileID: 5533652201853746532, guid: 1fb7c4cb459854d44a9304aa7d196c37, type: 3}
+  - {fileID: 7422004758238891021, guid: 796d797812397b64d8c7bfedbfeee7fb, type: 3}
+  craftingItems_Number: 1

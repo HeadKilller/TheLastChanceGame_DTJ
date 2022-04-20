@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
+  gameController: {fileID: 0}
   fireHotKey: 323
 --- !u!114 &284107422
 MonoBehaviour:

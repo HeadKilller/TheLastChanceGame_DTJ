@@ -90,7 +90,8 @@ public class PlayerInteraction : MonoBehaviour
     {
         if(Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out raycastHit, raycastMaxRange))
         {
-            if(raycastHit.transform != null && raycastHit.transform.tag != "Environment" && raycastHit.transform.gameObject.layer != 5)
+            if(raycastHit.transform != null &&                 
+                raycastHit.transform.gameObject.layer == 9)
             {
                 //Debug.Log(raycastHit.transform.gameObject.GetComponent<ItemData>());
 

@@ -23,6 +23,7 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] GameObject assaultGun_Slot;
 
     Dictionary<GameObject, GameObject> equippedGuns;
+    Dictionary<GunType, int> bulletsNumber;
 
     ParticleSystem selectedWeapon_MuzzleFlash;
 
@@ -54,8 +55,13 @@ public class PlayerGun : MonoBehaviour
 
     private void Start()
     {
+        bulletsNumber = new Dictionary<GunType, int>();
+
         currentBulletsText = currentBulletsPanel.GetComponentInChildren<TMP_Text>();
         bulletsIcon = currentBulletsPanel.GetComponentInChildren<Image>();
+
+        bulletsNumber.Add(GunType.HandGun, 14);
+        bulletsNumber.Add(GunType.AssaultRifle, 60);
 
         currentBulletsText.color = new Color(1, 1, 1);
 
@@ -108,39 +114,7 @@ public class PlayerGun : MonoBehaviour
 
     }
 
-
-    //public void FireSemi(InputAction.CallbackContext context)
-    //{
-
-    //    if (selectedGun != null && currentBullets > 0)
-    //    {
-
-    //        muzzleFlash.Play();
-    //        currentBullets--;
-
-    //        if (Physics.Raycast(mainCamera.transform.position, 
-    //            mainCamera.transform.forward, 
-    //            out raycastHit, 
-    //            selectedGun.GetComponent<ItemData>().Gun.maxRange))
-    //        {
-    //            Debug.Log("Semi has Hit : " + raycastHit.transform.name);
-
-    //            if(raycastHit.transform.gameObject != bulletHolePrefab)
-    //            {
-
-    //                    Instantiate(bulletHolePrefab, 
-    //                        raycastHit.point + raycastHit.normal * 0.001f, 
-    //                        Quaternion.LookRotation(raycastHit.normal, mainCamera.transform.up));
-
-    //            }
-
-
-    //        }
-
-    //    }
-
-
-    //}
+    //Método chamado quando o jogador carrega uma vez no rato
     public void FireSemi(InputAction.CallbackContext context)
     {
 
@@ -185,42 +159,8 @@ public class PlayerGun : MonoBehaviour
 
 
     }
-    //public void FireAuto()
-    //{
 
-
-    //    if (currentBullets > 0 && autoTimer >= (1f / fireRate) ){
-
-    //        muzzleFlash.Play();
-    //        currentBullets--;
-
-    //        if (Physics.Raycast(mainCamera.transform.position,      
-    //        mainCamera.transform.forward,
-    //        out raycastHit,
-    //        selectedGun.GetComponent<ItemData>().Gun.maxRange))
-    //        {
-    //            Debug.Log("Auto has Hit : " + raycastHit.transform.name);
-
-    //            if (raycastHit.transform.gameObject != bulletHolePrefab)
-    //            {
-
-    //                Instantiate(bulletHolePrefab,
-    //                    raycastHit.point + raycastHit.normal * 0.001f,
-    //                    Quaternion.LookRotation(raycastHit.normal, mainCamera.transform.up));
-
-    //            }
-    //        }
-
-    //        autoTimer = 0f;
-
-    //        //Debug.Log(autoTimer);
-
-    //    }
-
-    //    autoTimer += Time.deltaTime;
-
-    //}
-
+    //Método chamado quando o jogador mantém o botão do rato pressionado
     public void FireAuto()
     {
 
@@ -276,9 +216,11 @@ public class PlayerGun : MonoBehaviour
 
     }
 
+    //Este método é usado para colocar a arma atualmente selecionada visivel.
+    //Finaliza o processo de mudança de armas.
+    //Torna visível o número de balas do tipo da arma atualmente selecionada. Desativa a wheel das armas no final.
     public void GunSelected(InputAction.CallbackContext context)
     {
-
 
         if (selectedGun != null)
         {
@@ -310,6 +252,7 @@ public class PlayerGun : MonoBehaviour
 
     }
 
+    //Este método permite às armas dar reload.
     public void ReloadGun(InputAction.CallbackContext context)
     {
 
@@ -323,80 +266,28 @@ public class PlayerGun : MonoBehaviour
 
     }
 
-    //public void EquipGun(InputAction.CallbackContext context)
-    //{
-
-    //    float range = 20f;
-
-    //    if (Physics.Raycast(mainCamera.transform.position,
-    //        mainCamera.transform.forward,
-    //        out raycastHit,
-    //        range))
-    //    {
-
-    //        GameObject equippedGun;
-
-    //        equippedGun = raycastHit.transform.gameObject;
-
-    //        try
-    //        {
-    //            GunType _gunTest = equippedGun.GetComponent<ItemData>().Gun.gunType;
-    //        }
-    //        catch
-    //        {
-
-    //            equippedGun = null;
-
-    //        }
-
-    //        if (equippedGun != null)
-    //        {
-
-    //            equippedGun.transform.SetParent(gunPosition.transform);
-
-    //            equippedGun.transform.localPosition = Vector3.zero;
-    //            equippedGun.transform.localRotation = Quaternion.identity;
-
-    //            equippedGun.GetComponent<Rigidbody>().isKinematic = true;
-    //            equippedGun.GetComponentInChildren<Collider>().isTrigger = true;
-
-    //            equippedGun.SetActive(false);
-
-    //            switch (equippedGun.GetComponent<ItemData>().Gun.gunType)
-    //            {
-    //                case GunType.HandGun:
-
-    //                    equippedGuns[handGun_Slot] = equippedGun;
-    //                    handGun_Slot.GetComponent<Button>().interactable = true;
-    //                    break;
-    //                case GunType.AssaultRifle:
-
-    //                    equippedGuns[assaultGun_Slot] = equippedGun;
-    //                    assaultGun_Slot.GetComponent<Button>().interactable = true;
-    //                    break;
-    //            }
-
-    //        }
-    //    }
-
-    //}
-
+    //Este método permite equipar uma arma que esteja dropada no mapa.
+    //Após equipar a arma, o jogador poderá selecioná-la para a poder usar através da wheel das armas.
     public void EquipGun(GameObject equippedGun)
     {
 
         if (equippedGun != null)
         {
-
+            //Muda o gameObject para child de gunPosition. De seguida dá reset à posição e à rotação.
             equippedGun.transform.SetParent(gunPosition.transform);
 
             equippedGun.transform.localPosition = Vector3.zero;
             equippedGun.transform.localRotation = Quaternion.identity;
 
+            //Torna a arma kinematic e põe a colisão em trigger, não permitindo à arma alterar a sua posição/rotação locais
+            //nem colidir com outros objetos no mapa.
             equippedGun.GetComponent<Rigidbody>().isKinematic = true;
             equippedGun.GetComponentInChildren<Collider>().isTrigger = true;
 
+            //Desativa a arma, não permitindo ao jogador usá-la até que ele a selecione.
             equippedGun.SetActive(false);
 
+            //Testa o tipo de arma que foi equipada, equipando a arma na wheel das armas e tornando o butão interacionável.
             switch (equippedGun.GetComponent<ItemData>().Gun.gunType)
             {
                 case GunType.HandGun:
@@ -415,6 +306,7 @@ public class PlayerGun : MonoBehaviour
 
     }
 
+    //Este método ativa a wheel das armas.
     public void ChangeGun(InputAction.CallbackContext context)
     {
 
@@ -425,13 +317,17 @@ public class PlayerGun : MonoBehaviour
 
     }
 
+    //Este método é ativado no momento em que o jogador carrega em um butão da wheel das armas e seleciona a arma equipada que está
+    //interligada com o butão carregado
     public void SelectGun(Button button)
     {
-
+        
         if (equippedGuns[button.gameObject] == selectedGun) return;
 
+        //Testa se já tem alguma arma selecionada.
         if(selectedGun != null)
         {
+            //Se já tiver alguma arma selecionada, desativa-a.
             selectedGun.gameObject.SetActive(false);
 
             switch (selectedGun.GetComponent<ItemData>().Gun.gunType)
@@ -447,20 +343,24 @@ public class PlayerGun : MonoBehaviour
 
             }
 
-            SaveGunInfo(selectedGun);
+            SaveGunInfo(selectedGun.GetComponent<ItemData>().Gun.gunType);
+
         }
 
         //Debug.Log(selectedGun);
 
+        //Seleciona a arma dependendo do butão que o jogador carrega
         selectedGun = equippedGuns[button.gameObject];
 
+        //Guarda a info da arma selecionada.
         if(selectedGun != null)
         {
-            fireRate = selectedGun.GetComponent<ItemData>().Gun.rateOfFire / 60f;
-            magCapacity = selectedGun.GetComponent<ItemData>().Gun.magCapacity;
+            Guns tempGun = selectedGun.GetComponent<ItemData>().Gun;
 
-            currentBullets = magCapacity;
-            currentMags = selectedGun.GetComponent<ItemData>().Gun.init_MagNum;
+            fireRate = tempGun.rateOfFire / 60f;
+            //magCapacity = tempGun.magCapacity;
+
+            LoadGunInfo(tempGun.gunType);
 
             selectedWeapon_MuzzleFlash = selectedGun.GetComponentInChildren<ParticleSystem>();
 
@@ -470,14 +370,51 @@ public class PlayerGun : MonoBehaviour
 
     }
    
-    void SaveGunInfo(GameObject gunGameObject)
+    void SaveGunInfo(GunType tempGunType)
     {
+        if(tempGunType == GunType.HandGun)
+        {
 
+            bulletsNumber[tempGunType] = (int)(currentMags * 7 + currentBullets) ;
+
+        }
+        if (tempGunType == GunType.AssaultRifle)
+        {
+
+            bulletsNumber[tempGunType] = (int)(currentMags * 30 + currentBullets);
+
+        }
     }
 
-    void LoadGunInfo(GameObject gunGameObject)
+    void LoadGunInfo(GunType tempGunType)
     {
+        
+        if(tempGunType == GunType.HandGun)
+        {
 
+            currentMags = bulletsNumber[tempGunType] / 7;
+            currentBullets = bulletsNumber[tempGunType] % 7;
+
+            if(currentBullets == 0)
+            {
+                currentBullets = 7;
+                currentMags -= 1;
+            }
+
+        }
+        if (tempGunType == GunType.AssaultRifle)
+        {
+
+            currentMags = bulletsNumber[tempGunType] / 30;
+            currentBullets = bulletsNumber[tempGunType] % 30;
+
+            if (currentBullets == 0)
+            {
+                currentBullets = 30;
+                currentMags -= 1;
+            }
+
+        }
     }
 
 }
