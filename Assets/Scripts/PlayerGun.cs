@@ -401,15 +401,48 @@ public class PlayerGun : MonoBehaviour
    
     public void PickMunition(string name)
     {
-        switch (name)
-        {
-            case "HandGun_Munition":
-                bulletsNumber[GunType.HandGun] += 14;
-                break;
 
-            case "AssaultRifle_Munition":
-                bulletsNumber[GunType.AssaultRifle] += 60;
-                break;
+        if(selectedGun != null)
+        {
+
+            GunType tempGunType = selectedGun.GetComponent<ItemData>().Gun.gunType;
+
+            switch (name)
+            {
+                case "HandGun_Munition":
+                    SaveGunInfo(tempGunType);
+
+                    bulletsNumber[GunType.HandGun] += 14;
+
+                    LoadGunInfo(tempGunType);
+                    break;
+
+                case "AssaultRifle_Munition":
+                    SaveGunInfo(tempGunType);
+
+                    bulletsNumber[GunType.AssaultRifle] += 60;
+
+                    LoadGunInfo(tempGunType);
+                    break;
+            }
+
+        }
+        else
+        {
+            switch (name)
+            {
+                case "HandGun_Munition":
+
+                    bulletsNumber[GunType.HandGun] += 14;
+
+                    break;
+
+                case "AssaultRifle_Munition":
+
+                    bulletsNumber[GunType.AssaultRifle] += 60;
+
+                    break;
+            }
         }
     }
 
@@ -441,6 +474,7 @@ public class PlayerGun : MonoBehaviour
         
     }
 
+    
 }
 
 
