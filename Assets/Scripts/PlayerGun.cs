@@ -358,7 +358,7 @@ public class PlayerGun : MonoBehaviour
             Guns tempGun = selectedGun.GetComponent<ItemData>().Gun;
 
             fireRate = tempGun.rateOfFire / 60f;
-            //magCapacity = tempGun.magCapacity;
+            magCapacity = tempGun.magCapacity;
 
             LoadGunInfo(tempGun.gunType);
 
@@ -370,51 +370,54 @@ public class PlayerGun : MonoBehaviour
 
     }
    
+    //Save o número de balas 
     void SaveGunInfo(GunType tempGunType)
     {
-        if(tempGunType == GunType.HandGun)
-        {
 
-            bulletsNumber[tempGunType] = (int)(currentMags * 7 + currentBullets) ;
+        //if(tempGunType == GunType.HandGun)
+        //{
 
-        }
-        if (tempGunType == GunType.AssaultRifle)
-        {
+            bulletsNumber[tempGunType] = (int)(currentMags * magCapacity + currentBullets) ;
 
-            bulletsNumber[tempGunType] = (int)(currentMags * 30 + currentBullets);
+        //}
+        //if (tempGunType == GunType.AssaultRifle)
+        //{
 
-        }
+            bulletsNumber[tempGunType] = (int)(currentMags * magCapacity + currentBullets);
+
+        //}
     }
 
+    //Load o número de balas
     void LoadGunInfo(GunType tempGunType)
     {
         
-        if(tempGunType == GunType.HandGun)
-        {
+        //if(tempGunType == GunType.HandGun)
+        //{
 
-            currentMags = bulletsNumber[tempGunType] / 7;
-            currentBullets = bulletsNumber[tempGunType] % 7;
+            currentMags = bulletsNumber[tempGunType] / magCapacity;
+            currentBullets = bulletsNumber[tempGunType] % magCapacity;
 
             if(currentBullets == 0)
             {
-                currentBullets = 7;
+                currentBullets = magCapacity;
                 currentMags -= 1;
             }
 
-        }
-        if (tempGunType == GunType.AssaultRifle)
-        {
+        //}
+        //if (tempGunType == GunType.AssaultRifle)
+        //{
 
-            currentMags = bulletsNumber[tempGunType] / 30;
-            currentBullets = bulletsNumber[tempGunType] % 30;
+            currentMags = bulletsNumber[tempGunType] / magCapacity;
+            currentBullets = bulletsNumber[tempGunType] % magCapacity;
 
             if (currentBullets == 0)
             {
-                currentBullets = 30;
+                currentBullets = magCapacity;
                 currentMags -= 1;
             }
 
-        }
+        //}
     }
 
 }

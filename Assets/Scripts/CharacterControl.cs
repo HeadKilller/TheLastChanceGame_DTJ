@@ -130,24 +130,39 @@ public class CharacterControl : MonoBehaviour
 
     }
 
+    private void OnDrawGizmos()
+    {
+        Vector3 boxCenter = transform.position - transform.up * transform.localScale.y / 5f;
+        Vector3 halfExtents = new Vector3(0.1f, 0.1f, 0.1f);
+
+        Gizmos.DrawCube(boxCenter, halfExtents * 2);
+    }
+
     private bool CheckGrounded()
     {
         bool isGrounded;
 
         RaycastHit groundBoxCastHit;
 
-        Vector3 boxCenter = transform.position - transform.up * transform.localScale.y / 2f;
+        Vector3 boxCenter = transform.position - transform.up * transform.localScale.y / 5f;
         Vector3 halfExtents = new Vector3(0.1f, 0.1f, 0.1f);
 
         Physics.BoxCast(boxCenter, halfExtents, -transform.up, out groundBoxCastHit);
 
+        //Physics.BoxCast(boxCenter)
+
         //Debug.Log(groundBoxCastHit.collider);
+
 
         try
         {
 
+
             if (groundBoxCastHit.collider.tag != "Player")
+            {
                 isGrounded = true;
+                Debug.Log(groundBoxCastHit.collider.name);
+            }
             else
                 isGrounded = false;
 
