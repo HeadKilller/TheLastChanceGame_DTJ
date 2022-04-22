@@ -142,10 +142,10 @@ public class PlayerGun : MonoBehaviour
                     raycastHit.transform.tag != "Zombie")
                 {
 
-                    Instantiate(bulletHolePrefab,
+                    GameObject tempDecal = Instantiate(bulletHolePrefab,
                         raycastHit.point + raycastHit.normal * 0.001f,
                         Quaternion.LookRotation(raycastHit.normal, mainCamera.transform.up));
-
+                    Destroy(tempDecal, 10f);
                 }
 
                 if(raycastHit.transform.tag == "Zombie")
@@ -196,9 +196,11 @@ public class PlayerGun : MonoBehaviour
 
                         //Debug.Log("Auto Hit Tag" + raycastHit.transform.tag);
 
-                        Instantiate(bulletHolePrefab,
+                        GameObject tempDecal = Instantiate(bulletHolePrefab,
                             raycastHit.point + raycastHit.normal * 0.001f,
                             Quaternion.LookRotation(raycastHit.normal, mainCamera.transform.up));
+
+                        Destroy(tempDecal, 10f);
 
                     }
 
@@ -406,25 +408,24 @@ public class PlayerGun : MonoBehaviour
         {
 
             GunType tempGunType = selectedGun.GetComponent<ItemData>().Gun.gunType;
+            SaveGunInfo(tempGunType);
 
             switch (name)
             {
                 case "HandGun_Munition":
-                    SaveGunInfo(tempGunType);
 
                     bulletsNumber[GunType.HandGun] += 14;
 
-                    LoadGunInfo(tempGunType);
                     break;
 
                 case "AssaultRifle_Munition":
-                    SaveGunInfo(tempGunType);
 
                     bulletsNumber[GunType.AssaultRifle] += 60;
 
-                    LoadGunInfo(tempGunType);
                     break;
             }
+
+            LoadGunInfo(tempGunType);
 
         }
         else

@@ -8,7 +8,13 @@ public class ZombieSenses : MonoBehaviour
 
     ZombieBehavior zombieBehavior;
 
-    bool isSensingPlayer;
+    private bool isSensingPlayer;
+
+
+    public bool IsSensingPlayer
+    {
+        get { return isSensingPlayer; }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +26,7 @@ public class ZombieSenses : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isSensingPlayer)
-        {
-
-            zombieBehavior.ZombieSensing();
-
-        }
+        
     }
 
     private void OnTriggerEnter(Collider other)

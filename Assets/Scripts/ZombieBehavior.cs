@@ -1,69 +1,85 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class ZombieBehavior : MonoBehaviour
 {
     [SerializeField] private Transform playerTransform;
     [SerializeField] private int zombie_InitialHealth;
-    //[SerializeField] private Animator ZombieAnim;
+    [SerializeField] private Animator ZombieAnim;
 
     [SerializeField] private float zombieSpeed;
-    
+
+    NavMeshAgent navMeshAgent;
+
+    ZombieSenses zombieSensing;
+
     private int zombie_CurrentHealth;
 
     private void Start()
     {
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        zombieSensing = GetComponentInChildren<ZombieSenses>();
+
         zombie_CurrentHealth = zombie_InitialHealth;
     }
 
     private void Update()
     {
-
+        if (zombieSensing.IsSensingPlayer && Vector3.Distance(playerTransform.position, transform.position) >= 1.5f)
+        {
+            ZombieAnim.SetBool("IsRunning", true);
+            navMeshAgent.destination = playerTransform.position;
+        }
+        else if(Vector3.Distance(playerTransform.position, transform.position) < 1.5f)
+        {
+            ZombieAnim.SetBool("IsRunning", false);
+            ZombieAttack();
+        }
+        else
+        {
+            ZombieAnim.SetBool("IsRunning", false);
+        }
     }
 
-    public void ZombieSensing()
+    private void ZombieAttack()
     {
-        //Debug.Log("Update -  curPos:" + transform.position + " target: " + playerTransform.position +
-        //    "dist: " + Vector3.Distance(transform.position, playerTransform.position) +
-        //    " speed: " + zombieSpeed + " step: " + zombieSpeed * Time.fixedDeltaTime, playerTransform);
 
-        if (Vector3.Distance(playerTransform.position, transform.position) > 1.5)
-            MoveTowards();
-        
-    }
+        //Make Zombie Attack
 
-    private void MoveTowards()
-    {
-        Vector3 targetDirection = playerTransform.position - transform.position;
-
-        targetDirection.y = 0f;
-
-        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 0.7f, 0f);
-
-        transform.rotation = Quaternion.LookRotation(newDirection);
-
-        transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, zombieSpeed * Time.fixedDeltaTime);
     }
 
     private void ZombieDeath()
     {
 
-        //ZombieAnim.SetTrigger("Zombie_Death");
-        Destroy(gameObject);
-
+        ZombieAnim.SetTrigger("Zombie_Death");
+        Destroy(gameObject, 5f);
     }
 
     public void ZombieHit(int dmg)
     {
+        navMeshAgent.isStopped = true;
+        
+        //ZombieAnim.SetBool("IsRunning", false);
 
-        //ZombieAnim.SetTrigger("Zombie_Hit");
+        if(!ZombieAnim.GetCurrentAnimatorStateInfo(0).IsName("Zombie Reaction Hit"))
+        {
+            ZombieAnim.SetTrigger("Zombie_Hit");
+        }
+        
 
         zombie_CurrentHealth -= dmg;
 
-        Debug.Log("Zombie Health: " + zombie_CurrentHealth);
+        //Debug.Log("Zombie Health: " + zombie_CurrentHealth);
 
         if (zombie_CurrentHealth <= 0) ZombieDeath();
+                
+    }
+
+    public void StartMoving()
+    {        
+        navMeshAgent.isStopped = false;
+        //ZombieAnim.SetBool("IsRunning", true);
 
     }
 
