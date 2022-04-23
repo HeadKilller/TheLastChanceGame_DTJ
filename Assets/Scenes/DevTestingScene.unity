@@ -1372,6 +1372,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e3ba415e1b6284cbf6adb195b7fd62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1015397171 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1015397171, guid: ff51b259d70e5d840a4ad2d2fd474b4a, type: 3}
+  m_PrefabInstance: {fileID: 8631923470582049441}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461472561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623ef1ccc33c7744e8442553cb4ce270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1026617310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2803,6 +2814,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 162092021, guid: 393743e565d48cc42901b4d9df115230, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1015397171}
     - target: {fileID: 918072536, guid: 393743e565d48cc42901b4d9df115230, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2811,10 +2826,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 284107422}
-    - target: {fileID: 2026954610, guid: 393743e565d48cc42901b4d9df115230, type: 3}
-      propertyPath: m_Name
-      value: Unarmed_Slot
-      objectReference: {fileID: 0}
     - target: {fileID: 2026954615, guid: 393743e565d48cc42901b4d9df115230, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3214,7 +3225,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1204867518}
     - target: {fileID: 1015397171, guid: ff51b259d70e5d840a4ad2d2fd474b4a, type: 3}
+      propertyPath: toCraft_Items.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1015397171, guid: ff51b259d70e5d840a4ad2d2fd474b4a, type: 3}
+      propertyPath: toCraft_Items.Array.data[0]
+      value: 
+      objectReference: {fileID: 8659228589199624702, guid: f42a7c4e1ecf6294ab025abf2998cad5, type: 3}
+    - target: {fileID: 1015397171, guid: ff51b259d70e5d840a4ad2d2fd474b4a, type: 3}
       propertyPath: Crafting_Slots.Array.data[0]
+      value: 
+      objectReference: {fileID: 434183912}
+    - target: {fileID: 1015397171, guid: ff51b259d70e5d840a4ad2d2fd474b4a, type: 3}
+      propertyPath: CraftingMenu_Slots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1015397171, guid: ff51b259d70e5d840a4ad2d2fd474b4a, type: 3}
+      propertyPath: CraftingMenu_Slots.Array.data[0]
       value: 
       objectReference: {fileID: 434183912}
     - target: {fileID: 8631923470177321646, guid: ff51b259d70e5d840a4ad2d2fd474b4a, type: 3}

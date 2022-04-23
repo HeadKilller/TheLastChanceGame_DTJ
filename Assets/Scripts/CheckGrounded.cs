@@ -31,10 +31,10 @@ public class CheckGrounded : MonoBehaviour
     {
         if (other.gameObject.layer != playerLayer && other.gameObject.layer != postProcessingLayer && other.name != "Post-Processing")
         {
-            Debug.Log("Stay: " + other.name);
+            //Debug.Log("Stay: " + other.name);
 
             isGrounded = true;
-            Debug.Log(IsGrounded);
+            //Debug.Log(IsGrounded);
         }
     }
 
@@ -42,7 +42,7 @@ public class CheckGrounded : MonoBehaviour
     {
         if (other.gameObject.layer != playerLayer && other.gameObject.layer != postProcessingLayer && other.tag != "Post-Processing")
         {
-            Debug.Log("Exit: " + other.name);
+            //Debug.Log("Exit: " + other.name);
 
             isGrounded = false;
             Debug.Log(IsGrounded);

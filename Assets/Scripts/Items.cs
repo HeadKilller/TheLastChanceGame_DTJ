@@ -21,6 +21,10 @@ public class Items : ScriptableObject
 
     public List<Operator> modifiersOperator;
 
+    public List<Items> craftingRecipe;
+    public List<int> craftingRecipeNum;
+
+
 }
 public enum PlayerModifier { Attack, Defense, Health, Stamina }
 public enum Operator { Multiply, Add }

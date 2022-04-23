@@ -3,108 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Craft : MonoBehaviour
 {
 
     [SerializeField] GameObject CraftingMenu_Canvas;
-    [SerializeField] GameObject CraftingItems_List;
 
+    [SerializeField] List<GameObject> CraftingMenu_Slots;
 
-    //Icons de cada Item
-    [SerializeField] private List<Sprite> ItemsIcon;
-    //Lista que contêm todos os slots da janela de crafting (sem contar com a Queue)
-    [SerializeField] private List<GameObject> Crafting_Slots;
-    //Lista que contêm os prefabs dos items que podem ser craftados
-    [SerializeField] private List<GameObject> Crafting_Items;
-    //Lista com os materiais disponiveis no jogo
-    [SerializeField] private List <GameObject> Materials_List;
+    [SerializeField] List<GameObject> toCraft_Items;
 
-    List<bool> crafting_IsValid;
-
-    //um dicionário compost por um objeto que guarda o slot no crafting menu e por outro objeto que guarda o objeto para craftar
-    private Dictionary<GameObject, GameObject> ItemsList;
-
-    //um dicionário composto por um int e um game object (quantidade de materiais e objeto do material )
-    private Dictionary< List<int>, List<GameObject> > ItemsRecipe;
-
-    //Número de slots da janela de crafting
-    [SerializeField] int craftingItems_Number;
+    int toCraft_Num;
+    List<bool> canCraft;
 
     private void Start()
     {
-        crafting_IsValid = new List<bool>();
-        ItemsRecipe = new Dictionary<List<int>, List<GameObject>>();
         
+        canCraft = new List<bool>();
 
-        int count = 1;
+        toCraft_Num = toCraft_Items.Count;
 
-        while (count <= craftingItems_Number)
+        Debug.Log("Num of items to craft : " + toCraft_Num);
+
+        for(int i = 0; i < toCraft_Num; i++)
         {
-            foreach (Transform craftingSlot in CraftingItems_List.GetComponentsInChildren<Transform>())
-            {
-                string slotName = "CraftingSlot" + count.ToString();
-
-                if (count > craftingItems_Number) break;
-
-                if (craftingSlot.name == slotName)
-                {
-
-                    //Debug.Log("Name : " + craftingSlot.name);
-
-                    count++;
-                    Crafting_Slots.Add(craftingSlot.gameObject);
-                    crafting_IsValid.Add(false);
-                }
-
-            }
+            canCraft.Add(false);
         }
 
-        CreateRecipes();
-
     }
-
-    void CreateRecipes()
-    {
-
-        List<int> recipeNumbers = new List<int>();
-        List<GameObject> recipeMaterials = new List<GameObject> ();
-
-        recipeNumbers.Add(1);
-        recipeNumbers.Add(1);
-
-        foreach (GameObject material in Materials_List)
-        {
-
-            if(material.name == "Wood")
-                recipeMaterials.Add(material);
-
-            if (material.name == "Stone")
-            {
-                recipeMaterials.Add(material);
-                break;
-            }
-
-        }
-
-
-        ItemsRecipe.Add(recipeNumbers, recipeMaterials);
-
-    }
+       
 
     public void OpenCraftingMenu()
-    {       
-
+    {
         CraftingMenu_Canvas.SetActive(true);
 
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
 
         CheckIfCanCraft();
-
     }
+
     public void CloseCraftingMenu()
     {
-
         CraftingMenu_Canvas.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -112,60 +52,74 @@ public class Craft : MonoBehaviour
 
     }
 
-    void CheckIfCanCraft()
+    private void CheckIfCanCraft()
     {
 
-        for (int i = 0; i < Crafting_Slots.Count; i++)
+        //Debug.Log("Checking...");
+
+        for(int i = 0; i < toCraft_Num; i++)
         {
 
-            if (Crafting_Slots[i] != null)
+            //Debug.Log("Checking...");
+
+            bool tempCondition = true;
+
+            List<Items> tempCraftingItems = new List<Items>();
+            List<int> tempCraftingItemsNum = new List<int>();
+
+            Items tempItem = toCraft_Items[i].GetComponent<ItemData>().Item;
+
+            tempCraftingItems = tempItem.craftingRecipe;
+            tempCraftingItemsNum = tempItem.craftingRecipeNum;
+
+            for (int j = 0; j < tempCraftingItems.Count; j++)
             {
 
-                bool tempCanCraft = true;
-                crafting_IsValid[i] = false;
+                Items tempCraftingMaterial = tempCraftingItems[j];
+                int tempCraftingMaterialNum = tempCraftingItemsNum[j];
 
-                int tempRecipe = 0;
-                foreach (var recipeItem in ItemsRecipe)
+                if (!Inventory.instance.CheckIfHasInInventory(tempCraftingMaterial, tempCraftingMaterialNum))
                 {
-                    if (tempRecipe == i)
-                    {
-                        for (int j = 0; j < recipeItem.Key.Count; j++)
-                        {
 
-                            if (!Inventory.instance.CheckIfCanCraft(recipeItem.Key[j], recipeItem.Value[j]))
-                            {
-
-                                tempCanCraft = false;
-
-                            }
-
-
-                        }
-
-                    }
-
-                    tempRecipe++;
-
-                    if (tempCanCraft)
-                    {
-
-                        //TODO :Ativar button e Aumentar Alpha da imagem;
-
-
-                        Crafting_Slots[i].GetComponentInChildren<Button>().interactable = true;
-                        Color tempColor = Crafting_Slots[i].GetComponentInChildren<Image>().color;
-                        Debug.Log("Can Craft: " + Crafting_Slots[i].name);
-
-                        Crafting_Slots[i].GetComponentInChildren<Image>().color = new Color(tempColor.r, tempColor.g, tempColor.b, 0.9f);
-
-                        crafting_IsValid[i] = true;
-                    }
+                    tempCondition = false;
 
                 }
 
             }
 
+            canCraft[i] = tempCondition;
+
         }
+
+        //Debug.Log("Checked");
+        
+        for(int i = 0; i < toCraft_Num; i++)
+        {
+
+            //Debug.Log("Check Craft : " + toCraft_Items[i].name);
+
+            if (canCraft[i])
+            {
+
+                //Debug.Log("Can Craft : " + toCraft_Items[i].name);
+
+                Button tempButton = CraftingMenu_Slots[i].GetComponentInChildren<Button>();
+
+                tempButton.interactable = true;
+                var tempColor = tempButton.GetComponent<Image>().color;
+
+                tempColor.a = 0.9f;
+
+                tempButton.GetComponent<Image>().color = tempColor;
+            }
+            else
+            {
+                //Debug.Log("Can't Craft : " + toCraft_Items[i].name);
+            }
+
+        }
+
+
     }
 
 }
