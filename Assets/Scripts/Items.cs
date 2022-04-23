@@ -24,7 +24,7 @@ public class Items : ScriptableObject
     public List<Items> craftingRecipe;
     public List<int> craftingRecipeNum;
 
-
+    public float craftingTime;
 }
 public enum PlayerModifier { Attack, Defense, Health, Stamina }
 public enum Operator { Multiply, Add }

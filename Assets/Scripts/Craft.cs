@@ -10,8 +10,12 @@ public class Craft : MonoBehaviour
     [SerializeField] GameObject CraftingMenu_Canvas;
 
     [SerializeField] List<GameObject> CraftingMenu_Slots;
+    [SerializeField] List<GameObject> CraftingQueue_Slots;
 
     [SerializeField] List<GameObject> toCraft_Items;
+    
+    List<GameObject> items_Crafting;
+    List<float> craftingTimers;
 
     int toCraft_Num;
     List<bool> canCraft;
@@ -20,6 +24,8 @@ public class Craft : MonoBehaviour
     {
         
         canCraft = new List<bool>();
+        craftingTimers = new List<float>();
+        items_Crafting = new List<GameObject>();
 
         toCraft_Num = toCraft_Items.Count;
 
@@ -30,8 +36,36 @@ public class Craft : MonoBehaviour
             canCraft.Add(false);
         }
 
+        foreach(var queue_Slot in CraftingQueue_Slots)
+        {
+            items_Crafting.Add(null);
+            craftingTimers.Add(-100f);
+        }
+
+        
+
     }
+
+    private void Update()
+    {
        
+
+        for(int i = 0; i < craftingTimers.Count; i++)
+        {
+            if(craftingTimers[i] != -100f)
+            {
+                craftingTimers[i] -= Time.deltaTime;
+
+                if(craftingTimers[i] <= 0f)
+                {
+
+                    craftingTimers[i] = -100f;
+                    ItemIsCrafted(CraftingQueue_Slots[i]);
+
+                }
+            }
+        }
+    }
 
     public void OpenCraftingMenu()
     {
@@ -122,4 +156,124 @@ public class Craft : MonoBehaviour
 
     }
 
+    public void CraftItem(GameObject itemSlot)
+    {
+
+        for(int i = 0; i < CraftingMenu_Slots.Count; i++)
+        {
+
+            if(CraftingMenu_Slots[i] == itemSlot && canCraft[i])
+            {
+
+                List<Items> tempCraftingRecipe;
+                List<int> tempRecipeNums;
+
+                Items tempItem = toCraft_Items[i].GetComponent<ItemData>().Item;
+
+                tempCraftingRecipe = tempItem.craftingRecipe;
+                tempRecipeNums = tempItem.craftingRecipeNum;
+
+
+                for(int j = 0; j < tempCraftingRecipe.Count; j++)
+                {
+                    //Debug.Log("Material : " + tempCraftingRecipe[j]);
+                    //Debug.Log("Number of Material : " + tempRecipeNums[j]);
+
+                    Inventory.instance.RemoveItem(tempCraftingRecipe[j], tempRecipeNums[j]);
+
+                }
+
+                Button tempButton = itemSlot.GetComponentInChildren<Button>();
+
+                tempButton.interactable = false;
+                var tempColor = tempButton.GetComponent<Image>().color;
+
+                tempColor.a = 30f;
+                tempButton.GetComponent<Image>().color = tempColor;
+
+                //Debug.Log("Crafting01... : " + CraftingQueue_Slots.Count);
+
+                for (int j = 0; j < CraftingQueue_Slots.Count; j++)
+                {
+
+                    //Debug.Log("Crafting Queue : " + j);
+
+                    if(items_Crafting[j] == null)
+                    {
+                        //Debug.Log("Crafting...");
+                        items_Crafting[j] = toCraft_Items[i];
+                        StartCrafting(j);
+
+                        tempButton = CraftingQueue_Slots[j].GetComponentInChildren<Button>();
+                        tempButton.GetComponent<Image>().sprite = tempItem.icon;
+
+                        tempColor = tempButton.GetComponent<Image>().color;
+
+                        tempColor.a = 0.9f;
+                        tempButton.GetComponent<Image>().color = tempColor;
+
+                        return;
+                    }
+
+                }
+
+
+            }
+
+        }
+
+    }
+
+    private void StartCrafting(int index)
+    {
+
+        craftingTimers[index] = items_Crafting[index].GetComponent<ItemData>().Item.craftingTime;
+
+    }
+
+    private void ItemIsCrafted(GameObject slot)
+    {
+
+        Button tempButton = slot.GetComponentInChildren<Button>();
+
+        tempButton.interactable = true;
+
+        var tempColor = tempButton.GetComponent<Image>().color;
+        tempColor.a = 30f;
+
+        tempButton.GetComponent<Image>().color = tempColor;
+
+    }
+
+    public void GetItem(GameObject queue_slot)
+    {
+        Items tempItem = null;
+        GameObject tempGameObject = null;
+
+        for(int i = 0; i < CraftingQueue_Slots.Count; i++)
+        {
+            if(queue_slot == CraftingQueue_Slots[i])
+            {
+                tempGameObject = toCraft_Items[i];
+                tempItem = tempGameObject.GetComponent<ItemData>().Item;
+                items_Crafting[i] = null;
+
+            }
+        }
+
+        if(tempGameObject != null && tempItem != null)
+            Inventory.instance.AddItem(tempGameObject, tempItem);
+
+        Button tempButton = queue_slot.GetComponent<Button>();
+        tempButton.interactable = false;
+
+        Image tempImage = tempButton.GetComponent<Image>();
+        tempImage.sprite = null;
+
+        Color tempColor = tempImage.color;
+        tempColor.a = 30f;
+
+        tempImage.color = tempColor;
+
+    }
 }

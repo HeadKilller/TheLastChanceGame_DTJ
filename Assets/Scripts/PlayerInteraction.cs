@@ -71,7 +71,7 @@ public class PlayerInteraction : MonoBehaviour
 
             if (raycastHit.transform.tag == "Crafting Table")
             {
-                Debug.Log("Crafting...");
+                //Debug.Log("Crafting...");
 
                 gameController.GetComponent<Craft>().OpenCraftingMenu();
 

@@ -25,3 +25,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 09836985ba210454b9fd47a3bb7032f3, type: 2}
   - {fileID: 11400000, guid: d0cd9d16964c1034cb1b48972121d03a, type: 2}
   craftingRecipeNum: 0100000001000000
+  craftingTime: 5

@@ -84,6 +84,19 @@ public class Inventory : MonoBehaviour
     }
 
 
+    private void Update()
+    {
+        //int count = 0;
+
+        //foreach(var slot in inventory_with_Item)
+        //{
+
+        //    Debug.Log("Slot " + count + " : " + slot.Value);
+        //    count++;
+
+        //}
+    }
+
     #region Inventory
 
     public void AddItem(GameObject _gameObject, Items item)
@@ -119,7 +132,13 @@ public class Inventory : MonoBehaviour
 
                 if (slot.Value == null)
                 {
+                    //if (item == null)
+                    //    Debug.Log("item is null");
+                    //Debug.Log("Item : " + item.name);
+
                     inventory_with_Item[slot.Key] = item;
+
+                    //Debug.Log("Item in inventory : " + inventory_with_Item[slot.Key].name);
 
                     inventorySlotCurrentCapacity[slot.Key]++;
                     TextMeshProUGUI text = slot.Key.GetComponentInChildren<TextMeshProUGUI>();
@@ -185,6 +204,48 @@ public class Inventory : MonoBehaviour
         //    text.SetText("");
     }
 
+    public void RemoveItem(Items item, int quantityToRemove)
+    {
+
+        GameObject itemToRemove = null;
+
+        foreach (var slot in inventory_with_Item)
+        {
+            //if (slot.Value == null)
+            //    Debug.Log("Slot is Null");
+            //Debug.Log("Slot : " + slot.Value.name);
+            //Debug.Log("Item : " + item.name);
+
+            if (slot.Value == item)
+            {
+                //Debug.Log("Item : " + item.name);
+                itemToRemove = slot.Key;
+
+            }
+
+            if (itemToRemove == null) return;
+
+        }
+
+        TextMeshProUGUI text = itemToRemove.GetComponentInChildren<TextMeshProUGUI>();
+        inventorySlotCurrentCapacity[itemToRemove] -= quantityToRemove;
+
+        Debug.Log("Item : " + inventory_with_Item[itemToRemove]);
+        Debug.Log("Quantity : " + inventorySlotCurrentCapacity[itemToRemove]);
+
+        if(inventorySlotCurrentCapacity[itemToRemove] <= 0)
+        {
+            inventorySlotCurrentCapacity[itemToRemove] = 0;
+            text.SetText("");
+            DeActivateSlot(itemToRemove);
+        }
+        else
+        {
+            text.SetText(inventorySlotCurrentCapacity[itemToRemove].ToString());
+        }
+
+    }
+
     public void InventoryOpen_Close(InputAction.CallbackContext context)
     {
         inventoryGameObject.SetActive(!inventoryGameObject.activeSelf);
@@ -234,6 +295,9 @@ public class Inventory : MonoBehaviour
 
     private void DeActivateSlot(GameObject _gameObject)
     {
+        Debug.Log("Destroying... : " + inventory_with_Item[_gameObject]);
+        inventory_with_Item[_gameObject] = null;
+
         foreach (Transform child in _gameObject.GetComponentsInChildren<Transform>())
         {
             if (child.name == "SlotButton")
@@ -296,7 +360,6 @@ public class Inventory : MonoBehaviour
         if (textTMP != null)
             textTMP.text = value.ToString();
     }
-       
 
     public bool CheckIfHasInInventory(Items material, int materialNum)
     {

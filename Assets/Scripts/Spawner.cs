@@ -94,14 +94,14 @@ public class Spawner : MonoBehaviour
                     max = spawnArea.SpawnCenter.x + spawnArea.SpawnRadius;
 
                     float tempX = ((float)rnd.NextDouble() * (max - min) + min);
-                    Debug.Log("X : " + tempX);
+                    //Debug.Log("X : " + tempX);
 
                     min = spawnArea.SpawnCenter.z - spawnArea.SpawnRadius;
                     max = spawnArea.SpawnCenter.z + spawnArea.SpawnRadius;
 
                     float tempZ = ((float)rnd.NextDouble() * (max - min) + min);
 
-                    Debug.Log("Z : " + tempZ);  
+                    //Debug.Log("Z : " + tempZ);  
                     float tempY = spawnArea.SpawnCenter.y;
 
                     positionToSpawn = new Vector3(tempX, tempY, tempZ);
@@ -116,7 +116,7 @@ public class Spawner : MonoBehaviour
 
                 if(positionToSpawn != Vector3.zero && Vector3.Distance(positionToSpawn, playerTransform.position) > 15f)
                 {
-                    Debug.Log("Spawning : " + j);
+                    //Debug.Log("Spawning : " + j);
                     GameObject tempZombieGameObject = Instantiate(zombiePreFab, positionToSpawn, Quaternion.identity, zombieParent.transform);
                     spawnArea.zombiesList.Add(tempZombieGameObject);
                 }
