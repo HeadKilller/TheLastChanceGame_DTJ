@@ -45,7 +45,7 @@ public class CheckGrounded : MonoBehaviour
             //Debug.Log("Exit: " + other.name);
 
             isGrounded = false;
-            Debug.Log(IsGrounded);
+            //Debug.Log(IsGrounded);
         }
     }
 }

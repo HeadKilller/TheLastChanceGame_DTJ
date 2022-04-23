@@ -1886,7 +1886,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -760432703719941568, guid: d4f6380fc07a4fe4489a5728ec50e2cc, type: 3}
 --- !u!114 &5847969847357253840
@@ -1901,7 +1901,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e2e42618d13ef4db011fdd004b661a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
   zombie_InitialHealth: 100
   ZombieAnim: {fileID: 18784324244504561}
   zombieSpeed: 5

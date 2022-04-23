@@ -23,7 +23,7 @@ public class Craft : MonoBehaviour
 
         toCraft_Num = toCraft_Items.Count;
 
-        Debug.Log("Num of items to craft : " + toCraft_Num);
+        //Debug.Log("Num of items to craft : " + toCraft_Num);
 
         for(int i = 0; i < toCraft_Num; i++)
         {

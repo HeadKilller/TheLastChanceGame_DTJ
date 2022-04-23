@@ -4,14 +4,16 @@ using UnityEngine;
 using UnityEngine.AI;
 public class ZombieBehavior : MonoBehaviour
 {
-    [SerializeField] private Transform playerTransform;
     [SerializeField] private int zombie_InitialHealth;
     [SerializeField] private Animator ZombieAnim;
 
     [SerializeField] private float zombieSpeed;
 
+    GameObject player;
+    Transform playerTransform;
     NavMeshAgent navMeshAgent;
 
+    Spawner spawner;
     ZombieSenses zombieSensing;
 
     private int zombie_CurrentHealth;
@@ -20,6 +22,11 @@ public class ZombieBehavior : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         zombieSensing = GetComponentInChildren<ZombieSenses>();
+
+        player = Player.instance.gameObject;
+        playerTransform = player.transform;
+
+        spawner = player.GetComponent<Spawner>();
 
         zombie_CurrentHealth = zombie_InitialHealth;
     }
@@ -53,7 +60,9 @@ public class ZombieBehavior : MonoBehaviour
     {
 
         ZombieAnim.SetTrigger("Zombie_Death");
+        gameObject.GetComponent<Collider>().isTrigger = true;
         Destroy(gameObject, 5f);
+        
     }
 
     public void ZombieHit(int dmg)
