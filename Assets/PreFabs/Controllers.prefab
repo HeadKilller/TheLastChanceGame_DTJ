@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 8631923470523158929}
   - component: {fileID: 8631923470523158928}
   - component: {fileID: 1015397171}
+  - component: {fileID: 1015397173}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -142,13 +143,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CraftingMenu_Canvas: {fileID: 0}
-  CraftingItems_List: {fileID: 0}
-  ItemsIcon: []
-  Crafting_Slots:
+  CraftingMenu_Slots:
   - {fileID: 0}
-  Crafting_Items:
+  toCraft_Items:
   - {fileID: 8659228589199624702, guid: f42a7c4e1ecf6294ab025abf2998cad5, type: 3}
-  Materials_List:
-  - {fileID: 5533652201853746532, guid: 1fb7c4cb459854d44a9304aa7d196c37, type: 3}
-  - {fileID: 7422004758238891021, guid: 796d797812397b64d8c7bfedbfeee7fb, type: 3}
-  craftingItems_Number: 1
+--- !u!114 &1015397173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8631923470523158926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb4f58f381bfe2549ba499ae8347b331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombiePreFab: {fileID: 6767010585872564017, guid: 1a236ba68de9a7d43a011ca934b6133b, type: 3}
+  zombieParent: {fileID: 0}
+  playerTransform: {fileID: 0}
+  spawnAreaList:
+  - {fileID: 11400000, guid: 91111a531112fa94b8da25967ccdecba, type: 2}
+  securityDistanceToSpawn: 15
+  spawnCooldown: 60
