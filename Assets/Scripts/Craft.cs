@@ -262,9 +262,9 @@ public class Craft : MonoBehaviour
         }
 
         if(tempGameObject != null && tempItem != null)
-            Inventory.instance.AddItem(tempGameObject, tempItem);
+            Inventory.instance.AddItem(tempGameObject, tempItem, false);
 
-        Button tempButton = queue_slot.GetComponent<Button>();
+        Button tempButton = queue_slot.GetComponentInChildren<Button>();
         tempButton.interactable = false;
 
         Image tempImage = tempButton.GetComponent<Image>();

@@ -99,7 +99,7 @@ public class Inventory : MonoBehaviour
 
     #region Inventory
 
-    public void AddItem(GameObject _gameObject, Items item)
+    public void AddItem(GameObject _gameObject, Items item, bool toDestroy)
     {
 
         bool foundEmptySlot = false;
@@ -155,7 +155,9 @@ public class Inventory : MonoBehaviour
 
         if (!foundEmptySlot) return;
 
-        Destroy(_gameObject);
+        if(toDestroy)
+            Destroy(_gameObject);
+        
         //Debug.Log("Picking up " + item.name);
 
     }

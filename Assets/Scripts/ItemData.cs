@@ -72,7 +72,7 @@ public class ItemData : MonoBehaviour
     {
         if (this.item != null && other.tag == "Player")
         {
-            Inventory.instance.AddItem(gameObject, item);
+            Inventory.instance.AddItem(gameObject, item, true);
         }
     }
 
