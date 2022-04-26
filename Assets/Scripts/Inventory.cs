@@ -214,16 +214,7 @@ public class Inventory : MonoBehaviour
 
         gameObjectToDestroy = _gameObject;
 
-        //inventory_with_Item[_gameObject] = null;
-        //inventorySlotCurrentCapacity[_gameObject] = 0;
-
-        //DeActivateSlot(_gameObject);
-
-        //TextMeshProUGUI text = _gameObject.GetComponentInChildren<TextMeshProUGUI>();
-        //if (text != null && inventorySlotCurrentCapacity[_gameObject] != 0)
-        //    text.SetText(inventorySlotCurrentCapacity[_gameObject].ToString());
-        //if (text != null && inventorySlotCurrentCapacity[_gameObject] == 0)
-        //    text.SetText("");
+        
     }
 
     public void RemoveItem(Items item, int quantityToRemove)

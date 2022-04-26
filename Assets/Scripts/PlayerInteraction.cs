@@ -34,17 +34,17 @@ public class PlayerInteraction : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(fireHotKey) && gameObject.GetComponent<PlayerGun>().SelectedGun == null)
-        {
-            try
-            {
-                Hit();
-            }
-            catch(Exception e)
-            {
-                Debug.Log("Error : " + e);
-            }
-        }
+        //if (Input.GetKeyDown(fireHotKey) && gameObject.GetComponent<PlayerGun>().SelectedGun == null)
+        //{
+        //    try
+        //    {
+        //        Hit();
+        //    }
+        //    catch(Exception e)
+        //    {
+        //        Debug.Log("Error : " + e);
+        //    }
+        //}
 
     }
     private void Interact(InputAction.CallbackContext context)
@@ -80,6 +80,8 @@ public class PlayerInteraction : MonoBehaviour
             if (raycastHit.transform.tag == "Material")
             {
                 Debug.Log("Picking Up Material");
+
+                raycastHit.transform.gameObject.GetComponent<ItemData>().DropItem();
             }
 
             if(raycastHit.transform.tag == "Munition")

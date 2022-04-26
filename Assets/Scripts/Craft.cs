@@ -257,7 +257,8 @@ public class Craft : MonoBehaviour
         {
             if(queue_slot == CraftingQueue_Slots[i])
             {
-                tempGameObject = toCraft_Items[i];
+                tempGameObject = items_Crafting[i];
+                //tempGameObject = toCraft_Items[i];
                 tempItem = tempGameObject.GetComponent<ItemData>().Item;
                 items_Crafting[i] = null;
 
