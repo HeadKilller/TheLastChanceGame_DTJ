@@ -7,22 +7,22 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Bark
+      name: Bark.001
     second: {fileID: 2100000, guid: db3b01fafa6d7ac4385d319a10e064d9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Wood
+      name: Wood.001
     second: {fileID: 2100000, guid: dab8ee957eaa246449b5d9c6692a0aaa, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Worked Wood
+      name: Worked Wood.001
     second: {fileID: 2100000, guid: 6ee17fa787ac5ba4eaed6f086d1e5efc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
-    materialSearch: 2
+    materialSearch: 1
     materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
