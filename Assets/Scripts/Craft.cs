@@ -176,8 +176,11 @@ public class Craft : MonoBehaviour
 
                 for(int j = 0; j < tempCraftingRecipe.Count; j++)
                 {
-                    //Debug.Log("Material : " + tempCraftingRecipe[j]);
-                    //Debug.Log("Number of Material : " + tempRecipeNums[j]);
+                    if (tempCraftingRecipe[j] == null)
+                        Debug.Log(tempCraftingRecipe[j].name + " is null.");
+
+                    Debug.Log("Material : " + tempCraftingRecipe[j]);
+                    Debug.Log("Number of Material : " + tempRecipeNums[j]);
 
                     Inventory.instance.RemoveItem(tempCraftingRecipe[j], tempRecipeNums[j]);
 

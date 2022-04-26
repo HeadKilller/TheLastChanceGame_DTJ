@@ -30,18 +30,24 @@ public class Inventory : MonoBehaviour
 
     GameObject gameObjectToDestroy;
 
-    Dictionary<GameObject, Items> inventory_with_Item;
-    Dictionary<GameObject, int> inventorySlotCurrentCapacity;
+    
 
+    List<GameObject> inventory_Slots;
+    List<Items> inventorySlotsContent;
+    List<int> inventorySlotsCurrentCapacity;
+
+    
     private void Awake()
     {
         #region Variables Initialization
 
         instance = this;
 
+        inventory_Slots = new List<GameObject>();
+        inventorySlotsContent = new List<Items>();
+        inventorySlotsCurrentCapacity = new List<int>();
 
-        inventory_with_Item = new Dictionary<GameObject, Items>();
-        inventorySlotCurrentCapacity = new Dictionary<GameObject, int>();
+        
 
         #endregion
 
@@ -58,8 +64,12 @@ public class Inventory : MonoBehaviour
         {
             if (child.gameObject.name == "InventorySlot" + count.ToString())
             {
-                inventory_with_Item.Add(child.gameObject, null);
-                inventorySlotCurrentCapacity.Add(child.gameObject, 0);
+
+                inventory_Slots.Add(child.gameObject);
+                inventorySlotsContent.Add(null);
+                inventorySlotsCurrentCapacity.Add(0);
+
+                
                 count++;
             }
         }
@@ -86,15 +96,14 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        //int count = 0;
 
-        //foreach(var slot in inventory_with_Item)
-        //{
+        if (inventoryGameObject.activeSelf)
+        {
 
-        //    Debug.Log("Slot " + count + " : " + slot.Value);
-        //    count++;
+            CheckIfIsOverUI();
 
-        //}
+        }
+
     }
 
     #region Inventory
@@ -107,49 +116,52 @@ public class Inventory : MonoBehaviour
         if (item.isStackable)
         {
 
-            foreach(var slot in inventory_with_Item)
+            for(int i = 0; i < inventory_Slots.Count; i++)
             {
-                if (slot.Value == null) continue;
 
-                if(slot.Value.name == item.name && inventorySlotCurrentCapacity[slot.Key] < slotMaxCapacity)
+                if (inventorySlotsContent[i] == null) continue;
+
+                if (inventorySlotsContent[i] == item && inventorySlotsCurrentCapacity[i] < slotMaxCapacity)
                 {
-                    inventorySlotCurrentCapacity[slot.Key]++;
-                    TextMeshProUGUI text = slot.Key.GetComponentInChildren<TextMeshProUGUI>();
-                    if(text != null)
-                        text.SetText(inventorySlotCurrentCapacity[slot.Key].ToString());
+
+                    inventorySlotsCurrentCapacity[i]++;
+                    TextMeshProUGUI text = inventory_Slots[i].GetComponentInChildren<TextMeshProUGUI>();
+                    if (text != null)
+                        text.SetText(inventorySlotsCurrentCapacity[i].ToString());
 
                     foundEmptySlot = true;
-
                 }
+
             }
+                                    
 
         }
 
         if (!foundEmptySlot)
         {
-            foreach (var slot in inventory_with_Item)
-            {           
 
-                if (slot.Value == null)
+            for(int i = 0; i < inventory_Slots.Count; i++)
+            {
+
+                if(inventorySlotsContent[i] == null)
                 {
-                    //if (item == null)
-                    //    Debug.Log("item is null");
-                    //Debug.Log("Item : " + item.name);
 
-                    inventory_with_Item[slot.Key] = item;
+                    inventorySlotsContent[i] = item;
 
-                    //Debug.Log("Item in inventory : " + inventory_with_Item[slot.Key].name);
+                    inventorySlotsCurrentCapacity[i]++;
 
-                    inventorySlotCurrentCapacity[slot.Key]++;
-                    TextMeshProUGUI text = slot.Key.GetComponentInChildren<TextMeshProUGUI>();
-                    if(text != null)
-                        text.SetText(inventorySlotCurrentCapacity[slot.Key].ToString());
+                    TextMeshProUGUI text = inventory_Slots[i].GetComponentInChildren<TextMeshProUGUI>();
+                    if (text != null)
+                        text.SetText(inventorySlotsCurrentCapacity[i].ToString());
 
-                    foundEmptySlot = true;
-                    ActivateSlot(slot.Key);
+                    foundEmptySlot=true;
+                    Debug.Log(inventory_Slots[i].name);
+                    ActivateSlot(inventory_Slots[i], i);
                     break;
                 }
+
             }
+                        
 
         }
 
@@ -187,10 +199,18 @@ public class Inventory : MonoBehaviour
         */
         #endregion
 
+        int index = -1;
+
+        for(int i = 0; i < inventory_Slots.Count; i++)
+        {
+
+            if (inventory_Slots[i] == _gameObject)
+                index = i;
+        }
 
         confirmationWindow_GameObject.SetActive(true);
 
-        confirmationWindow_Slider.maxValue = inventorySlotCurrentCapacity[_gameObject];
+        confirmationWindow_Slider.maxValue = inventorySlotsCurrentCapacity[index];
 
         gameObjectToDestroy = _gameObject;
 
@@ -210,40 +230,38 @@ public class Inventory : MonoBehaviour
     {
 
         GameObject itemToRemove = null;
-
-        foreach (var slot in inventory_with_Item)
+        int index = -1;
+        for(int i = 0; i < inventory_Slots.Count; i++)
         {
-            //if (slot.Value == null)
-            //    Debug.Log("Slot is Null");
-            //Debug.Log("Slot : " + slot.Value.name);
-            //Debug.Log("Item : " + item.name);
 
-            if (slot.Value == item)
+            if (inventorySlotsContent[i] == null) continue;
+
+            if(inventorySlotsContent[i] == item)
             {
-                //Debug.Log("Item : " + item.name);
-                itemToRemove = slot.Key;
-
+                itemToRemove = inventory_Slots[i];
+                index = i;
+                break;
             }
-
             if (itemToRemove == null) return;
 
         }
+                
 
         TextMeshProUGUI text = itemToRemove.GetComponentInChildren<TextMeshProUGUI>();
-        inventorySlotCurrentCapacity[itemToRemove] -= quantityToRemove;
+        inventorySlotsCurrentCapacity[index] -= quantityToRemove;
 
-        Debug.Log("Item : " + inventory_with_Item[itemToRemove]);
-        Debug.Log("Quantity : " + inventorySlotCurrentCapacity[itemToRemove]);
+        Debug.Log("Item : " + inventory_Slots[index]);
+        Debug.Log("Quantity : " + inventorySlotsCurrentCapacity[index]);
 
-        if(inventorySlotCurrentCapacity[itemToRemove] <= 0)
+        if(inventorySlotsCurrentCapacity[index] <= 0)
         {
-            inventorySlotCurrentCapacity[itemToRemove] = 0;
+            inventorySlotsCurrentCapacity[index] = 0;
             text.SetText("");
             DeActivateSlot(itemToRemove);
         }
         else
         {
-            text.SetText(inventorySlotCurrentCapacity[itemToRemove].ToString());
+            text.SetText(inventorySlotsCurrentCapacity[index].ToString());
         }
 
     }
@@ -276,13 +294,16 @@ public class Inventory : MonoBehaviour
 
     }
 
-    private void ActivateSlot(GameObject _gameObject)
+    private void ActivateSlot(GameObject _gameObject, int slot)
     {
+        
+
         foreach (Transform child in _gameObject.GetComponentsInChildren<Transform>())
         {
             if (child.name == "SlotButton")
             {
-                child.GetComponent<Image>().sprite = inventory_with_Item[_gameObject].icon;
+                
+                child.GetComponent<Image>().sprite = inventorySlotsContent[slot].icon;
                 child.GetComponent<Image>().enabled = true;
                 child.GetComponent<Button>().enabled = true;
             }
@@ -292,13 +313,24 @@ public class Inventory : MonoBehaviour
                 child.GetComponent<Image>().enabled = true;
                 child.GetComponent<Button>().enabled = true;
             }
+
         }
     }
 
     private void DeActivateSlot(GameObject _gameObject)
     {
-        Debug.Log("Destroying... : " + inventory_with_Item[_gameObject]);
-        inventory_with_Item[_gameObject] = null;
+        int index = -1;
+
+        for(int i = 0; i < inventory_Slots.Count; i++)
+        {
+
+            if (inventory_Slots[i].gameObject == _gameObject)
+                index = i;
+
+        }
+
+        Debug.Log("Destroying... : " + inventory_Slots[index]);
+        inventorySlotsContent[index] = null;
 
         foreach (Transform child in _gameObject.GetComponentsInChildren<Transform>())
         {
@@ -320,20 +352,26 @@ public class Inventory : MonoBehaviour
     public void DestroyItem()
     {
 
+        int index = -1;
+        for ( int i = 0; i < inventory_Slots.Count; i++)
+        {
+            if (inventory_Slots[i] == gameObjectToDestroy)
+                index = i;
+        }
 
-        if (confirmationWindow_Slider.value <= inventorySlotCurrentCapacity[gameObjectToDestroy])
-            inventorySlotCurrentCapacity[gameObjectToDestroy] -= (int)confirmationWindow_Slider.value;
+        if (confirmationWindow_Slider.value <= inventorySlotsCurrentCapacity[index])
+            inventorySlotsCurrentCapacity[index] -= (int)confirmationWindow_Slider.value;
         else
-            inventorySlotCurrentCapacity[gameObjectToDestroy] = 0;
+            inventorySlotsCurrentCapacity[index] = 0;
 
 
         TextMeshProUGUI text = gameObjectToDestroy.GetComponentInChildren<TextMeshProUGUI>();
-        if (text != null && inventorySlotCurrentCapacity[gameObjectToDestroy] != 0)
-            text.SetText(inventorySlotCurrentCapacity[gameObjectToDestroy].ToString());
-        if (text != null && inventorySlotCurrentCapacity[gameObjectToDestroy] == 0)
+        if (text != null && inventorySlotsCurrentCapacity[index] != 0)
+            text.SetText(inventorySlotsCurrentCapacity[index].ToString());
+        if (text != null && inventorySlotsCurrentCapacity[index] == 0)
             text.SetText("");
 
-        if(inventorySlotCurrentCapacity[gameObjectToDestroy] == 0)
+        if(inventorySlotsCurrentCapacity[index] == 0)
         {
             DeActivateSlot(gameObjectToDestroy);
         }
@@ -368,25 +406,24 @@ public class Inventory : MonoBehaviour
 
         bool canCraft = false;
 
-        foreach(var slot in inventory_with_Item)
+        for(int i = 0; i < inventory_Slots.Count; i++)
         {
 
-            if(slot.Value != null && slot.Value == material)
+            if(inventorySlotsContent[i] != null && inventorySlotsContent[i] == material)
             {
 
-                string materialQuantity_String = slot.Key.GetComponentInChildren<TextMeshProUGUI>().text;
+                string materialQuantity_String = inventory_Slots[i].GetComponentInChildren<TextMeshProUGUI>().text;
 
                 int materialQuantity_Integer = Int32.Parse(materialQuantity_String);
 
                 if (materialQuantity_Integer >= materialNum)
                 {
                     canCraft = true;
-                }               
-
-            }           
-          
+                }
+            }
 
         }
+                
 
         return canCraft;
 
@@ -394,11 +431,37 @@ public class Inventory : MonoBehaviour
 
     #endregion
 
-    #region Equipment
+    void CheckIfIsOverUI()
+    {
+
+        RaycastHit hit;
+
+        Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        Debug.Log("mouse position : " + mouseRay.origin);
+
+
+        if (Physics.Raycast(mouseRay, out hit) && hit.collider.tag == "UI")
+        {
+            Debug.Log("Is over : " + hit.collider.gameObject.name);
+
+            for(int i = 0; i < inventory_Slots.Count; i++)
+            {
+
+                if(hit.collider.gameObject == inventory_Slots[i] && inventorySlotsContent[i] != null)
+                {
 
 
 
-    #endregion
+                }
+
+            }
+
+            
+
+        }
+
+    }
 
 
 }

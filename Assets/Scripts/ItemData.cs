@@ -67,6 +67,34 @@ public class ItemData : MonoBehaviour
 
     }
 
+    public Dictionary<List<string>, Sprite> ShowItemInfo()
+    {
+        Dictionary<List<string>, Sprite > tempDict = new Dictionary<List<string>, Sprite>();
+
+        List<string> tempDataToShow = new List<string>();
+
+        Sprite itemIcon = item.icon;
+
+        tempDataToShow.Add(item.name);
+        tempDataToShow.Add(item.description);
+        
+        tempDict.Add(tempDataToShow, itemIcon);
+
+
+        return tempDict;
+    }
+    public void ShowItemToCraftInfo()
+    {
+
+        List<string> tempDataToShow = new List<string>();
+
+        Sprite itemIcon = item.icon;
+
+        tempDataToShow.Add(item.name);
+        tempDataToShow.Add(item.description);
+
+
+    }
     
     private void OnTriggerEnter(Collider other)
     {
