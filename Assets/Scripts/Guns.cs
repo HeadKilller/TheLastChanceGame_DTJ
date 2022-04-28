@@ -17,6 +17,8 @@ public class Guns : ScriptableObject
 
     public float maxRange;
 
+    public Vector3 recoil;
+
 }
 
 public enum GunType { HandGun, AssaultRifle }

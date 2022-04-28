@@ -13,6 +13,8 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] GameObject gunPosition;
     [SerializeField] GameObject bulletHolePrefab;
 
+    [SerializeField] GameObject recoilGameObject;
+
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] ParticleSystem hitParticleSystem;
 
@@ -30,6 +32,7 @@ public class PlayerGun : MonoBehaviour
 
 
     PlayerInputControl playerInputControl;
+    GunsRecoil Recoil;
 
     GameObject selectedGun;
 
@@ -37,6 +40,8 @@ public class PlayerGun : MonoBehaviour
     Image bulletsIcon;
 
     RaycastHit raycastHit;
+
+    Vector3 gunRecoil;
 
     float autoTimer;
     float fireRate;
@@ -63,6 +68,10 @@ public class PlayerGun : MonoBehaviour
         equippedGuns.Add(assaultGun_Slot, null);
 
         unarmed_Slot.GetComponent<Button>().interactable = true;
+
+        Recoil = recoilGameObject.GetComponent<GunsRecoil>();
+
+        gunRecoil = Vector3.zero;
 
         currentBulletsText = currentBulletsPanel.GetComponentInChildren<TMP_Text>();
         bulletsIcon = currentBulletsPanel.GetComponentInChildren<Image>();
@@ -125,6 +134,8 @@ public class PlayerGun : MonoBehaviour
             selectedWeapon_MuzzleFlash.Play();
             currentBullets--;
 
+            Recoil.RecoilFire(gunRecoil);
+
             Guns currentGun_Info = selectedGun.GetComponent<ItemData>().Gun;
 
             int dmg = currentGun_Info.damage;
@@ -171,6 +182,8 @@ public class PlayerGun : MonoBehaviour
 
             selectedWeapon_MuzzleFlash.Play();
             currentBullets--;
+
+            Recoil.RecoilFire(gunRecoil);
 
             Guns currentGun_Info = selectedGun.GetComponent<ItemData>().Gun;
             int dmg = currentGun_Info.damage;
@@ -390,6 +403,8 @@ public class PlayerGun : MonoBehaviour
 
             fireRate = tempGun.rateOfFire / 60f;
             magCapacity = tempGun.magCapacity;
+
+            gunRecoil = tempGun.recoil;
 
             LoadGunInfo(tempGun.gunType);
 

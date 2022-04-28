@@ -18,3 +18,4 @@ MonoBehaviour:
   rateOfFire: 85
   damage: 15
   maxRange: 50
+  recoil: {x: -1, y: 1, z: 0.2}
