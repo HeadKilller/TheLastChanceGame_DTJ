@@ -180,10 +180,14 @@ public class PlayerGun : MonoBehaviour
         if (currentBullets > 0 && autoTimer >= (1f / fireRate) && !changeGunPanel.activeInHierarchy)
         {
 
+            
+
             selectedWeapon_MuzzleFlash.Play();
             currentBullets--;
 
             Recoil.RecoilFire(gunRecoil);
+
+            //Debug.Log(/*mainCamera.transform.position + */mainCamera.transform.forward);
 
             Guns currentGun_Info = selectedGun.GetComponent<ItemData>().Gun;
             int dmg = currentGun_Info.damage;
@@ -474,12 +478,10 @@ public class PlayerGun : MonoBehaviour
 
     //Load o número de balas
     void LoadGunInfo(GunType tempGunType)
-    {
-        
-        
+    {       
 
-            currentMags = bulletsNumber[tempGunType] / magCapacity;
-            currentBullets = bulletsNumber[tempGunType] % magCapacity;
+            currentMags = (int) (bulletsNumber[tempGunType] / magCapacity);
+            currentBullets = (int) (bulletsNumber[tempGunType] % magCapacity);
 
             if(currentBullets == 0 && currentMags > 0)
             {

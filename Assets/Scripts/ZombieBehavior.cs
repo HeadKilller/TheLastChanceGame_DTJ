@@ -4,6 +4,16 @@ using UnityEngine;
 using UnityEngine.AI;
 public class ZombieBehavior : MonoBehaviour
 {
+    enum ZombieState
+    {
+        Idle,
+        Chasing,
+        Attacking,
+        Hit,
+        Death
+    }
+
+
     [SerializeField] private int zombie_InitialHealth;
     [SerializeField] private Animator ZombieAnim;
 
@@ -13,9 +23,12 @@ public class ZombieBehavior : MonoBehaviour
     Transform playerTransform;
     NavMeshAgent navMeshAgent;
 
+    ZombieState currentZombieState;
+
     Spawner spawner;
     ZombieSenses zombieSensing;
 
+    bool hasBeenHit;
     private int zombie_CurrentHealth;
 
     private void Start()
@@ -23,22 +36,28 @@ public class ZombieBehavior : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         zombieSensing = GetComponentInChildren<ZombieSenses>();
 
+        currentZombieState = ZombieState.Idle;
+
         player = Player.instance.gameObject;
         playerTransform = player.transform;
 
         spawner = player.GetComponent<Spawner>();
 
         zombie_CurrentHealth = zombie_InitialHealth;
+        hasBeenHit = false;
     }
 
     private void Update()
     {
-        if (zombieSensing.IsSensingPlayer && Vector3.Distance(playerTransform.position, transform.position) >= 1.5f)
+        if (zombieSensing.IsSensingPlayer && Vector3.Distance(playerTransform.position, transform.position) >= 1.5f && (currentZombieState == ZombieState.Idle || currentZombieState == ZombieState.Chasing) )
         {
-            ZombieAnim.SetBool("IsRunning", true);
-            navMeshAgent.destination = playerTransform.position;
+            ChasePlayer();
         }
-        else if(Vector3.Distance(playerTransform.position, transform.position) < 1.5f)
+        else if(currentZombieState == ZombieState.Chasing && hasBeenHit)
+        {
+            ChasePlayer();
+        }
+        else if(Vector3.Distance(playerTransform.position, transform.position) < 1.5f && (currentZombieState != ZombieState.Death /*&& currentZombieState != ZombieState.Hit*/))
         {
             ZombieAnim.SetBool("IsRunning", false);
             ZombieAttack();
@@ -51,22 +70,30 @@ public class ZombieBehavior : MonoBehaviour
 
     private void ZombieAttack()
     {
-
+        currentZombieState = ZombieState.Attacking;
         //Make Zombie Attack
 
     }
 
     private void ZombieDeath()
     {
+        currentZombieState = ZombieState.Death;
 
         ZombieAnim.SetTrigger("Zombie_Death");
         gameObject.GetComponent<Collider>().isTrigger = true;
+
+        gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+
         Destroy(gameObject, 5f);
         
     }
 
     public void ZombieHit(int dmg)
     {
+
+        currentZombieState = ZombieState.Hit;
+        hasBeenHit = true;
+
         navMeshAgent.isStopped = true;
         
         //ZombieAnim.SetBool("IsRunning", false);
@@ -81,17 +108,30 @@ public class ZombieBehavior : MonoBehaviour
 
         //Debug.Log("Zombie Health: " + zombie_CurrentHealth);
 
-        if (zombie_CurrentHealth <= 0) ZombieDeath();
-                
+        if (zombie_CurrentHealth <= 0)
+        {
+            ZombieDeath();
+            return;
+        }
+
+
     }
 
-    public void StartMoving()
-    {        
-        navMeshAgent.isStopped = false;
-        //ZombieAnim.SetBool("IsRunning", true);
+    public void ChasePlayer()
+    {
+        if(currentZombieState == ZombieState.Hit)
+            navMeshAgent.isStopped = false;
 
+
+        currentZombieState = ZombieState.Chasing;
+
+        navMeshAgent.destination = playerTransform.position;
+
+
+        ZombieAnim.SetBool("IsRunning", true);
     }
-
-
+        
 
 }
+
+

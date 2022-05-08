@@ -7,8 +7,7 @@ public class GunsRecoil : MonoBehaviour
     Vector3 currentRotation, targetRotation;
 
     [SerializeField] float snapiness, returnSpeed;
-
-    
+        
 
     // Update is called once per frame
     void Update()

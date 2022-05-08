@@ -6,7 +6,6 @@ public class ItemData : MonoBehaviour
 {
     [SerializeField] Items item;
     [SerializeField] Guns gun;
-    [SerializeField] GameObject playerGameObject;
 
     bool isDropped;
 
