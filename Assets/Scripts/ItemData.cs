@@ -94,7 +94,7 @@ public class ItemData : MonoBehaviour
 
 
     }
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (this.item != null && other.tag == "Player")

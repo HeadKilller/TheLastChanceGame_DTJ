@@ -20,9 +20,14 @@ public class Craft : MonoBehaviour
     int toCraft_Num;
     List<bool> canCraft;
 
+
+    public static Craft instance;
+
     private void Start()
     {
-        
+     
+        instance = this;
+
         canCraft = new List<bool>();
         craftingTimers = new List<float>();
         items_Crafting = new List<GameObject>();
@@ -176,11 +181,11 @@ public class Craft : MonoBehaviour
 
                 for(int j = 0; j < tempCraftingRecipe.Count; j++)
                 {
-                    if (tempCraftingRecipe[j] == null)
-                        Debug.Log(tempCraftingRecipe[j].name + " is null.");
+                    //if (tempCraftingRecipe[j] == null)
+                    //    Debug.Log(tempCraftingRecipe[j].name + " is null.");
 
-                    Debug.Log("Material : " + tempCraftingRecipe[j]);
-                    Debug.Log("Number of Material : " + tempRecipeNums[j]);
+                    //Debug.Log("Material : " + tempCraftingRecipe[j]);
+                    //Debug.Log("Number of Material : " + tempRecipeNums[j]);
 
                     Inventory.instance.RemoveItem(tempCraftingRecipe[j], tempRecipeNums[j]);
 
@@ -279,5 +284,46 @@ public class Craft : MonoBehaviour
 
         tempImage.color = tempColor;
 
+    }
+
+
+    public Items CheckItemOnHover_CraftingMenu(GameObject craftingSlot)
+    {
+
+        Items itemOnHover = null;
+
+        for(int i = 0; i < toCraft_Num; i++)
+        {
+
+            if (CraftingMenu_Slots[i] == craftingSlot && toCraft_Items[i] != null)
+            {
+
+                itemOnHover = toCraft_Items[i].GetComponent<ItemData>().Item;
+
+            }
+
+
+        }
+
+        return itemOnHover;
+    }
+
+    public Items CheckItemOnHover_QueueMenu(GameObject craftingQueueSlot)
+    {
+        Items itemOnHover = null;
+
+        for(int i = 0; i < CraftingQueue_Slots.Count; i++)
+        {
+
+            if(CraftingQueue_Slots[i] == craftingQueueSlot && items_Crafting[i] != null)
+            {
+
+                itemOnHover = items_Crafting[i].GetComponent<ItemData>().Item;
+
+            }
+
+        }
+
+        return itemOnHover;
     }
 }

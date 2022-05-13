@@ -155,7 +155,7 @@ public class Inventory : MonoBehaviour
                         text.SetText(inventorySlotsCurrentCapacity[i].ToString());
 
                     foundEmptySlot=true;
-                    Debug.Log(inventory_Slots[i].name);
+                    //Debug.Log(inventory_Slots[i].name);
                     ActivateSlot(inventory_Slots[i], i);
                     break;
                 }
@@ -429,12 +429,12 @@ public class Inventory : MonoBehaviour
 
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        Debug.Log("mouse position : " + mouseRay.origin);
+        //Debug.Log("mouse position : " + mouseRay.origin);
 
 
         if (Physics.Raycast(mouseRay, out hit) && hit.collider.tag == "UI")
         {
-            Debug.Log("Is over : " + hit.collider.gameObject.name);
+            //Debug.Log("Is over : " + hit.collider.gameObject.name);
 
             for(int i = 0; i < inventory_Slots.Count; i++)
             {
@@ -451,6 +451,27 @@ public class Inventory : MonoBehaviour
             
 
         }
+
+    }
+
+    public Items CheckItemOnHover(GameObject inventorySlot)
+    {
+
+        Items itemOnHover = null;
+
+        for(int i = 0; i < inventorySize; i++)
+        {
+
+            if(inventory_Slots[i] == inventorySlot)
+            {
+
+                itemOnHover = inventorySlotsContent[i];
+
+            }
+
+        }
+
+        return itemOnHover;
 
     }
 

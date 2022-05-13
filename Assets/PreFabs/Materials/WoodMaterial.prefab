@@ -66,6 +66,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 52ae7055d83617a4dbf137e079669061, type: 3}
   m_PrefabInstance: {fileID: 3870650088687078358}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1090231797539930954
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3870650088687046006}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8773384, y: 0.14961387, z: 0.93328035}
+  m_Center: {x: -0.01710862, y: 0.070761316, z: 0.23104388}
 --- !u!114 &4500929468124011004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,16 +93,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: d0cd9d16964c1034cb1b48972121d03a, type: 2}
   gun: {fileID: 0}
---- !u!65 &1090231797539930954
-BoxCollider:
+--- !u!114 &-5968681056022665548
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3870650088687046006}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.8773384, y: 0.14961387, z: 0.93328035}
-  m_Center: {x: -0.01710862, y: 0.070761316, z: 0.23104388}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d2f3a23ef65e448a29b5167ea21a25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
