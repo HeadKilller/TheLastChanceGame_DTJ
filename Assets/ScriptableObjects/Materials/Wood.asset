@@ -17,7 +17,10 @@ MonoBehaviour:
   description: Used mainly to craft other items.
   isCraftable: 0
   isStackable: 1
-  icon: {fileID: 21300000, guid: bead5f9e0e7b4bb4f8ea0684abb20914, type: 3}
+  icon: {fileID: 21300000, guid: 451623ffe96685c43805b85928ee1ce4, type: 3}
   modifiers: 
   modifiersValue: []
   modifiersOperator: 
+  craftingRecipe: []
+  craftingRecipeNum: 
+  craftingTime: 0

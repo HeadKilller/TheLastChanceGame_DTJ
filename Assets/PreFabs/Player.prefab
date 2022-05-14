@@ -332,6 +332,7 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   gunPosition: {fileID: 0}
   bulletHolePrefab: {fileID: 2772938670439013303, guid: e1fc7a296cfee6b4989cab8ec5bbc480, type: 3}
+  recoilGameObject: {fileID: 0}
   muzzleFlash: {fileID: 0}
   hitParticleSystem: {fileID: 0}
   currentBulletsPanel: {fileID: 0}

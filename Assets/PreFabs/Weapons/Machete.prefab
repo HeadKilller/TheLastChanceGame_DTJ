@@ -111,6 +111,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0eafb347cc5a954c91b3acc8b799116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 2d3aa62eefddfc642a14e144057f639f, type: 2}
+  item: {fileID: 11400000, guid: 1faa53004bc4ec244b3b240b2f129e4b, type: 2}
   gun: {fileID: 0}
-  playerGameObject: {fileID: 6402846261237682757, guid: 67a73f0e5fef69945a9b4dffd498c3f4, type: 3}

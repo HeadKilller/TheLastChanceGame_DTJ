@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Scrap Metal
   m_EditorClassIdentifier: 
   itemType: 0
-  name: New Item
+  name: Scrap Metal
   description: Description
   isCraftable: 0
-  isStackable: 0
+  isStackable: 1
   icon: {fileID: 0}
   modifiers: 
   modifiersValue: []

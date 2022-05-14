@@ -5245,7 +5245,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   gun: {fileID: 11400000, guid: 8245f6db5306379418108f6cf199858a, type: 2}
-  playerGameObject: {fileID: 0}
 --- !u!1 &2513303402746405631
 GameObject:
   m_ObjectHideFlags: 0
