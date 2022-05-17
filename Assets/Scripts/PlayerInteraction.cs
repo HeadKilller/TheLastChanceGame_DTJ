@@ -93,6 +93,12 @@ public class PlayerInteraction : MonoBehaviour
                 Destroy(raycastHit.transform.gameObject);
             }
 
+            Debug.Log(raycastHit.transform.name);
+            if(raycastHit.transform.name == "OutsideButton" || raycastHit.transform.name == "InsideButton")
+            {
+                raycastHit.transform.GetComponent<ButtonOpenGate>().activated = true;
+            }
+
 
         }
 
