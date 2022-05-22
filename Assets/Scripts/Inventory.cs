@@ -106,6 +106,9 @@ public class Inventory : MonoBehaviour
 
     }
 
+
+
+
     #region Inventory
 
     public void AddItem(GameObject _gameObject, Items item, bool toDestroy)
@@ -291,12 +294,17 @@ public class Inventory : MonoBehaviour
 
         foreach (Transform child in _gameObject.GetComponentsInChildren<Transform>())
         {
+            Debug.Log(child.name);
             if (child.name == "SlotButton")
+            {                  
+                child.GetComponent<Button>().enabled = true;
+            }
+
+            if(child.name == "SlotImage")
             {
-                
                 child.GetComponent<Image>().sprite = inventorySlotsContent[slot].icon;
                 child.GetComponent<Image>().enabled = true;
-                child.GetComponent<Button>().enabled = true;
+                child.GetComponent<ItemDragHandler>().enabled = true;
             }
 
             if (child.name == "EmptySlotButton")
@@ -326,12 +334,15 @@ public class Inventory : MonoBehaviour
         foreach (Transform child in _gameObject.GetComponentsInChildren<Transform>())
         {
             if (child.name == "SlotButton")
-            {
-                child.GetComponent<Image>().sprite = null;
-                child.GetComponent<Image>().enabled = false;
+            {                
                 child.GetComponent<Button>().enabled = false;
             }
-
+            if (child.name == "SlotImage")
+            {
+                child.GetComponent<Image>().sprite = null;
+                child.GetComponent<Image>().enabled = true;
+                child.GetComponent<ItemDragHandler>().enabled = true;
+            }
             if (child.name == "EmptySlotButton")
             {
                 child.GetComponent<Image>().enabled = false;
@@ -475,5 +486,6 @@ public class Inventory : MonoBehaviour
 
     }
 
+    
 
 }
