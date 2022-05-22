@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 925865685207277933}
   - component: {fileID: 6910171663305481620}
   - component: {fileID: 6675002185951668805}
+  - component: {fileID: -6542667525037567029}
   m_Layer: 0
   m_Name: SM_Building_Low_09
   m_TagString: Untagged
@@ -98,3 +99,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2480476972761374711, guid: 7dd0f23ebd6b7044ab6b0c7b84dc1cb8, type: 3}
+--- !u!114 &-6542667525037567029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5177180828384962888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100

@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1996887614999616759}
   - {fileID: 2176371067852524901}
@@ -67,6 +68,7 @@ GameObject:
   - component: {fileID: 2176371067852524901}
   - component: {fileID: 3818865829707782062}
   - component: {fileID: 7863843887511510933}
+  - component: {fileID: 4212331746592009074}
   m_Layer: 0
   m_Name: SM_Roads_02_L_LOD1
   m_TagString: Untagged
@@ -84,6 +86,7 @@ Transform:
   m_LocalRotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7492572543707299074}
   m_RootOrder: 1
@@ -107,10 +110,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -135,6 +140,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4212331746592009074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7332751902342389843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &8064848700214331229
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,6 +166,7 @@ GameObject:
   - component: {fileID: 3207440744965330383}
   - component: {fileID: 6242831179080950826}
   - component: {fileID: 1364277734042909740}
+  - component: {fileID: 9167245706942680944}
   m_Layer: 0
   m_Name: SM_Roads_02_L_LOD0
   m_TagString: Untagged
@@ -164,6 +184,7 @@ Transform:
   m_LocalRotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7492572543707299074}
   m_RootOrder: 0
@@ -187,10 +208,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -216,6 +239,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &1364277734042909740
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -230,3 +254,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -318212538213370183, guid: 87df1afdd10ab9a4f925edfcda7c707d, type: 3}
+--- !u!114 &9167245706942680944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8064848700214331229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100

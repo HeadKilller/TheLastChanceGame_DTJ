@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2772771316492621090}
   - component: {fileID: 3317255461415502822}
+  - component: {fileID: 1344889068443692070}
   m_Layer: 0
   m_Name: SM_Props_Scaf_03
   m_TagString: Untagged
@@ -27,6 +28,7 @@ Transform:
   m_LocalRotation: {x: -0.00000015695824, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2278535489148174906}
   - {fileID: 8136564499120433259}
@@ -56,6 +58,19 @@ LODGroup:
     renderers:
     - renderer: {fileID: 937937405446617946}
   m_Enabled: 1
+--- !u!114 &1344889068443692070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162356460013332273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &5936167856311158227
 GameObject:
   m_ObjectHideFlags: 0
@@ -67,6 +82,7 @@ GameObject:
   - component: {fileID: 8136564499120433259}
   - component: {fileID: 7202143677607267500}
   - component: {fileID: 937937405446617946}
+  - component: {fileID: 8609232919691782583}
   m_Layer: 0
   m_Name: SM_Props_Scaf_03_LOD1
   m_TagString: Untagged
@@ -84,6 +100,7 @@ Transform:
   m_LocalRotation: {x: -0.00000015695824, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2772771316492621090}
   m_RootOrder: 1
@@ -107,10 +124,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -136,6 +155,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8609232919691782583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5936167856311158227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &8008347084694041285
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,6 +181,7 @@ GameObject:
   - component: {fileID: 6652757163663754351}
   - component: {fileID: 2786098342007250248}
   - component: {fileID: 1289767803277875101}
+  - component: {fileID: 2688971228919893276}
   m_Layer: 0
   m_Name: SM_Props_Scaf_03_LOD0
   m_TagString: Untagged
@@ -165,6 +199,7 @@ Transform:
   m_LocalRotation: {x: -0.00000015695824, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2772771316492621090}
   m_RootOrder: 0
@@ -188,10 +223,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -217,6 +254,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &1289767803277875101
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -231,3 +269,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5582169880070856525, guid: 31d564cab4d80b44aafdcf60b96391b3, type: 3}
+--- !u!114 &2688971228919893276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8008347084694041285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100

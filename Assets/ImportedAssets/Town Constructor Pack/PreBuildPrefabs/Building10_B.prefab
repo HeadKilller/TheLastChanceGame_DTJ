@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
   - component: {fileID: 4736107628764725543}
+  - component: {fileID: 375406861388108909}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -98,6 +99,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &375406861388108909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,6 +124,7 @@ GameObject:
   - component: {fileID: 3300002}
   - component: {fileID: 2300002}
   - component: {fileID: 7572089489562098576}
+  - component: {fileID: 1402439819814923054}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -196,6 +211,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &1402439819814923054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100004
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +236,7 @@ GameObject:
   - component: {fileID: 3300004}
   - component: {fileID: 2300004}
   - component: {fileID: 792448994186877613}
+  - component: {fileID: 8559739136575339646}
   m_Layer: 0
   m_Name: B10_ClosedMarket
   m_TagString: Untagged
@@ -294,6 +323,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: edb41674f5015154aaae9873717bb740, type: 3}
+--- !u!114 &8559739136575339646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100006
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,6 +348,7 @@ GameObject:
   - component: {fileID: 3300006}
   - component: {fileID: 2300006}
   - component: {fileID: 992477602421182753}
+  - component: {fileID: 2264306563610962347}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -392,6 +435,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &2264306563610962347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100008
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,6 +460,7 @@ GameObject:
   - component: {fileID: 3300008}
   - component: {fileID: 2300008}
   - component: {fileID: 1646785514059514184}
+  - component: {fileID: 5623815970578025211}
   m_Layer: 0
   m_Name: B10_FlatWall
   m_TagString: Untagged
@@ -490,6 +547,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 64202b6306c48bc48be9477d08eb78c2, type: 3}
+--- !u!114 &5623815970578025211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100010
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,6 +572,7 @@ GameObject:
   - component: {fileID: 3300010}
   - component: {fileID: 2300010}
   - component: {fileID: 1302766841242026475}
+  - component: {fileID: 8083973156035580197}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -588,6 +659,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &8083973156035580197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100012
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,6 +684,7 @@ GameObject:
   - component: {fileID: 3300012}
   - component: {fileID: 2300012}
   - component: {fileID: 8767263433414814115}
+  - component: {fileID: 2746570203456764051}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -686,6 +771,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &2746570203456764051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100014
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,6 +796,7 @@ GameObject:
   - component: {fileID: 3300014}
   - component: {fileID: 2300014}
   - component: {fileID: 4769684955580736470}
+  - component: {fileID: 2750469279300272345}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -784,6 +883,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &2750469279300272345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100016
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,6 +908,7 @@ GameObject:
   - component: {fileID: 3300016}
   - component: {fileID: 2300016}
   - component: {fileID: 2045921268484493984}
+  - component: {fileID: 4673984882773159411}
   m_Layer: 0
   m_Name: B10_WindowA
   m_TagString: Untagged
@@ -882,6 +995,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: a43d7f98771e9004daa308598e75a050, type: 3}
+--- !u!114 &4673984882773159411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100018
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,6 +1020,7 @@ GameObject:
   - component: {fileID: 3300018}
   - component: {fileID: 2300018}
   - component: {fileID: 6177841980633545125}
+  - component: {fileID: 2800299104810626125}
   m_Layer: 0
   m_Name: B10_WindowA3x
   m_TagString: Untagged
@@ -980,6 +1107,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 9e01427edac489a4091b6f6d633fbabf, type: 3}
+--- !u!114 &2800299104810626125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100020
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,6 +1132,7 @@ GameObject:
   - component: {fileID: 3300020}
   - component: {fileID: 2300020}
   - component: {fileID: 5986402143191383654}
+  - component: {fileID: 5695958698655270647}
   m_Layer: 0
   m_Name: B10_RoofSide
   m_TagString: Untagged
@@ -1078,6 +1219,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e058d7bdbd4f0c24cad078cda6a256df, type: 3}
+--- !u!114 &5695958698655270647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,6 +1244,7 @@ GameObject:
   - component: {fileID: 3300022}
   - component: {fileID: 2300022}
   - component: {fileID: 4407907085868976514}
+  - component: {fileID: 7823371549673432902}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -1176,6 +1331,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &7823371549673432902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,6 +1356,7 @@ GameObject:
   - component: {fileID: 3300024}
   - component: {fileID: 2300024}
   - component: {fileID: 7604898810967000639}
+  - component: {fileID: 9179817327969171842}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -1274,6 +1443,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &9179817327969171842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1286,6 +1468,7 @@ GameObject:
   - component: {fileID: 3300026}
   - component: {fileID: 2300026}
   - component: {fileID: 4008225124122914575}
+  - component: {fileID: 6853632995594581446}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -1372,6 +1555,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &6853632995594581446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,6 +1580,7 @@ GameObject:
   - component: {fileID: 3300028}
   - component: {fileID: 2300028}
   - component: {fileID: 7084765726844979944}
+  - component: {fileID: 2176157754291644223}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -1470,6 +1667,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &2176157754291644223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,6 +1692,7 @@ GameObject:
   - component: {fileID: 3300030}
   - component: {fileID: 2300030}
   - component: {fileID: 7125148754378565259}
+  - component: {fileID: 1696466641473743627}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -1568,6 +1779,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &1696466641473743627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1580,6 +1804,7 @@ GameObject:
   - component: {fileID: 3300032}
   - component: {fileID: 2300032}
   - component: {fileID: 2272384947489400731}
+  - component: {fileID: 169929071782131236}
   m_Layer: 0
   m_Name: B10_FlatWall
   m_TagString: Untagged
@@ -1666,6 +1891,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 64202b6306c48bc48be9477d08eb78c2, type: 3}
+--- !u!114 &169929071782131236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100034
 GameObject:
   m_ObjectHideFlags: 0
@@ -1678,6 +1916,7 @@ GameObject:
   - component: {fileID: 3300034}
   - component: {fileID: 2300034}
   - component: {fileID: 6387864682247462545}
+  - component: {fileID: 6354698920115710044}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -1764,6 +2003,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &6354698920115710044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,6 +2028,7 @@ GameObject:
   - component: {fileID: 3300036}
   - component: {fileID: 2300036}
   - component: {fileID: 5181826801378192275}
+  - component: {fileID: 8280001444376558459}
   m_Layer: 0
   m_Name: B10_FlatWall
   m_TagString: Untagged
@@ -1862,6 +2115,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 64202b6306c48bc48be9477d08eb78c2, type: 3}
+--- !u!114 &8280001444376558459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,6 +2140,7 @@ GameObject:
   - component: {fileID: 3300038}
   - component: {fileID: 2300038}
   - component: {fileID: 8007587498563249123}
+  - component: {fileID: 6234239826228253096}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -1960,6 +2227,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &6234239826228253096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1972,6 +2252,7 @@ GameObject:
   - component: {fileID: 3300040}
   - component: {fileID: 2300040}
   - component: {fileID: 5362804038144192857}
+  - component: {fileID: 8798858646240920572}
   m_Layer: 0
   m_Name: B10_ClosedMarket
   m_TagString: Untagged
@@ -2058,6 +2339,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: edb41674f5015154aaae9873717bb740, type: 3}
+--- !u!114 &8798858646240920572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100042
 GameObject:
   m_ObjectHideFlags: 0
@@ -2070,6 +2364,7 @@ GameObject:
   - component: {fileID: 3300042}
   - component: {fileID: 2300042}
   - component: {fileID: 6882318224622306840}
+  - component: {fileID: 510075845551255796}
   m_Layer: 0
   m_Name: B10_WindowA
   m_TagString: Untagged
@@ -2156,6 +2451,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: a43d7f98771e9004daa308598e75a050, type: 3}
+--- !u!114 &510075845551255796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100044
 GameObject:
   m_ObjectHideFlags: 0
@@ -2168,6 +2476,7 @@ GameObject:
   - component: {fileID: 3300044}
   - component: {fileID: 2300044}
   - component: {fileID: 5825390703175016983}
+  - component: {fileID: 6952607996278875030}
   m_Layer: 0
   m_Name: B10_WindowB
   m_TagString: Untagged
@@ -2254,6 +2563,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 2fc800156ada0424eae466ae77597ab1, type: 3}
+--- !u!114 &6952607996278875030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100046
 GameObject:
   m_ObjectHideFlags: 0
@@ -2266,6 +2588,7 @@ GameObject:
   - component: {fileID: 3300046}
   - component: {fileID: 2300046}
   - component: {fileID: 1412704640554915647}
+  - component: {fileID: 4056873061801326032}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -2352,6 +2675,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &4056873061801326032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100048
 GameObject:
   m_ObjectHideFlags: 0
@@ -2364,6 +2700,7 @@ GameObject:
   - component: {fileID: 3300048}
   - component: {fileID: 2300048}
   - component: {fileID: 1751984309976447399}
+  - component: {fileID: 283605295033592565}
   m_Layer: 0
   m_Name: B10_WindowB
   m_TagString: Untagged
@@ -2450,6 +2787,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 2fc800156ada0424eae466ae77597ab1, type: 3}
+--- !u!114 &283605295033592565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100050
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,6 +2812,7 @@ GameObject:
   - component: {fileID: 3300050}
   - component: {fileID: 2300050}
   - component: {fileID: 3772542527533958986}
+  - component: {fileID: 3135985261867107863}
   m_Layer: 0
   m_Name: B10_WindowB
   m_TagString: Untagged
@@ -2548,6 +2899,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 2fc800156ada0424eae466ae77597ab1, type: 3}
+--- !u!114 &3135985261867107863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100052
 GameObject:
   m_ObjectHideFlags: 0
@@ -2560,6 +2924,7 @@ GameObject:
   - component: {fileID: 3300052}
   - component: {fileID: 2300052}
   - component: {fileID: 1772281793564751884}
+  - component: {fileID: 5164939714851684915}
   m_Layer: 0
   m_Name: B10_WindowB
   m_TagString: Untagged
@@ -2646,6 +3011,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 2fc800156ada0424eae466ae77597ab1, type: 3}
+--- !u!114 &5164939714851684915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100054
 GameObject:
   m_ObjectHideFlags: 0
@@ -2658,6 +3036,7 @@ GameObject:
   - component: {fileID: 3300054}
   - component: {fileID: 2300054}
   - component: {fileID: 7623261271955079411}
+  - component: {fileID: 2146244406408845559}
   m_Layer: 0
   m_Name: B10_FlatWall
   m_TagString: Untagged
@@ -2744,6 +3123,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 64202b6306c48bc48be9477d08eb78c2, type: 3}
+--- !u!114 &2146244406408845559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100056
 GameObject:
   m_ObjectHideFlags: 0
@@ -2756,6 +3148,7 @@ GameObject:
   - component: {fileID: 3300056}
   - component: {fileID: 2300056}
   - component: {fileID: 8811349495252710647}
+  - component: {fileID: 960187083816331113}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -2842,6 +3235,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &960187083816331113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100058
 GameObject:
   m_ObjectHideFlags: 0
@@ -2854,6 +3260,7 @@ GameObject:
   - component: {fileID: 3300058}
   - component: {fileID: 2300058}
   - component: {fileID: 7279814002954207666}
+  - component: {fileID: 270531263985003747}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -2940,6 +3347,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &270531263985003747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100060
 GameObject:
   m_ObjectHideFlags: 0
@@ -2952,6 +3372,7 @@ GameObject:
   - component: {fileID: 3300060}
   - component: {fileID: 2300060}
   - component: {fileID: 6317685537010077208}
+  - component: {fileID: 5371296133184042717}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -3038,6 +3459,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &5371296133184042717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100062
 GameObject:
   m_ObjectHideFlags: 0
@@ -3050,6 +3484,7 @@ GameObject:
   - component: {fileID: 3300062}
   - component: {fileID: 2300062}
   - component: {fileID: 8108283118087613985}
+  - component: {fileID: 2080878752534734517}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -3136,6 +3571,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &2080878752534734517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100064
 GameObject:
   m_ObjectHideFlags: 0
@@ -3148,6 +3596,7 @@ GameObject:
   - component: {fileID: 3300064}
   - component: {fileID: 2300064}
   - component: {fileID: 7227384697620845099}
+  - component: {fileID: 8999005158234549930}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -3234,6 +3683,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &8999005158234549930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100066
 GameObject:
   m_ObjectHideFlags: 0
@@ -3246,6 +3708,7 @@ GameObject:
   - component: {fileID: 3300066}
   - component: {fileID: 2300066}
   - component: {fileID: 3375303956963545772}
+  - component: {fileID: 9186249877011568939}
   m_Layer: 0
   m_Name: B10_FlatWall
   m_TagString: Untagged
@@ -3332,6 +3795,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 64202b6306c48bc48be9477d08eb78c2, type: 3}
+--- !u!114 &9186249877011568939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100068
 GameObject:
   m_ObjectHideFlags: 0
@@ -3344,6 +3820,7 @@ GameObject:
   - component: {fileID: 3300068}
   - component: {fileID: 2300068}
   - component: {fileID: 4314331640796265683}
+  - component: {fileID: 7816248238116703150}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -3430,6 +3907,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &7816248238116703150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100070
 GameObject:
   m_ObjectHideFlags: 0
@@ -3442,6 +3932,7 @@ GameObject:
   - component: {fileID: 3300070}
   - component: {fileID: 2300070}
   - component: {fileID: 909080786484216863}
+  - component: {fileID: 7587790752916637044}
   m_Layer: 0
   m_Name: B10_FlatWall
   m_TagString: Untagged
@@ -3528,6 +4019,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 64202b6306c48bc48be9477d08eb78c2, type: 3}
+--- !u!114 &7587790752916637044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100072
 GameObject:
   m_ObjectHideFlags: 0
@@ -3540,6 +4044,7 @@ GameObject:
   - component: {fileID: 3300072}
   - component: {fileID: 2300072}
   - component: {fileID: 3411693206730352203}
+  - component: {fileID: 1564155381399102191}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -3626,6 +4131,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &1564155381399102191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100074
 GameObject:
   m_ObjectHideFlags: 0
@@ -3638,6 +4156,7 @@ GameObject:
   - component: {fileID: 3300074}
   - component: {fileID: 2300074}
   - component: {fileID: 3449562729157383845}
+  - component: {fileID: 5512020023073049079}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -3724,6 +4243,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &5512020023073049079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100076
 GameObject:
   m_ObjectHideFlags: 0
@@ -3736,6 +4268,7 @@ GameObject:
   - component: {fileID: 3300076}
   - component: {fileID: 2300076}
   - component: {fileID: 4481676911679451104}
+  - component: {fileID: 6029682507844489301}
   m_Layer: 0
   m_Name: B10_ClosedMarket
   m_TagString: Untagged
@@ -3822,6 +4355,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: edb41674f5015154aaae9873717bb740, type: 3}
+--- !u!114 &6029682507844489301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100078
 GameObject:
   m_ObjectHideFlags: 0
@@ -3834,6 +4380,7 @@ GameObject:
   - component: {fileID: 3300078}
   - component: {fileID: 2300078}
   - component: {fileID: 5736872811172002867}
+  - component: {fileID: 7110111352741047750}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -3920,6 +4467,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &7110111352741047750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100080
 GameObject:
   m_ObjectHideFlags: 0
@@ -3932,6 +4492,7 @@ GameObject:
   - component: {fileID: 3300080}
   - component: {fileID: 2300080}
   - component: {fileID: 2409943531886140757}
+  - component: {fileID: 6945067500690356454}
   m_Layer: 0
   m_Name: B10_FlatWall
   m_TagString: Untagged
@@ -4018,6 +4579,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 64202b6306c48bc48be9477d08eb78c2, type: 3}
+--- !u!114 &6945067500690356454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100082
 GameObject:
   m_ObjectHideFlags: 0
@@ -4030,6 +4604,7 @@ GameObject:
   - component: {fileID: 3300082}
   - component: {fileID: 2300082}
   - component: {fileID: 7691383671912531722}
+  - component: {fileID: 8324395163768320587}
   m_Layer: 0
   m_Name: B10_RoofMiddle
   m_TagString: Untagged
@@ -4116,6 +4691,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 683ba7d4d33ead342ae46afa3ada107a, type: 3}
+--- !u!114 &8324395163768320587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100084
 GameObject:
   m_ObjectHideFlags: 0
@@ -4128,6 +4716,7 @@ GameObject:
   - component: {fileID: 3300084}
   - component: {fileID: 2300084}
   - component: {fileID: 7332363984911424536}
+  - component: {fileID: 8892763231410977813}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -4214,6 +4803,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &8892763231410977813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100086
 GameObject:
   m_ObjectHideFlags: 0
@@ -4226,6 +4828,7 @@ GameObject:
   - component: {fileID: 3300086}
   - component: {fileID: 2300086}
   - component: {fileID: 7751194971461350939}
+  - component: {fileID: 6651125123382585823}
   m_Layer: 0
   m_Name: B10_FlatWall
   m_TagString: Untagged
@@ -4312,6 +4915,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 64202b6306c48bc48be9477d08eb78c2, type: 3}
+--- !u!114 &6651125123382585823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100088
 GameObject:
   m_ObjectHideFlags: 0
@@ -4324,6 +4940,7 @@ GameObject:
   - component: {fileID: 3300088}
   - component: {fileID: 2300088}
   - component: {fileID: 8257114149608603037}
+  - component: {fileID: 7164863944865563663}
   m_Layer: 0
   m_Name: B10_WindowB
   m_TagString: Untagged
@@ -4410,6 +5027,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 2fc800156ada0424eae466ae77597ab1, type: 3}
+--- !u!114 &7164863944865563663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100090
 GameObject:
   m_ObjectHideFlags: 0
@@ -4422,6 +5052,7 @@ GameObject:
   - component: {fileID: 3300090}
   - component: {fileID: 2300090}
   - component: {fileID: 6970364849286725712}
+  - component: {fileID: 5113372852676548516}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -4508,6 +5139,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &5113372852676548516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100092
 GameObject:
   m_ObjectHideFlags: 0
@@ -4520,6 +5164,7 @@ GameObject:
   - component: {fileID: 3300092}
   - component: {fileID: 2300092}
   - component: {fileID: 5745969357984866021}
+  - component: {fileID: 5315336609768088682}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -4606,6 +5251,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &5315336609768088682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100094
 GameObject:
   m_ObjectHideFlags: 0
@@ -4618,6 +5276,7 @@ GameObject:
   - component: {fileID: 3300094}
   - component: {fileID: 2300094}
   - component: {fileID: 1043962664790704736}
+  - component: {fileID: 5334450622138119178}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -4704,6 +5363,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &5334450622138119178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100096
 GameObject:
   m_ObjectHideFlags: 0
@@ -4716,6 +5388,7 @@ GameObject:
   - component: {fileID: 3300096}
   - component: {fileID: 2300096}
   - component: {fileID: 3492747707687570908}
+  - component: {fileID: 1226893874791931019}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -4802,6 +5475,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &1226893874791931019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100098
 GameObject:
   m_ObjectHideFlags: 0
@@ -4814,6 +5500,7 @@ GameObject:
   - component: {fileID: 3300098}
   - component: {fileID: 2300098}
   - component: {fileID: 6643452582918952995}
+  - component: {fileID: 9081531359902832015}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -4900,6 +5587,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &9081531359902832015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100100
 GameObject:
   m_ObjectHideFlags: 0
@@ -4912,6 +5612,7 @@ GameObject:
   - component: {fileID: 3300100}
   - component: {fileID: 2300100}
   - component: {fileID: 3008874801679831144}
+  - component: {fileID: 5238598936758732915}
   m_Layer: 0
   m_Name: B10_ClosedMarket
   m_TagString: Untagged
@@ -4998,6 +5699,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: edb41674f5015154aaae9873717bb740, type: 3}
+--- !u!114 &5238598936758732915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100102
 GameObject:
   m_ObjectHideFlags: 0
@@ -5010,6 +5724,7 @@ GameObject:
   - component: {fileID: 3300102}
   - component: {fileID: 2300102}
   - component: {fileID: 2732561978984460570}
+  - component: {fileID: 6959084830250922080}
   m_Layer: 0
   m_Name: B10_ClosedMarket
   m_TagString: Untagged
@@ -5096,6 +5811,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: edb41674f5015154aaae9873717bb740, type: 3}
+--- !u!114 &6959084830250922080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100104
 GameObject:
   m_ObjectHideFlags: 0
@@ -5108,6 +5836,7 @@ GameObject:
   - component: {fileID: 3300104}
   - component: {fileID: 2300104}
   - component: {fileID: 4058397361239053019}
+  - component: {fileID: 2417988824589544463}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -5194,6 +5923,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &2417988824589544463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100106
 GameObject:
   m_ObjectHideFlags: 0
@@ -5206,6 +5948,7 @@ GameObject:
   - component: {fileID: 3300106}
   - component: {fileID: 2300106}
   - component: {fileID: 7869688673842977039}
+  - component: {fileID: 319311919906011422}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -5292,6 +6035,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &319311919906011422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100108
 GameObject:
   m_ObjectHideFlags: 0
@@ -5304,6 +6060,7 @@ GameObject:
   - component: {fileID: 3300108}
   - component: {fileID: 2300108}
   - component: {fileID: 4044713415934841043}
+  - component: {fileID: 8892608242754445929}
   m_Layer: 0
   m_Name: B10_ClosedMarket
   m_TagString: Untagged
@@ -5390,6 +6147,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: edb41674f5015154aaae9873717bb740, type: 3}
+--- !u!114 &8892608242754445929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100110
 GameObject:
   m_ObjectHideFlags: 0
@@ -5402,6 +6172,7 @@ GameObject:
   - component: {fileID: 3300110}
   - component: {fileID: 2300110}
   - component: {fileID: 7715225036921088561}
+  - component: {fileID: 4592117369930586590}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -5488,6 +6259,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &4592117369930586590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100112
 GameObject:
   m_ObjectHideFlags: 0
@@ -5500,6 +6284,7 @@ GameObject:
   - component: {fileID: 3300112}
   - component: {fileID: 2300112}
   - component: {fileID: 4983058257592150665}
+  - component: {fileID: 8978305030907816683}
   m_Layer: 0
   m_Name: B10_ClosedMarket
   m_TagString: Untagged
@@ -5586,6 +6371,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: edb41674f5015154aaae9873717bb740, type: 3}
+--- !u!114 &8978305030907816683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100114
 GameObject:
   m_ObjectHideFlags: 0
@@ -5598,6 +6396,7 @@ GameObject:
   - component: {fileID: 3300114}
   - component: {fileID: 2300114}
   - component: {fileID: 3342640285382113806}
+  - component: {fileID: 4091625192835822609}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -5684,6 +6483,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &4091625192835822609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100116
 GameObject:
   m_ObjectHideFlags: 0
@@ -5696,6 +6508,7 @@ GameObject:
   - component: {fileID: 3300116}
   - component: {fileID: 2300116}
   - component: {fileID: 1499044549680905625}
+  - component: {fileID: 3192836838709363598}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -5782,6 +6595,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &3192836838709363598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100118
 GameObject:
   m_ObjectHideFlags: 0
@@ -5794,6 +6620,7 @@ GameObject:
   - component: {fileID: 3300118}
   - component: {fileID: 2300118}
   - component: {fileID: 1832623425611047739}
+  - component: {fileID: 2821088746832316993}
   m_Layer: 0
   m_Name: B10_RoofMiddle
   m_TagString: Untagged
@@ -5880,6 +6707,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 683ba7d4d33ead342ae46afa3ada107a, type: 3}
+--- !u!114 &2821088746832316993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100120
 GameObject:
   m_ObjectHideFlags: 0
@@ -5892,6 +6732,7 @@ GameObject:
   - component: {fileID: 3300120}
   - component: {fileID: 2300120}
   - component: {fileID: 4504158985457423596}
+  - component: {fileID: 5236907650210952300}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -5978,6 +6819,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &5236907650210952300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100122
 GameObject:
   m_ObjectHideFlags: 0
@@ -5990,6 +6844,7 @@ GameObject:
   - component: {fileID: 3300122}
   - component: {fileID: 2300122}
   - component: {fileID: 5356870669256609990}
+  - component: {fileID: 6345481135121993193}
   m_Layer: 0
   m_Name: B10_RoofSide
   m_TagString: Untagged
@@ -6076,6 +6931,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e058d7bdbd4f0c24cad078cda6a256df, type: 3}
+--- !u!114 &6345481135121993193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100124
 GameObject:
   m_ObjectHideFlags: 0
@@ -6088,6 +6956,7 @@ GameObject:
   - component: {fileID: 3300124}
   - component: {fileID: 2300124}
   - component: {fileID: 726570387936125622}
+  - component: {fileID: 6942631333003020560}
   m_Layer: 0
   m_Name: B10_Door
   m_TagString: Untagged
@@ -6174,6 +7043,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: fa4b8b7d1621ad74cb56a581e7750e30, type: 3}
+--- !u!114 &6942631333003020560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100126
 GameObject:
   m_ObjectHideFlags: 0
@@ -6186,6 +7068,7 @@ GameObject:
   - component: {fileID: 3300126}
   - component: {fileID: 2300126}
   - component: {fileID: 1367991875582087414}
+  - component: {fileID: 4495357572542520529}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -6272,6 +7155,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &4495357572542520529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100128
 GameObject:
   m_ObjectHideFlags: 0
@@ -6284,6 +7180,7 @@ GameObject:
   - component: {fileID: 3300128}
   - component: {fileID: 2300128}
   - component: {fileID: 5338027495911114255}
+  - component: {fileID: 5573624980022203649}
   m_Layer: 0
   m_Name: B10_WindowB
   m_TagString: Untagged
@@ -6370,6 +7267,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 2fc800156ada0424eae466ae77597ab1, type: 3}
+--- !u!114 &5573624980022203649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100130
 GameObject:
   m_ObjectHideFlags: 0
@@ -6382,6 +7292,7 @@ GameObject:
   - component: {fileID: 3300130}
   - component: {fileID: 2300130}
   - component: {fileID: 7303044958230089122}
+  - component: {fileID: 3089815665734054368}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -6468,6 +7379,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &3089815665734054368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100132
 GameObject:
   m_ObjectHideFlags: 0
@@ -6480,6 +7404,7 @@ GameObject:
   - component: {fileID: 3300132}
   - component: {fileID: 2300132}
   - component: {fileID: 8541232694624880061}
+  - component: {fileID: 2186923987870851337}
   m_Layer: 0
   m_Name: B10_WindowB
   m_TagString: Untagged
@@ -6566,6 +7491,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 2fc800156ada0424eae466ae77597ab1, type: 3}
+--- !u!114 &2186923987870851337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100134
 GameObject:
   m_ObjectHideFlags: 0
@@ -6578,6 +7516,7 @@ GameObject:
   - component: {fileID: 3300134}
   - component: {fileID: 2300134}
   - component: {fileID: 168983606464552395}
+  - component: {fileID: 4926508746041164446}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -6664,6 +7603,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &4926508746041164446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100136
 GameObject:
   m_ObjectHideFlags: 0
@@ -6676,6 +7628,7 @@ GameObject:
   - component: {fileID: 3300136}
   - component: {fileID: 2300136}
   - component: {fileID: 7176375448148505960}
+  - component: {fileID: 1935379313191172073}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -6762,6 +7715,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &1935379313191172073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100138
 GameObject:
   m_ObjectHideFlags: 0
@@ -6774,6 +7740,7 @@ GameObject:
   - component: {fileID: 3300138}
   - component: {fileID: 2300138}
   - component: {fileID: 6323275155515221678}
+  - component: {fileID: 1062264449849511735}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -6860,6 +7827,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &1062264449849511735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100140
 GameObject:
   m_ObjectHideFlags: 0
@@ -6872,6 +7852,7 @@ GameObject:
   - component: {fileID: 3300140}
   - component: {fileID: 2300140}
   - component: {fileID: 7272162666408552510}
+  - component: {fileID: 8789350799846877482}
   m_Layer: 0
   m_Name: B10_FlatWall
   m_TagString: Untagged
@@ -6958,6 +7939,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 64202b6306c48bc48be9477d08eb78c2, type: 3}
+--- !u!114 &8789350799846877482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100142
 GameObject:
   m_ObjectHideFlags: 0
@@ -7095,6 +8089,7 @@ GameObject:
   - component: {fileID: 3300142}
   - component: {fileID: 2300142}
   - component: {fileID: 3393668179585656589}
+  - component: {fileID: 8309706678826261809}
   m_Layer: 0
   m_Name: B10_WindowB
   m_TagString: Untagged
@@ -7181,6 +8176,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 2fc800156ada0424eae466ae77597ab1, type: 3}
+--- !u!114 &8309706678826261809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100146
 GameObject:
   m_ObjectHideFlags: 0
@@ -7193,6 +8201,7 @@ GameObject:
   - component: {fileID: 3300144}
   - component: {fileID: 2300144}
   - component: {fileID: 700929381003635259}
+  - component: {fileID: 6121067351387103529}
   m_Layer: 0
   m_Name: B10_WindowB
   m_TagString: Untagged
@@ -7279,6 +8288,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 2fc800156ada0424eae466ae77597ab1, type: 3}
+--- !u!114 &6121067351387103529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100148
 GameObject:
   m_ObjectHideFlags: 0
@@ -7291,6 +8313,7 @@ GameObject:
   - component: {fileID: 3300146}
   - component: {fileID: 2300146}
   - component: {fileID: 3993663292913789392}
+  - component: {fileID: 480672621224399121}
   m_Layer: 0
   m_Name: B10_WindowB
   m_TagString: Untagged
@@ -7377,6 +8400,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 2fc800156ada0424eae466ae77597ab1, type: 3}
+--- !u!114 &480672621224399121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100150
 GameObject:
   m_ObjectHideFlags: 0
@@ -7389,6 +8425,7 @@ GameObject:
   - component: {fileID: 3300148}
   - component: {fileID: 2300148}
   - component: {fileID: 107643178706564714}
+  - component: {fileID: 512636768796821854}
   m_Layer: 0
   m_Name: B10_FlatWall
   m_TagString: Untagged
@@ -7475,6 +8512,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 64202b6306c48bc48be9477d08eb78c2, type: 3}
+--- !u!114 &512636768796821854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100152
 GameObject:
   m_ObjectHideFlags: 0
@@ -7487,6 +8537,7 @@ GameObject:
   - component: {fileID: 3300150}
   - component: {fileID: 2300150}
   - component: {fileID: 825418269907026213}
+  - component: {fileID: 7528958048674016504}
   m_Layer: 0
   m_Name: B10_RoofSide
   m_TagString: Untagged
@@ -7573,6 +8624,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e058d7bdbd4f0c24cad078cda6a256df, type: 3}
+--- !u!114 &7528958048674016504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100154
 GameObject:
   m_ObjectHideFlags: 0
@@ -7585,6 +8649,7 @@ GameObject:
   - component: {fileID: 3300152}
   - component: {fileID: 2300152}
   - component: {fileID: 5599323642893512273}
+  - component: {fileID: 6881541039729186270}
   m_Layer: 0
   m_Name: B10_WindowB
   m_TagString: Untagged
@@ -7671,6 +8736,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 2fc800156ada0424eae466ae77597ab1, type: 3}
+--- !u!114 &6881541039729186270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100156
 GameObject:
   m_ObjectHideFlags: 0
@@ -7683,6 +8761,7 @@ GameObject:
   - component: {fileID: 3300154}
   - component: {fileID: 2300154}
   - component: {fileID: 1566085185436569037}
+  - component: {fileID: 4021143957397112381}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -7769,6 +8848,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &4021143957397112381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100158
 GameObject:
   m_ObjectHideFlags: 0
@@ -7781,6 +8873,7 @@ GameObject:
   - component: {fileID: 3300156}
   - component: {fileID: 2300156}
   - component: {fileID: 2992446609184912276}
+  - component: {fileID: 4918555240536770656}
   m_Layer: 0
   m_Name: B10_WindowA3x
   m_TagString: Untagged
@@ -7867,6 +8960,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 9e01427edac489a4091b6f6d633fbabf, type: 3}
+--- !u!114 &4918555240536770656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100160
 GameObject:
   m_ObjectHideFlags: 0
@@ -7879,6 +8985,7 @@ GameObject:
   - component: {fileID: 3300158}
   - component: {fileID: 2300158}
   - component: {fileID: 2715604808738853314}
+  - component: {fileID: 4161786171342736185}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -7965,6 +9072,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &4161786171342736185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100162
 GameObject:
   m_ObjectHideFlags: 0
@@ -7977,6 +9097,7 @@ GameObject:
   - component: {fileID: 3300160}
   - component: {fileID: 2300160}
   - component: {fileID: 2387767001438932999}
+  - component: {fileID: 5490788787654830382}
   m_Layer: 0
   m_Name: B10_FlatWall
   m_TagString: Untagged
@@ -8063,6 +9184,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 64202b6306c48bc48be9477d08eb78c2, type: 3}
+--- !u!114 &5490788787654830382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100164
 GameObject:
   m_ObjectHideFlags: 0
@@ -8075,6 +9209,7 @@ GameObject:
   - component: {fileID: 3300162}
   - component: {fileID: 2300162}
   - component: {fileID: 4166083293431885940}
+  - component: {fileID: 6255753451384610268}
   m_Layer: 0
   m_Name: B10_FlatWall
   m_TagString: Untagged
@@ -8161,6 +9296,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 64202b6306c48bc48be9477d08eb78c2, type: 3}
+--- !u!114 &6255753451384610268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100166
 GameObject:
   m_ObjectHideFlags: 0
@@ -8173,6 +9321,7 @@ GameObject:
   - component: {fileID: 3300164}
   - component: {fileID: 2300164}
   - component: {fileID: 7053839514552350226}
+  - component: {fileID: 8962156658249737525}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -8259,6 +9408,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &8962156658249737525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100168
 GameObject:
   m_ObjectHideFlags: 0
@@ -8271,6 +9433,7 @@ GameObject:
   - component: {fileID: 3300166}
   - component: {fileID: 2300166}
   - component: {fileID: 517082412396268741}
+  - component: {fileID: 4447339353594652710}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -8357,6 +9520,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &4447339353594652710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100170
 GameObject:
   m_ObjectHideFlags: 0
@@ -8369,6 +9545,7 @@ GameObject:
   - component: {fileID: 3300168}
   - component: {fileID: 2300168}
   - component: {fileID: 7698101694719388874}
+  - component: {fileID: 6261809071771534633}
   m_Layer: 0
   m_Name: B10_FlatWall
   m_TagString: Untagged
@@ -8455,6 +9632,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 64202b6306c48bc48be9477d08eb78c2, type: 3}
+--- !u!114 &6261809071771534633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100172
 GameObject:
   m_ObjectHideFlags: 0
@@ -8467,6 +9657,7 @@ GameObject:
   - component: {fileID: 3300170}
   - component: {fileID: 2300170}
   - component: {fileID: 1969922470125777107}
+  - component: {fileID: 3379722948492021711}
   m_Layer: 0
   m_Name: B10_FlatWall
   m_TagString: Untagged
@@ -8553,6 +9744,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 64202b6306c48bc48be9477d08eb78c2, type: 3}
+--- !u!114 &3379722948492021711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100174
 GameObject:
   m_ObjectHideFlags: 0
@@ -8565,6 +9769,7 @@ GameObject:
   - component: {fileID: 3300172}
   - component: {fileID: 2300172}
   - component: {fileID: 2960037065063328259}
+  - component: {fileID: 1539931145958376692}
   m_Layer: 0
   m_Name: B10_RoofMiddle
   m_TagString: Untagged
@@ -8651,6 +9856,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 683ba7d4d33ead342ae46afa3ada107a, type: 3}
+--- !u!114 &1539931145958376692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100176
 GameObject:
   m_ObjectHideFlags: 0
@@ -8663,6 +9881,7 @@ GameObject:
   - component: {fileID: 3300174}
   - component: {fileID: 2300174}
   - component: {fileID: 7580284966651208405}
+  - component: {fileID: 6758648292515088475}
   m_Layer: 0
   m_Name: B10_WindowB
   m_TagString: Untagged
@@ -8749,6 +9968,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 2fc800156ada0424eae466ae77597ab1, type: 3}
+--- !u!114 &6758648292515088475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100178
 GameObject:
   m_ObjectHideFlags: 0
@@ -8761,6 +9993,7 @@ GameObject:
   - component: {fileID: 3300176}
   - component: {fileID: 2300176}
   - component: {fileID: 8401407714141644512}
+  - component: {fileID: 2210651800997412573}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -8847,6 +10080,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &2210651800997412573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100180
 GameObject:
   m_ObjectHideFlags: 0
@@ -8859,6 +10105,7 @@ GameObject:
   - component: {fileID: 3300178}
   - component: {fileID: 2300178}
   - component: {fileID: 4755810068426686417}
+  - component: {fileID: 527500629740541831}
   m_Layer: 0
   m_Name: B10_RoofMiddle
   m_TagString: Untagged
@@ -8945,6 +10192,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 683ba7d4d33ead342ae46afa3ada107a, type: 3}
+--- !u!114 &527500629740541831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100182
 GameObject:
   m_ObjectHideFlags: 0
@@ -8957,6 +10217,7 @@ GameObject:
   - component: {fileID: 3300180}
   - component: {fileID: 2300180}
   - component: {fileID: 6484170256692071186}
+  - component: {fileID: 2578776435967541222}
   m_Layer: 0
   m_Name: B10_BricksWall
   m_TagString: Untagged
@@ -9043,6 +10304,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 172e827a49c154d4c9c26c3bff8b2e98, type: 3}
+--- !u!114 &2578776435967541222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100184
 GameObject:
   m_ObjectHideFlags: 0
@@ -9055,6 +10329,7 @@ GameObject:
   - component: {fileID: 3300182}
   - component: {fileID: 2300182}
   - component: {fileID: 1376114516818343156}
+  - component: {fileID: 4587445693886712397}
   m_Layer: 0
   m_Name: B10_WallWithWindow
   m_TagString: Untagged
@@ -9141,6 +10416,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: af8a669a68572c04dbf795f8ecec031d, type: 3}
+--- !u!114 &4587445693886712397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100186
 GameObject:
   m_ObjectHideFlags: 0
@@ -9153,6 +10441,7 @@ GameObject:
   - component: {fileID: 3300184}
   - component: {fileID: 2300184}
   - component: {fileID: 6998799158941548482}
+  - component: {fileID: 2398577384445061225}
   m_Layer: 0
   m_Name: B10_RoofSide
   m_TagString: Untagged
@@ -9239,6 +10528,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e058d7bdbd4f0c24cad078cda6a256df, type: 3}
+--- !u!114 &2398577384445061225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &100188
 GameObject:
   m_ObjectHideFlags: 0
@@ -9251,6 +10553,7 @@ GameObject:
   - component: {fileID: 3300186}
   - component: {fileID: 2300186}
   - component: {fileID: 3264658691693569702}
+  - component: {fileID: 3043387738550162345}
   m_Layer: 0
   m_Name: B10_WindowA3x
   m_TagString: Untagged
@@ -9337,3 +10640,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 9e01427edac489a4091b6f6d633fbabf, type: 3}
+--- !u!114 &3043387738550162345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100

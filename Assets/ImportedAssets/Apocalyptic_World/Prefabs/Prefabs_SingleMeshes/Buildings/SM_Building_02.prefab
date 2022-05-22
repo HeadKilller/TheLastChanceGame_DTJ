@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 947041720073497367}
   - component: {fileID: 2843713340767591720}
   - component: {fileID: 1290862647252523275}
+  - component: {fileID: 5218423327697123979}
   m_Layer: 0
   m_Name: SM_Building_02_LOD1
   m_TagString: Untagged
@@ -84,6 +85,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5218423327697123979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117467672201716554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &6339896137206394284
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +110,7 @@ GameObject:
   - component: {fileID: 4886970528551402539}
   - component: {fileID: 5733264806846280510}
   - component: {fileID: 162797172515772768}
+  - component: {fileID: 5201403656760807085}
   m_Layer: 0
   m_Name: SM_Building_02_LOD0
   m_TagString: Untagged
@@ -184,6 +199,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4900306861971504178, guid: 9e86c9c3a45d9d1449436b72273a0dac, type: 3}
+--- !u!114 &5201403656760807085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6339896137206394284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &8170570120153972843
 GameObject:
   m_ObjectHideFlags: 0

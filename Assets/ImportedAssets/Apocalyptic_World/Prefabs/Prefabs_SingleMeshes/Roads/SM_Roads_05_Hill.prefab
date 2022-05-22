@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 8939683018247175051}
   - component: {fileID: 175112834520269349}
   - component: {fileID: 705644980}
+  - component: {fileID: 3802005876802052752}
   m_Layer: 0
   m_Name: SM_Roads_05_Hill_LOD0
   m_TagString: Untagged
@@ -171,6 +172,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6141353594903975610, guid: ce77e9bc06a759e418e039646122570c, type: 3}
+--- !u!114 &3802005876802052752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8572611586312571518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
 --- !u!1 &9131876216513369913
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +196,7 @@ GameObject:
   - component: {fileID: 8602828015880840428}
   - component: {fileID: 724321408432980238}
   - component: {fileID: 3682067463627773324}
+  - component: {fileID: 3317960397836673336}
   m_Layer: 0
   m_Name: SM_Roads_05_Hill_LOD1
   m_TagString: Untagged
@@ -254,3 +269,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3317960397836673336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9131876216513369913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05904dcde8ff99848833f06034ba8180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToAppear: 100
