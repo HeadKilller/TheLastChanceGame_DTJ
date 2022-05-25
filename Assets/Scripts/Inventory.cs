@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] GameObject inventoryGameObject;
     [SerializeField] GameObject inventorySlotsParent;
 
+    [SerializeField] GameObject gunsWheel_Panel;
 
     [SerializeField] GameObject confirmationWindow_GameObject;
  
@@ -36,7 +37,26 @@ public class Inventory : MonoBehaviour
     List<Items> inventorySlotsContent;
     List<int> inventorySlotsCurrentCapacity;
 
-    
+    public bool IsMovingItem;
+    GameObject SlotWhereToMove;
+    GameObject SlotFromWhereToMove;
+    public List<GameObject> Inventory_Slots
+    {
+        get { return inventory_Slots; }
+    }
+    public List<Items> Inventory_SlotsContent
+    {
+        get { return inventorySlotsContent; }
+    }
+    public GameObject InvPanel
+    {
+        get { return inventorySlotsParent; }
+    }
+    public GameObject GunsWheelPanel
+    {
+        get { return gunsWheel_Panel; }
+    }
+
     private void Awake()
     {
         #region Variables Initialization
@@ -48,17 +68,20 @@ public class Inventory : MonoBehaviour
         inventorySlotsCurrentCapacity = new List<int>();
 
         
+        
 
         #endregion
 
         #region Variables First Values
 
         gameObjectToDestroy = null;
+        SlotWhereToMove = null;
+        SlotFromWhereToMove = null;
         slotMaxCapacity = 99;
 
         int count = 1;
 
-
+        IsMovingItem = false;
 
         foreach (Transform child in inventorySlotsParent.GetComponentsInChildren<Transform>())
         {
@@ -176,9 +199,34 @@ public class Inventory : MonoBehaviour
         //Debug.Log("Picking up " + item.name);
 
     }
-    
+    public void AddItemToSlot(GameObject slotToAdd, Items item, int quantityToAdd)
+    {
 
-    public void RemoveItem(GameObject _gameObject)
+        int index = inventory_Slots.IndexOf(slotToAdd);
+
+        if(inventorySlotsContent[index] == null)
+        {
+
+            inventorySlotsContent[index] = item;
+            inventorySlotsCurrentCapacity[index] += quantityToAdd;
+            ActivateSlot(slotToAdd, index);
+
+        }
+        if (item.isStackable && inventorySlotsContent[index] == item)
+        {
+            inventorySlotsContent[index] = item;
+            inventorySlotsCurrentCapacity[index] += quantityToAdd;
+            //ActivateSlot(slotToAdd, index);
+        }
+
+        TextMeshProUGUI text = inventory_Slots[index].GetComponentInChildren<TextMeshProUGUI>();
+        if (text != null)
+            text.SetText(inventorySlotsCurrentCapacity[index].ToString());
+
+
+    }
+   
+    public void RemoveItem(GameObject _gameObject, bool isMovingItem, GameObject slotToMove)
     {
 
 
@@ -201,6 +249,11 @@ public class Inventory : MonoBehaviour
         }
         */
         #endregion
+
+        IsMovingItem = isMovingItem;
+        SlotWhereToMove = slotToMove;
+        if(isMovingItem)
+            SlotFromWhereToMove = _gameObject;
 
         int index = -1;
 
@@ -263,6 +316,7 @@ public class Inventory : MonoBehaviour
     public void InventoryOpen_Close(InputAction.CallbackContext context)
     {
         inventoryGameObject.SetActive(!inventoryGameObject.activeSelf);
+        gunsWheel_Panel.SetActive(!gunsWheel_Panel.activeSelf);
 
         if (inventoryGameObject.activeSelf)
         {
@@ -283,6 +337,7 @@ public class Inventory : MonoBehaviour
     public void Close_Inventory()
     {
         inventoryGameObject.SetActive(false);
+        gunsWheel_Panel.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -294,14 +349,16 @@ public class Inventory : MonoBehaviour
 
         foreach (Transform child in _gameObject.GetComponentsInChildren<Transform>())
         {
-            Debug.Log(child.name);
+            //Debug.Log(child.name);
             if (child.name == "SlotButton")
             {                  
                 child.GetComponent<Button>().enabled = true;
             }
 
-            if(child.name == "SlotImage")
+            if(child.name.Contains("SlotImage"))
             {
+                Debug.Log("Slot : " +slot);
+                Debug.Log(inventorySlotsContent.Count);
                 child.GetComponent<Image>().sprite = inventorySlotsContent[slot].icon;
                 child.GetComponent<Image>().enabled = true;
                 child.GetComponent<ItemDragHandler>().enabled = true;
@@ -337,11 +394,11 @@ public class Inventory : MonoBehaviour
             {                
                 child.GetComponent<Button>().enabled = false;
             }
-            if (child.name == "SlotImage")
+            if (child.name.Contains("SlotImage"))
             {
                 child.GetComponent<Image>().sprite = null;
-                child.GetComponent<Image>().enabled = true;
-                child.GetComponent<ItemDragHandler>().enabled = true;
+                child.GetComponent<Image>().enabled = false;
+                child.GetComponent<ItemDragHandler>().enabled = false;
             }
             if (child.name == "EmptySlotButton")
             {
@@ -365,6 +422,19 @@ public class Inventory : MonoBehaviour
             inventorySlotsCurrentCapacity[index] -= (int)confirmationWindow_Slider.value;
         else
             inventorySlotsCurrentCapacity[index] = 0;
+
+        //Caso esteja a mover um item de um slot para outro.
+        if (IsMovingItem)
+        {
+            AddItemToSlot(SlotWhereToMove, inventorySlotsContent[index], (int)confirmationWindow_Slider.value);
+            if (inventorySlotsCurrentCapacity[index] == 0)
+            {
+                DeActivateSlot(SlotFromWhereToMove);
+                SlotFromWhereToMove = null;
+                SlotWhereToMove = null;
+                IsMovingItem = false;
+            }
+        }
 
 
         TextMeshProUGUI text = gameObjectToDestroy.GetComponentInChildren<TextMeshProUGUI>();

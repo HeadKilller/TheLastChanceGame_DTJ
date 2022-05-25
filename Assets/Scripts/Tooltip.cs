@@ -16,7 +16,7 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         if(itemInInventory_OnHovering != null)
         {
-            Debug.Log("In Inventory");
+            //Debug.Log("In Inventory");
 
             string content = itemInInventory_OnHovering.description;
             string header = itemInInventory_OnHovering.name;
@@ -26,7 +26,7 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
         else if(itemInCraftingSlot_OnHovering != null)
         {
-            Debug.Log("Crafting Slot");
+            //Debug.Log("Crafting Slot");
 
             string content = itemInCraftingSlot_OnHovering.description;
             string header = itemInCraftingSlot_OnHovering.name;
@@ -37,7 +37,7 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
         else if(itemInCraftingQueueSlot_OnHovering != null)
         {
-            Debug.Log("Crafting Queue Slot");
+            //Debug.Log("Crafting Queue Slot");
 
             string content = itemInCraftingQueueSlot_OnHovering.description;
             string header = itemInCraftingQueueSlot_OnHovering.name;

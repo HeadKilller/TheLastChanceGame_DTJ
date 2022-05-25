@@ -64,7 +64,9 @@ public class PlayerInteraction : MonoBehaviour
 
                 equippedGun = raycastHit.transform.gameObject;
 
-                this.GetComponent<PlayerGun>().EquipGun(equippedGun);
+                //this.GetComponent<PlayerGun>().EquipGun(equippedGun);
+
+                Inventory.instance.AddItem(equippedGun, equippedGun.GetComponent<ItemData>().Gun, true);
 
                 return;
             }
@@ -93,7 +95,7 @@ public class PlayerInteraction : MonoBehaviour
                 Destroy(raycastHit.transform.gameObject);
             }
 
-            Debug.Log(raycastHit.transform.name);
+            //Debug.Log(raycastHit.transform.name);
             if(raycastHit.transform.name == "OutsideButton" || raycastHit.transform.name == "InsideButton")
             {
                 raycastHit.transform.GetComponent<ButtonOpenGate>().activated = true;
