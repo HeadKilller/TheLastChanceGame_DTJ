@@ -129,7 +129,6 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 
         }
 
-        Debug.Log(invSlotsTransform.Count);
 
     }
     

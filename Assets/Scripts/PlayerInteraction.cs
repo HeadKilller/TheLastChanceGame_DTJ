@@ -83,7 +83,12 @@ public class PlayerInteraction : MonoBehaviour
             {
                 Debug.Log("Picking Up Material");
 
-                raycastHit.transform.gameObject.GetComponent<ItemData>().DropItem();
+                GameObject material = raycastHit.transform.gameObject;
+
+                //raycastHit.transform.gameObject.GetComponent<ItemData>().DropItem();
+
+                Inventory.instance.AddItem(material, material.GetComponent<ItemData>().Item, true);
+
             }
 
             if(raycastHit.transform.tag == "Munition")

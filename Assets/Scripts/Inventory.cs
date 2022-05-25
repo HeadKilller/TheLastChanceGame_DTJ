@@ -134,6 +134,7 @@ public class Inventory : MonoBehaviour
 
     #region Inventory
 
+    //Função chamada para adicionar itens ao inventário, sem uma slot específica para adicionar.
     public void AddItem(GameObject _gameObject, Items item, bool toDestroy)
     {
 
@@ -199,6 +200,8 @@ public class Inventory : MonoBehaviour
         //Debug.Log("Picking up " + item.name);
 
     }
+
+    //Função chamada para adicionar itens a uma slot específica do inventário.
     public void AddItemToSlot(GameObject slotToAdd, Items item, int quantityToAdd)
     {
 
@@ -212,7 +215,7 @@ public class Inventory : MonoBehaviour
             ActivateSlot(slotToAdd, index);
 
         }
-        if (item.isStackable && inventorySlotsContent[index] == item)
+        else if (item.isStackable && inventorySlotsContent[index] == item)
         {
             inventorySlotsContent[index] = item;
             inventorySlotsCurrentCapacity[index] += quantityToAdd;
@@ -226,7 +229,8 @@ public class Inventory : MonoBehaviour
 
     }
    
-    public void RemoveItem(GameObject _gameObject, bool isMovingItem, GameObject slotToMove)
+    //Função chamada quando se move itens no inventário.
+    public void RemoveItem(GameObject slot, bool isMovingItem, GameObject slotToMove)
     {
 
 
@@ -253,14 +257,14 @@ public class Inventory : MonoBehaviour
         IsMovingItem = isMovingItem;
         SlotWhereToMove = slotToMove;
         if(isMovingItem)
-            SlotFromWhereToMove = _gameObject;
+            SlotFromWhereToMove = slot;
 
         int index = -1;
 
         for(int i = 0; i < inventory_Slots.Count; i++)
         {
 
-            if (inventory_Slots[i] == _gameObject)
+            if (inventory_Slots[i] == slot)
                 index = i;
         }
 
@@ -268,11 +272,32 @@ public class Inventory : MonoBehaviour
 
         confirmationWindow_Slider.maxValue = inventorySlotsCurrentCapacity[index];
 
-        gameObjectToDestroy = _gameObject;
+        gameObjectToDestroy = slot;
 
         
     }
 
+    //Função ao chamar quando se carrega no botão para remover itens do inventário.
+    public void RemoveItem(GameObject slot)
+    {
+        int index = -1;
+
+        for (int i = 0; i < inventory_Slots.Count; i++)
+        {
+
+            if (inventory_Slots[i] == slot)
+                index = i;
+        }
+
+        confirmationWindow_GameObject.SetActive(true);
+
+        confirmationWindow_Slider.maxValue = inventorySlotsCurrentCapacity[index];
+
+        gameObjectToDestroy = slot;
+
+    }
+
+    //Função chamada ao dar craft de itens.
     public void RemoveItem(Items item, int quantityToRemove)
     {
 
@@ -313,6 +338,7 @@ public class Inventory : MonoBehaviour
 
     }
 
+    //Função chamada ao carregar na tecla para abrir/fechar o inventário.
     public void InventoryOpen_Close(InputAction.CallbackContext context)
     {
         inventoryGameObject.SetActive(!inventoryGameObject.activeSelf);
@@ -334,6 +360,7 @@ public class Inventory : MonoBehaviour
 
     }
 
+    //Função chamada ao carregar no botão para fechar o inventário.
     public void Close_Inventory()
     {
         inventoryGameObject.SetActive(false);
@@ -343,6 +370,7 @@ public class Inventory : MonoBehaviour
 
     }
 
+    //Função chamada para ativar as slots do inventário.
     private void ActivateSlot(GameObject _gameObject, int slot)
     {
         
@@ -357,8 +385,6 @@ public class Inventory : MonoBehaviour
 
             if(child.name.Contains("SlotImage"))
             {
-                Debug.Log("Slot : " +slot);
-                Debug.Log(inventorySlotsContent.Count);
                 child.GetComponent<Image>().sprite = inventorySlotsContent[slot].icon;
                 child.GetComponent<Image>().enabled = true;
                 child.GetComponent<ItemDragHandler>().enabled = true;
@@ -373,6 +399,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    //Função chamada para desativar as slots do inventário.
     private void DeActivateSlot(GameObject _gameObject)
     {
         int index = -1;
@@ -408,6 +435,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    //Função chamada no momento em que se confirma quantos itens para remover/mover.
     public void DestroyItem()
     {
 
@@ -453,7 +481,8 @@ public class Inventory : MonoBehaviour
         confirmationWindow_GameObject.SetActive(false);
 
     }
-
+    
+    //Função chamada para mudar o número que mostra quantos itens selecionados no slider na janela de confirmação do inventário.
     public void ChangeSliderValue()
     {
 
@@ -467,12 +496,13 @@ public class Inventory : MonoBehaviour
 
         int value = (int)confirmationWindow_Slider.value;
 
-        Debug.Log(value);
+        //Debug.Log(value);
 
         if (textTMP != null)
             textTMP.text = value.ToString();
     }
 
+    //Função chamada quando se está a fazer Craft de itens. Verifica se tem um específico número de certos materiais no inventário.
     public bool CheckIfHasInInventory(Items material, int materialNum)
     {
 
@@ -506,35 +536,36 @@ public class Inventory : MonoBehaviour
     void CheckIfIsOverUI()
     {
 
-        RaycastHit hit;
+        //RaycastHit hit;
 
-        Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        //Debug.Log("mouse position : " + mouseRay.origin);
-
-
-        if (Physics.Raycast(mouseRay, out hit) && hit.collider.tag == "UI")
-        {
-            //Debug.Log("Is over : " + hit.collider.gameObject.name);
-
-            for(int i = 0; i < inventory_Slots.Count; i++)
-            {
-
-                if(hit.collider.gameObject == inventory_Slots[i] && inventorySlotsContent[i] != null)
-                {
+        ////Debug.Log("mouse position : " + mouseRay.origin);
 
 
+        //if (Physics.Raycast(mouseRay, out hit) && hit.collider.tag == "UI")
+        //{
+        //    //Debug.Log("Is over : " + hit.collider.gameObject.name);
 
-                }
+        //    for(int i = 0; i < inventory_Slots.Count; i++)
+        //    {
 
-            }
+        //        if(hit.collider.gameObject == inventory_Slots[i] && inventorySlotsContent[i] != null)
+        //        {
+
+
+
+        //        }
+
+        //    }
 
             
 
-        }
+        //}
 
     }
 
+    //Função chamada para verificar que item o rato está em cima. Serve para mostrar os tooltips.
     public Items CheckItemOnHover(GameObject inventorySlot)
     {
 
