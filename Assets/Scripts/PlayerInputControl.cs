@@ -98,6 +98,15 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Run"",
+                    ""type"": ""Button"",
+                    ""id"": ""d2f9f8cc-9904-4724-9fa6-23fd0b950422"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -232,6 +241,17 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
                     ""action"": ""ChangeGun"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""77fbb014-e18b-417c-825c-2d45c8247b3d"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -296,6 +316,7 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
         m_PlayerOnFoot_Interact = m_PlayerOnFoot.FindAction("Interact", throwIfNotFound: true);
         m_PlayerOnFoot_ReloadGun = m_PlayerOnFoot.FindAction("ReloadGun", throwIfNotFound: true);
         m_PlayerOnFoot_ChangeGun = m_PlayerOnFoot.FindAction("ChangeGun", throwIfNotFound: true);
+        m_PlayerOnFoot_Run = m_PlayerOnFoot.FindAction("Run", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Inventory = m_UI.FindAction("Inventory", throwIfNotFound: true);
@@ -367,6 +388,7 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerOnFoot_Interact;
     private readonly InputAction m_PlayerOnFoot_ReloadGun;
     private readonly InputAction m_PlayerOnFoot_ChangeGun;
+    private readonly InputAction m_PlayerOnFoot_Run;
     public struct PlayerOnFootActions
     {
         private @PlayerInputControl m_Wrapper;
@@ -379,6 +401,7 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_PlayerOnFoot_Interact;
         public InputAction @ReloadGun => m_Wrapper.m_PlayerOnFoot_ReloadGun;
         public InputAction @ChangeGun => m_Wrapper.m_PlayerOnFoot_ChangeGun;
+        public InputAction @Run => m_Wrapper.m_PlayerOnFoot_Run;
         public InputActionMap Get() { return m_Wrapper.m_PlayerOnFoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -412,6 +435,9 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
                 @ChangeGun.started -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnChangeGun;
                 @ChangeGun.performed -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnChangeGun;
                 @ChangeGun.canceled -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnChangeGun;
+                @Run.started -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnRun;
+                @Run.performed -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnRun;
+                @Run.canceled -= m_Wrapper.m_PlayerOnFootActionsCallbackInterface.OnRun;
             }
             m_Wrapper.m_PlayerOnFootActionsCallbackInterface = instance;
             if (instance != null)
@@ -440,6 +466,9 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
                 @ChangeGun.started += instance.OnChangeGun;
                 @ChangeGun.performed += instance.OnChangeGun;
                 @ChangeGun.canceled += instance.OnChangeGun;
+                @Run.started += instance.OnRun;
+                @Run.performed += instance.OnRun;
+                @Run.canceled += instance.OnRun;
             }
         }
     }
@@ -495,6 +524,7 @@ public partial class @PlayerInputControl : IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnReloadGun(InputAction.CallbackContext context);
         void OnChangeGun(InputAction.CallbackContext context);
+        void OnRun(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
