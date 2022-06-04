@@ -12,7 +12,6 @@ public class PlayerInteraction : MonoBehaviour
 
     PlayerInputControl playerInputControl;
 
-    public KeyCode fireHotKey;
 
     RaycastHit raycastHit;
 
@@ -20,7 +19,6 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Awake()
     {
-        fireHotKey = KeyCode.Mouse0;
 
         playerInputControl = new PlayerInputControl();
 
@@ -29,24 +27,6 @@ public class PlayerInteraction : MonoBehaviour
         playerInputControl.PlayerOnFoot.Interact.performed += Interact;
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-
-        //if (Input.GetKeyDown(fireHotKey) && gameObject.GetComponent<PlayerGun>().SelectedGun == null)
-        //{
-        //    try
-        //    {
-        //        Hit();
-        //    }
-        //    catch(Exception e)
-        //    {
-        //        Debug.Log("Error : " + e);
-        //    }
-        //}
-
-    }
     private void Interact(InputAction.CallbackContext context)
     {
 
@@ -110,18 +90,6 @@ public class PlayerInteraction : MonoBehaviour
         }
 
     }
-    void Hit()
-    {
-        if(Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out raycastHit, raycastMaxRange))
-        {
-            if(raycastHit.transform != null &&                 
-                raycastHit.transform.gameObject.layer == 9)
-            {
-                //Debug.Log(raycastHit.transform.gameObject.GetComponent<ItemData>());
-
-                raycastHit.transform.gameObject.GetComponent<ItemData>().DropItem();
-            }
-        }
-    }
+   
 
 }

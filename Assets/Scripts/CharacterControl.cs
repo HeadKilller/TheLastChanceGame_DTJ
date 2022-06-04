@@ -46,8 +46,8 @@ public class CharacterControl : MonoBehaviour
 
         playerRigidBody = GetComponent<Rigidbody>();
 
-        playerInputControl.PlayerOnFoot.Enable();
-        playerInputControl.PlayerOnFoot.Jump.performed += Jump_performed;
+        //playerInputControl.PlayerOnFoot.Enable();
+        //playerInputControl.PlayerOnFoot.Jump.performed += Jump_performed;
 
     }
 
@@ -62,12 +62,12 @@ public class CharacterControl : MonoBehaviour
         //Debug.Log(_isGrounded);
 
 
-        if (CheckGrounded())
-        {
-            Move();
-        }
+        //if (CheckGrounded())
+        //{
+        //    Move();
+        //}
 
-        firstPersonCamera.transform.position = transform.position + cameraOffset;
+        //firstPersonCamera.transform.position = transform.position + cameraOffset;
         
         if (EventSystem.current.IsPointerOverGameObject()) return;
 
