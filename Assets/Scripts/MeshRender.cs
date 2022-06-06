@@ -6,7 +6,7 @@ public class MeshRender : MonoBehaviour
 {
     Transform mainCamTransform; // Stores the FPS camera transform
     private bool visible = true;
-    public float distanceToAppear = 50;
+   // public float distanceToAppear = 50;
     Renderer objRenderer;
 
     private void Start()
@@ -23,7 +23,7 @@ public class MeshRender : MonoBehaviour
         float distance = Vector3.Distance(mainCamTransform.position, transform.position);
 
         // We have reached the distance to Enable Object
-        if (distance < distanceToAppear)
+        if (distance < 270)
         {
             if (!visible)
             {

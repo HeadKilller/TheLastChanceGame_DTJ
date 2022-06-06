@@ -6,10 +6,12 @@ public class Mission2 : MonoBehaviour
 {
     [Header("Basics")]
     [SerializeField] GameObject StartMissionText;
+    [SerializeField] Transform Gun;
     [Header("Waypoints")]
     [SerializeField] Transform StartMission;
     [SerializeField] Transform FristWaypoint;
     [SerializeField] Transform SecondWaypoint;
+    
     [Header("Text Waypoints")]
     [SerializeField] GameObject TextWaypointFrist;
     [SerializeField] GameObject TextWaypointSecond;
@@ -22,7 +24,7 @@ public class Mission2 : MonoBehaviour
     private void Start()
     {
         StartMissionText.SetActive(true);
-        PickUpGun = StartMission.GetComponent<GunPicked>();
+        PickUpGun = Gun.GetComponent<GunPicked>();
         FristCheckpoint = FristWaypoint.GetComponent<WayPointMission>();
         SecondCheckpoint = SecondWaypoint.GetComponent<WayPointMission>();
     }
@@ -56,13 +58,13 @@ public class Mission2 : MonoBehaviour
         }
     }
     void Checkpoint_Second()
-    {
+    {  
         if (SecondCheckpoint.updateObjective == true)
         {
             MissionEnded = true;
             TextWaypointSecond.SetActive(false);
             SecondWaypoint.gameObject.SetActive(false);
-
+            MissionEnded = true;
         }
     }
    

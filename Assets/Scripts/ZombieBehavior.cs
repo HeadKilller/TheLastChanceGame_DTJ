@@ -49,7 +49,7 @@ public class ZombieBehavior : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Hekii");
+       // Debug.Log("Hekii");
         if (zombieSensing.IsSensingPlayer && Vector3.Distance(playerTransform.position, transform.position) >= 1.5f && (currentZombieState == ZombieState.Idle || currentZombieState == ZombieState.Chasing) )
         {
             Debug.Log("Chasing Player");

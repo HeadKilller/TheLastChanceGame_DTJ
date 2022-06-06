@@ -8,7 +8,7 @@ public class WayPointMission : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
        
-        if(other.transform.name == "Player")
+        if(other.transform.name == "PlayerCharacterController")
         {
             updateObjective = true;
         }
