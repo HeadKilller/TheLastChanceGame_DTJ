@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 2393130}
   - component: {fileID: 6551384}
   - component: {fileID: -3793827690172783590}
-  m_Layer: 0
+  - component: {fileID: -2139841510941777672}
+  m_Layer: 9
   m_Name: Pallet
-  m_TagString: Untagged
+  m_TagString: Destructable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -111,3 +112,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToAppear: 100
+--- !u!114 &-2139841510941777672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0eafb347cc5a954c91b3acc8b799116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 2d7d90e8cce1baa4bac30f236eb63bf6, type: 2}
+  gun: {fileID: 0}
+  droppableItems_Names:
+  - Wood
+  droppableItems_Objects:
+  - {fileID: 3870650088687046006, guid: c8e434de7b7708e4fb52d695488b3fbf, type: 3}

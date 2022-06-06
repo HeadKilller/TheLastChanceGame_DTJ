@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   name: Scrap Metal
-  description: Description
+  description: Used to make items at the Crafting Table.
   isCraftable: 0
   isStackable: 1
+  isUsable: 0
   icon: {fileID: 0}
   modifiers: 
   modifiersValue: []
@@ -24,3 +25,4 @@ MonoBehaviour:
   craftingRecipe: []
   craftingRecipeNum: 
   craftingTime: 0
+  itemDropped: 

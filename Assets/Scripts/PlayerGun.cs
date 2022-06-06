@@ -49,6 +49,9 @@ public class PlayerGun : MonoBehaviour
 
     float currentBullets, currentMags;
 
+
+    public static PlayerGun instance;
+
     #region Propriedades
 
     public GameObject SelectedGun
@@ -89,6 +92,9 @@ public class PlayerGun : MonoBehaviour
         magCapacity = 0;
         currentBullets = 0;
         currentMags = 0;
+
+
+        instance = this;
 
     }
 
@@ -148,7 +154,7 @@ public class PlayerGun : MonoBehaviour
                 //Debug.Log("Semi has Hit : " + raycastHit.transform.name);
 
                 if (raycastHit.transform.gameObject != bulletHolePrefab && 
-                    raycastHit.transform.name != "Player" && 
+                    raycastHit.transform.tag != "Player" && 
                     raycastHit.transform.tag != "Crafting Table" && 
                     raycastHit.transform.tag != "Zombie")
                 {
@@ -197,11 +203,12 @@ public class PlayerGun : MonoBehaviour
             out raycastHit,
             currentGun_Info.maxRange))
             {
-                //Debug.Log("Auto has Hit : " + raycastHit.transform.name);
+                Debug.Log("Auto has Hit : " + raycastHit.transform.name);
 
                 if (raycastHit.transform.gameObject != bulletHolePrefab && 
                     raycastHit.transform.name != "Player" && 
-                    raycastHit.transform.tag != "Crafting Table")
+                    raycastHit.transform.tag != "Crafting Table" && 
+                    raycastHit.transform.tag != "Player")
                 {
 
                     if (raycastHit.transform.tag == "Zombie")
@@ -266,9 +273,11 @@ public class PlayerGun : MonoBehaviour
 
         }
 
-            changeGunPanel.SetActive(false);
+        changeGunPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        //Debug.Log("Gun Selected");
 
     }
 
@@ -286,39 +295,105 @@ public class PlayerGun : MonoBehaviour
 
     }
 
-    //Este método permite equipar uma arma que esteja dropada no mapa.
-    //Após equipar a arma, o jogador poderá selecioná-la para a poder usar através da wheel das armas.
-    public void EquipGun(GameObject equippedGun)
+    ////Este método permite equipar uma arma que esteja dropada no mapa.
+    ////Após equipar a arma, o jogador poderá selecioná-la para a poder usar através da wheel das armas.
+    //public void EquipGun(GameObject equippedGun)
+    //{
+
+    //    if (equippedGun != null)
+    //    {
+    //        //Muda o gameObject para child de gunPosition. De seguida dá reset à posição e à rotação.
+    //        equippedGun.transform.SetParent(gunPosition.transform);
+
+    //        equippedGun.transform.localPosition = Vector3.zero;
+    //        equippedGun.transform.localRotation = Quaternion.identity;
+
+    //        //Torna a arma kinematic e põe a colisão em trigger, não permitindo à arma alterar a sua posição/rotação locais
+    //        //nem colidir com outros objetos no mapa.
+    //        equippedGun.GetComponent<Rigidbody>().isKinematic = true;
+    //        equippedGun.GetComponentInChildren<Collider>().isTrigger = true;
+
+    //        //Desativa a arma, não permitindo ao jogador usá-la até que ele a selecione.
+    //        equippedGun.SetActive(false);
+
+    //        //Testa o tipo de arma que foi equipada, equipando a arma na wheel das armas e tornando o butão interacionável.
+    //        switch (equippedGun.GetComponent<ItemData>().Gun.gunType)
+    //        {
+    //            case GunType.HandGun:
+
+    //                equippedGuns[handGun_Slot] = equippedGun;
+    //                handGun_Slot.GetComponent<Button>().interactable = true;
+    //                break;
+    //            case GunType.AssaultRifle:
+
+    //                equippedGuns[assaultGun_Slot] = equippedGun;
+    //                assaultGun_Slot.GetComponent<Button>().interactable = true;
+    //                break;
+    //        }
+
+    //    }
+
+    //}
+
+    public void EquipGun(GameObject toEquipGun)
     {
 
-        if (equippedGun != null)
+        if(toEquipGun != null)
         {
-            //Muda o gameObject para child de gunPosition. De seguida dá reset à posição e à rotação.
-            equippedGun.transform.SetParent(gunPosition.transform);
 
-            equippedGun.transform.localPosition = Vector3.zero;
-            equippedGun.transform.localRotation = Quaternion.identity;
+            //Muda o gameObject para child de gunPosition. De seguida dá reset à posição e à rotação.
+            toEquipGun.transform.SetParent(gunPosition.transform);
+
+            toEquipGun.transform.localPosition = Vector3.zero;
+            toEquipGun.transform.localRotation = Quaternion.identity;
 
             //Torna a arma kinematic e põe a colisão em trigger, não permitindo à arma alterar a sua posição/rotação locais
             //nem colidir com outros objetos no mapa.
-            equippedGun.GetComponent<Rigidbody>().isKinematic = true;
-            equippedGun.GetComponentInChildren<Collider>().isTrigger = true;
+            toEquipGun.GetComponent<Rigidbody>().isKinematic = true;
+            toEquipGun.GetComponentInChildren<Collider>().isTrigger = true;
 
             //Desativa a arma, não permitindo ao jogador usá-la até que ele a selecione.
-            equippedGun.SetActive(false);
+            toEquipGun.SetActive(false);
 
-            //Testa o tipo de arma que foi equipada, equipando a arma na wheel das armas e tornando o butão interacionável.
-            switch (equippedGun.GetComponent<ItemData>().Gun.gunType)
+            switch (toEquipGun.GetComponent<ItemData>().Gun.gunType)
             {
                 case GunType.HandGun:
 
-                    equippedGuns[handGun_Slot] = equippedGun;
-                    handGun_Slot.GetComponent<Button>().interactable = true;
+                    Debug.Log("Hand Gun : " + equippedGuns[handGun_Slot]);
+
+                    if(equippedGuns[handGun_Slot] == null)
+                    {
+                        equippedGuns[handGun_Slot] = toEquipGun;
+                        handGun_Slot.GetComponent<Button>().interactable = true;
+                    }
+                    else
+                    {
+                        GameObject currentEquippedGun = equippedGuns[handGun_Slot];
+
+                        Inventory.instance.AddItem(currentEquippedGun, currentEquippedGun.GetComponent<ItemData>().Gun, currentEquippedGun, false);
+                        equippedGuns[handGun_Slot] = toEquipGun;
+                        handGun_Slot.GetComponent<Button>().interactable = true;
+
+                    }
+
                     break;
                 case GunType.AssaultRifle:
 
-                    equippedGuns[assaultGun_Slot] = equippedGun;
-                    assaultGun_Slot.GetComponent<Button>().interactable = true;
+                    if (equippedGuns[assaultGun_Slot] == null)
+                    {
+                        equippedGuns[assaultGun_Slot] = toEquipGun;
+                        assaultGun_Slot.GetComponent<Button>().interactable = true;
+                    }
+                    else
+                    {
+                        GameObject currentEquippedGun = equippedGuns[assaultGun_Slot];
+
+                        Inventory.instance.AddItem(currentEquippedGun, currentEquippedGun.GetComponent<ItemData>().Gun, currentEquippedGun, false);
+                        equippedGuns[assaultGun_Slot] = toEquipGun;
+                        assaultGun_Slot.GetComponent<Button>().interactable = true;
+
+                    }
+                   
                     break;
             }
 
@@ -341,7 +416,9 @@ public class PlayerGun : MonoBehaviour
     //interligada com o butão carregado
     public void SelectGun(Button button)
     {
-        
+
+        //Debug.Log("Select Gun");
+
         if(button.gameObject == unarmed_Slot)
         {
 
@@ -417,9 +494,10 @@ public class PlayerGun : MonoBehaviour
         }
 
         //Debug.Log(selectedGun);
+        Debug.Log("Gun Chosen : " + selectedGun);
 
     }
-   
+
     public void PickMunition(string name)
     {
 

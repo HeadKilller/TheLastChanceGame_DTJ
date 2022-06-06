@@ -12,6 +12,8 @@ TagManager:
   - Post-Processing
   - Munition
   - Trap
+  - Material
+  - Destructable
   layers:
   - Default
   - TransparentFX

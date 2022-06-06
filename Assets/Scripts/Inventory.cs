@@ -35,6 +35,7 @@ public class Inventory : MonoBehaviour
 
     List<GameObject> inventory_Slots;
     List<Items> inventorySlotsContent;
+    public List<GameObject> inventorySlotsContent_Objects;
     List<int> inventorySlotsCurrentCapacity;
 
     public bool IsMovingItem;
@@ -47,6 +48,11 @@ public class Inventory : MonoBehaviour
     public List<Items> Inventory_SlotsContent
     {
         get { return inventorySlotsContent; }
+    }
+    public List<GameObject> Inventory_SLotsContent_Objects
+    {
+        get { return inventorySlotsContent_Objects; }
+
     }
     public GameObject InvPanel
     {
@@ -65,6 +71,7 @@ public class Inventory : MonoBehaviour
 
         inventory_Slots = new List<GameObject>();
         inventorySlotsContent = new List<Items>();
+        inventorySlotsContent_Objects = new List<GameObject>();
         inventorySlotsCurrentCapacity = new List<int>();
 
         
@@ -90,6 +97,7 @@ public class Inventory : MonoBehaviour
 
                 inventory_Slots.Add(child.gameObject);
                 inventorySlotsContent.Add(null);
+                inventorySlotsContent_Objects.Add(null);
                 inventorySlotsCurrentCapacity.Add(0);
 
                 
@@ -135,7 +143,7 @@ public class Inventory : MonoBehaviour
     #region Inventory
 
     //Função chamada para adicionar itens ao inventário, sem uma slot específica para adicionar.
-    public void AddItem(GameObject _gameObject, Items item, bool toDestroy)
+    public void AddItem(GameObject _gameObject, Items item, GameObject itemObject, bool toDestroy)
     {
 
         bool foundEmptySlot = false;
@@ -173,7 +181,12 @@ public class Inventory : MonoBehaviour
                 if(inventorySlotsContent[i] == null)
                 {
 
+
                     inventorySlotsContent[i] = item;
+                    inventorySlotsContent_Objects[i] = itemObject;
+                    
+                    //Debug.Log("Item : " + inventorySlotsContent_Objects[i]);
+                    //Debug.Log("Num : " + i);
 
                     inventorySlotsCurrentCapacity[i]++;
 
@@ -196,13 +209,14 @@ public class Inventory : MonoBehaviour
 
         if(toDestroy)
             Destroy(_gameObject);
-        
+        else
+            _gameObject.SetActive(false);
         //Debug.Log("Picking up " + item.name);
 
     }
 
     //Função chamada para adicionar itens a uma slot específica do inventário.
-    public void AddItemToSlot(GameObject slotToAdd, Items item, int quantityToAdd)
+    public void AddItemToSlot(GameObject slotToAdd, Items item, GameObject itemObject, int quantityToAdd)
     {
 
         int index = inventory_Slots.IndexOf(slotToAdd);
@@ -211,6 +225,7 @@ public class Inventory : MonoBehaviour
         {
 
             inventorySlotsContent[index] = item;
+            inventorySlotsContent_Objects[index] = itemObject;
             inventorySlotsCurrentCapacity[index] += quantityToAdd;
             ActivateSlot(slotToAdd, index);
 
@@ -322,10 +337,10 @@ public class Inventory : MonoBehaviour
         TextMeshProUGUI text = itemToRemove.GetComponentInChildren<TextMeshProUGUI>();
         inventorySlotsCurrentCapacity[index] -= quantityToRemove;
 
-        Debug.Log("Item : " + inventory_Slots[index]);
+        Debug.Log("Item : " + inventorySlotsContent[index]);
         Debug.Log("Quantity : " + inventorySlotsCurrentCapacity[index]);
 
-        if(inventorySlotsCurrentCapacity[index] <= 0)
+        if (inventorySlotsCurrentCapacity[index] <= 0)
         {
             inventorySlotsCurrentCapacity[index] = 0;
             text.SetText("");
@@ -414,6 +429,7 @@ public class Inventory : MonoBehaviour
 
         Debug.Log("Destroying... : " + inventory_Slots[index]);
         inventorySlotsContent[index] = null;
+        inventorySlotsContent_Objects[index] = null;
 
         foreach (Transform child in _gameObject.GetComponentsInChildren<Transform>())
         {
@@ -454,7 +470,9 @@ public class Inventory : MonoBehaviour
         //Caso esteja a mover um item de um slot para outro.
         if (IsMovingItem)
         {
-            AddItemToSlot(SlotWhereToMove, inventorySlotsContent[index], (int)confirmationWindow_Slider.value);
+            Debug.Log("Add item : " + inventorySlotsContent_Objects[index] + " from slot : " + index);
+
+            AddItemToSlot(SlotWhereToMove, inventorySlotsContent[index], inventorySlotsContent_Objects[index], (int)confirmationWindow_Slider.value);
             if (inventorySlotsCurrentCapacity[index] == 0)
             {
                 DeActivateSlot(SlotFromWhereToMove);

@@ -20,78 +20,88 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        string[] splited = this.name.Split(' ');
-        int index = -1;
 
-        try
+        if(eventData.button == PointerEventData.InputButton.Left)
         {
-            index = Int32.Parse(splited[1]);
-        }
-        catch(Exception e)
-        {
-            Debug.LogError(e.Message);
-        }
+            string[] splited = this.name.Split(' ');
+            int index = -1;
 
-        if (index != -1)
-        {
-            objectDragging = availableItemsSlots[index - 1];
-        }
+            try
+            {
+                index = Int32.Parse(splited[1]);
+            }
+            catch(Exception e)
+            {
+                Debug.LogError(e.Message);
+            }
 
-        transform.position = Input.mousePosition;
+            if (index != -1)
+            {
+                objectDragging = availableItemsSlots[index - 1];
+            }
+
+            transform.position = Input.mousePosition;
+        }
 
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
 
-        RectTransform invPanelTransform = invPanel.transform as RectTransform;
-        RectTransform gunsWheelPanelTransform = gunsWheelPanel.transform as RectTransform; 
-        
-        if(RectTransformUtility.RectangleContainsScreenPoint(invPanelTransform, Input.mousePosition))
+        if(eventData.button == PointerEventData.InputButton.Left)
         {
 
-            for(int i = 0; i < invSlotsTransform.Count; i++)
+            RectTransform invPanelTransform = invPanel.transform as RectTransform;
+            RectTransform gunsWheelPanelTransform = gunsWheelPanel.transform as RectTransform; 
+        
+            if(RectTransformUtility.RectangleContainsScreenPoint(invPanelTransform, Input.mousePosition))
             {
 
-                if (RectTransformUtility.RectangleContainsScreenPoint(invSlotsTransform[i], Input.mousePosition))
+                for(int i = 0; i < invSlotsTransform.Count; i++)
                 {
 
-                    Debug.Log("Add Item to inventory");
+                    if (RectTransformUtility.RectangleContainsScreenPoint(invSlotsTransform[i], Input.mousePosition))
+                    {
+
+                        Debug.Log("Add Item to inventory");
 
 
-                    Inventory.instance.RemoveItem(objectDragging, true, availableItemsSlots[i]);
+                        Inventory.instance.RemoveItem(objectDragging, true, availableItemsSlots[i]);
+
+                    }
+
+                }
+                        
+
+            }
+            if (RectTransformUtility.RectangleContainsScreenPoint(gunsWheelPanelTransform, Input.mousePosition))
+            {
+                for (int i = 0; i < gunsWheelSlotsTransform.Count; i++)
+                {
+
+                    if (RectTransformUtility.RectangleContainsScreenPoint(gunsWheelSlotsTransform[i], Input.mousePosition))
+                    {
+
+                        Debug.Log("Add Item to Guns Wheel");
+
+                        Inventory.instance.RemoveItem(this.gameObject, true, availableItemsSlots[i]);
+
+                    }
 
                 }
 
-            }
-                        
 
-        }
-        if (RectTransformUtility.RectangleContainsScreenPoint(gunsWheelPanelTransform, Input.mousePosition))
-        {
-            //for (int i = 0; i < gunsWheelSlotsTransform.Count; i++)
+            }
+            //for(int i = 0; i < availableItemsSlots.Count; i++)
             //{
 
-            //    if (RectTransformUtility.RectangleContainsScreenPoint(gunsWheelSlotsTransform[i], Input.mousePosition))
-            //    {
 
-            //        Debug.Log("Add Item to inventory");
+            //}        
 
-            //        Inventory.instance.RemoveItem(this.gameObject, true, availableItemsSlots[i]);
-
-            //    }
-
-            //}
-            
+            transform.localPosition = defaultPosition;
 
         }
-        //for(int i = 0; i < availableItemsSlots.Count; i++)
-        //{
 
-
-        //}        
-
-        transform.localPosition = defaultPosition;
     }
 
     // Start is called before the first frame update

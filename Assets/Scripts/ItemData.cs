@@ -9,6 +9,8 @@ public class ItemData : MonoBehaviour
 
     bool isDropped;
 
+    [SerializeField] List<string> droppableItems_Names;
+    [SerializeField] List<GameObject> droppableItems_Objects;
 
     public Items Item
     {
@@ -38,30 +40,24 @@ public class ItemData : MonoBehaviour
     public void DropItem()
     {
 
-        //TODO: Passar para RigidBody e arranjar maneira de nao passar pelo chao quando cai.
 
-        
+        System.Random rnd = new System.Random();
 
-        float scale = 0.3f;
+        int nDrops = rnd.Next(1, 4);
 
-        transform.localScale = new Vector3(scale, scale, scale);
+        int index = droppableItems_Names.IndexOf(item.itemDropped);
 
-        //transform.position = playerGameObject.transform.position + playerGameObject.transform.forward * 2;
+        Vector3 dropPosition = gameObject.transform.position + transform.up * 1.5f;
 
-        transform.position = new Vector3(transform.position.x, 1.5f, transform.position.z);
-
-        isDropped = true;
-
-        try
+        for(int i = 0; i < nDrops; i++)
         {
-
-            GetComponent<Collider>().isTrigger = true;
-
+            Instantiate(droppableItems_Objects[index], dropPosition, Quaternion.identity);
         }
-        catch
-        {
-            GetComponentInChildren<Collider>().isTrigger = true;
-        }
+
+        Destroy(gameObject);
+
+
+
 
 
     }
@@ -95,12 +91,12 @@ public class ItemData : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (this.item != null && other.tag == "Player")
-        {
-            Inventory.instance.AddItem(gameObject, item, true);
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (this.item != null && other.tag == "Player")
+    //    {
+    //        Inventory.instance.AddItem(gameObject, item, true);
+    //    }
+    //}
 
 }

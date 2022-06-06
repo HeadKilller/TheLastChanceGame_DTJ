@@ -21,4 +21,4 @@ public class Guns : Items
 
 }
 
-public enum GunType { HandGun, AssaultRifle }
+public enum GunType { HandGun, AssaultRifle, SMG }

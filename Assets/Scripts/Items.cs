@@ -13,6 +13,7 @@ public class Items : ScriptableObject
 
     public bool isCraftable;
     public bool isStackable;
+    public bool isUsable;
 
     public Sprite icon = null;
 
@@ -25,8 +26,10 @@ public class Items : ScriptableObject
     public List<int> craftingRecipeNum;
 
     public float craftingTime;
+
+    public string itemDropped;
 }
 public enum PlayerModifier { Attack, Defense, Health, Stamina }
 public enum Operator { Multiply, Add }
 
-public enum ItemType { Material, Equipment, Consumible }
+public enum ItemType { Material, Equipment, Consumible, Trap, Gun }
