@@ -125,13 +125,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4414907729620906}
   - component: {fileID: 9092365780631297571}
+  - component: {fileID: 5351437146496811480}
   m_Layer: 0
   m_Name: UMP_Full
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4414907729620906
 Transform:
   m_ObjectHideFlags: 0
@@ -165,6 +166,22 @@ MonoBehaviour:
   gun: {fileID: 11400000, guid: 44d163bca7577b64291a922188d69d7e, type: 2}
   droppableItems_Names: []
   droppableItems_Objects: []
+--- !u!54 &5351437146496811480
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851008881805126}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1873756228358704
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,6 +193,7 @@ GameObject:
   - component: {fileID: 4433118769080246}
   - component: {fileID: 33773100238139694}
   - component: {fileID: 23733511358015586}
+  - component: {fileID: 7938312573724139331}
   m_Layer: 0
   m_Name: UMP_Model
   m_TagString: Untagged
@@ -248,3 +266,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7938312573724139331
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873756228358704}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 1e479558b89f937458908b4c5cf92632, type: 3}

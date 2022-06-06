@@ -22,17 +22,32 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             string header = itemInInventory_OnHovering.name;
        
 
-            TooltipSystem.instance.ToolTip_Show(header, content);
+            TooltipSystem.instance.ToolTipInventory_Show(header, content);
         }
         else if(itemInCraftingSlot_OnHovering != null)
         {
             //Debug.Log("Crafting Slot");
 
-            string content = itemInCraftingSlot_OnHovering.description;
-            string header = itemInCraftingSlot_OnHovering.name;
+            string MaterialsNames = "";
+            string MaterialsNums = "";
+
+            string header = itemInCraftingSlot_OnHovering.name + "Recipe";
+
+            List<Items> materialsNames = itemInCraftingSlot_OnHovering.craftingRecipe;
+            List<int> materialsNum = itemInCraftingSlot_OnHovering.craftingRecipeNum;
+
+            
+
+            for(int i = 0; i < materialsNum.Count; i++)
+            {
+
+                MaterialsNames += materialsNames[i].name + "\n";
+                MaterialsNums += materialsNum[i].ToString() + "\n";
+
+            }
 
 
-            TooltipSystem.instance.ToolTip_Show(header, content);
+            TooltipSystem.instance.ToolTipCrafting_Show(header, MaterialsNames, MaterialsNums);
 
         }
         else if(itemInCraftingQueueSlot_OnHovering != null)
@@ -43,7 +58,7 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             string header = itemInCraftingQueueSlot_OnHovering.name;
 
 
-            TooltipSystem.instance.ToolTip_Show(header, content);
+            TooltipSystem.instance.ToolTipInventory_Show(header, content);
         }
 
     }

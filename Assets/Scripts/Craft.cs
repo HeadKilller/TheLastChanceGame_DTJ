@@ -311,13 +311,23 @@ public class Craft : MonoBehaviour
                 tempGameObject = items_Crafting[i];
                 //tempGameObject = toCraft_Items[i];
                 tempItem = tempGameObject.GetComponent<ItemData>().Item;
+
+                if(tempItem == null)
+                    tempItem = tempGameObject.GetComponent<ItemData>().Gun;
+
                 items_Crafting[i] = null;
 
             }
         }
 
         if(tempGameObject != null && tempItem != null)
+        {
+
+            Instantiate(tempGameObject);
+            tempGameObject.SetActive(false);
+
             Inventory.instance.AddItem(tempGameObject, tempItem, tempGameObject,  false);
+        }
 
         Button tempButton = queue_slot.GetComponentInChildren<Button>();
         tempButton.interactable = false;

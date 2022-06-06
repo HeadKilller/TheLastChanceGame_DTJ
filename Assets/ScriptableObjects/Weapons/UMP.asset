@@ -17,7 +17,7 @@ MonoBehaviour:
   description: This is a SMG.
   isCraftable: 0
   isStackable: 0
-  isUsable: 0
+  isUsable: 1
   icon: {fileID: 21300000, guid: e4def2292d1dfe8478397b908dbf1eb4, type: 3}
   modifiers: 
   modifiersValue: []

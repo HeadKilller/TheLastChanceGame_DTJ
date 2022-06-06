@@ -24,6 +24,7 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] GameObject handGun_Slot;
     [SerializeField] GameObject assaultGun_Slot;
     [SerializeField] GameObject unarmed_Slot;
+    [SerializeField] GameObject smg_Slot;
 
     Dictionary<GameObject, GameObject> equippedGuns;
     Dictionary<GunType, int> bulletsNumber;
@@ -69,6 +70,7 @@ public class PlayerGun : MonoBehaviour
 
         equippedGuns.Add(handGun_Slot, null);
         equippedGuns.Add(assaultGun_Slot, null);
+        equippedGuns.Add(smg_Slot, null);
 
         unarmed_Slot.GetComponent<Button>().interactable = true;
 
@@ -263,6 +265,11 @@ public class PlayerGun : MonoBehaviour
 
                     assaultGun_Slot.GetComponent<Button>().interactable = false;
                     break;
+                case GunType.SMG:
+
+                    smg_Slot.GetComponent<Button>().interactable = false;
+                    break;
+
 
             }
             
@@ -344,6 +351,8 @@ public class PlayerGun : MonoBehaviour
             //Muda o gameObject para child de gunPosition. De seguida dá reset à posição e à rotação.
             toEquipGun.transform.SetParent(gunPosition.transform);
 
+            
+
             toEquipGun.transform.localPosition = Vector3.zero;
             toEquipGun.transform.localRotation = Quaternion.identity;
 
@@ -395,6 +404,26 @@ public class PlayerGun : MonoBehaviour
                     }
                    
                     break;
+
+                case GunType.SMG:
+
+                    if(equippedGuns[smg_Slot] == null)
+                    {
+
+                        equippedGuns[smg_Slot] = toEquipGun;
+                        smg_Slot.GetComponent<Button>().interactable = true;
+
+                    }
+                    else
+                    {
+                        GameObject currentEquippedGun = equippedGuns[smg_Slot];
+
+                        Inventory.instance.AddItem(currentEquippedGun, currentEquippedGun.GetComponent<ItemData>().Gun, currentEquippedGun, false);
+                        equippedGuns[smg_Slot] = toEquipGun;
+                        smg_Slot.GetComponent<Button>().interactable = true;
+                    }
+
+                    break;
             }
 
         }
@@ -434,6 +463,9 @@ public class PlayerGun : MonoBehaviour
                     case GunType.AssaultRifle:
                         assaultGun_Slot.GetComponent<Button>().interactable = true;
                         break;
+                    case GunType.SMG:
+                        smg_Slot.GetComponent<Button>().interactable = true;
+                        break;
                 }
 
                 selectedGun.gameObject.SetActive(false);
@@ -466,6 +498,9 @@ public class PlayerGun : MonoBehaviour
                     assaultGun_Slot.GetComponent<Button>().interactable = true;
                     break;
 
+                case GunType.SMG:
+                    smg_Slot.GetComponent<Button>().interactable = true;
+                    break;
             }
 
             SaveGunInfo(selectedGun.GetComponent<ItemData>().Gun.gunType);
