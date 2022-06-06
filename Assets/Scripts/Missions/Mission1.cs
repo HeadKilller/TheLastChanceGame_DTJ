@@ -21,7 +21,7 @@ public class Mission1 : MonoBehaviour
 
     private void Start()
     {
-        Player.localPosition = InicialPosition;
+        //Player.localPosition = InicialPosition;
         FristCheckpoint = FristWaypoint.GetComponent<WayPointMission>();
         SecondCheckpoint = SecondWaypoint.GetComponent<WayPointMission>();
 
