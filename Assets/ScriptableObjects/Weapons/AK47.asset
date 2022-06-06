@@ -22,9 +22,10 @@ MonoBehaviour:
   modifiers: 
   modifiersValue: []
   modifiersOperator: 
-  craftingRecipe: []
-  craftingRecipeNum: 
-  craftingTime: 0
+  craftingRecipe:
+  - {fileID: 11400000, guid: d0cd9d16964c1034cb1b48972121d03a, type: 2}
+  craftingRecipeNum: 03000000
+  craftingTime: 15
   itemDropped: 
   gunType: 1
   magCapacity: 30

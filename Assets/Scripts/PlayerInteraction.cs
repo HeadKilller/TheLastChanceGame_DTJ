@@ -38,6 +38,8 @@ public class PlayerInteraction : MonoBehaviour
             range))
         {
 
+            //Debug.Log("It has hit : " + raycastHit.transform.name);
+
             if (raycastHit.transform.tag == "Gun")
             {
                 GameObject equippedGun;

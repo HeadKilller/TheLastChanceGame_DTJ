@@ -47,6 +47,35 @@ public class Craft : MonoBehaviour
             craftingTimers.Add(-100f);
         }
 
+
+        for(int i = 0; i < toCraft_Num; i++)
+        {
+            GameObject slotButton = null;
+
+            foreach (var gameobject in CraftingMenu_Slots[i].GetComponentsInChildren<Transform>())
+            {
+
+                if (gameobject.name == "SlotButton")
+                    slotButton = gameobject.gameObject;
+
+            }
+
+            if(slotButton != null)
+            {
+                try
+                {
+                    slotButton.GetComponent<Image>().sprite = toCraft_Items[i].GetComponent<ItemData>().Item.icon;
+                }
+                catch (System.Exception e)
+                {
+                    slotButton.GetComponent<Image>().sprite = toCraft_Items[i].GetComponent<ItemData>().Gun.icon;
+                }
+
+            }
+
+
+        }
+
         
 
     }
@@ -107,6 +136,13 @@ public class Craft : MonoBehaviour
             List<int> tempCraftingItemsNum = new List<int>();
 
             Items tempItem = toCraft_Items[i].GetComponent<ItemData>().Item;
+
+            if(tempItem == null)
+            {
+
+                tempItem = toCraft_Items[i].GetComponent<ItemData>().Gun;
+
+            }
 
             tempCraftingItems = tempItem.craftingRecipe;
             tempCraftingItemsNum = tempItem.craftingRecipeNum;
@@ -175,6 +211,9 @@ public class Craft : MonoBehaviour
 
                 Items tempItem = toCraft_Items[i].GetComponent<ItemData>().Item;
 
+                if(tempItem == null)
+                    tempItem = toCraft_Items[i].GetComponent<ItemData>().Gun;
+
                 tempCraftingRecipe = tempItem.craftingRecipe;
                 tempRecipeNums = tempItem.craftingRecipeNum;
 
@@ -235,7 +274,14 @@ public class Craft : MonoBehaviour
     private void StartCrafting(int index)
     {
 
-        craftingTimers[index] = items_Crafting[index].GetComponent<ItemData>().Item.craftingTime;
+        try
+        {
+            craftingTimers[index] = items_Crafting[index].GetComponent<ItemData>().Item.craftingTime;
+        }
+        catch
+        {
+            craftingTimers[index] = items_Crafting[index].GetComponent<ItemData>().Gun.craftingTime;
+        }
 
     }
 
@@ -300,6 +346,8 @@ public class Craft : MonoBehaviour
 
                 itemOnHover = toCraft_Items[i].GetComponent<ItemData>().Item;
 
+                if(itemOnHover == null)
+                    itemOnHover = toCraft_Items[i].GetComponent<ItemData>().Gun;
             }
 
 
@@ -320,6 +368,8 @@ public class Craft : MonoBehaviour
 
                 itemOnHover = items_Crafting[i].GetComponent<ItemData>().Item;
 
+                if (itemOnHover == null)
+                    itemOnHover = items_Crafting[i].GetComponent<ItemData>().Gun;
             }
 
         }

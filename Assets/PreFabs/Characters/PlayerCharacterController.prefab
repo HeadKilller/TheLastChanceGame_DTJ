@@ -145,7 +145,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 895
+    m_Bits: 891
   m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 7652367870204029183}
   - component: {fileID: 7652367870204029168}
   - component: {fileID: 7652367870204029169}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: Eyes
   m_TagString: Player
   m_Icon: {fileID: 0}

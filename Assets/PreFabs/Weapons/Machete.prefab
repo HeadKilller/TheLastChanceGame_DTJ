@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8465033977294382389
 Transform:
   m_ObjectHideFlags: 0
@@ -113,3 +113,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 1faa53004bc4ec244b3b240b2f129e4b, type: 2}
   gun: {fileID: 0}
+  droppableItems_Names: []
+  droppableItems_Objects: []

@@ -12,24 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7974c4d95f36f3449ba9e541dfe09b2, type: 3}
   m_Name: UMP
   m_EditorClassIdentifier: 
-  itemType: 0
-  name: New Item
-  description: Description
+  itemType: 4
+  name: UMP
+  description: This is a SMG.
   isCraftable: 0
   isStackable: 0
   isUsable: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: e4def2292d1dfe8478397b908dbf1eb4, type: 3}
   modifiers: 
   modifiersValue: []
   modifiersOperator: 
-  craftingRecipe: []
-  craftingRecipeNum: 
-  craftingTime: 0
+  craftingRecipe:
+  - {fileID: 11400000, guid: d0cd9d16964c1034cb1b48972121d03a, type: 2}
+  craftingRecipeNum: 01000000
+  craftingTime: 10
   itemDropped: 
-  gunType: 0
-  magCapacity: 0
-  init_MagNum: 0
-  rateOfFire: 0
-  damage: 0
-  maxRange: 0
-  recoil: {x: 0, y: 0, z: 0}
+  gunType: 2
+  magCapacity: 30
+  init_MagNum: 2
+  rateOfFire: 600
+  damage: 7
+  maxRange: 20
+  recoil: {x: 3, y: 0.5, z: 0.6}
