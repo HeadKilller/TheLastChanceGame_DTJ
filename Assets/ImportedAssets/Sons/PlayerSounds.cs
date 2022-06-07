@@ -30,7 +30,7 @@ public class PlayerSounds : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        Debug.Log(characterController.velocity.magnitude);
+        //Debug.Log(characterController.velocity.magnitude);
 
         if (characterController.isGrounded == true && characterController.velocity.magnitude > 0f && timer >= intervaloTempoEntreSons /*&& this.GetComponent<AudioSource>().isPlaying == false*/)
         {

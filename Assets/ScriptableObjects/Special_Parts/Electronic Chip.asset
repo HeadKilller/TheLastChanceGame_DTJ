@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Electronic Chip
   description: This can be used to craft special items.
   isCraftable: 0
-  isStackable: 0
+  isStackable: 1
   isUsable: 0
   icon: {fileID: 21300000, guid: adccd8df21689cd4f8991625f120344e, type: 3}
   modifiers: 

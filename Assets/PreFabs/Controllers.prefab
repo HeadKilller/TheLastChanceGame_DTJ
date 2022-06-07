@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3713461715406365570}
   - component: {fileID: 4918526078804904224}
   - component: {fileID: 4918526078804904239}
+  - component: {fileID: 8631923470523158935}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -54,6 +55,7 @@ MonoBehaviour:
   confirmationWindow_GameObject: {fileID: 0}
   confirmationWindow_Slider: {fileID: 0}
   inventorySize: 10
+  MaskEquiped: 0
   inventorySlotsContent_Objects: []
   IsMovingItem: 0
 --- !u!114 &3713461715406365572
@@ -71,13 +73,25 @@ MonoBehaviour:
   CraftingMenu_Canvas: {fileID: 0}
   CraftingMenu_Slots:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   CraftingQueue_Slots:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   toCraft_Items:
-  - {fileID: 8659228589199624702, guid: f42a7c4e1ecf6294ab025abf2998cad5, type: 3}
+  - {fileID: 1552449307821896, guid: e6554e6be5d232249adde9af423f1c07, type: 3}
+  - {fileID: 1782867849937206, guid: 0dc383f41120f2142bf99d4f574ec891, type: 3}
+  - {fileID: 1851008881805126, guid: 0f9662654ebaf444185709e23b8a4e19, type: 3}
+  - {fileID: 5235479764817556001, guid: a3718ed18a006c848a94d8a79b852dd0, type: 3}
+  - {fileID: 4347350989371898948, guid: cd32b0ba40ed13244b8c96dc25c7f7e3, type: 3}
+  - {fileID: 3851797564768771576, guid: e5b61523e80ec1a4a87d33263814ad95, type: 3}
+  - {fileID: 6713638173844060195, guid: 239a39dc4609c9942a39541eedba31d1, type: 3}
 --- !u!114 &3713461715406365570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,10 +125,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tooltip_Canvas: {fileID: 0}
-  headerField: {fileID: 0}
-  contentField: {fileID: 0}
-  layoutElement: {fileID: 0}
+  TooltipInventory_Panel: {fileID: 0}
+  TooltipCrafting_Panel: {fileID: 0}
+  headerField_Inventory: {fileID: 0}
+  contentField_Inventory: {fileID: 0}
+  layoutElement_Inventory: {fileID: 0}
+  layoutElement_Crafting: {fileID: 0}
   characterWrapLimit: 80
+  headerField_Crafting: {fileID: 0}
+  materialNamesContent_Crafting: {fileID: 0}
 --- !u!114 &4918526078804904239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +146,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8e56245fe927c54bbca87dfa49eb28b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8631923470523158935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4918526078804904249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0691b2434ef979247bc35837692ea92a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RadioFix: 0
 --- !u!1 &4918526079130163737
 GameObject:
   m_ObjectHideFlags: 0

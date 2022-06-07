@@ -101,9 +101,9 @@ public class UsingItem : MonoBehaviour
         if (canPutItem)
         {
 
-            Debug.Log("Put item on ground");
+            //Debug.Log("Put item on ground");
 
-            Debug.Log("Index : " + indexAtInventory);
+            //Debug.Log("Index : " + indexAtInventory);
             GameObject slot = Inventory.instance.Inventory_Slots[indexAtInventory];
 
             Inventory.instance.RemoveItem(itemToDrag.GetComponent<ItemData>().Item, 1);
@@ -111,7 +111,7 @@ public class UsingItem : MonoBehaviour
         }
         else
         {
-            Debug.Log("Do not put item on ground");
+            //Debug.Log("Do not put item on ground");
 
             itemToDrag.SetActive(false);
         }

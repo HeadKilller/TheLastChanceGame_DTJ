@@ -32,4 +32,4 @@ public class Items : ScriptableObject
 public enum PlayerModifier { Attack, Defense, Health, Stamina }
 public enum Operator { Multiply, Add }
 
-public enum ItemType { Material, Equipment, Consumible, Trap, Gun }
+public enum ItemType { Material, Equipment, Consumible, Trap, Gun, Radio }

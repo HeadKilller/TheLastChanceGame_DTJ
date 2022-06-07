@@ -81,7 +81,18 @@ public class PlayerInteraction : MonoBehaviour
                     }
 
                 }
+                else if (material.GetComponent<ItemData>().Item.name == "Copper Wire")
+                {
+                    System.Random rnd = new System.Random();
 
+                    float numberToAdd = rnd.Next(1, 4);
+
+                    for (int i = 1; i < numberToAdd; i++)
+                    {
+                        Inventory.instance.AddItem(material, material.GetComponent<ItemData>().Item, material, true);
+                    }
+
+                }
                 else
                 {
                     Inventory.instance.AddItem(material, material.GetComponent<ItemData>().Item, material, true);
@@ -121,7 +132,13 @@ public class PlayerInteraction : MonoBehaviour
                 raycastHit.transform.GetComponent<ButtonOpenGate>().activated = true;
             }
 
+            if(raycastHit.transform.tag == "Radio")
+            {   
 
+                RadioFixed.radio.RadioFix = true;
+                RadioFixed.radio.FinishGame();
+
+            }
         }
 
     }

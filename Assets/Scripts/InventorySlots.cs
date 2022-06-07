@@ -206,6 +206,39 @@ public class InventorySlots : MonoBehaviour, IPointerClickHandler
             Inventory.instance.RemoveItem(itemGameObject.GetComponent<ItemData>().Gun, 1);
 
         }
+
+        if(item.itemType == ItemType.Radio)
+        {
+
+            Inventory.instance.Close_Inventory();
+            ClosePanel();
+
+            int index = FindIndex();
+
+            if (index == -1)
+            {
+                Debug.Log("Error. Index not found.");
+                return;
+            }
+
+            itemGameObject = Inventory.instance.inventorySlotsContent_Objects[index];
+
+            if (itemGameObject == null)
+            {
+                Debug.Log("Error. There's no game object on that inventory slot.");
+                return;
+            }
+
+            itemGameObject.SetActive(true);
+
+            if (GetPosition() == Vector3.zero)
+                itemGameObject.SetActive(false);
+
+            UsingItem.instance.DragItem(itemGameObject, index, groundLayer, ignoreLayer);
+
+            Inventory.instance.RemoveItem(itemGameObject.GetComponent<ItemData>().Item, 1);
+
+        }
     }
 
     

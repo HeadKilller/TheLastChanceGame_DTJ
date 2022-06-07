@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b4f7a7f4204d664c819086e3d808127, type: 3}
   m_Name: Radio
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 5
   name: Radio
   description: By interacting with this, you can finish the game.
   isCraftable: 0

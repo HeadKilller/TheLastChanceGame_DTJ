@@ -205,6 +205,13 @@ public class Inventory : MonoBehaviour
 
         }
 
+        if(_gameObject.tag == "Mask")
+        {
+
+            MaskEquiped = true;
+
+        }
+
         if (!foundEmptySlot) return;
 
         if(toDestroy)
@@ -302,7 +309,11 @@ public class Inventory : MonoBehaviour
 
             if (inventory_Slots[i] == slot)
                 index = i;
+        
         }
+
+        if (inventorySlotsContent_Objects[index].tag == "Mask")
+            return;
 
         confirmationWindow_GameObject.SetActive(true);
 
