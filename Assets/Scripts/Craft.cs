@@ -20,6 +20,8 @@ public class Craft : MonoBehaviour
     int toCraft_Num;
     List<bool> canCraft;
 
+    Sprite defaultQueueSlots_Image;
+    Color defaultQueueSlots_Color;
 
     public static Craft instance;
 
@@ -34,9 +36,12 @@ public class Craft : MonoBehaviour
 
         toCraft_Num = toCraft_Items.Count;
 
+        defaultQueueSlots_Image = CraftingQueue_Slots[0].GetComponent<Image>().sprite;
+        defaultQueueSlots_Color = CraftingQueue_Slots[0].GetComponent<Image>().color;
+
         //Debug.Log("Num of items to craft : " + toCraft_Num);
 
-        for(int i = 0; i < toCraft_Num; i++)
+        for (int i = 0; i < toCraft_Num; i++)
         {
             canCraft.Add(false);
         }
@@ -334,12 +339,8 @@ public class Craft : MonoBehaviour
         tempButton.interactable = false;
 
         Image tempImage = tempButton.GetComponent<Image>();
-        tempImage.sprite = null;
-
-        Color tempColor = tempImage.color;
-        tempColor.a = 30f;
-
-        tempImage.color = tempColor;
+        tempImage.sprite = defaultQueueSlots_Image;
+        tempImage.color = defaultQueueSlots_Color;
 
     }
 

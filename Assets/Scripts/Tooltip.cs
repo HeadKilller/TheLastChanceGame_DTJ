@@ -6,7 +6,15 @@ using UnityEngine.EventSystems;
 public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 
+    bool isShowingCraftingTime;
 
+    float timer;
+
+    private void Start()
+    {
+        isShowingCraftingTime = false;
+        timer = 0f;
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -57,12 +65,44 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 
             TooltipSystem.instance.ToolTipInventory_Show(header, content);
+
+            isShowingCraftingTime = true;
         }
 
+    }
+
+    private void Update()
+    {
+        
+        timer += Time.deltaTime;
+
+        if (isShowingCraftingTime && timer >= 0f)
+        {
+
+            Items itemInCraftingQueueSlot_OnHovering = Craft.instance.CheckItemOnHover_QueueMenu(gameObject);
+
+            if (itemInCraftingQueueSlot_OnHovering != null)
+            {
+
+                string content = Craft.instance.CheckItemTimerOnQueue(gameObject).ToString() + " sec";
+                string header = itemInCraftingQueueSlot_OnHovering.name + " Time Left : ";
+
+
+                TooltipSystem.instance.ToolTipInventory_Show(header, content);
+
+                timer = 0f;
+
+            }
+            else
+                isShowingCraftingTime = false;
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         TooltipSystem.instance.ToolTip_Hide();
+
+        isShowingCraftingTime = false;
+
     }
 }

@@ -31,6 +31,7 @@ public class TooltipSystem : MonoBehaviour
 
     private void Start()
     {
+
         instance = this;
     }
 
