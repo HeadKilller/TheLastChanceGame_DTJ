@@ -15,6 +15,7 @@ TagManager:
   - Material
   - Destructable
   - Radio
+  - Mask
   layers:
   - Default
   - TransparentFX

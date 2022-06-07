@@ -18,7 +18,7 @@ MonoBehaviour:
   isCraftable: 0
   isStackable: 0
   isUsable: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 121456025db77d248af147b1f292d4bc, type: 3}
   modifiers: 
   modifiersValue: []
   modifiersOperator: 

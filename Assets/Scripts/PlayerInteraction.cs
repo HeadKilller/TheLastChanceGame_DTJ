@@ -69,7 +69,24 @@ public class PlayerInteraction : MonoBehaviour
 
                 //raycastHit.transform.gameObject.GetComponent<ItemData>().DropItem();
 
-                Inventory.instance.AddItem(material, material.GetComponent<ItemData>().Item, material, true);
+                if(material.GetComponent<ItemData>().Item.name == "Scrap Metal")
+                {
+                    System.Random rnd = new System.Random();
+
+                    float numberToAdd = rnd.Next(2, 8);
+
+                    for(int i = 1; i < numberToAdd; i++)
+                    {
+                        Inventory.instance.AddItem(material, material.GetComponent<ItemData>().Item, material, true);
+                    }
+
+                }
+
+                else
+                {
+                    Inventory.instance.AddItem(material, material.GetComponent<ItemData>().Item, material, true);
+                }
+
 
             }
 
