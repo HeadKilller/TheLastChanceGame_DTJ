@@ -75,7 +75,7 @@ public class Inventory : MonoBehaviour
         inventorySlotsContent_Objects = new List<GameObject>();
         inventorySlotsCurrentCapacity = new List<int>();
 
-        
+        MaskEquiped = false;
         
 
         #endregion
@@ -206,6 +206,7 @@ public class Inventory : MonoBehaviour
         if(_gameObject.tag == "Mask")
         {
 
+            Debug.Log("Mask equipped");
             MaskEquiped = true;
 
         }
