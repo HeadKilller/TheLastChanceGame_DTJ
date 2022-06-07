@@ -17,10 +17,6 @@ public class Spawner : MonoBehaviour
     [SerializeField] float spawnCooldown;
 
 
-    [SerializeField] 
-
-
-
     System.Random rnd;
 
     float spawnTimer;
@@ -31,9 +27,18 @@ public class Spawner : MonoBehaviour
         rnd = new System.Random();
 
         spawnTimer = 0f;
-        
+
+        for(int i = 0; i < spawnAreaList.Count; i++)
+        {
+
+            spawnAreaList[i].zombiesList.Clear();
+
+        }
+
 
         SpawnZombie();
+
+
     }
 
     // Update is called once per frame

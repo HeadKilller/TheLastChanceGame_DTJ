@@ -11,13 +11,14 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] GameObject gameController;
     [SerializeField] GameObject MissionObjectiveRadio;
 
+    [SerializeField] LayerMask ignoreRaycast;
 
     PlayerInputControl playerInputControl;
 
 
     RaycastHit raycastHit;
 
-    float raycastMaxRange = 5f;
+    float raycastMaxRange = 10f;
 
     private void Awake()
     {
@@ -32,15 +33,16 @@ public class PlayerInteraction : MonoBehaviour
     private void Interact(InputAction.CallbackContext context)
     {
 
-        float range = 100f;
 
         if (Physics.Raycast(mainCamera.transform.position,
             mainCamera.transform.forward,
             out raycastHit,
-            range))
+            raycastMaxRange, ignoreRaycast))
         {
 
-            //Debug.Log("It has hit : " + raycastHit.transform.name);
+            
+
+            Debug.Log("It has hit : " + raycastHit.transform.name);
 
             if (raycastHit.transform.tag == "Gun")
             {

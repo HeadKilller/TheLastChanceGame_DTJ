@@ -280,6 +280,7 @@ public class Inventory : MonoBehaviour
 
         IsMovingItem = isMovingItem;
         SlotWhereToMove = slotToMove;
+
         if(isMovingItem)
             SlotFromWhereToMove = slot;
 
@@ -485,13 +486,16 @@ public class Inventory : MonoBehaviour
         {
             Debug.Log("Add item : " + inventorySlotsContent_Objects[index] + " from slot : " + index);
 
-            AddItemToSlot(SlotWhereToMove, inventorySlotsContent[index], inventorySlotsContent_Objects[index], (int)confirmationWindow_Slider.value);
-            if (inventorySlotsCurrentCapacity[index] == 0)
+            if ((int)confirmationWindow_Slider.value != 0)
             {
-                DeActivateSlot(SlotFromWhereToMove);
-                SlotFromWhereToMove = null;
-                SlotWhereToMove = null;
-                IsMovingItem = false;
+                AddItemToSlot(SlotWhereToMove, inventorySlotsContent[index], inventorySlotsContent_Objects[index], (int)confirmationWindow_Slider.value);
+                if (inventorySlotsCurrentCapacity[index] == 0)
+                {
+                    DeActivateSlot(SlotFromWhereToMove);
+                    SlotFromWhereToMove = null;
+                    SlotWhereToMove = null;
+                    IsMovingItem = false;
+                }
             }
         }
 
