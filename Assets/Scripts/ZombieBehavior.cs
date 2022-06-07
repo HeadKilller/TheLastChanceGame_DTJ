@@ -19,6 +19,11 @@ public class ZombieBehavior : MonoBehaviour
 
     [SerializeField] private float zombieSpeed;
 
+    [SerializeField] float zombieDamage;
+
+
+    [SerializeField] GameObject PunchAttack_CollidesWith;
+
     GameObject player;
     Transform playerTransform;
     NavMeshAgent navMeshAgent;
@@ -49,10 +54,9 @@ public class ZombieBehavior : MonoBehaviour
 
     private void Update()
     {
-       Debug.Log("Is sensing player : " + zombieSensing.IsSensingPlayer);
         if (zombieSensing.IsSensingPlayer && Vector3.Distance(playerTransform.position, transform.position) >= 1.5f && (currentZombieState == ZombieState.Idle || currentZombieState == ZombieState.Chasing) )
         {
-            Debug.Log("Chasing Player");
+            //Debug.Log("Chasing Player");
             ChasePlayer();
         }
         else if(currentZombieState == ZombieState.Chasing && hasBeenHit)
@@ -73,7 +77,40 @@ public class ZombieBehavior : MonoBehaviour
     private void ZombieAttack()
     {
         currentZombieState = ZombieState.Attacking;
-        //Make Zombie Attack
+        navMeshAgent.isStopped = true;
+
+        ZombieAnim.SetTrigger("Zombie_Attack");
+
+
+    }
+
+    public IEnumerator DoDamage()
+    {
+
+        Debug.Log("Hand : " + PunchAttack_CollidesWith.name);
+        Debug.Log("Collider : " + PunchAttack_CollidesWith.GetComponent<BoxCollider>().enabled);
+        PunchAttack_CollidesWith.GetComponent<BoxCollider>().enabled = true;
+        Debug.Log("Collider : " + PunchAttack_CollidesWith.GetComponent<BoxCollider>().enabled);
+
+        currentZombieState = ZombieState.Idle;
+
+        if(Vector3.Distance(playerTransform.position, transform.position) < 1.5f)
+        {
+
+            ZombieAttack();
+
+        }
+        else
+        {
+
+            ChasePlayer();
+
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        PunchAttack_CollidesWith.GetComponent<BoxCollider>().enabled = false;
+ 
 
     }
 
@@ -121,7 +158,7 @@ public class ZombieBehavior : MonoBehaviour
 
     public void ChasePlayer()
     {
-        if(currentZombieState == ZombieState.Hit)
+        if(currentZombieState == ZombieState.Hit || currentZombieState == ZombieState.Idle)
             navMeshAgent.isStopped = false;
 
 

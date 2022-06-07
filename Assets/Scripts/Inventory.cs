@@ -337,8 +337,8 @@ public class Inventory : MonoBehaviour
         TextMeshProUGUI text = itemToRemove.GetComponentInChildren<TextMeshProUGUI>();
         inventorySlotsCurrentCapacity[index] -= quantityToRemove;
 
-        Debug.Log("Item : " + inventorySlotsContent[index]);
-        Debug.Log("Quantity : " + inventorySlotsCurrentCapacity[index]);
+        //Debug.Log("Item : " + inventorySlotsContent[index]);
+        //Debug.Log("Quantity : " + inventorySlotsCurrentCapacity[index]);
 
         if (inventorySlotsCurrentCapacity[index] <= 0)
         {
@@ -427,7 +427,7 @@ public class Inventory : MonoBehaviour
 
         }
 
-        Debug.Log("Destroying... : " + inventory_Slots[index]);
+        //Debug.Log("Destroying... : " + inventory_Slots[index]);
         inventorySlotsContent[index] = null;
         inventorySlotsContent_Objects[index] = null;
 

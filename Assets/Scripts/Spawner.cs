@@ -16,6 +16,11 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float securityDistanceToSpawn;
     [SerializeField] float spawnCooldown;
 
+
+    [SerializeField] 
+
+
+
     System.Random rnd;
 
     float spawnTimer;

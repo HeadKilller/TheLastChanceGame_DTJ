@@ -63,7 +63,7 @@ public class PlayerInteraction : MonoBehaviour
 
             if (raycastHit.transform.tag == "Material")
             {
-                Debug.Log("Picking Up Material");
+                //Debug.Log("Picking Up Material");
 
                 GameObject material = raycastHit.transform.gameObject;
 
@@ -75,7 +75,7 @@ public class PlayerInteraction : MonoBehaviour
 
             if(raycastHit.transform.tag == "Munition")
             {
-                Debug.Log("Picking Up Munition");
+                //Debug.Log("Picking Up Munition");
 
                 this.GetComponent<PlayerGun>().PickMunition(raycastHit.transform.name);
 

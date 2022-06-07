@@ -13,16 +13,21 @@ MonoBehaviour:
   m_Name: Radio
   m_EditorClassIdentifier: 
   itemType: 0
-  name: New Item
-  description: Description
+  name: Radio
+  description: By interacting with this, you can finish the game.
   isCraftable: 0
   isStackable: 0
-  isUsable: 0
-  icon: {fileID: 0}
+  isUsable: 1
+  icon: {fileID: 21300000, guid: a33cf3f722c7f934c9efdcb610f1b057, type: 3}
   modifiers: 
   modifiersValue: []
   modifiersOperator: 
-  craftingRecipe: []
-  craftingRecipeNum: 
-  craftingTime: 0
+  craftingRecipe:
+  - {fileID: 11400000, guid: 7acfe3f38f7a6024fa57acc5e25b8e1e, type: 2}
+  - {fileID: 11400000, guid: 004497c01a0b34e478155908a9693fd1, type: 2}
+  - {fileID: 11400000, guid: 54eadbe21e652314496db74fd9686ee8, type: 2}
+  - {fileID: 11400000, guid: 80fe17d35146432439f0d29b6c6a8f97, type: 2}
+  - {fileID: 11400000, guid: b26832354755c784cb36149e9dccfed3, type: 2}
+  craftingRecipeNum: 0a00000001000000030000000100000001000000
+  craftingTime: 15
   itemDropped: 

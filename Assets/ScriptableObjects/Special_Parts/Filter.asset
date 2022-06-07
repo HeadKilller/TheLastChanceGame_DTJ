@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Filter
   m_EditorClassIdentifier: 
   itemType: 0
-  name: New Item
-  description: Description
+  name: Filter
+  description: This can be used to craft special items.
   isCraftable: 0
   isStackable: 0
   isUsable: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: bf8e23ffc581a234d9c70ea128346ffd, type: 3}
   modifiers: 
   modifiersValue: []
   modifiersOperator: 

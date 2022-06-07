@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Bateries
   m_EditorClassIdentifier: 
   itemType: 0
-  name: New Item
-  description: Description
+  name: Batery
+  description: This can be used to craft special items.
   isCraftable: 0
   isStackable: 0
   isUsable: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 52c2b0f585492da488df4236330f03e0, type: 3}
   modifiers: 
   modifiersValue: []
   modifiersOperator: 

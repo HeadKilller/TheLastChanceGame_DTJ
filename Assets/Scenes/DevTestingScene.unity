@@ -1626,6 +1626,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1123396758 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1818806966, guid: 393743e565d48cc42901b4d9df115230, type: 3}
+  m_PrefabInstance: {fileID: 1786071657012289565}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1160212691
 GameObject:
   m_ObjectHideFlags: 0
@@ -3689,7 +3694,7 @@ PrefabInstance:
       objectReference: {fileID: 1204867518}
     - target: {fileID: 3713461715406365572, guid: ff51b259d70e5d840a4ad2d2fd474b4a, type: 3}
       propertyPath: toCraft_Items.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3713461715406365572, guid: ff51b259d70e5d840a4ad2d2fd474b4a, type: 3}
       propertyPath: toCraft_Items.Array.data[0]
@@ -3708,8 +3713,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5235479764817556001, guid: a3718ed18a006c848a94d8a79b852dd0, type: 3}
     - target: {fileID: 3713461715406365572, guid: ff51b259d70e5d840a4ad2d2fd474b4a, type: 3}
+      propertyPath: toCraft_Items.Array.data[4]
+      value: 
+      objectReference: {fileID: 4347350989371898948, guid: cd32b0ba40ed13244b8c96dc25c7f7e3, type: 3}
+    - target: {fileID: 3713461715406365572, guid: ff51b259d70e5d840a4ad2d2fd474b4a, type: 3}
       propertyPath: CraftingMenu_Slots.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3713461715406365572, guid: ff51b259d70e5d840a4ad2d2fd474b4a, type: 3}
       propertyPath: CraftingMenu_Slots.Array.data[0]
@@ -3727,6 +3736,10 @@ PrefabInstance:
       propertyPath: CraftingMenu_Slots.Array.data[3]
       value: 
       objectReference: {fileID: 2032790322}
+    - target: {fileID: 3713461715406365572, guid: ff51b259d70e5d840a4ad2d2fd474b4a, type: 3}
+      propertyPath: CraftingMenu_Slots.Array.data[4]
+      value: 
+      objectReference: {fileID: 1123396758}
     - target: {fileID: 3713461715406365572, guid: ff51b259d70e5d840a4ad2d2fd474b4a, type: 3}
       propertyPath: CraftingQueue_Slots.Array.data[0]
       value: 

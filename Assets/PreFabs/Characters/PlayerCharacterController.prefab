@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 7139835941903819998}
   m_Layer: 7
   m_Name: PlayerCharacterController
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -354,6 +354,10 @@ MonoBehaviour:
   handGun_Slot: {fileID: 0}
   assaultGun_Slot: {fileID: 0}
   unarmed_Slot: {fileID: 0}
+  smg_Slot: {fileID: 0}
+  audioCLip_AK: {fileID: 0}
+  audioClip_HandGun: {fileID: 0}
+  audioClip_UMP: {fileID: 0}
 --- !u!114 &7139835941903819998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,6 +370,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ef062bfe7bca44da5c9b8a928c3182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thirst: 0
+  hunger: 0
+  health: 0
 --- !u!1 &7652367870113441295
 GameObject:
   m_ObjectHideFlags: 0

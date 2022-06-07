@@ -32,6 +32,6 @@ MonoBehaviour:
   magCapacity: 7
   init_MagNum: 2
   rateOfFire: 85
-  damage: 15
+  damage: 20
   maxRange: 50
   recoil: {x: -1, y: 1, z: 0.2}

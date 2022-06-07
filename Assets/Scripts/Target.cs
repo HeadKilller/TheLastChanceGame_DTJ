@@ -5,32 +5,37 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
 
-    private Renderer renderer;
+    private Outline outline;
 
     // Start is called before the first frame update
     void Start()
     {
-        renderer = GetComponent<Renderer>();
+        outline = GetComponent<Outline>();
     }
     
     private void OnMouseOver()
     {
-        if (renderer != null)
+        try
         {
-
-            renderer.material.color = new Color(171f, 171f, 171f, 0.2f);            
-
+            outline.enabled = true;
         }
+        catch(System.Exception e)
+        {
+            Debug.LogError(e.Message);
+        }
+
     }
 
     private void OnMouseExit()
     {
 
-        if (renderer != null)
+        try
         {
-
-            renderer.material.color = Color.white;
-
+            outline.enabled = false;
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError(e.Message);
         }
 
     }

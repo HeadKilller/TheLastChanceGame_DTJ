@@ -52,8 +52,8 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             //Debug.Log("Crafting Queue Slot");
 
-            string content = itemInCraftingQueueSlot_OnHovering.description;
-            string header = itemInCraftingQueueSlot_OnHovering.name;
+            string content = Craft.instance.CheckItemTimerOnQueue(gameObject).ToString() + " sec";
+            string header = itemInCraftingQueueSlot_OnHovering.name + " Time Left : ";
 
 
             TooltipSystem.instance.ToolTipInventory_Show(header, content);

@@ -400,6 +400,8 @@ public class PlayerGun : MonoBehaviour
             //Desativa a arma, não permitindo ao jogador usá-la até que ele a selecione.
             toEquipGun.SetActive(false);
 
+            Debug.Log(toEquipGun);
+
             switch (toEquipGun.GetComponent<ItemData>().Gun.gunType)
             {
                 case GunType.HandGun:

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -83,15 +84,18 @@ public class Player : MonoBehaviour
 
     }
 
-    public void Hit(float damage)
+    public void Damage(float damage)
     {
-
         health -= damage;
 
     }
 
     public void Death()
     {
-       
+
+        Debug.Log("YOU ARE DEATH");
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name, LoadSceneMode.Single);
+
     }
 }

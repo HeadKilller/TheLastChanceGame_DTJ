@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Copper Wire
   m_EditorClassIdentifier: 
   itemType: 0
-  name: New Item
-  description: Description
+  name: Copper Wire
+  description: This can be used to craft special items.
   isCraftable: 0
   isStackable: 0
   isUsable: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: fdde8e08bc89cef439d0778581226ce6, type: 3}
   modifiers: 
   modifiersValue: []
   modifiersOperator: 

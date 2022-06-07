@@ -200,7 +200,6 @@ public class InventorySlots : MonoBehaviour, IPointerClickHandler
                 return;
             }
 
-            Instantiate(itemGameObject);
 
             PlayerGun.instance.EquipGun(itemGameObject);
 

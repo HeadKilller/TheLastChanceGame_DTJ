@@ -302,28 +302,28 @@ public class Craft : MonoBehaviour
     public void GetItem(GameObject queue_slot)
     {
         Items tempItem = null;
-        GameObject tempGameObject = null;
+        GameObject tempGameObject_Prefab = null;
 
         for(int i = 0; i < CraftingQueue_Slots.Count; i++)
         {
             if(queue_slot == CraftingQueue_Slots[i])
             {
-                tempGameObject = items_Crafting[i];
+                tempGameObject_Prefab = items_Crafting[i];
                 //tempGameObject = toCraft_Items[i];
-                tempItem = tempGameObject.GetComponent<ItemData>().Item;
+                tempItem = tempGameObject_Prefab.GetComponent<ItemData>().Item;
 
                 if(tempItem == null)
-                    tempItem = tempGameObject.GetComponent<ItemData>().Gun;
+                    tempItem = tempGameObject_Prefab.GetComponent<ItemData>().Gun;
 
                 items_Crafting[i] = null;
 
             }
         }
 
-        if(tempGameObject != null && tempItem != null)
+        if(tempGameObject_Prefab != null && tempItem != null)
         {
 
-            Instantiate(tempGameObject);
+            GameObject tempGameObject = Instantiate(tempGameObject_Prefab);
 
             tempGameObject.SetActive(false);
 
@@ -387,4 +387,19 @@ public class Craft : MonoBehaviour
 
         return itemOnHover;
     }
+
+    public int CheckItemTimerOnQueue(GameObject slot)
+    {
+
+        int time = -1;
+
+        int index = CraftingQueue_Slots.IndexOf(slot);
+
+        time = (int) craftingTimers[index];
+
+        return time;
+
+    }
+
+
 }

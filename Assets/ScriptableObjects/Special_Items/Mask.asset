@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Mask
   m_EditorClassIdentifier: 
   itemType: 0
-  name: New Item
-  description: Description
+  name: Mask
+  description: This is a special item that protects you from gases.
   isCraftable: 0
   isStackable: 0
   isUsable: 0
@@ -22,7 +22,9 @@ MonoBehaviour:
   modifiers: 
   modifiersValue: []
   modifiersOperator: 
-  craftingRecipe: []
-  craftingRecipeNum: 
+  craftingRecipe:
+  - {fileID: 11400000, guid: d0f66c40ba5d2f8479dca5419be16f8d, type: 2}
+  - {fileID: 11400000, guid: 7acfe3f38f7a6024fa57acc5e25b8e1e, type: 2}
+  craftingRecipeNum: 0100000003000000
   craftingTime: 0
   itemDropped: 

@@ -44,6 +44,8 @@ public class TooltipSystem : MonoBehaviour
     {
         Vector2 position = Input.mousePosition;
 
+        Vector2 offset = new Vector2(-15f, -15f);
+
         float pivotX = position.x / Screen.width;
         float pivotY = position.y / Screen.height;
 

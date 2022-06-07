@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b4f7a7f4204d664c819086e3d808127, type: 3}
   m_Name: Food
   m_EditorClassIdentifier: 
-  itemType: 0
-  name: New Item
-  description: Description
+  itemType: 2
+  name: Food
+  description: Can be used to avoid hunger.
   isCraftable: 0
-  isStackable: 0
-  isUsable: 0
+  isStackable: 1
+  isUsable: 1
   icon: {fileID: 0}
   modifiers: 
   modifiersValue: []
