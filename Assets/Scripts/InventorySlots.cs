@@ -200,6 +200,8 @@ public class InventorySlots : MonoBehaviour, IPointerClickHandler
                 return;
             }
 
+            Instantiate(itemGameObject);
+
             PlayerGun.instance.EquipGun(itemGameObject);
 
             Inventory.instance.RemoveItem(itemGameObject.GetComponent<ItemData>().Gun, 1);

@@ -324,6 +324,7 @@ public class Craft : MonoBehaviour
         {
 
             Instantiate(tempGameObject);
+
             tempGameObject.SetActive(false);
 
             Inventory.instance.AddItem(tempGameObject, tempItem, tempGameObject,  false);

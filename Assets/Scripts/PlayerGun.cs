@@ -27,11 +27,11 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] GameObject smg_Slot;
    
     [Header("Sounds")]
-    [SerializeField] AudioClip Ak;
-    [SerializeField] AudioClip Pistol;
-    [SerializeField] AudioClip Ump;
+    [SerializeField] AudioClip audioCLip_AK;
+    [SerializeField] AudioClip audioClip_HandGun;
+    [SerializeField] AudioClip audioClip_UMP;
 
-
+    AudioSource audioSource;
 
     Dictionary<GameObject, GameObject> equippedGuns;
     Dictionary<GunType, int> bulletsNumber;
@@ -90,8 +90,11 @@ public class PlayerGun : MonoBehaviour
         currentBulletsText = currentBulletsPanel.GetComponentInChildren<TMP_Text>();
         bulletsIcon = currentBulletsPanel.GetComponentInChildren<Image>();
 
+        audioSource = this.GetComponent<AudioSource>();
+
         bulletsNumber.Add(GunType.HandGun, 14);
         bulletsNumber.Add(GunType.AssaultRifle, 60);
+        bulletsNumber.Add(GunType.SMG, 60);
 
         currentBulletsText.color = new Color(1, 1, 1);
 
@@ -151,6 +154,8 @@ public class PlayerGun : MonoBehaviour
 
             Recoil.RecoilFire(gunRecoil);
 
+            PlaySound();
+
             Guns currentGun_Info = selectedGun.GetComponent<ItemData>().Gun;
 
             int dmg = currentGun_Info.damage;
@@ -186,19 +191,32 @@ public class PlayerGun : MonoBehaviour
 
 
     }
-    private void PlaySound(PlayerGun equiped)
+    private void PlaySound()
     {
-        Debug.Log(equiped.transform.name);
-        if (this.GetComponent<AudioSource>().isPlaying == false)
-        {
-            Debug.Log(equiped.transform.name);
 
-            //if(equiped.transform.name == "")
-            //{
-            //    this.GetComponent<AudioSource>().PlayOneShot(Ak);
-            //}
-            
+        switch (selectedGun.GetComponent<ItemData>().Gun.gunType)
+        {
+
+            case GunType.HandGun:
+
+                audioSource.PlayOneShot(audioClip_HandGun);
+
+                break;
+            case GunType.AssaultRifle:
+
+                audioSource.PlayOneShot(audioCLip_AK);
+
+                break;
+            case GunType.SMG:
+
+                audioSource.PlayOneShot(audioClip_UMP);
+
+                break;
         }
+            
+
+
+
     }
 
     //Método chamado quando o jogador mantém o botão do rato pressionado
@@ -210,8 +228,9 @@ public class PlayerGun : MonoBehaviour
         {
             selectedWeapon_MuzzleFlash.Play();
             currentBullets--;
-            PlaySound(selectedGun.GetComponent<PlayerGun>());
-            Recoil.RecoilFire(gunRecoil);
+            Recoil.RecoilFire(gunRecoil);   
+
+            PlaySound();
 
             //Debug.Log(/*mainCamera.transform.position + */mainCamera.transform.forward);
 

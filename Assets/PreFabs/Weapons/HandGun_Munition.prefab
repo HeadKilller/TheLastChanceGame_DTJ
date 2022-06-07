@@ -12,6 +12,10 @@ PrefabInstance:
       value: HandGun_Munition
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: b22926f72bc46074cae86bbcac5663d6, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b22926f72bc46074cae86bbcac5663d6, type: 3}
       propertyPath: m_TagString
       value: Munition
       objectReference: {fileID: 0}
@@ -87,3 +91,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 51.229977, y: 48.790173, z: 42.30077}
   m_Center: {x: 25.61511, y: -24.39501, z: 21.150385}
+--- !u!114 &271288280579278655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8411771264873127036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583df71318d8a034a8bf5e6bd6b08d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

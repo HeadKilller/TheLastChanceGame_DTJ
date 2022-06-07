@@ -21,10 +21,12 @@ public class TooltipSystem : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI headerField_Crafting;
     [SerializeField] TextMeshProUGUI materialNamesContent_Crafting;
-    [SerializeField] TextMeshProUGUI materialNumsContent_Crafting;
 
 
     public static TooltipSystem instance;
+
+
+    RectTransform inventoryTooltip_RectTransform, craftingTooltip_RectTransform;
 
 
     private void Start()
@@ -32,7 +34,27 @@ public class TooltipSystem : MonoBehaviour
         instance = this;
     }
 
-    
+    private void Awake()
+    {
+        inventoryTooltip_RectTransform = TooltipInventory_Panel.transform as RectTransform;
+        craftingTooltip_RectTransform = TooltipCrafting_Panel.transform as RectTransform;
+    }
+
+    private void Update()
+    {
+        Vector2 position = Input.mousePosition;
+
+        float pivotX = position.x / Screen.width;
+        float pivotY = position.y / Screen.height;
+
+        //Setting the pivots
+        inventoryTooltip_RectTransform.pivot = new Vector2(pivotX, pivotY);
+        craftingTooltip_RectTransform.pivot = new Vector2(pivotX, pivotY);
+
+        //Setting the positions
+        TooltipInventory_Panel.transform.position = position;
+        TooltipCrafting_Panel.transform.position = position;
+    }
 
     public void ToolTipInventory_Show(string header, string content)
     {
@@ -59,7 +81,7 @@ public class TooltipSystem : MonoBehaviour
         TooltipInventory_Panel.SetActive(true);
     }
 
-    public void ToolTipCrafting_Show(string header, string materialNames, string materialNums)
+    public void ToolTipCrafting_Show(string header, string materialsContent)
     {
 
         if (string.IsNullOrEmpty(header))
@@ -72,14 +94,13 @@ public class TooltipSystem : MonoBehaviour
             headerField_Crafting.text = header;
         }
 
-        materialNamesContent_Crafting.text = materialNames;
-        materialNumsContent_Crafting.text = materialNums;
+        materialNamesContent_Crafting.text = materialsContent;
 
         int headerLenght = headerField_Crafting.text.Length;
         int materialNamesLenght = materialNamesContent_Crafting.text.Length;
-        int materialNumsLenght = materialNumsContent_Crafting.text.Length;
 
-        layoutElement_Crafting.enabled = (headerLenght > characterWrapLimit || materialNamesLenght + materialNumsLenght > characterWrapLimit) ? true : false;
+        layoutElement_Crafting.enabled = (headerLenght > characterWrapLimit || materialNamesLenght > characterWrapLimit) ? true : false;
+
 
         Tooltip_Canvas.SetActive(true);
         TooltipCrafting_Panel.SetActive(true);

@@ -28,10 +28,9 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             //Debug.Log("Crafting Slot");
 
-            string MaterialsNames = "";
-            string MaterialsNums = "";
+            string materials = "";
 
-            string header = itemInCraftingSlot_OnHovering.name + "Recipe";
+            string header = itemInCraftingSlot_OnHovering.name + " Recipe";
 
             List<Items> materialsNames = itemInCraftingSlot_OnHovering.craftingRecipe;
             List<int> materialsNum = itemInCraftingSlot_OnHovering.craftingRecipeNum;
@@ -41,13 +40,12 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             for(int i = 0; i < materialsNum.Count; i++)
             {
 
-                MaterialsNames += materialsNames[i].name + "\n";
-                MaterialsNums += materialsNum[i].ToString() + "\n";
+                materials += materialsNames[i].name + "          " + materialsNum[i].ToString() +  "\n";
 
             }
 
 
-            TooltipSystem.instance.ToolTipCrafting_Show(header, MaterialsNames, MaterialsNums);
+            TooltipSystem.instance.ToolTipCrafting_Show(header, materials);
 
         }
         else if(itemInCraftingQueueSlot_OnHovering != null)

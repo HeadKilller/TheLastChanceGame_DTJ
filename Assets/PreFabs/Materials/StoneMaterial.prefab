@@ -12,6 +12,10 @@ PrefabInstance:
       value: StoneMaterial
       objectReference: {fileID: 0}
     - target: {fileID: 180954, guid: 7d3fdfd88ac1c5941804f4079583b7bd, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 180954, guid: 7d3fdfd88ac1c5941804f4079583b7bd, type: 3}
       propertyPath: m_TagString
       value: Material
       objectReference: {fileID: 0}
@@ -80,3 +84,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 09836985ba210454b9fd47a3bb7032f3, type: 2}
   gun: {fileID: 0}
+  droppableItems_Names: []
+  droppableItems_Objects: []
+--- !u!114 &5959361775210049940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015938090015620301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583df71318d8a034a8bf5e6bd6b08d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
