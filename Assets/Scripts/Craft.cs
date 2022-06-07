@@ -91,14 +91,14 @@ public class Craft : MonoBehaviour
 
         for(int i = 0; i < craftingTimers.Count; i++)
         {
-            if(craftingTimers[i] != -100f)
+            if(craftingTimers[i] > 0f)
             {
                 craftingTimers[i] -= Time.deltaTime;
 
-                if(craftingTimers[i] <= 0f)
+                if(craftingTimers[i] < 0f)
                 {
 
-                    craftingTimers[i] = -100f;
+                    craftingTimers[i] = 0f;
                     ItemIsCrafted(CraftingQueue_Slots[i]);
 
                 }

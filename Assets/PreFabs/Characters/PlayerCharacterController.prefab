@@ -257,6 +257,7 @@ GameObject:
   - component: {fileID: 841246577}
   - component: {fileID: 841246578}
   - component: {fileID: 1933334972}
+  - component: {fileID: 3221102091481940063}
   m_Layer: 7
   m_Name: PlayerCharacterController
   m_TagString: Player
@@ -338,7 +339,7 @@ MonoBehaviour:
   MissionObjectiveRadio: {fileID: 0}
   ignoreRaycast:
     serializedVersion: 2
-    m_Bits: 132
+    m_Bits: 891
 --- !u!114 &805421063962629392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,8 +507,8 @@ MonoBehaviour:
   walkSound: {fileID: 8300000, guid: 03bdb2b4812d95848a4789930e45f2bd, type: 3}
   jumpSound: {fileID: 8300000, guid: 485c434ec6e7eff4d8829c77a2a504f3, type: 3}
   fallSound: {fileID: 8300000, guid: 3990276c2801c87479937c7dd14ca5de, type: 3}
-  intervaloTempoEntreSons: 0
-  volume: 1
+  intervaloTempoEntreSons: 0.5
+  volume: 0.5
 --- !u!82 &1933334972
 AudioSource:
   m_ObjectHideFlags: 0
@@ -604,6 +605,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3221102091481940063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7652367869701624438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b7bed8e1be83740b964944680b04ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSider: {fileID: 0}
 --- !u!1 &7652367870113441295
 GameObject:
   m_ObjectHideFlags: 0

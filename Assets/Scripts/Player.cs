@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
 
     private float timer;
 
+    PlayerStatsBars playerBars;
+
     private void Start()
     {
         instance = this;
@@ -20,6 +22,11 @@ public class Player : MonoBehaviour
         health = 100f;
         thirst = 100f;
         hunger = 100;
+
+
+        playerBars = gameObject.GetComponent<PlayerStatsBars>();
+
+        playerBars.SetMaxHealth((int)health);
     }
 
     private void Update()
@@ -61,6 +68,9 @@ public class Player : MonoBehaviour
             Death();
         }
 
+        playerBars.SetHealth((int)health);
+
+
     }
 
     public void Drink(Items item)
@@ -81,12 +91,14 @@ public class Player : MonoBehaviour
     {
 
         health += 20f;
+        playerBars.SetHealth((int)health);
 
     }
 
     public void Damage(float damage)
     {
         health -= damage;
+        playerBars.SetHealth((int)health);
 
     }
 

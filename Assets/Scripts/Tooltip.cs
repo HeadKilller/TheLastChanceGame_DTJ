@@ -83,8 +83,18 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
             if (itemInCraftingQueueSlot_OnHovering != null)
             {
+                string content = "";
 
-                string content = Craft.instance.CheckItemTimerOnQueue(gameObject).ToString() + " sec";
+                int currentTimer = Craft.instance.CheckItemTimerOnQueue(gameObject);
+
+                if(currentTimer != 0)
+                    content = currentTimer.ToString() + " sec";
+
+                else
+                {
+                    content = "Crafting Finished";
+                }
+
                 string header = itemInCraftingQueueSlot_OnHovering.name + " Time Left : ";
 
 

@@ -3115,6 +3115,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8e434de7b7708e4fb52d695488b3fbf, type: 3}
+--- !u!114 &1918643435 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7985009975870083852, guid: 393743e565d48cc42901b4d9df115230, type: 3}
+  m_PrefabInstance: {fileID: 1786071657012289565}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1921278244 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1786071658849108281, guid: 393743e565d48cc42901b4d9df115230, type: 3}
@@ -4012,6 +4023,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -80
       objectReference: {fileID: 0}
+    - target: {fileID: 833007658138465731, guid: 393743e565d48cc42901b4d9df115230, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 833007658138465731, guid: 393743e565d48cc42901b4d9df115230, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 833007658138465731, guid: 393743e565d48cc42901b4d9df115230, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 833007658138465731, guid: 393743e565d48cc42901b4d9df115230, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 833007658138465731, guid: 393743e565d48cc42901b4d9df115230, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 833007658138465731, guid: 393743e565d48cc42901b4d9df115230, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1399533179678147974, guid: 393743e565d48cc42901b4d9df115230, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4136,6 +4171,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8631923470523158930}
+    - target: {fileID: 7871895585801307956, guid: 393743e565d48cc42901b4d9df115230, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 185.0438
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871895585801307956, guid: 393743e565d48cc42901b4d9df115230, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -393.47806
+      objectReference: {fileID: 0}
     - target: {fileID: 8214188153425254949, guid: 393743e565d48cc42901b4d9df115230, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -4164,6 +4207,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1015397169}
+    - target: {fileID: 8392518073981857884, guid: 393743e565d48cc42901b4d9df115230, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392518073981857884, guid: 393743e565d48cc42901b4d9df115230, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8491591705497703761, guid: 393743e565d48cc42901b4d9df115230, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4883,6 +4934,10 @@ PrefabInstance:
       propertyPath: currentBulletsPanel
       value: 
       objectReference: {fileID: 148903504}
+    - target: {fileID: 3221102091481940063, guid: 4b8e8d513d490f941b8fcb0a842af350, type: 3}
+      propertyPath: healthSider
+      value: 
+      objectReference: {fileID: 1918643435}
     - target: {fileID: 6153779932279934002, guid: 4b8e8d513d490f941b8fcb0a842af350, type: 3}
       propertyPath: gameController
       value: 
