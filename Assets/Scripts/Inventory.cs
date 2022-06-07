@@ -32,6 +32,7 @@ public class Inventory : MonoBehaviour
     GameObject gameObjectToDestroy;
 
     public bool MaskEquiped;
+    public bool HasRadio;
 
     List<GameObject> inventory_Slots;
     List<Items> inventorySlotsContent;
@@ -210,6 +211,10 @@ public class Inventory : MonoBehaviour
 
             MaskEquiped = true;
 
+        }
+        if(_gameObject.tag == "Radio")
+        {
+            HasRadio = true;
         }
 
         if (!foundEmptySlot) return;

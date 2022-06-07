@@ -42,6 +42,10 @@ public class PlayerInteraction : MonoBehaviour
 
             if (raycastHit.transform.tag == "Gun")
             {
+                if(raycastHit.transform.name == "PistolTUTO")
+                {
+                    raycastHit.transform.GetComponent<GunPicked>().pickGun = true;
+                }
                 GameObject equippedGun;
 
                 equippedGun = raycastHit.transform.gameObject;
@@ -133,10 +137,10 @@ public class PlayerInteraction : MonoBehaviour
             }
 
             if(raycastHit.transform.tag == "Radio")
-            {   
+            {
 
-                RadioFixed.radio.RadioFix = true;
-                RadioFixed.radio.FinishGame();
+                raycastHit.transform.GetComponent<RadioFixed>().RadioFix = true;
+              
 
             }
         }
