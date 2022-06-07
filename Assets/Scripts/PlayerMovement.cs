@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class PlayerMovement : MonoBehaviour
 {
 
@@ -11,8 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] float gravityForce;
     [SerializeField] float playerSpeed;
-
-
+  
     Vector3 yVelocity;
 
     [SerializeField] List<LayerMask> groundLayers;
@@ -53,13 +53,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Movement()
     {
-
+        
         float xMovement = playerInputControl.PlayerOnFoot.Movement.ReadValue<Vector2>().y;
         float yMovement = playerInputControl.PlayerOnFoot.Movement.ReadValue<Vector2>().x;
 
         Vector3 movementVector = transform.forward * xMovement + transform.right * yMovement;
         movementVector *= playerSpeed * Time.deltaTime;
-
 
         playerCharacterController.Move(movementVector);
 

@@ -25,6 +25,13 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] GameObject assaultGun_Slot;
     [SerializeField] GameObject unarmed_Slot;
     [SerializeField] GameObject smg_Slot;
+   
+    [Header("Sounds")]
+    [SerializeField] AudioClip Ak;
+    [SerializeField] AudioClip Pistol;
+    [SerializeField] AudioClip Ump;
+
+
 
     Dictionary<GameObject, GameObject> equippedGuns;
     Dictionary<GunType, int> bulletsNumber;
@@ -52,6 +59,8 @@ public class PlayerGun : MonoBehaviour
 
 
     public static PlayerGun instance;
+
+    private bool shooted;
 
     #region Propriedades
 
@@ -113,10 +122,7 @@ public class PlayerGun : MonoBehaviour
         playerInputControl.PlayerOnFoot.ChangeGun.canceled += GunSelected;
 
         playerInputControl.PlayerOnFoot.FireSemi.performed += FireSemi;
-
-        
-
-        
+     
     }
 
     private void Update()
@@ -128,6 +134,7 @@ public class PlayerGun : MonoBehaviour
         if (selectedGun != null && playerInputControl.PlayerOnFoot.FireAuto.ReadValue<float>() == 1)
         {
             FireAuto();
+            
         }
 
     }
@@ -179,6 +186,20 @@ public class PlayerGun : MonoBehaviour
 
 
     }
+    private void PlaySound(PlayerGun equiped)
+    {
+        Debug.Log(equiped.transform.name);
+        if (this.GetComponent<AudioSource>().isPlaying == false)
+        {
+            Debug.Log(equiped.transform.name);
+
+            //if(equiped.transform.name == "")
+            //{
+            //    this.GetComponent<AudioSource>().PlayOneShot(Ak);
+            //}
+            
+        }
+    }
 
     //Método chamado quando o jogador mantém o botão do rato pressionado
     public void FireAuto()
@@ -187,12 +208,9 @@ public class PlayerGun : MonoBehaviour
 
         if (currentBullets > 0 && autoTimer >= (1f / fireRate) && !changeGunPanel.activeInHierarchy)
         {
-
-            
-
             selectedWeapon_MuzzleFlash.Play();
             currentBullets--;
-
+            PlaySound(selectedGun.GetComponent<PlayerGun>());
             Recoil.RecoilFire(gunRecoil);
 
             //Debug.Log(/*mainCamera.transform.position + */mainCamera.transform.forward);
@@ -219,7 +237,6 @@ public class PlayerGun : MonoBehaviour
                     }
                     else
                     {
-
                         //Debug.Log("Auto Hit Tag" + raycastHit.transform.tag);
 
                         GameObject tempDecal = Instantiate(bulletHolePrefab,
