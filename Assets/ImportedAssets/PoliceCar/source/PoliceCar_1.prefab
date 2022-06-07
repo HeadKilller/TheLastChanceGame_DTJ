@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6499458913736166891}
   - component: {fileID: 4691603499265451834}
   - component: {fileID: 7512509255069224024}
+  - component: {fileID: 4012510440120103526}
   m_Layer: 0
   m_Name: PoliceCar_1
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4012510440120103526
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8807325667221339861}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8113768720884857512, guid: 24d57303c04f86247a384beac84c1ad1, type: 3}

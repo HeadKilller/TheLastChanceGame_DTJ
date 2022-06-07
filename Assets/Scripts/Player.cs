@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     public static Player instance;
 
-    private float thirst, hunger, health;
+    public float thirst, hunger, health;
 
     private float timer;
 
@@ -92,6 +92,6 @@ public class Player : MonoBehaviour
 
     public void Death()
     {
-
+       
     }
 }

@@ -31,7 +31,7 @@ public class Inventory : MonoBehaviour
 
     GameObject gameObjectToDestroy;
 
-    
+    public bool MaskEquiped;
 
     List<GameObject> inventory_Slots;
     List<Items> inventorySlotsContent;
