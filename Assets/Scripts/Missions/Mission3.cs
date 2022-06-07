@@ -5,7 +5,6 @@ using UnityEngine;
 public class Mission3 : MonoBehaviour
 {
     [Header("Basics")]
-    [SerializeField] GameObject Radio;
     [SerializeField] GameObject Heli;
     [SerializeField] GameObject Rope;
 
@@ -15,19 +14,17 @@ public class Mission3 : MonoBehaviour
 
     [SerializeField] GameObject EndText;
 
-    private RadioFixed isFixed;
+    public bool callBackUp;
 
 
     void Start()
     {
-       // GlobalObjetive.SetActive(true);
-        isFixed = Radio.GetComponent<RadioFixed>();
         GlobalObjetive.SetActive(true);
     } 
     void Update()
     {
         
-        if (isFixed.RadioFix)
+        if (callBackUp)
         {
             StartFinalObjective();
             if(Rope.GetComponent<TouchRope>().canEnd)

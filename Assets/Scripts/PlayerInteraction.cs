@@ -9,6 +9,8 @@ public class PlayerInteraction : MonoBehaviour
 
     [SerializeField] Camera mainCamera;
     [SerializeField] GameObject gameController;
+    [SerializeField] GameObject MissionObjectiveRadio;
+
 
     PlayerInputControl playerInputControl;
 
@@ -139,7 +141,7 @@ public class PlayerInteraction : MonoBehaviour
             if(raycastHit.transform.tag == "Radio")
             {
 
-                raycastHit.transform.GetComponent<RadioFixed>().RadioFix = true;
+                MissionObjectiveRadio.GetComponent<Mission3>().callBackUp = true;
               
 
             }

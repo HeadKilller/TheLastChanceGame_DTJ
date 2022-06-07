@@ -138,9 +138,6 @@ public class Inventory : MonoBehaviour
 
     }
 
-
-
-
     #region Inventory
 
     //Função chamada para adicionar itens ao inventário, sem uma slot específica para adicionar.
