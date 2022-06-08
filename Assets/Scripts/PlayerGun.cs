@@ -316,6 +316,8 @@ public class PlayerGun : MonoBehaviour
 
         }
 
+        
+
         changeGunPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -402,6 +404,9 @@ public class PlayerGun : MonoBehaviour
 
             Debug.Log(toEquipGun);
 
+            toEquipGun.GetComponent<Target>().enabled = false;
+            toEquipGun.GetComponent<Outline>().enabled = false;
+
             switch (toEquipGun.GetComponent<ItemData>().Gun.gunType)
             {
                 case GunType.HandGun:
@@ -431,6 +436,9 @@ public class PlayerGun : MonoBehaviour
                     else
                     {
                         GameObject currentEquippedGun = equippedGuns[handGun_Slot];
+
+                        currentEquippedGun.GetComponent<Target>().enabled = true;
+                        currentEquippedGun.GetComponent<Outline>().enabled = false;
 
                         Inventory.instance.AddItem(currentEquippedGun, currentEquippedGun.GetComponent<ItemData>().Gun, currentEquippedGun, false);
                         equippedGuns[handGun_Slot] = toEquipGun;
@@ -477,6 +485,9 @@ public class PlayerGun : MonoBehaviour
                     else
                     {
                         GameObject currentEquippedGun = equippedGuns[assaultGun_Slot];
+
+                        currentEquippedGun.GetComponent<Target>().enabled = true;
+                        currentEquippedGun.GetComponent<Outline>().enabled = false;
 
                         Inventory.instance.AddItem(currentEquippedGun, currentEquippedGun.GetComponent<ItemData>().Gun, currentEquippedGun, false);
                         equippedGuns[assaultGun_Slot] = toEquipGun;
@@ -526,6 +537,9 @@ public class PlayerGun : MonoBehaviour
                     else
                     {
                         GameObject currentEquippedGun = equippedGuns[smg_Slot];
+
+                        currentEquippedGun.GetComponent<Target>().enabled = true;
+                        currentEquippedGun.GetComponent<Outline>().enabled = false;
 
                         Inventory.instance.AddItem(currentEquippedGun, currentEquippedGun.GetComponent<ItemData>().Gun, currentEquippedGun, false);
                         equippedGuns[smg_Slot] = toEquipGun;

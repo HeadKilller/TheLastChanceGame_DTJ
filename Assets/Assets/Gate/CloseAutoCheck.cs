@@ -8,13 +8,13 @@ public class CloseAutoCheck : MonoBehaviour
     [SerializeField] Inventory inv;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.name == "PlayerCharacterController")
+        if (other.transform.tag == "Player")
         {
             canClose = true;
             this.gameObject.SetActive(false);
             if(!inv.GetComponent<Inventory>().MaskEquiped)
             {
-                other.GetComponent<Player>().health = 0;
+                Player.instance.Damage(100f);
             }
 
         }

@@ -132,6 +132,8 @@ MonoBehaviour:
   - Wood
   droppableItems_Objects:
   - {fileID: 3870650088687046006, guid: c8e434de7b7708e4fb52d695488b3fbf, type: 3}
+  minDrops: 2
+  maxDrops: 4
 --- !u!114 &1203071001561561127
 MonoBehaviour:
   m_ObjectHideFlags: 0

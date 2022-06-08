@@ -39,7 +39,7 @@ public class UsingItem : MonoBehaviour
             float hitRadius = 0.1f;
 
             Vector3 tempPosition = GetPosition();
-            Vector3 position = new Vector3(tempPosition.x, tempPosition.y/* + (itemToDrag.transform.position.y - tempPosition.y)*/, tempPosition.z);
+            Vector3 position = new Vector3(tempPosition.x, tempPosition.y, tempPosition.z);
 
             //position.y = 1.1f;
 
@@ -70,6 +70,14 @@ public class UsingItem : MonoBehaviour
                 canPutItem = true;
             }
 
+            //Collider[] hitColliders = Physics.OverlapSphere(position, hitRadius, ignoreLayer);
+            //foreach(Collider col in hitColliders)
+            //{
+
+            //    Debug.Log("Collider : " + col.name);
+
+            //}
+
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 StopDragging();
@@ -88,7 +96,6 @@ public class UsingItem : MonoBehaviour
         groundLayer = _groundLayer;
         ignoreLayer = _ignoreLayer;
 
-    
 
         itemToDrag = _itemToDrag;
         isDragging = true;
@@ -102,7 +109,7 @@ public class UsingItem : MonoBehaviour
         if (canPutItem)
         {
 
-            Debug.Log("Put item on ground");
+            //Debug.Log("Put item on ground");
 
             //Debug.Log("Index : " + indexAtInventory);
             GameObject slot = Inventory.instance.Inventory_Slots[indexAtInventory];
@@ -112,7 +119,7 @@ public class UsingItem : MonoBehaviour
         }
         else
         {
-            Debug.Log("Do not put item on ground");
+            //Debug.Log("Do not put item on ground");
 
             itemToDrag.SetActive(false);
         }
@@ -133,18 +140,20 @@ public class UsingItem : MonoBehaviour
         if (tempbool)
         {
 
-            Debug.Log("Layer when hit : " + LayerMask.LayerToName(hit.transform.gameObject.layer));
+            //Debug.Log("Layer when hit : " + LayerMask.LayerToName(hit.transform.gameObject.layer));
 
-            Debug.Log("Hit Ground");
+            //Debug.Log("Hit Ground");
             position = hit.point;
+            position.y -= itemToDrag.transform.localScale.y;
 
         }
         else
         {
-
-
-            Debug.Log("Doesnt hit ground");
+            //Debug.Log("Doesnt hit ground");
         }
+
+        //position.y += itemToDrag.transform.localScale.y / 2f;
+
 
         return position;
     }

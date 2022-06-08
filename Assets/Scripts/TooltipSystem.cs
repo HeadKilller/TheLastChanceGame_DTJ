@@ -45,10 +45,51 @@ public class TooltipSystem : MonoBehaviour
     {
         Vector2 position = Input.mousePosition;
 
-        Vector2 offset = new Vector2(-15f, -15f);
+        //Vector2 offset = new Vector2(-15f, -15f);
 
         float pivotX = position.x / Screen.width;
         float pivotY = position.y / Screen.height;
+
+
+        if(pivotX < 0.5f)
+        {
+
+            pivotX = 0f;
+
+            if(pivotY < 0.5f)
+            {
+
+                pivotY = 0f;
+
+            }
+            else
+            {
+
+                pivotY = 1f;
+
+            }
+
+        }
+        else
+        {
+
+            pivotX = 1f;
+
+            if (pivotY < 0.5f)
+            {
+
+                pivotY = 0f;
+
+            }
+            else
+            {
+
+                pivotY = 1f;
+
+            }
+
+
+        }
 
         //Setting the pivots
         inventoryTooltip_RectTransform.pivot = new Vector2(pivotX, pivotY);
@@ -57,6 +98,10 @@ public class TooltipSystem : MonoBehaviour
         //Setting the positions
         TooltipInventory_Panel.transform.position = position;
         TooltipCrafting_Panel.transform.position = position;
+
+              
+
+
     }
 
     public void ToolTipInventory_Show(string header, string content)

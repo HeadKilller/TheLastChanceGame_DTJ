@@ -24,6 +24,6 @@ MonoBehaviour:
   modifiersOperator: 
   craftingRecipe: []
   craftingRecipeNum: 
-  craftingTime: 15
+  craftingTime: 1
   itemDropped: 
   munitionsType: 0

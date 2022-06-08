@@ -121,6 +121,13 @@ public class Player : MonoBehaviour
         health -= damage;
         playerBars.SetHealth((int)health);
 
+        if(health <= 0f)
+        {
+
+            Death();
+
+        }
+
     }
 
     public void Death()

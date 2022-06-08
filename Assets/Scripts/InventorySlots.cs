@@ -118,13 +118,13 @@ public class InventorySlots : MonoBehaviour, IPointerClickHandler
         if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, maxDistance, groundLayer))
         {
 
-            Debug.Log("Hit Ground");
+            //Debug.Log("Hit Ground");
             position = hit.point;
 
         }
         else
         {
-            Debug.Log("Doesnt hit ground");
+            //Debug.Log("Doesnt hit ground");
         }
 
         return position;
@@ -243,7 +243,7 @@ public class InventorySlots : MonoBehaviour, IPointerClickHandler
         if(item.itemType == ItemType.Consumible)
         {
 
-            Debug.Log("Consumibles");
+            //Debug.Log("Consumibles");
 
             //Inventory.instance.Close_Inventory();
             ClosePanel();
@@ -266,7 +266,7 @@ public class InventorySlots : MonoBehaviour, IPointerClickHandler
 
             PlayerGun.instance.PickMunition(itemGameObject.GetComponent<ItemData>().Item);
 
-            Debug.Log("Removing Item now");
+            //Debug.Log("Removing Item now");
 
             Inventory.instance.RemoveItem(itemGameObject.GetComponent<ItemData>().Item, 1);
 

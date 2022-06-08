@@ -12,6 +12,9 @@ public class ItemData : MonoBehaviour
     [SerializeField] List<string> droppableItems_Names;
     [SerializeField] List<GameObject> droppableItems_Objects;
 
+
+    [SerializeField] int minDrops, maxDrops;
+
     public Items Item
     {
         get { return item; }
@@ -43,7 +46,7 @@ public class ItemData : MonoBehaviour
 
         System.Random rnd = new System.Random();
 
-        int nDrops = rnd.Next(1, 4);
+        int nDrops = rnd.Next(minDrops, maxDrops);
 
         int index = droppableItems_Names.IndexOf(item.itemDropped);
 
