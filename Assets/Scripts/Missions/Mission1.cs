@@ -8,9 +8,11 @@ public class Mission1 : MonoBehaviour
     [SerializeField] Transform Player;
     [SerializeField] Vector3 InicialPosition;
     public bool MissionEnded;
+
     [Header("Waypoints")]
     [SerializeField] Transform FristWaypoint;
     [SerializeField] Transform SecondWaypoint;
+
     [Header("Text Waypoints")]
     [SerializeField] GameObject TextWaypointFrist;
     [SerializeField] GameObject TextWaypointSecond;

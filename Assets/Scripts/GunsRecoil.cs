@@ -21,7 +21,7 @@ public class GunsRecoil : MonoBehaviour
     public void RecoilFire(Vector3 recoil)
     {
 
-        Debug.Log("Recoiling");
+        //Debug.Log("Recoiling");
 
         targetRotation += new Vector3(recoil.x, Random.Range(-recoil.y, recoil.y), Random.Range(-recoil.z, recoil.z));
 

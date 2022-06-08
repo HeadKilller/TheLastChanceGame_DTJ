@@ -23,14 +23,15 @@ MonoBehaviour:
   modifiersValue: []
   modifiersOperator: 
   craftingRecipe:
-  - {fileID: 11400000, guid: d0cd9d16964c1034cb1b48972121d03a, type: 2}
-  craftingRecipeNum: 01000000
-  craftingTime: 10
+  - {fileID: 11400000, guid: 7acfe3f38f7a6024fa57acc5e25b8e1e, type: 2}
+  craftingRecipeNum: 0a000000
+  craftingTime: 14
   itemDropped: 
-  gunType: 2
+  munitionsType: 0
+  gunType: 3
   magCapacity: 30
   init_MagNum: 2
   rateOfFire: 600
-  damage: 9
+  damage: 15
   maxRange: 20
   recoil: {x: -1, y: 0.5, z: 0.6}

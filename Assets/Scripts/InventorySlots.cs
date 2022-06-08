@@ -55,7 +55,7 @@ public class InventorySlots : MonoBehaviour, IPointerClickHandler
 
                 item = Inventory.instance.Inventory_SlotsContent[FindIndex()];
 
-                Debug.Log("Item : " + item.name);
+                //Debug.Log("Item : " + item.name);
 
                 if (item.isUsable)
                 {

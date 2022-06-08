@@ -25,6 +25,13 @@ public class Craft : MonoBehaviour
 
     public static Craft instance;
 
+    public GameObject CraftingMenuCanvas
+    {
+
+        get { return CraftingMenu_Canvas; }
+
+    }
+
     private void Start()
     {
      
@@ -114,6 +121,7 @@ public class Craft : MonoBehaviour
         Cursor.visible = true;
 
         CheckIfCanCraft();
+        Camera.main.GetComponent<PlayerLook>().enabled = false;
     }
 
     public void CloseCraftingMenu()
@@ -122,6 +130,7 @@ public class Craft : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        Camera.main.GetComponent<PlayerLook>().enabled = true;
 
     }
 

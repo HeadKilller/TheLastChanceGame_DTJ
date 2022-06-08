@@ -146,7 +146,7 @@ public class PlayerGun : MonoBehaviour
     public void FireSemi(InputAction.CallbackContext context)
     {
 
-        if (selectedGun != null && currentBullets > 0 && !changeGunPanel.activeInHierarchy)
+        if (selectedGun != null && currentBullets > 0 && !changeGunPanel.activeInHierarchy && !Inventory.instance.Inventory_Canvas.activeSelf && !Craft.instance.CraftingMenuCanvas.activeSelf)
         {
 
             selectedWeapon_MuzzleFlash.Play();
@@ -224,7 +224,7 @@ public class PlayerGun : MonoBehaviour
     {
 
 
-        if (currentBullets > 0 && autoTimer >= (1f / fireRate) && !changeGunPanel.activeInHierarchy)
+        if (currentBullets > 0 && autoTimer >= (1f / fireRate) && !changeGunPanel.activeInHierarchy && !Inventory.instance.Inventory_Canvas.activeSelf && !Craft.instance.CraftingMenuCanvas.activeSelf)
         {
             selectedWeapon_MuzzleFlash.Play();
             currentBullets--;
@@ -242,7 +242,7 @@ public class PlayerGun : MonoBehaviour
             out raycastHit,
             currentGun_Info.maxRange))
             {
-                Debug.Log("Auto has Hit : " + raycastHit.transform.name);
+                //Debug.Log("Auto has Hit : " + raycastHit.transform.name);
 
                 if (raycastHit.transform.gameObject != bulletHolePrefab && 
                     raycastHit.transform.name != "Player" && 
@@ -406,7 +406,7 @@ public class PlayerGun : MonoBehaviour
             {
                 case GunType.HandGun:
 
-                    Debug.Log("Hand Gun : " + equippedGuns[handGun_Slot]);
+                    //Debug.Log("Hand Gun : " + equippedGuns[handGun_Slot]);
 
                     if(equippedGuns[handGun_Slot] == null)
                     {
@@ -652,7 +652,7 @@ public class PlayerGun : MonoBehaviour
         }
 
         //Debug.Log(selectedGun);
-        Debug.Log("Gun Chosen : " + selectedGun);
+        //Debug.Log("Gun Chosen : " + selectedGun);
 
     }
 

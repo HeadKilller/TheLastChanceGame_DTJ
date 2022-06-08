@@ -10,7 +10,7 @@ using TMPro;
 public class Inventory : MonoBehaviour
 {
 
-    [SerializeField] GameObject inventoryGameObject;
+    [SerializeField] GameObject inventory_Canvas;
     [SerializeField] GameObject inventorySlotsParent;
 
     [SerializeField] GameObject gunsWheel_Panel;
@@ -42,6 +42,12 @@ public class Inventory : MonoBehaviour
     public bool IsMovingItem;
     GameObject SlotWhereToMove;
     GameObject SlotFromWhereToMove;
+
+    public GameObject Inventory_Canvas
+    {
+        get { return inventory_Canvas; }
+    }
+
     public List<GameObject> Inventory_Slots
     {
         get { return inventory_Slots; }
@@ -129,7 +135,7 @@ public class Inventory : MonoBehaviour
     private void Update()
     {
 
-        if (inventoryGameObject.activeSelf)
+        if (inventory_Canvas.activeSelf)
         {
 
             CheckIfIsOverUI();
@@ -357,13 +363,13 @@ public class Inventory : MonoBehaviour
         TextMeshProUGUI text = slotWithItemToRemove.GetComponentInChildren<TextMeshProUGUI>();
         inventorySlotsCurrentCapacity[index] -= quantityToRemove;
 
-        Debug.Log("Removing item....");
-        Debug.Log("Item : " + inventorySlotsContent[index]);
-        Debug.Log("Quantity : " + inventorySlotsCurrentCapacity[index]);
+        //Debug.Log("Removing item....");
+        //Debug.Log("Item : " + inventorySlotsContent[index]);
+        //Debug.Log("Quantity : " + inventorySlotsCurrentCapacity[index]);
 
         if (inventorySlotsCurrentCapacity[index] <= 0)
         {
-            Debug.Log("DeActivating Slot");
+            //Debug.Log("DeActivating Slot");
             inventorySlotsCurrentCapacity[index] = 0;
             text.SetText("");
             DeActivateSlot(slotWithItemToRemove);
@@ -378,19 +384,21 @@ public class Inventory : MonoBehaviour
     //Função chamada ao carregar na tecla para abrir/fechar o inventário.
     public void InventoryOpen_Close(InputAction.CallbackContext context)
     {
-        inventoryGameObject.SetActive(!inventoryGameObject.activeSelf);
-        gunsWheel_Panel.SetActive(!gunsWheel_Panel.activeSelf);
+        inventory_Canvas.SetActive(!inventory_Canvas.activeSelf);
+        //gunsWheel_Panel.SetActive(!gunsWheel_Panel.activeSelf);
 
-        if (inventoryGameObject.activeSelf)
+        if (inventory_Canvas.activeSelf)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            Time.timeScale = 0f;
         }
         else
         {
 
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1f;
 
         }
 
@@ -400,10 +408,11 @@ public class Inventory : MonoBehaviour
     //Função chamada ao carregar no botão para fechar o inventário.
     public void Close_Inventory()
     {
-        inventoryGameObject.SetActive(false);
-        gunsWheel_Panel.SetActive(false);
+        inventory_Canvas.SetActive(false);
+        //gunsWheel_Panel.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1f;
 
     }
 

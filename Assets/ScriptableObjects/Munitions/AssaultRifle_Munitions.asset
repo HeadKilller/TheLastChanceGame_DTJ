@@ -24,7 +24,7 @@ MonoBehaviour:
   modifiersOperator: 
   craftingRecipe:
   - {fileID: 11400000, guid: 7acfe3f38f7a6024fa57acc5e25b8e1e, type: 2}
-  craftingRecipeNum: 02000000
+  craftingRecipeNum: 05000000
   craftingTime: 3
   itemDropped: 
-  munitionsType: 1
+  munitionsType: 2

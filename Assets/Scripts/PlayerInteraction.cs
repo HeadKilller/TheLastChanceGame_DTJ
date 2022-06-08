@@ -42,7 +42,7 @@ public class PlayerInteraction : MonoBehaviour
 
             
 
-            Debug.Log("It has hit : " + raycastHit.transform.name);
+            //Debug.Log("It has hit : " + raycastHit.transform.name);
 
             if (raycastHit.transform.tag == "Gun")
             {

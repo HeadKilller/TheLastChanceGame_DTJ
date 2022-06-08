@@ -27,4 +27,4 @@ MonoBehaviour:
   craftingRecipeNum: 02000000
   craftingTime: 3
   itemDropped: 
-  munitionsType: 0
+  munitionsType: 1

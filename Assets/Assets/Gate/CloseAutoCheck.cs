@@ -12,7 +12,7 @@ public class CloseAutoCheck : MonoBehaviour
         {
             canClose = true;
             this.gameObject.SetActive(false);
-            if(inv.GetComponent<Inventory>().MaskEquiped)
+            if(!inv.GetComponent<Inventory>().MaskEquiped)
             {
                 other.GetComponent<Player>().health = 0;
             }
