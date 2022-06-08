@@ -412,6 +412,21 @@ public class PlayerGun : MonoBehaviour
                     {
                         equippedGuns[handGun_Slot] = toEquipGun;
                         handGun_Slot.GetComponent<Button>().interactable = true;
+
+                        foreach(var objs in handGun_Slot.GetComponentsInChildren<Transform>())
+                        {
+
+                            if(objs.name == "Slot Icon")
+                            {
+
+                                Image tempImage = objs.GetComponent<Image>();
+                                tempImage.enabled = true;
+                                tempImage.sprite = toEquipGun.GetComponent<ItemData>().Gun.icon;
+
+                            }
+
+                        }
+
                     }
                     else
                     {
@@ -420,6 +435,20 @@ public class PlayerGun : MonoBehaviour
                         Inventory.instance.AddItem(currentEquippedGun, currentEquippedGun.GetComponent<ItemData>().Gun, currentEquippedGun, false);
                         equippedGuns[handGun_Slot] = toEquipGun;
                         handGun_Slot.GetComponent<Button>().interactable = true;
+
+                        foreach (var objs in handGun_Slot.GetComponentsInChildren<Transform>())
+                        {
+
+                            if (objs.name == "Slot Icon")
+                            {
+
+                                Image tempImage = objs.GetComponent<Image>();
+                                tempImage.enabled = true;
+                                tempImage.sprite = toEquipGun.GetComponent<ItemData>().Gun.icon;
+
+                            }
+
+                        }
 
                     }
 
@@ -430,6 +459,20 @@ public class PlayerGun : MonoBehaviour
                     {
                         equippedGuns[assaultGun_Slot] = toEquipGun;
                         assaultGun_Slot.GetComponent<Button>().interactable = true;
+
+                        foreach (var objs in assaultGun_Slot.GetComponentsInChildren<Transform>())
+                        {
+
+                            if (objs.name == "Slot Icon")
+                            {
+
+                                Image tempImage = objs.GetComponent<Image>();
+                                tempImage.enabled = true;
+                                tempImage.sprite = toEquipGun.GetComponent<ItemData>().Gun.icon;
+
+                            }
+
+                        }
                     }
                     else
                     {
@@ -438,6 +481,20 @@ public class PlayerGun : MonoBehaviour
                         Inventory.instance.AddItem(currentEquippedGun, currentEquippedGun.GetComponent<ItemData>().Gun, currentEquippedGun, false);
                         equippedGuns[assaultGun_Slot] = toEquipGun;
                         assaultGun_Slot.GetComponent<Button>().interactable = true;
+
+                        foreach (var objs in assaultGun_Slot.GetComponentsInChildren<Transform>())
+                        {
+
+                            if (objs.name == "Slot Icon")
+                            {
+
+                                Image tempImage = objs.GetComponent<Image>();
+                                tempImage.enabled = true;
+                                tempImage.sprite = toEquipGun.GetComponent<ItemData>().Gun.icon;
+
+                            }
+
+                        }
 
                     }
                    
@@ -451,6 +508,20 @@ public class PlayerGun : MonoBehaviour
                         equippedGuns[smg_Slot] = toEquipGun;
                         smg_Slot.GetComponent<Button>().interactable = true;
 
+                        foreach (var objs in smg_Slot.GetComponentsInChildren<Transform>())
+                        {
+
+                            if (objs.name == "Slot Icon")
+                            {
+
+                                Image tempImage = objs.GetComponent<Image>();
+                                tempImage.enabled = true;
+                                tempImage.sprite = toEquipGun.GetComponent<ItemData>().Gun.icon;
+
+                            }
+
+                        }
+
                     }
                     else
                     {
@@ -459,6 +530,20 @@ public class PlayerGun : MonoBehaviour
                         Inventory.instance.AddItem(currentEquippedGun, currentEquippedGun.GetComponent<ItemData>().Gun, currentEquippedGun, false);
                         equippedGuns[smg_Slot] = toEquipGun;
                         smg_Slot.GetComponent<Button>().interactable = true;
+
+                        foreach (var objs in smg_Slot.GetComponentsInChildren<Transform>())
+                        {
+
+                            if (objs.name == "Slot Icon")
+                            {
+
+                                Image tempImage = objs.GetComponent<Image>();
+                                tempImage.enabled = true;
+                                tempImage.sprite = toEquipGun.GetComponent<ItemData>().Gun.icon;
+
+                            }
+
+                        }
                     }
 
                     break;
@@ -571,8 +656,10 @@ public class PlayerGun : MonoBehaviour
 
     }
 
-    public void PickMunition(string name)
+    public void PickMunition(Items tempGun)
     {
+
+        Debug.Log("Picking Munition. Type : " + tempGun.munitionsType);
 
         if(selectedGun != null)
         {
@@ -580,17 +667,23 @@ public class PlayerGun : MonoBehaviour
             GunType tempGunType = selectedGun.GetComponent<ItemData>().Gun.gunType;
             SaveGunInfo(tempGunType);
 
-            switch (name)
+            switch (tempGun.munitionsType)
             {
-                case "HandGun_Munition":
+                case GunType.HandGun:
 
                     bulletsNumber[GunType.HandGun] += 14;
 
                     break;
 
-                case "AssaultRifle_Munition":
+                case GunType.AssaultRifle:
 
                     bulletsNumber[GunType.AssaultRifle] += 60;
+
+                    break;
+
+                case GunType.SMG:
+
+                    bulletsNumber[GunType.SMG] += 60;
 
                     break;
             }
@@ -600,17 +693,23 @@ public class PlayerGun : MonoBehaviour
         }
         else
         {
-            switch (name)
+            switch (tempGun.munitionsType)
             {
-                case "HandGun_Munition":
+                case GunType.HandGun:
 
                     bulletsNumber[GunType.HandGun] += 14;
 
                     break;
 
-                case "AssaultRifle_Munition":
+                case GunType.AssaultRifle:
 
                     bulletsNumber[GunType.AssaultRifle] += 60;
+
+                    break;
+
+                case GunType.SMG:
+
+                    bulletsNumber[GunType.SMG] += 60;
 
                     break;
             }

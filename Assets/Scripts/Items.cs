@@ -28,6 +28,8 @@ public class Items : ScriptableObject
     public float craftingTime;
 
     public string itemDropped;
+
+    public GunType munitionsType;
 }
 public enum PlayerModifier { Attack, Defense, Health, Stamina }
 public enum Operator { Multiply, Add }

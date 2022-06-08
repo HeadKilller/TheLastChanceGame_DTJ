@@ -130,11 +130,11 @@ GameObject:
   - component: {fileID: -6155475159124762503}
   m_Layer: 9
   m_Name: UMP_Full
-  m_TagString: Untagged
+  m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4414907729620906
 Transform:
   m_ObjectHideFlags: 0

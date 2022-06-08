@@ -10,7 +10,7 @@ public class GameStartMenus : MonoBehaviour
 
     public void PlayButtonMainMenu()
     {
-        SceneManager.LoadScene("DevTestingScene");
+        SceneManager.LoadScene("GameMap", LoadSceneMode.Single);
     }
 
     public void ExitButtonMainMenu()

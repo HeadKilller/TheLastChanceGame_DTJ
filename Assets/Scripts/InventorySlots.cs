@@ -55,7 +55,7 @@ public class InventorySlots : MonoBehaviour, IPointerClickHandler
 
                 item = Inventory.instance.Inventory_SlotsContent[FindIndex()];
 
-                
+                Debug.Log("Item : " + item.name);
 
                 if (item.isUsable)
                 {
@@ -181,7 +181,7 @@ public class InventorySlots : MonoBehaviour, IPointerClickHandler
 
         if(item.itemType == ItemType.Gun)
         {
-            Inventory.instance.Close_Inventory();
+            //Inventory.instance.Close_Inventory();
             ClosePanel();
 
             int index = FindIndex();
@@ -235,6 +235,38 @@ public class InventorySlots : MonoBehaviour, IPointerClickHandler
                 itemGameObject.SetActive(false);
 
             UsingItem.instance.DragItem(itemGameObject, index, groundLayer, ignoreLayer);
+
+            Inventory.instance.RemoveItem(itemGameObject.GetComponent<ItemData>().Item, 1);
+
+        }
+
+        if(item.itemType == ItemType.Consumible)
+        {
+
+            Debug.Log("Consumibles");
+
+            //Inventory.instance.Close_Inventory();
+            ClosePanel();
+
+            int index = FindIndex();
+
+            if (index == -1)
+            {
+                Debug.Log("Error. Index not found.");
+                return;
+            }
+
+            itemGameObject = Inventory.instance.inventorySlotsContent_Objects[index];
+
+            if (itemGameObject == null)
+            {
+                Debug.Log("Error. There's no game object on that inventory slot.");
+                return;
+            }
+
+            PlayerGun.instance.PickMunition(itemGameObject.GetComponent<ItemData>().Item);
+
+            Debug.Log("Removing Item now");
 
             Inventory.instance.RemoveItem(itemGameObject.GetComponent<ItemData>().Item, 1);
 

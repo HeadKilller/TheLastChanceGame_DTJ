@@ -317,6 +317,8 @@ public class Craft : MonoBehaviour
                 //tempGameObject = toCraft_Items[i];
                 tempItem = tempGameObject_Prefab.GetComponent<ItemData>().Item;
 
+                Debug.Log(tempItem);
+
                 if(tempItem == null)
                     tempItem = tempGameObject_Prefab.GetComponent<ItemData>().Gun;
 

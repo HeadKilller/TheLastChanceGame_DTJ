@@ -331,7 +331,7 @@ public class Inventory : MonoBehaviour
     public void RemoveItem(Items item, int quantityToRemove)
     {
 
-        GameObject itemToRemove = null;
+        GameObject slotWithItemToRemove = null;
         int index = -1;
         for(int i = 0; i < inventory_Slots.Count; i++)
         {
@@ -340,26 +340,33 @@ public class Inventory : MonoBehaviour
 
             if(inventorySlotsContent[i] == item)
             {
-                itemToRemove = inventory_Slots[i];
+                slotWithItemToRemove = inventory_Slots[i];
                 index = i;
                 break;
             }
-            if (itemToRemove == null) return;
+
+            Debug.Log("Item to Remove : " + item.name);
+            Debug.Log("Slot : " + slotWithItemToRemove);
+
 
         }
+        
+        if (slotWithItemToRemove == null) return;
                 
 
-        TextMeshProUGUI text = itemToRemove.GetComponentInChildren<TextMeshProUGUI>();
+        TextMeshProUGUI text = slotWithItemToRemove.GetComponentInChildren<TextMeshProUGUI>();
         inventorySlotsCurrentCapacity[index] -= quantityToRemove;
 
-        //Debug.Log("Item : " + inventorySlotsContent[index]);
-        //Debug.Log("Quantity : " + inventorySlotsCurrentCapacity[index]);
+        Debug.Log("Removing item....");
+        Debug.Log("Item : " + inventorySlotsContent[index]);
+        Debug.Log("Quantity : " + inventorySlotsCurrentCapacity[index]);
 
         if (inventorySlotsCurrentCapacity[index] <= 0)
         {
+            Debug.Log("DeActivating Slot");
             inventorySlotsCurrentCapacity[index] = 0;
             text.SetText("");
-            DeActivateSlot(itemToRemove);
+            DeActivateSlot(slotWithItemToRemove);
         }
         else
         {

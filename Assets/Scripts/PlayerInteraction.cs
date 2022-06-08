@@ -113,7 +113,9 @@ public class PlayerInteraction : MonoBehaviour
             {
                 //Debug.Log("Picking Up Munition");
 
-                this.GetComponent<PlayerGun>().PickMunition(raycastHit.transform.name);
+                Items tempGun = raycastHit.transform.gameObject.GetComponent<ItemData>().Item;
+
+                this.GetComponent<PlayerGun>().PickMunition(tempGun);
 
                 Destroy(raycastHit.transform.gameObject);
             }
