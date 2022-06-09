@@ -31,6 +31,10 @@ public class Mission3 : MonoBehaviour
             {
                 EndText.SetActive(true);
                 FinalObjetive.SetActive(false);
+
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                Time.timeScale = 0f;
             }
         }
     }

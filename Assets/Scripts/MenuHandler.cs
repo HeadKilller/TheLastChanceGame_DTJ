@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class MenuHandler : MonoBehaviour
 {
 
-    [SerializeField] GameObject PauseMenu_Canvas;
+    [SerializeField] GameObject PauseMenu;
+    [SerializeField] GameObject OptionsMenu;
 
     PlayerInputControl playerInputControl;
 
@@ -31,9 +33,9 @@ public class MenuHandler : MonoBehaviour
     public void OpenClose_Menu(InputAction.CallbackContext context)
     {
 
-        PauseMenu_Canvas.SetActive(!PauseMenu_Canvas.activeSelf);
+        PauseMenu.SetActive(!PauseMenu.activeSelf);
 
-        if (PauseMenu_Canvas.activeSelf)
+        if (PauseMenu.activeSelf)
         {
 
             Cursor.visible = true;
@@ -53,23 +55,29 @@ public class MenuHandler : MonoBehaviour
     public void Continue()
     {
 
-        PauseMenu_Canvas.SetActive(false);
+        PauseMenu.SetActive(false);
         Time.timeScale = 1f;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
 
     }
 
-    public void Options()
+    public void ChangeTo_Pause_Options()
     {
-        Debug.Log("Options");
+        PauseMenu.SetActive(false);
+        OptionsMenu.SetActive(true);
+    }
+    public void ChangeTo_Options_Pause()
+    {
+        OptionsMenu.SetActive(false);
+        PauseMenu.SetActive(true);
     }
 
     public void Exit()
     {
 
         Debug.Log("Quit Game");
-        Application.Quit();
+        SceneManager.LoadScene("Menu");
 
     }
 
