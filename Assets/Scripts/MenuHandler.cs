@@ -13,6 +13,7 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] GameObject TakeDmg;
     [SerializeField] Player Player;
     float timer;
+    bool startTimer;
     PlayerInputControl playerInputControl;
 
     // Start is called before the first frame update
@@ -30,8 +31,11 @@ public class MenuHandler : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-   
+    private void Update()
+    {
+        if(startTimer)timer += Time.deltaTime;
+    }
+
 
     public void OpenClose_Menu(InputAction.CallbackContext context)
     {
@@ -103,10 +107,12 @@ public class MenuHandler : MonoBehaviour
     public void TakeDmgScreen()
     {
         TakeDmg.SetActive(true);
-        timer += Time.deltaTime;
+        startTimer = true;
+        
         if(timer> 1f)
         {
             TakeDmg.SetActive(false);
+            startTimer = false;
         }
 
     }

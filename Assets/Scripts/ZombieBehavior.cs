@@ -60,7 +60,7 @@ public class ZombieBehavior : MonoBehaviour
         player = Player.instance.gameObject;
         playerTransform = player.transform;
 
-        //navMeshAgent = GetComponentInParent<NavMeshAgent>();
+       // navMeshAgent = GetComponentInParent<NavMeshAgent>();
         zombieSensing = GetComponentInChildren<ZombieSenses>();
 
         spawner = player.GetComponent<Spawner>();
