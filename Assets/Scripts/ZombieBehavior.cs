@@ -45,26 +45,35 @@ public class ZombieBehavior : MonoBehaviour
     private void Start()
     {
 
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        zombieSensing = GetComponentInChildren<ZombieSenses>();
 
         currentZombieState = Zombie_State.Idle;
         previousZombieState = currentZombieState;
 
-        player = Player.instance.gameObject;
-        playerTransform = player.transform;
-
-        spawner = player.GetComponent<Spawner>();
 
         zombie_CurrentHealth = zombie_InitialHealth;
         hasBeenHit = false;
 
     }
 
+    private void Awake()
+    {
+        player = Player.instance.gameObject;
+        playerTransform = player.transform;
+
+        //navMeshAgent = GetComponentInParent<NavMeshAgent>();
+        zombieSensing = GetComponentInChildren<ZombieSenses>();
+
+        spawner = player.GetComponent<Spawner>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
+
+
+
+    }
+
     private void Update()
     {
-        
 
+        Debug.Log($"Is on navmesh : {navMeshAgent.isOnNavMesh}.");
        
         if(currentZombieState == Zombie_State.Idle)
         {
@@ -84,6 +93,8 @@ public class ZombieBehavior : MonoBehaviour
 
         if (currentZombieState == Zombie_State.Chasing)
         {
+            ChasePlayer();
+
             if(Vector3.Distance(transform.position, playerTransform.position) <= attackRange)
             {
                 previousZombieState = Zombie_State.Chasing;
@@ -167,6 +178,9 @@ public class ZombieBehavior : MonoBehaviour
     {
 
         currentZombieState = Zombie_State.Chasing;
+
+        
+        Debug.Log($"The agent is; {navMeshAgent.name} is in navmesh :  {navMeshAgent.isOnNavMesh}");
 
         navMeshAgent.isStopped = false;
         navMeshAgent.destination = playerTransform.position;
@@ -261,12 +275,16 @@ public class ZombieBehavior : MonoBehaviour
         StopChasingPlayer();
 
         ZombieAnim.SetTrigger("Zombie_Death");
-        gameObject.GetComponent<Collider>().enabled = false;
-
-        gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
-
-        Destroy(gameObject, 5f);
+        
 
     }
+
+    public void FinishDeathAnim()
+    {
+
+        ObjectPooler.instance.DestroyToPool(gameObject);
+
+    }
+
 
 }

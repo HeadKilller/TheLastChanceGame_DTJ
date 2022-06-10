@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ObjectPooler : MonoBehaviour
 {
@@ -25,14 +26,12 @@ public class ObjectPooler : MonoBehaviour
     public static ObjectPooler instance;
 
 
-    private void Awake()
-    {
-        instance = this;
-    }
-
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+
+        instance = this;
+
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
 
         foreach(Pool pool in pools)
@@ -60,10 +59,18 @@ public class ObjectPooler : MonoBehaviour
     public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
     {
 
+        if(tag == null)
+        {
+            Debug.LogWarning($"Tag {tag} is null.");
+            return null;
+
+        }
+
+
         if (!poolDictionary.ContainsKey(tag))
         {
 
-            Debug.LogWarning("Pool with tag " + tag + "doesn't exist.");
+            Debug.LogWarning($"Pool with tag {tag} doesn't exist.");
             return null;
 
         }
@@ -71,14 +78,23 @@ public class ObjectPooler : MonoBehaviour
         GameObject objectToSpawn = poolDictionary[tag].Dequeue();
 
         objectToSpawn.SetActive(true);
-        objectToSpawn.transform.position = position;
+        objectToSpawn.GetComponent<NavMeshAgent>().Warp(position);
+        //objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
+
+        poolDictionary[tag].Enqueue(objectToSpawn);
 
         return objectToSpawn;
 
     }
 
+    public void DestroyToPool(GameObject objectToDestroy)
+    {
 
-    
+        objectToDestroy.SetActive(false);
+
+    }
+
+
 
 }

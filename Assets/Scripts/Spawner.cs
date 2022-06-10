@@ -42,10 +42,17 @@ public class Spawner : MonoBehaviour
     System.Random rnd;
 
     float spawnTimer;
+    private void Awake()
+    {
+
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+
+        pooler = ObjectPooler.instance;
+
         rnd = new System.Random();
 
         spawnTimer = 0f;
@@ -58,13 +65,14 @@ public class Spawner : MonoBehaviour
         }
 
 
-        pooler = ObjectPooler.instance;
 
         SpawnZombie();
 
 
 
     }
+
+
     void Update()
     {
 
@@ -143,7 +151,6 @@ public class Spawner : MonoBehaviour
                     float tempY = position.y;
 
                     positionToSpawn = new Vector3(tempX, tempY, tempZ);
-                    rotationToSpawn = CalculateRotation();
 
                     positionToSpawn = GetPositionOnNavMesh(positionToSpawn);
 
@@ -155,12 +162,19 @@ public class Spawner : MonoBehaviour
 
                 }
 
+                rotationToSpawn = CalculateRotation();
+                
+
                 if (positionToSpawn != Vector3.zero && Vector3.Distance(positionToSpawn, playerTransform.position) > 15f)
                 {
                     //Debug.Log("Spawning : " + j);
                     //GameObject tempZombieGameObject = Instantiate(zombiePreFab, positionToSpawn, Quaternion.identity, zombieParent.transform);
                     //spawnArea.zombiesList.Add(tempZombieGameObject);
 
+                    //Debug.Log($"Position is {positionToSpawn}.");
+                    //Debug.Log($"Rotation is {rotationToSpawn}.");
+
+                    Debug.Log($"Pooler : {pooler}.");
                     pooler.SpawnFromPool("Zombie", positionToSpawn, rotationToSpawn);
 
                 }
@@ -183,7 +197,7 @@ public class Spawner : MonoBehaviour
         bool canSpawn = true;
         RaycastHit hitInfo;
 
-        positionToSpawn.y += 2f;
+        //positionToSpawn.y -= 1f;
 
         if (Physics.Raycast(positionToSpawn, new Vector3(0, -1, 0), out hitInfo))
         {
@@ -211,7 +225,7 @@ public class Spawner : MonoBehaviour
 
         if (NavMesh.SamplePosition(position, out hit, 2.0f, NavMesh.AllAreas))
         {
-
+            //Debug.Log($"Hit Position : {hit.position}.");
             position = hit.position;
 
         }
