@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MenuHandler : MonoBehaviour
 {
@@ -12,14 +13,19 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] GameObject DeathMenu;
     [SerializeField] GameObject TakeDmg;
     [SerializeField] Player Player;
-    float timer;
+
+    [SerializeField] float takeDmgMenu_Duration;
+
+    bool isDmgMenuOpen;
+
+
     bool startTimer;
     PlayerInputControl playerInputControl;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        isDmgMenuOpen = false;
     }
     private void Awake()
     {
@@ -33,7 +39,12 @@ public class MenuHandler : MonoBehaviour
 
     private void Update()
     {
-        if(startTimer)timer += Time.deltaTime;
+        if (isDmgMenuOpen)
+        {
+            CloseDamageScreen();
+
+        }
+
     }
 
 
@@ -104,18 +115,26 @@ public class MenuHandler : MonoBehaviour
         SceneManager.LoadScene("Menu");
 
     }
-    public void TakeDmgScreen()
+    public void OpenDamageScreen()
     {
         TakeDmg.SetActive(true);
-        startTimer = true;
-        
-        if(timer> 1f)
-        {
-            TakeDmg.SetActive(false);
-            startTimer = false;
-        }
+        Debug.Log("Set Active True");
+
+        isDmgMenuOpen = true;    
 
     }
 
+    IEnumerator CloseDamageScreen()
+    {
+
+        Debug.Log("Close");
+
+        yield return new WaitForSeconds(takeDmgMenu_Duration);
+
+
+        Debug.Log("Set Active False");
+        TakeDmg.SetActive(false);
+
+    }
 
 }

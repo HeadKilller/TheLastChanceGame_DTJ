@@ -163,10 +163,14 @@ public class Player : MonoBehaviour
 
     public void Damage(float damage)
     {
+        Debug.Log($"Health : {health}.");
+
         health -= damage;
 
+        Debug.Log($"Health : {health}.");
+            
         playerBars.SetHealth((int)health);
-        menu.TakeDmgScreen();
+        menu.OpenDamageScreen();
 
     }
 
