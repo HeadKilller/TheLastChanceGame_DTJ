@@ -94,7 +94,6 @@ public class Player : MonoBehaviour
         playerBars.SetThirst((int)thirst);
         playerBars.SetHunger((int)hunger);
 
-
     }
 
     public void UseConsumible(Items item)
@@ -163,14 +162,14 @@ public class Player : MonoBehaviour
 
     public void Damage(float damage)
     {
-        Debug.Log($"Health : {health}.");
+        //Debug.Log($"Health : {health}.");
 
         health -= damage;
 
-        Debug.Log($"Health : {health}.");
+        //Debug.Log($"Health : {health}.");
             
         playerBars.SetHealth((int)health);
-        menu.OpenDamageScreen();
+        menu.TakeDmgScreen();
 
     }
 

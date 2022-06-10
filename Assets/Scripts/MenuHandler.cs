@@ -14,19 +14,10 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] GameObject TakeDmg;
     [SerializeField] Player Player;
 
-    [SerializeField] float takeDmgMenu_Duration;
-
-    bool isDmgMenuOpen;
-
-
     bool startTimer;
+     float time;
     PlayerInputControl playerInputControl;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        isDmgMenuOpen = false;
-    }
     private void Awake()
     {
         playerInputControl = new PlayerInputControl();
@@ -39,15 +30,20 @@ public class MenuHandler : MonoBehaviour
 
     private void Update()
     {
-        if (isDmgMenuOpen)
-        {
-            CloseDamageScreen();
-
-        }
-
+        TakeOutScreenDmg();
     }
+    void TakeOutScreenDmg()
+    {
+        if (startTimer) time += Time.deltaTime;
 
-
+        if (time > 4f)
+        {
+            TakeDmg.SetActive(false);
+            startTimer = false;
+            time = 0f;
+        }
+        
+    }
     public void OpenClose_Menu(InputAction.CallbackContext context)
     {
 
@@ -110,30 +106,14 @@ public class MenuHandler : MonoBehaviour
     }
     public void Exit()
     {
-
-        //Debug.Log("Quit Game");
         SceneManager.LoadScene("Menu");
 
     }
-    public void OpenDamageScreen()
+    public void TakeDmgScreen()
     {
+
         TakeDmg.SetActive(true);
-        Debug.Log("Set Active True");
-
-        isDmgMenuOpen = true;    
-
-    }
-
-    IEnumerator CloseDamageScreen()
-    {
-
-        Debug.Log("Close");
-
-        yield return new WaitForSeconds(takeDmgMenu_Duration);
-
-
-        Debug.Log("Set Active False");
-        TakeDmg.SetActive(false);
+        startTimer = true;
 
     }
 
