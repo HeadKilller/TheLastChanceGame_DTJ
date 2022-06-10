@@ -351,8 +351,8 @@ public class Inventory : MonoBehaviour
                 break;
             }
 
-            Debug.Log("Item to Remove : " + item.name);
-            Debug.Log("Slot : " + slotWithItemToRemove);
+            //Debug.Log("Item to Remove : " + item.name);
+            //Debug.Log("Slot : " + slotWithItemToRemove);
 
 
         }
@@ -399,7 +399,7 @@ public class Inventory : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = 1f;
-
+            TooltipSystem.instance.ToolTip_Hide();
         }
 
 
@@ -413,6 +413,7 @@ public class Inventory : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
+        TooltipSystem.instance.ToolTip_Hide();
 
     }
 

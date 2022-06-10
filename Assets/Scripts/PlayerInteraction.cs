@@ -74,36 +74,30 @@ public class PlayerInteraction : MonoBehaviour
                 //Debug.Log("Picking Up Material");
 
                 GameObject material = raycastHit.transform.gameObject;
+                Items item = material.GetComponent<ItemData>().Item;
+
 
                 //raycastHit.transform.gameObject.GetComponent<ItemData>().DropItem();
 
-                if(material.GetComponent<ItemData>().Item.name == "Scrap Metal")
+                if (item.canDrop)
                 {
                     System.Random rnd = new System.Random();
 
-                    float numberToAdd = rnd.Next(2, 8);
+                    int min = item.minDropRate;
+                    int max = item.maxDropRate;
 
-                    for(int i = 1; i < numberToAdd; i++)
-                    {
-                        Inventory.instance.AddItem(material, material.GetComponent<ItemData>().Item, material, true);
-                    }
-
-                }
-                else if (material.GetComponent<ItemData>().Item.name == "Copper Wire")
-                {
-                    System.Random rnd = new System.Random();
-
-                    float numberToAdd = rnd.Next(1, 4);
+                    float numberToAdd = rnd.Next(min, max);
 
                     for (int i = 1; i < numberToAdd; i++)
                     {
-                        Inventory.instance.AddItem(material, material.GetComponent<ItemData>().Item, material, true);
+                        Inventory.instance.AddItem(material, item, material, true);
                     }
 
                 }
+                
                 else
                 {
-                    Inventory.instance.AddItem(material, material.GetComponent<ItemData>().Item, material, true);
+                    Inventory.instance.AddItem(material, item, material, true);
                 }
 
 

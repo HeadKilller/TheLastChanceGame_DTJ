@@ -12,12 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a7bee27a81c714fb2e91b15b320451, type: 3}
   m_Name: Spawn2
   m_EditorClassIdentifier: 
-  SpawnCenter: {x: 882.1, y: 193.603, z: 390.3}
+  SpawnCenter: {fileID: 2744556116169535685, guid: 793319048a5533a4ea7e4899da81e139, type: 3}
   SpawnRadius: 5
   nZombiesSpawning: 5
-  zombiesList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  zombiesList: []

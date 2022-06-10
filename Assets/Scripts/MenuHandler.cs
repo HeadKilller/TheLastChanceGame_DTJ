@@ -37,6 +37,7 @@ public class MenuHandler : MonoBehaviour
 
         if (PauseMenu.activeSelf)
         {
+            PlayerGun.instance.isPauseMenuActivated = true;
 
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -45,6 +46,8 @@ public class MenuHandler : MonoBehaviour
         }
         else
         {
+            PlayerGun.instance.isPauseMenuActivated = false;
+
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Confined;
             Time.timeScale = 1f;
@@ -54,6 +57,7 @@ public class MenuHandler : MonoBehaviour
 
     public void Continue()
     {
+        PlayerGun.instance.isPauseMenuActivated = false;
 
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;

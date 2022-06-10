@@ -9,31 +9,28 @@ using UnityEngine.UI;
 public class InventorySlots : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] GameObject ItemUsagePanel;
-    [SerializeField] LayerMask ignoreLayer;
-    [SerializeField] LayerMask groundLayer;
-
-    [SerializeField] Button UseButton, CloseButton;
-
-
-    [SerializeField] GameObject trapsParent;
-
+    
     Items item;
 
-    GameObject itemGameObject;
 
+    int currentIndex;
+
+
+    UseItem useItemScript;
 
     private void Start()
     {
-        itemGameObject = null;
 
-       
+        currentIndex = -1;
+
+        useItemScript = Player.instance.gameObject.GetComponent<UseItem>();
+
     }
 
     private void Awake()
     {
 
-        UseButton.onClick.AddListener(UseItem);
-        CloseButton.onClick.AddListener(ClosePanel);
+       
 
     }
 
@@ -49,23 +46,24 @@ public class InventorySlots : MonoBehaviour, IPointerClickHandler
 
             ItemUsagePanel.transform.position = Input.mousePosition + offset;
 
+            currentIndex = FindIndex();
 
-            if(FindIndex() != -1)
+            //Debug.Log("Index  : " + currentIndex);
+
+            if(currentIndex != -1)
             {
-
-                item = Inventory.instance.Inventory_SlotsContent[FindIndex()];
+                item = Inventory.instance.Inventory_SlotsContent[currentIndex];
 
                 //Debug.Log("Item : " + item.name);
 
                 if (item.isUsable)
                 {
                     ItemUsagePanel.SetActive(true);
-                    //Debug.Log("It's Usable");
+                    useItemScript.Index = currentIndex;
                 }
 
                 else
                 {
-                    //Debug.Log("Not Usable");
                     item = null;
                     ClosePanel();
                 }
@@ -88,7 +86,7 @@ public class InventorySlots : MonoBehaviour, IPointerClickHandler
     private int FindIndex()
     {
 
-        string[] splited = this.name.Split(' ');
+        string[] splited = gameObject.name.Split(' ');
         int index = -1;
 
         try
@@ -107,29 +105,7 @@ public class InventorySlots : MonoBehaviour, IPointerClickHandler
 
     }
 
-    private Vector3 GetPosition()
-    {
-
-        Vector3 position = Vector3.zero;
-
-        float maxDistance = 10f;
-        RaycastHit hit;
-
-        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, maxDistance, groundLayer))
-        {
-
-            //Debug.Log("Hit Ground");
-            position = hit.point;
-
-        }
-        else
-        {
-            //Debug.Log("Doesnt hit ground");
-        }
-
-        return position;
-    }
-    
+   
     public void ClosePanel()
     {
 
@@ -137,141 +113,7 @@ public class InventorySlots : MonoBehaviour, IPointerClickHandler
 
     }
     
-    public void UseItem()
-    {
-
-
-
-        if (item == null)
-            return;
-
-        if (item.itemType == ItemType.Trap)
-        {
-
-            Inventory.instance.Close_Inventory();
-            ClosePanel();
-
-            int index = FindIndex();
-
-            if(index == -1)
-            {
-                Debug.Log("Error. Index not found.");
-                return;
-            }
-            
-            itemGameObject = Inventory.instance.inventorySlotsContent_Objects[index];
-
-            if (itemGameObject == null)
-            {
-                Debug.Log("Error. There's no game object on that inventory slot.");
-                return;
-            }
-
-
-            itemGameObject.transform.parent = trapsParent.transform;
-
-            itemGameObject.SetActive(true);
-
-            if (GetPosition() == Vector3.zero)
-                itemGameObject.SetActive(false);
-
-            UsingItem.instance.DragItem(itemGameObject, index, groundLayer, ignoreLayer);
-
-        }
-
-        if(item.itemType == ItemType.Gun)
-        {
-            //Inventory.instance.Close_Inventory();
-            ClosePanel();
-
-            int index = FindIndex();
-
-            if (index == -1)
-            {
-                Debug.Log("Error. Index not found.");
-                return;
-            }
-
-            itemGameObject = Inventory.instance.inventorySlotsContent_Objects[index];
-
-            if (itemGameObject == null)
-            {
-                Debug.Log("Error. There's no game object on that inventory slot.");
-                return;
-            }
-
-
-            PlayerGun.instance.EquipGun(itemGameObject);
-
-            Inventory.instance.RemoveItem(itemGameObject.GetComponent<ItemData>().Gun, 1);
-
-        }
-
-        if(item.itemType == ItemType.Radio)
-        {
-
-            Inventory.instance.Close_Inventory();
-            ClosePanel();
-
-            int index = FindIndex();
-
-            if (index == -1)
-            {
-                Debug.Log("Error. Index not found.");
-                return;
-            }
-
-            itemGameObject = Inventory.instance.inventorySlotsContent_Objects[index];
-
-            if (itemGameObject == null)
-            {
-                Debug.Log("Error. There's no game object on that inventory slot.");
-                return;
-            }
-
-            itemGameObject.SetActive(true);
-
-            if (GetPosition() == Vector3.zero)
-                itemGameObject.SetActive(false);
-
-            UsingItem.instance.DragItem(itemGameObject, index, groundLayer, ignoreLayer);
-
-            Inventory.instance.RemoveItem(itemGameObject.GetComponent<ItemData>().Item, 1);
-
-        }
-
-        if(item.itemType == ItemType.Consumible)
-        {
-
-            //Debug.Log("Consumibles");
-
-            //Inventory.instance.Close_Inventory();
-            ClosePanel();
-
-            int index = FindIndex();
-
-            if (index == -1)
-            {
-                Debug.Log("Error. Index not found.");
-                return;
-            }
-
-            itemGameObject = Inventory.instance.inventorySlotsContent_Objects[index];
-
-            if (itemGameObject == null)
-            {
-                Debug.Log("Error. There's no game object on that inventory slot.");
-                return;
-            }
-
-            PlayerGun.instance.PickMunition(itemGameObject.GetComponent<ItemData>().Item);
-
-            //Debug.Log("Removing Item now");
-
-            Inventory.instance.RemoveItem(itemGameObject.GetComponent<ItemData>().Item, 1);
-
-        }
-    }
+    
 
     
 

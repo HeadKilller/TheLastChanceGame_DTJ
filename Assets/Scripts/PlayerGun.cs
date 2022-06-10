@@ -1,9 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using TMPro;
 using UnityEngine.UI;
 
 public class PlayerGun : MonoBehaviour
@@ -61,6 +59,8 @@ public class PlayerGun : MonoBehaviour
     public static PlayerGun instance;
 
     private bool shooted;
+    bool isChangingGun;
+    public bool isPauseMenuActivated;
 
     #region Propriedades
 
@@ -82,6 +82,8 @@ public class PlayerGun : MonoBehaviour
         equippedGuns.Add(smg_Slot, null);
 
         unarmed_Slot.GetComponent<Button>().interactable = true;
+        isChangingGun = false;
+        isPauseMenuActivated = false;
 
         Recoil = recoilGameObject.GetComponent<GunsRecoil>();
 
@@ -146,7 +148,7 @@ public class PlayerGun : MonoBehaviour
     public void FireSemi(InputAction.CallbackContext context)
     {
 
-        if (selectedGun != null && currentBullets > 0 && !changeGunPanel.activeInHierarchy && !Inventory.instance.Inventory_Canvas.activeSelf && !Craft.instance.CraftingMenuCanvas.activeSelf)
+        if (selectedGun != null && currentBullets > 0 && !changeGunPanel.activeInHierarchy && !Inventory.instance.Inventory_Canvas.activeSelf && !Craft.instance.CraftingMenuCanvas.activeSelf && !isChangingGun && !isPauseMenuActivated)
         {
 
             selectedWeapon_MuzzleFlash.Play();
@@ -167,9 +169,9 @@ public class PlayerGun : MonoBehaviour
             {
                 //Debug.Log("Semi has Hit : " + raycastHit.transform.name);
 
-                if (raycastHit.transform.gameObject != bulletHolePrefab && 
-                    raycastHit.transform.tag != "Player" && 
-                    raycastHit.transform.tag != "Crafting Table" && 
+                if (raycastHit.transform.gameObject != bulletHolePrefab &&
+                    raycastHit.transform.tag != "Player" &&
+                    raycastHit.transform.tag != "Crafting Table" &&
                     raycastHit.transform.tag != "Zombie")
                 {
 
@@ -179,12 +181,21 @@ public class PlayerGun : MonoBehaviour
                     Destroy(tempDecal, 10f);
                 }
 
-                if(raycastHit.transform.tag == "Zombie")
+                if (raycastHit.transform.tag == "Zombie")
                 {
-                    raycastHit.transform.gameObject.GetComponent<ZombieBehavior>().ZombieHit(dmg);
+                    if (raycastHit.transform.name == "Head")
+                    {
+                        Debug.Log("Critic. Head");
+                        raycastHit.transform.gameObject.GetComponentInParent<ZombieBehavior>().ZombieHit(dmg * 5);
+                    }
+                    else
+                    {
+                        raycastHit.transform.gameObject.GetComponent<ZombieBehavior>().ZombieHit(dmg);
+
+                    }
+
+
                 }
-
-
             }
 
         }
@@ -224,7 +235,7 @@ public class PlayerGun : MonoBehaviour
     {
 
 
-        if (currentBullets > 0 && autoTimer >= (1f / fireRate) && !changeGunPanel.activeInHierarchy && !Inventory.instance.Inventory_Canvas.activeSelf && !Craft.instance.CraftingMenuCanvas.activeSelf)
+        if (currentBullets > 0 && autoTimer >= (1f / fireRate) && !changeGunPanel.activeInHierarchy && !Inventory.instance.Inventory_Canvas.activeSelf && !Craft.instance.CraftingMenuCanvas.activeSelf && !isChangingGun && !isPauseMenuActivated)
         {
             selectedWeapon_MuzzleFlash.Play();
             currentBullets--;
@@ -252,7 +263,15 @@ public class PlayerGun : MonoBehaviour
 
                     if (raycastHit.transform.tag == "Zombie")
                     {
-                        raycastHit.transform.gameObject.GetComponent<ZombieBehavior>().ZombieHit(dmg);
+                        if(raycastHit.transform.name == "Head")
+                        {
+                            Debug.Log("Critic. Head");
+                            raycastHit.transform.gameObject.GetComponentInParent<ZombieBehavior>().ZombieHit(dmg * 5);
+                        }
+                        else
+                        {
+                            raycastHit.transform.gameObject.GetComponent<ZombieBehavior>().ZombieHit(dmg);
+                        }
                     }
                     else
                     {
@@ -286,6 +305,8 @@ public class PlayerGun : MonoBehaviour
     //Torna visível o número de balas do tipo da arma atualmente selecionada. Desativa a wheel das armas no final.
     public void GunSelected(InputAction.CallbackContext context)
     {
+        Camera.main.GetComponent<PlayerLook>().enabled = true;
+        isChangingGun = false;
 
         if (selectedGun != null)
         {
@@ -570,7 +591,8 @@ public class PlayerGun : MonoBehaviour
     //Este método ativa a wheel das armas.
     public void ChangeGun(InputAction.CallbackContext context)
     {
-
+        Camera.main.GetComponent<PlayerLook>().enabled = false;
+        isChangingGun = true;
         changeGunPanel.SetActive(true);
 
         Cursor.lockState = CursorLockMode.Confined;

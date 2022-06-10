@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b4f7a7f4204d664c819086e3d808127, type: 3}
   m_Name: SMG_Munitions
   m_EditorClassIdentifier: 
-  itemType: 2
+  itemType: 6
+  munitionsType: 3
   name: SMG Munitions
   description: This item gives munitions to the player.
+  icon: {fileID: 21300000, guid: 15efcfb313071174fbfb0d394e369a85, type: 3}
   isCraftable: 0
   isStackable: 0
   isUsable: 1
-  icon: {fileID: 21300000, guid: 15efcfb313071174fbfb0d394e369a85, type: 3}
+  canDrop: 0
   modifiers: 
   modifiersValue: []
   modifiersOperator: 
@@ -27,4 +29,5 @@ MonoBehaviour:
   craftingRecipeNum: 05000000
   craftingTime: 3
   itemDropped: 
-  munitionsType: 3
+  minDropRate: 0
+  maxDropRate: 0

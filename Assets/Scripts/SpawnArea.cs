@@ -7,7 +7,7 @@ using UnityEngine;
 public class SpawnArea : ScriptableObject
 {
 
-    public Vector3 SpawnCenter;
+    public GameObject SpawnCenter;
     public float SpawnRadius;
 
     public int nZombiesSpawning;

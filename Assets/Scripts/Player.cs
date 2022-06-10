@@ -37,7 +37,11 @@ public class Player : MonoBehaviour
         playerBars.SetMaxHunger((int)hunger);
 
     }
+    private void Awake()
+    {
+        instance = this;
 
+    }
     private void Update()
     {
         timer += Time.deltaTime;
@@ -92,26 +96,66 @@ public class Player : MonoBehaviour
 
     }
 
-    public void Drink(Items item)
+    public void UseConsumible(Items item)
     {
 
-        thirst += 10f;
+        Debug.Log("Item consuming : " + item.name);
+
+        List<PlayerModifier> tempModifiers = item.modifiers;
+
+
+        for(int i = 0; i < tempModifiers.Count; i++)
+        {
+
+            switch (tempModifiers[i])
+            {
+
+                case PlayerModifier.Health:
+
+                    Heal(item.modifiersValue[i]);
+
+                    break;
+                case PlayerModifier.Thirst:
+
+                    Drink(item.modifiersValue[i]);
+                    break;
+                case PlayerModifier.Hunger:
+
+                    Eat(item.modifiersValue[i]);
+                    break;
+            }
+
+        }
+               
+    }
+
+
+    public void Drink(float _quantity)
+    {
+
+        thirst += _quantity;
+        if (thirst > 100f)
+            thirst = 100f;
         playerBars.SetThirst((int)thirst);
 
     }
 
-    public void Eat(Items item)
+    public void Eat(float _quantity)
     {
 
-        hunger += 10f;
+        hunger += _quantity;
+        if (hunger > 100f)
+            hunger = 100f;
         playerBars.SetHunger((int)hunger);
 
     }
 
-    public void Heal(Items item)
+    public void Heal(float _quantity)
     {
 
-        health += 20f;
+        health += _quantity;
+        if (health > 100f)
+            health = 100f;
         playerBars.SetHealth((int)health);
 
     }
