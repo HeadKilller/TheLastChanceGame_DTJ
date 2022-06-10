@@ -73,7 +73,7 @@ public class ZombieBehavior : MonoBehaviour
     private void Update()
     {
 
-        Debug.Log($"Is on navmesh : {navMeshAgent.isOnNavMesh}.");
+        //Debug.Log($"Is on navmesh : {navMeshAgent.isOnNavMesh}.");
        
         if(currentZombieState == Zombie_State.Idle)
         {

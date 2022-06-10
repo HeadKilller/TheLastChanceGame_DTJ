@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField] float statsLower_Speed;
 
     [SerializeField] float statsLower_Quantity;
+    [SerializeField] MenuHandler menu;
+
 
     public static Player instance;
 
@@ -163,23 +165,16 @@ public class Player : MonoBehaviour
     public void Damage(float damage)
     {
         health -= damage;
+
         playerBars.SetHealth((int)health);
-
-        if(health <= 0f)
-        {
-
-            Death();
-
-        }
+        menu.TakeDmgScreen();
 
     }
 
     public void Death()
     {
-
-        Debug.Log("YOU ARE DEATH");
-        Scene currentScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(currentScene.name, LoadSceneMode.Single);
-
+        //Debug.Log("YOU ARE DEATH");
+        menu.DeathScreen();
+       
     }
 }

@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class MenuHandler : MonoBehaviour
 {
-
+    
     [SerializeField] GameObject PauseMenu;
     [SerializeField] GameObject OptionsMenu;
-
+    [SerializeField] GameObject DeathMenu;
+    [SerializeField] GameObject TakeDmg;
+    [SerializeField] Player Player;
+    float timer;
     PlayerInputControl playerInputControl;
 
     // Start is called before the first frame update
@@ -77,11 +80,34 @@ public class MenuHandler : MonoBehaviour
         PauseMenu.SetActive(true);
     }
 
+    public void DeathScreen()
+    {
+            PlayerGun.instance.isPauseMenuActivated = true;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0f;
+            DeathMenu.SetActive(true);     
+    }
+    public void RestartGame()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name, LoadSceneMode.Single);
+    }
     public void Exit()
     {
 
-        Debug.Log("Quit Game");
+        //Debug.Log("Quit Game");
         SceneManager.LoadScene("Menu");
+
+    }
+    public void TakeDmgScreen()
+    {
+        TakeDmg.SetActive(true);
+        timer += Time.deltaTime;
+        if(timer> 1f)
+        {
+            TakeDmg.SetActive(false);
+        }
 
     }
 
