@@ -31,9 +31,6 @@ public class Player : MonoBehaviour
         thirst = 100f;
         hunger = 100;
 
-
-        playerBars = gameObject.GetComponent<PlayerStatsBars>();
-
         playerBars.SetMaxHealth((int)health);
         playerBars.SetMaxThirst((int)thirst);
         playerBars.SetMaxHunger((int)hunger);
@@ -42,6 +39,8 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
+        playerBars = gameObject.GetComponent<PlayerStatsBars>();
 
     }
     private void Update()

@@ -45,6 +45,16 @@ public class ZombieBehavior : MonoBehaviour
     private void Start()
     {
 
+        Debug.Log($"Player : {Player.instance.gameObject.name}.");
+
+        player = Player.instance.gameObject;
+        playerTransform = player.transform;
+
+        // navMeshAgent = GetComponentInParent<NavMeshAgent>();
+        zombieSensing = GetComponentInChildren<ZombieSenses>();
+
+        spawner = player.GetComponent<Spawner>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
 
         currentZombieState = Zombie_State.Idle;
         previousZombieState = currentZombieState;
@@ -57,14 +67,7 @@ public class ZombieBehavior : MonoBehaviour
 
     private void Awake()
     {
-        player = Player.instance.gameObject;
-        playerTransform = player.transform;
-
-       // navMeshAgent = GetComponentInParent<NavMeshAgent>();
-        zombieSensing = GetComponentInChildren<ZombieSenses>();
-
-        spawner = player.GetComponent<Spawner>();
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        
 
 
 

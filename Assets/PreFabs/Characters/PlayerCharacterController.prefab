@@ -71,7 +71,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6767498207643788496}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.69, y: -0.43, z: 0.27}
+  m_LocalPosition: {x: 0.331, y: -0.395, z: 0.501}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 841246578}
   - component: {fileID: 1933334972}
   - component: {fileID: 3221102091481940063}
+  - component: {fileID: 841246582}
   m_Layer: 7
   m_Name: PlayerCharacterController
   m_TagString: Player
@@ -367,6 +368,7 @@ MonoBehaviour:
   audioCLip_AK: {fileID: 8300000, guid: 6952e4d995b1407428cfb1c6cc76d585, type: 3}
   audioClip_HandGun: {fileID: 8300000, guid: e338b0ad04b729f4cbc21280bb572b36, type: 3}
   audioClip_UMP: {fileID: 8300000, guid: bdcc2c2469b47f849b0935966f779ea5, type: 3}
+  isPauseMenuActivated: 0
 --- !u!114 &7139835941903819998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,6 +381,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ef062bfe7bca44da5c9b8a928c3182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statsLower_Speed: 10
+  statsLower_Quantity: 2
+  menu: {fileID: 0}
   thirst: 100
   hunger: 100
   health: 100
@@ -508,7 +513,7 @@ MonoBehaviour:
   jumpSound: {fileID: 8300000, guid: 485c434ec6e7eff4d8829c77a2a504f3, type: 3}
   fallSound: {fileID: 8300000, guid: 3990276c2801c87479937c7dd14ca5de, type: 3}
   intervaloTempoEntreSons: 0.5
-  volume: 0.5
+  volume: 0.2
 --- !u!82 &1933334972
 AudioSource:
   m_ObjectHideFlags: 0
@@ -617,7 +622,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b7bed8e1be83740b964944680b04ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthSider: {fileID: 0}
+  healthSlider: {fileID: 0}
+  thirstSlider: {fileID: 0}
+  hungerSlider: {fileID: 0}
+--- !u!114 &841246582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7652367869701624438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b25d48b7a9aae9d41a06a76d550f9d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemUsagePanel: {fileID: 0}
+  UseButton: {fileID: 0}
+  CloseButton: {fileID: 0}
+  trapsParent: {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 65
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 282
 --- !u!1 &7652367870113441295
 GameObject:
   m_ObjectHideFlags: 0
