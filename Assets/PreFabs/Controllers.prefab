@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 4918526078804904224}
   - component: {fileID: 4918526078804904239}
   - component: {fileID: 8631923470523158935}
+  - component: {fileID: 159914834}
+  - component: {fileID: 159914840}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -49,14 +51,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e3ba415e1b6284cbf6adb195b7fd62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryGameObject: {fileID: 0}
+  inventory_Canvas: {fileID: 0}
   inventorySlotsParent: {fileID: 0}
   gunsWheel_Panel: {fileID: 0}
   confirmationWindow_GameObject: {fileID: 0}
   confirmationWindow_Slider: {fileID: 0}
-  inventorySize: 10
-  MaskEquiped: 0
   inventorySlotsContent_Objects: []
+  inventorySize: 20
+  MaskEquiped: 0
+  HasRadio: 0
   IsMovingItem: 0
 --- !u!114 &3713461715406365572
 MonoBehaviour:
@@ -79,19 +82,27 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   CraftingQueue_Slots:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   toCraft_Items:
+  - {fileID: 8159057727401658287, guid: 7d47263aa37af994ba632a98902de571, type: 3}
+  - {fileID: 8411771264873127036, guid: 334e7fea7eda6714ca5ffe59fcc58d5d, type: 3}
+  - {fileID: 3540716254314066284, guid: 86d194a0d7adf7749a83fde491c08fe2, type: 3}
+  - {fileID: 6416825159003816178, guid: c0c763536c3d65448bf4bbaee2691ce9, type: 3}
   - {fileID: 1552449307821896, guid: e6554e6be5d232249adde9af423f1c07, type: 3}
-  - {fileID: 1782867849937206, guid: 0dc383f41120f2142bf99d4f574ec891, type: 3}
   - {fileID: 1851008881805126, guid: 0f9662654ebaf444185709e23b8a4e19, type: 3}
-  - {fileID: 5235479764817556001, guid: a3718ed18a006c848a94d8a79b852dd0, type: 3}
-  - {fileID: 4347350989371898948, guid: cd32b0ba40ed13244b8c96dc25c7f7e3, type: 3}
-  - {fileID: 3851797564768771576, guid: e5b61523e80ec1a4a87d33263814ad95, type: 3}
+  - {fileID: 1782867849937206, guid: 0dc383f41120f2142bf99d4f574ec891, type: 3}
   - {fileID: 6713638173844060195, guid: 239a39dc4609c9942a39541eedba31d1, type: 3}
+  - {fileID: 3851797564768771576, guid: e5b61523e80ec1a4a87d33263814ad95, type: 3}
+  - {fileID: 4347350989371898948, guid: cd32b0ba40ed13244b8c96dc25c7f7e3, type: 3}
 --- !u!114 &3713461715406365570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,10 +119,19 @@ MonoBehaviour:
   zombieParent: {fileID: 0}
   playerTransform: {fileID: 0}
   spawnAreaList:
-  - {fileID: 11400000, guid: 91111a531112fa94b8da25967ccdecba, type: 2}
-  - {fileID: 11400000, guid: de51f1f366e153645b6f6a0e025a5f03, type: 2}
+  - {fileID: 11400000, guid: 4dbdebc2b9d6ab84fab27bba9803323c, type: 2}
+  - {fileID: 11400000, guid: 48de8e2d1724c5546a6d15e5e8860f2a, type: 2}
+  - {fileID: 11400000, guid: 024564d4176e08641bf3fa79d7db8325, type: 2}
+  - {fileID: 11400000, guid: cd12eeea0da1a334eac3adee780eef65, type: 2}
+  - {fileID: 11400000, guid: 976040fe72ff97347aa6952d776d68e1, type: 2}
+  - {fileID: 11400000, guid: d95eea6f71d0b8f40a63ad2b2593a421, type: 2}
+  - {fileID: 11400000, guid: ce2e3fca111744a4d9e39c136e6c9735, type: 2}
+  - {fileID: 11400000, guid: 47bc06ae0970ae74a96a5c628954cc1a, type: 2}
+  - {fileID: 11400000, guid: 883f582ac9c400c44ad38d2b5b831a34, type: 2}
+  - {fileID: 11400000, guid: 5200419be0d1cd54eb32b1fdabe6451d, type: 2}
+  - {fileID: 11400000, guid: 5f9ceeee23ee71341a5f4d460988be2a, type: 2}
   securityDistanceToSpawn: 15
-  spawnCooldown: 60
+  spawnCooldown: 120
 --- !u!114 &4918526078804904224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +179,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RadioFix: 0
+--- !u!114 &159914834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4918526078804904249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b2adcb4906887348b2f245d84ac62f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Zombie
+    prefab: {fileID: 6767010585872564017, guid: 1a236ba68de9a7d43a011ca934b6133b, type: 3}
+    size: 1000
+    zombieParent: {fileID: 0}
+--- !u!114 &159914840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4918526078804904249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6478925faf0c8e545915665d3ed5a40e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnersParent: {fileID: 0}
 --- !u!1 &4918526079130163737
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,6 +251,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6908061565771773175}
+  - component: {fileID: 536291704}
   m_Layer: 0
   m_Name: MenuController
   m_TagString: Untagged
@@ -223,3 +274,21 @@ Transform:
   m_Father: {fileID: 4918526079130163718}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &536291704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6806559880317820469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938cb31b207e7ff4484a2d2f8771a689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseMenu: {fileID: 0}
+  OptionsMenu: {fileID: 0}
+  DeathMenu: {fileID: 0}
+  TakeDmg: {fileID: 0}
+  Player: {fileID: 0}
+  DamageScreenDuration: 1

@@ -24,10 +24,9 @@ MonoBehaviour:
   modifiers: 
   modifiersValue: []
   modifiersOperator: 
-  craftingRecipe:
-  - {fileID: 11400000, guid: 7acfe3f38f7a6024fa57acc5e25b8e1e, type: 2}
-  craftingRecipeNum: 0f000000
-  craftingTime: 0
+  craftingRecipe: []
+  craftingRecipeNum: 
+  craftingTime: 1
   itemDropped: 
   minDropRate: 0
   maxDropRate: 0

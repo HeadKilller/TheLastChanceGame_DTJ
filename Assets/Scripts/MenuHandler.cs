@@ -105,8 +105,15 @@ public class MenuHandler : MonoBehaviour
     {
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name, LoadSceneMode.Single);
+
+        PlayerGun.instance.isPauseMenuActivated = false;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        Time.timeScale = 1f;
+        DeathMenu.SetActive(false);
+
     }
-    
+
     public void TakeDmgScreen()
     {
 

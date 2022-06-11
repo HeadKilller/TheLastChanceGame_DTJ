@@ -196,6 +196,8 @@ public class UseItem : MonoBehaviour
 
             PlaceItem.instance.DragItem(currentObject, index, groundLayer, ignoreLayer);
 
+            Inventory.instance.RemoveItem_Crafting(currentObject.GetComponent<ItemData>().Item, 1);
+
         }
 
         else if (currentItem.itemType == ItemType.Radio)

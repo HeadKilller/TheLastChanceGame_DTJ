@@ -8,6 +8,8 @@ public class SpawnerPositions : MonoBehaviour
 
     [SerializeField] GameObject SpawnersParent;
 
+    [SerializeField] int radiusMinValue, radiusMaxValue;
+    [SerializeField] int nZombiesMin, nZombiesMax;
 
     public static SpawnerPositions instance;
 
@@ -70,7 +72,7 @@ public class SpawnerPositions : MonoBehaviour
     {
         float radius = 0f;
 
-        radius = rnd.Next(3, 8) + (float) rnd.NextDouble();
+        radius = rnd.Next(radiusMinValue, radiusMaxValue) + (float) rnd.NextDouble();
 
         return radius;
 
@@ -81,7 +83,7 @@ public class SpawnerPositions : MonoBehaviour
         int nZombies = 0;
 
 
-        nZombies = rnd.Next(3, 7);
+        nZombies = rnd.Next(nZombiesMin, nZombiesMax);
 
         return nZombies;
     }

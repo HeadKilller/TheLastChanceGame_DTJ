@@ -13,17 +13,20 @@ MonoBehaviour:
   m_Name: SpikeWall
   m_EditorClassIdentifier: 
   itemType: 3
+  munitionsType: 0
   name: Spike Wall
   description: This is a spike wall.
+  icon: {fileID: 21300000, guid: 2e4019a54ad0f8f459fbf94da3f3a3ce, type: 3}
   isCraftable: 0
   isStackable: 0
   isUsable: 1
-  icon: {fileID: 21300000, guid: 2e4019a54ad0f8f459fbf94da3f3a3ce, type: 3}
+  canDrop: 0
   modifiers: 
   modifiersValue: []
   modifiersOperator: 
-  craftingRecipe:
-  - {fileID: 11400000, guid: d0cd9d16964c1034cb1b48972121d03a, type: 2}
-  craftingRecipeNum: 05000000
+  craftingRecipe: []
+  craftingRecipeNum: 
   craftingTime: 3
   itemDropped: 
+  minDropRate: 0
+  maxDropRate: 0

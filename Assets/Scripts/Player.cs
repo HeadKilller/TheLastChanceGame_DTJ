@@ -171,6 +171,11 @@ public class Player : MonoBehaviour
         playerBars.SetHealth((int)health);
         menu.TakeDmgScreen();
 
+        if(health <= 0f)
+        {
+            Death();
+        }
+
     }
 
     public void Death()

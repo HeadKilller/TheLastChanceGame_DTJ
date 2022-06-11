@@ -23,10 +23,15 @@ public class Mission1 : MonoBehaviour
 
     private void Start()
     {
-        //Player.position = InicialPosition;
+       
+
+    }
+
+    private void Awake()
+    {
+        Player.position = InicialPosition;
         FristCheckpoint = FristWaypoint.GetComponent<WayPointMission>();
         SecondCheckpoint = SecondWaypoint.GetComponent<WayPointMission>();
-
     }
 
     void Update()
