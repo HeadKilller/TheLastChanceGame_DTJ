@@ -65,13 +65,6 @@ public class ZombieBehavior : MonoBehaviour
 
     }
 
-    private void Awake()
-    {
-        
-
-
-
-    }
 
     private void Update()
     {

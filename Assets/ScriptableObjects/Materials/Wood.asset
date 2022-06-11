@@ -13,14 +13,20 @@ MonoBehaviour:
   m_Name: Wood
   m_EditorClassIdentifier: 
   itemType: 0
+  munitionsType: 0
   name: Wood
   description: Used mainly to craft other items.
+  icon: {fileID: 21300000, guid: 451623ffe96685c43805b85928ee1ce4, type: 3}
   isCraftable: 0
   isStackable: 1
-  icon: {fileID: 21300000, guid: 451623ffe96685c43805b85928ee1ce4, type: 3}
+  isUsable: 0
+  canDrop: 1
   modifiers: 
   modifiersValue: []
   modifiersOperator: 
   craftingRecipe: []
   craftingRecipeNum: 
   craftingTime: 0
+  itemDropped: 
+  minDropRate: 1
+  maxDropRate: 3

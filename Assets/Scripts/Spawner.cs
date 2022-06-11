@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -18,25 +16,12 @@ public class Spawner : MonoBehaviour
     [SerializeField] float spawnCooldown;
 
     ObjectPooler pooler;
-    
+    SpawnerPositions spawnerPositions;
 
-    //[System.Serializable]
-    //public class SpawnPoint
-    //{
-
-    //    public GameObject spawnPoint;
-        
-    //    public float spawnRadius;
-    //    //public float spawnRate;
-    //    public float spawnCooldown;
-        
-    //    public int zombiesToSpawn;
-    //    public List<GameObject> zombiesSpawned;
-
-    //}
+    private List<SpawnPoints> spawnPointsList;
 
     //public List<SpawnPoint> spawnPoints;
-    
+
 
 
     System.Random rnd;
@@ -51,16 +36,28 @@ public class Spawner : MonoBehaviour
     void Start()
     {
 
+        spawnerPositions = SpawnerPositions.instance;
         pooler = ObjectPooler.instance;
 
         rnd = new System.Random();
 
         spawnTimer = 0f;
 
-        for(int i = 0; i < spawnAreaList.Count; i++)
+        spawnPointsList = spawnerPositions.spawnPoints;
+
+        Debug.Log($"Spawn Points List Size : {spawnPointsList}.");
+
+        for(int i = 0; i < spawnPointsList.Count; i++)
         {
 
-            spawnAreaList[i].zombiesList.Clear();
+            try
+            {
+                spawnPointsList[i].zombiesSpawned.Clear();
+            }
+            catch(System.Exception e)
+            {
+                Debug.LogError($"Error : {e.Message}.");
+            }
 
         }
 
@@ -87,14 +84,16 @@ public class Spawner : MonoBehaviour
 
         }
 
-        foreach (SpawnArea area in spawnAreaList)
+        foreach (SpawnPoints point in spawnPointsList)
         {
+            if (point.zombiesSpawned == null)
+                continue;
 
-            for (int i = 0; i < area.zombiesList.Count; i++)
+            for (int i = 0; i < point.zombiesSpawned.Count; i++)
             {
-                if (area.zombiesList[i] == null)
+                if (point.zombiesSpawned[i] == null)
                 {
-                    area.zombiesList.RemoveAt(i);
+                    point.zombiesSpawned.RemoveAt(i);
                 }
                 //else
                 //{
@@ -113,17 +112,25 @@ public class Spawner : MonoBehaviour
     public void SpawnZombie()
     {
 
-        for (int i = 0; i < spawnAreaList.Count; i++)
+        for (int i = 0; i < spawnPointsList.Count; i++)
         {
 
-            SpawnArea spawnArea = spawnAreaList[i];
+            SpawnPoints spawnPoint = spawnPointsList[i];
 
             Vector3 positionToSpawn = Vector3.zero;
             Quaternion rotationToSpawn = Quaternion.identity;
 
             bool hasSpawned = false;
+            int zombiesToSpawn;
 
-            int zombiesToSpawn = spawnArea.nZombiesSpawning - spawnArea.zombiesList.Count;
+            try
+            {
+                zombiesToSpawn = spawnPoint.zombiesToSpawn - spawnPoint.zombiesSpawned.Count;
+            }
+            catch
+            {
+                zombiesToSpawn = spawnPoint.zombiesToSpawn;
+            }
 
             for (int j = 0; j < zombiesToSpawn; j++)
             {
@@ -134,16 +141,16 @@ public class Spawner : MonoBehaviour
                 {
                     float min, max;
 
-                    Vector3 position = spawnArea.SpawnCenter.transform.position;
+                    Vector3 position = spawnPoint.spawnPoint.transform.position;
 
-                    min = position.x - spawnArea.SpawnRadius;
-                    max = position.x + spawnArea.SpawnRadius;
+                    min = position.x - spawnPoint.spawnRadius;
+                    max = position.x + spawnPoint.spawnRadius;
 
                     float tempX = ((float)rnd.NextDouble() * (max - min) + min);
                     //Debug.Log("X : " + tempX);
 
-                    min = position.z - spawnArea.SpawnRadius;
-                    max = position.z + spawnArea.SpawnRadius;
+                    min = position.z - spawnPoint.spawnRadius;
+                    max = position.z + spawnPoint.spawnRadius;
 
                     float tempZ = ((float)rnd.NextDouble() * (max - min) + min);
 
@@ -175,7 +182,9 @@ public class Spawner : MonoBehaviour
                     //Debug.Log($"Rotation is {rotationToSpawn}.");
 
                     Debug.Log($"Pooler : {pooler}.");
-                    pooler.SpawnFromPool("Zombie", positionToSpawn, rotationToSpawn);
+                    GameObject tempobj = pooler.SpawnFromPool("Zombie", positionToSpawn, rotationToSpawn);
+
+                    spawnPointsList[i].zombiesSpawned.Add(tempobj);
 
                 }
                 else
@@ -271,9 +280,17 @@ public class Spawner : MonoBehaviour
 
         return rotation;
     }
-
-  
-
-
     
+    
+}
+public struct SpawnPoints
+{
+
+    public GameObject spawnPoint;
+
+    public float spawnRadius;
+
+    public int zombiesToSpawn;
+    public List<GameObject> zombiesSpawned;
+
 }
