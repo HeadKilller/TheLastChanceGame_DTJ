@@ -14,7 +14,7 @@ public class ChangeScreens : MonoBehaviour
     
     public void StartMenu()
     {
-        SceneManager.LoadScene("GameMap");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private void Update()
