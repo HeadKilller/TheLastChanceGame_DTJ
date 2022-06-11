@@ -214,6 +214,8 @@ public class ZombieBehavior : MonoBehaviour
         
         StopChasingPlayer();
 
+        currentZombieState = Zombie_State.Attacking;
+
         ZombieAnim.SetTrigger("Zombie_Attack");
 
 
@@ -274,6 +276,8 @@ public class ZombieBehavior : MonoBehaviour
 
     public void Death()
     {
+
+        currentZombieState = Zombie_State.Death;
 
         StopChasingPlayer();
 

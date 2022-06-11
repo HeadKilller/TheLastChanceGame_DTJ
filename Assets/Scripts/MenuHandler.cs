@@ -14,6 +14,8 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] GameObject TakeDmg;
     [SerializeField] Player Player;
 
+    [SerializeField] float DamageScreenDuration;
+
     bool startTimer;
      float time;
     PlayerInputControl playerInputControl;
@@ -36,7 +38,7 @@ public class MenuHandler : MonoBehaviour
     {
         if (startTimer) time += Time.deltaTime;
 
-        if (time > 4f)
+        if (time > DamageScreenDuration)
         {
             TakeDmg.SetActive(false);
             startTimer = false;
