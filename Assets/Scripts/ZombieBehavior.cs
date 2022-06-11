@@ -127,6 +127,8 @@ public class ZombieBehavior : MonoBehaviour
             previousZombieState = currentZombieState;
             currentZombieState = Zombie_State.Death;
 
+            ZombieAnim.SetTrigger("Zombie_Hit");
+
             Death();
 
         }
@@ -147,6 +149,9 @@ public class ZombieBehavior : MonoBehaviour
     {
 
         previousZombieState = currentZombieState;
+
+        if (currentZombieState == Zombie_State.Death)
+            return;
 
         if (Vector3.Distance(transform.position, playerTransform.position) <= attackRange)
         {

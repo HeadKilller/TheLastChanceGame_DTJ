@@ -28,6 +28,7 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] AudioClip audioCLip_AK;
     [SerializeField] AudioClip audioClip_HandGun;
     [SerializeField] AudioClip audioClip_UMP;
+    [SerializeField] AudioClip audioClip_M16;
 
     AudioSource audioSource;
 
@@ -215,7 +216,19 @@ public class PlayerGun : MonoBehaviour
                 break;
             case GunType.AssaultRifle:
 
-                audioSource.PlayOneShot(audioCLip_AK);
+                AudioClip tempAudio = null;
+
+                if (selectedGun.GetComponent<ItemData>().Gun.name == "AK-47")
+                {
+                    tempAudio = audioCLip_AK;
+                }
+                else if(selectedGun.GetComponent<ItemData>().Gun.name == "M16")
+                {
+                    tempAudio = audioClip_M16;
+                }
+
+                if(tempAudio != null)
+                    audioSource.PlayOneShot(audioCLip_AK);
 
                 break;
             case GunType.SMG:
