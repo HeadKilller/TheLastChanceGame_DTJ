@@ -13,18 +13,22 @@ MonoBehaviour:
   m_Name: Mask
   m_EditorClassIdentifier: 
   itemType: 1
+  munitionsType: 0
   name: Mask
   description: This is a special item that protects you from gases.
+  icon: {fileID: 21300000, guid: 121456025db77d248af147b1f292d4bc, type: 3}
   isCraftable: 0
   isStackable: 0
   isUsable: 0
-  icon: {fileID: 21300000, guid: 121456025db77d248af147b1f292d4bc, type: 3}
+  canDrop: 0
   modifiers: 
   modifiersValue: []
   modifiersOperator: 
   craftingRecipe:
   - {fileID: 11400000, guid: d0f66c40ba5d2f8479dca5419be16f8d, type: 2}
   - {fileID: 11400000, guid: 7acfe3f38f7a6024fa57acc5e25b8e1e, type: 2}
-  craftingRecipeNum: 0100000005000000
+  craftingRecipeNum: 010000000a000000
   craftingTime: 0
   itemDropped: 
+  minDropRate: 0
+  maxDropRate: 0

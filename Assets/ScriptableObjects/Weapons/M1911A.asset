@@ -13,21 +13,24 @@ MonoBehaviour:
   m_Name: M1911A
   m_EditorClassIdentifier: 
   itemType: 4
+  munitionsType: 0
   name: M1911A
   description: It's a Hand Gun.
+  icon: {fileID: 21300000, guid: d7f5ef350a0b09846a09c940a2e43142, type: 3}
   isCraftable: 0
   isStackable: 0
   isUsable: 1
-  icon: {fileID: 21300000, guid: d7f5ef350a0b09846a09c940a2e43142, type: 3}
+  canDrop: 0
   modifiers: 
   modifiersValue: []
   modifiersOperator: 
   craftingRecipe:
   - {fileID: 11400000, guid: 7acfe3f38f7a6024fa57acc5e25b8e1e, type: 2}
-  craftingRecipeNum: 07000000
+  craftingRecipeNum: 09000000
   craftingTime: 10
   itemDropped: 
-  munitionsType: 0
+  minDropRate: 0
+  maxDropRate: 0
   gunType: 1
   magCapacity: 7
   init_MagNum: 2

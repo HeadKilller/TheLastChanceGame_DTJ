@@ -13,21 +13,24 @@ MonoBehaviour:
   m_Name: AK47
   m_EditorClassIdentifier: 
   itemType: 4
+  munitionsType: 0
   name: AK-47
   description: This is a rifle.
+  icon: {fileID: 21300000, guid: b78712dde0c558748b9415eea1124fd9, type: 3}
   isCraftable: 0
   isStackable: 0
   isUsable: 1
-  icon: {fileID: 21300000, guid: b78712dde0c558748b9415eea1124fd9, type: 3}
+  canDrop: 0
   modifiers: 
   modifiersValue: []
   modifiersOperator: 
   craftingRecipe:
   - {fileID: 11400000, guid: 7acfe3f38f7a6024fa57acc5e25b8e1e, type: 2}
-  craftingRecipeNum: 0a000000
+  craftingRecipeNum: 0f000000
   craftingTime: 15
   itemDropped: 
-  munitionsType: 0
+  minDropRate: 0
+  maxDropRate: 0
   gunType: 2
   magCapacity: 30
   init_MagNum: 2

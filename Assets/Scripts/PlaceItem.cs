@@ -114,7 +114,7 @@ public class PlaceItem : MonoBehaviour
             //Debug.Log("Index : " + indexAtInventory);
             GameObject slot = Inventory.instance.Inventory_Slots[indexAtInventory];
 
-            Inventory.instance.RemoveItem(itemToDrag.GetComponent<ItemData>().Item, 1);
+            Inventory.instance.RemoveItem_Crafting(itemToDrag.GetComponent<ItemData>().Item, 1);
             canPutItem = false;
         }
         else

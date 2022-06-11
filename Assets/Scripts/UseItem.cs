@@ -110,7 +110,7 @@ public class UseItem : MonoBehaviour
 
             //Debug.Log("Removing Item now");
 
-            Inventory.instance.RemoveItem(tempItem, 1);
+            Inventory.instance.RemoveItem_Crafting(tempItem, 1);
 
         }
 
@@ -136,7 +136,7 @@ public class UseItem : MonoBehaviour
 
             PlayerGun.instance.EquipGun(currentObject);
 
-            Inventory.instance.RemoveItem(currentObject.GetComponent<ItemData>().Gun, 1);
+            Inventory.instance.RemoveItem_Crafting(currentObject.GetComponent<ItemData>().Gun, 1);
 
         }
 
@@ -163,7 +163,7 @@ public class UseItem : MonoBehaviour
             Player.instance.UseConsumible(currentItem);
 
 
-            Inventory.instance.RemoveItem(currentItem, 1);
+            Inventory.instance.RemoveItem_Crafting(currentItem, 1);
 
         }
 
@@ -225,7 +225,7 @@ public class UseItem : MonoBehaviour
 
             PlaceItem.instance.DragItem(currentObject, index, groundLayer, ignoreLayer);
 
-            Inventory.instance.RemoveItem(currentObject.GetComponent<ItemData>().Item, 1);
+            Inventory.instance.RemoveItem_Crafting(currentObject.GetComponent<ItemData>().Item, 1);
 
         }
 

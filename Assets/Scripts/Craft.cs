@@ -240,7 +240,7 @@ public class Craft : MonoBehaviour
                     //Debug.Log("Material : " + tempCraftingRecipe[j]);
                     //Debug.Log("Number of Material : " + tempRecipeNums[j]);
 
-                    Inventory.instance.RemoveItem(tempCraftingRecipe[j], tempRecipeNums[j]);
+                    Inventory.instance.RemoveItem_Crafting(tempCraftingRecipe[j], tempRecipeNums[j]);
 
                 }
 

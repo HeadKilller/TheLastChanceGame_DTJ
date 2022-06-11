@@ -13,17 +13,21 @@ MonoBehaviour:
   m_Name: Filter
   m_EditorClassIdentifier: 
   itemType: 0
+  munitionsType: 0
   name: Filter
   description: This can be used to craft special items.
+  icon: {fileID: 21300000, guid: bf8e23ffc581a234d9c70ea128346ffd, type: 3}
   isCraftable: 0
   isStackable: 0
   isUsable: 0
-  icon: {fileID: 21300000, guid: bf8e23ffc581a234d9c70ea128346ffd, type: 3}
+  canDrop: 0
   modifiers: 
   modifiersValue: []
   modifiersOperator: 
   craftingRecipe:
   - {fileID: 11400000, guid: 7acfe3f38f7a6024fa57acc5e25b8e1e, type: 2}
-  craftingRecipeNum: 05000000
+  craftingRecipeNum: 0f000000
   craftingTime: 0
   itemDropped: 
+  minDropRate: 0
+  maxDropRate: 0

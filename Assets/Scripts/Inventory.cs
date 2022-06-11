@@ -10,6 +10,8 @@ using TMPro;
 public class Inventory : MonoBehaviour
 {
 
+
+    [Header("Canvas/Panels")]
     [SerializeField] GameObject inventory_Canvas;
     [SerializeField] GameObject inventorySlotsParent;
 
@@ -20,24 +22,31 @@ public class Inventory : MonoBehaviour
     [SerializeField] Slider confirmationWindow_Slider;
 
     
-    [SerializeField] int inventorySize;
-
-    public static Inventory instance;
-
-    PlayerInputControl playerInputControl;
-       
-
-    int slotMaxCapacity;
-
-    GameObject gameObjectToDestroy;
-
-    public bool MaskEquiped;
-    public bool HasRadio;
+    [Header("Inventory")]
 
     List<GameObject> inventory_Slots;
     List<Items> inventorySlotsContent;
     public List<GameObject> inventorySlotsContent_Objects;
     List<int> inventorySlotsCurrentCapacity;
+
+    int slotMaxCapacity;
+
+    [SerializeField] int inventorySize;
+
+    [Header("Singleton")]
+    public static Inventory instance;
+
+    [Header("Input System")]
+    PlayerInputControl playerInputControl;
+       
+
+
+    [Header("In Game Variables")]
+
+    GameObject gameObjectToDestroy;
+
+    public bool MaskEquiped;
+    public bool HasRadio;
 
     public bool IsMovingItem;
     GameObject SlotWhereToMove;
@@ -261,7 +270,7 @@ public class Inventory : MonoBehaviour
     }
    
     //Função chamada quando se move itens no inventário.
-    public void RemoveItem(GameObject slot, bool isMovingItem, GameObject slotToMove)
+    public void MoveItems(GameObject slot, bool isMovingItem, GameObject slotToMove)
     {
 
 
@@ -334,7 +343,7 @@ public class Inventory : MonoBehaviour
     }
 
     //Função chamada ao dar craft de itens.
-    public void RemoveItem(Items item, int quantityToRemove)
+    public void RemoveItem_Crafting(Items item, int quantityToRemove)
     {
 
         GameObject slotWithItemToRemove = null;

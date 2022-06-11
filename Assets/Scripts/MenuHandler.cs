@@ -34,18 +34,9 @@ public class MenuHandler : MonoBehaviour
     {
         TakeOutScreenDmg();
     }
-    void TakeOutScreenDmg()
-    {
-        if (startTimer) time += Time.deltaTime;
 
-        if (time > DamageScreenDuration)
-        {
-            TakeDmg.SetActive(false);
-            startTimer = false;
-            time = 0f;
-        }
-        
-    }
+    #region PauseMenu
+
     public void OpenClose_Menu(InputAction.CallbackContext context)
     {
 
@@ -93,6 +84,15 @@ public class MenuHandler : MonoBehaviour
         PauseMenu.SetActive(true);
     }
 
+    public void Exit()
+    {
+        SceneManager.LoadScene("Menu");
+
+    }
+
+    #endregion
+
+    #region DamageScreen
     public void DeathScreen()
     {
             PlayerGun.instance.isPauseMenuActivated = true;
@@ -106,11 +106,7 @@ public class MenuHandler : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name, LoadSceneMode.Single);
     }
-    public void Exit()
-    {
-        SceneManager.LoadScene("Menu");
-
-    }
+    
     public void TakeDmgScreen()
     {
 
@@ -118,5 +114,21 @@ public class MenuHandler : MonoBehaviour
         startTimer = true;
 
     }
+
+    void TakeOutScreenDmg()
+    {
+        if (startTimer) time += Time.deltaTime;
+
+        if (time > DamageScreenDuration)
+        {
+            TakeDmg.SetActive(false);
+            startTimer = false;
+            time = 0f;
+        }
+
+    }
+
+    #endregion
+
 
 }

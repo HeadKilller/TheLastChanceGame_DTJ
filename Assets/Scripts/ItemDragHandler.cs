@@ -66,7 +66,7 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
                         Debug.Log("Add Item to inventory");
 
 
-                        Inventory.instance.RemoveItem(objectDragging, true, availableItemsSlots[i]);
+                        Inventory.instance.MoveItems(objectDragging, true, availableItemsSlots[i]);
 
                     }
 
@@ -84,7 +84,7 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 
                         Debug.Log("Add Item to Guns Wheel");
 
-                        Inventory.instance.RemoveItem(this.gameObject, true, availableItemsSlots[i]);
+                        Inventory.instance.MoveItems(this.gameObject, true, availableItemsSlots[i]);
 
                     }
 

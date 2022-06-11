@@ -13,21 +13,24 @@ MonoBehaviour:
   m_Name: UMP
   m_EditorClassIdentifier: 
   itemType: 4
+  munitionsType: 0
   name: UMP
   description: This is a SMG.
+  icon: {fileID: 21300000, guid: e4def2292d1dfe8478397b908dbf1eb4, type: 3}
   isCraftable: 0
   isStackable: 0
   isUsable: 1
-  icon: {fileID: 21300000, guid: e4def2292d1dfe8478397b908dbf1eb4, type: 3}
+  canDrop: 0
   modifiers: 
   modifiersValue: []
   modifiersOperator: 
   craftingRecipe:
   - {fileID: 11400000, guid: 7acfe3f38f7a6024fa57acc5e25b8e1e, type: 2}
-  craftingRecipeNum: 0a000000
+  craftingRecipeNum: 0c000000
   craftingTime: 14
   itemDropped: 
-  munitionsType: 0
+  minDropRate: 0
+  maxDropRate: 0
   gunType: 3
   magCapacity: 30
   init_MagNum: 2
