@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 3562820201915337296}
   - component: {fileID: 2767743620067246607}
   - component: {fileID: 8411574048853755700}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MetalStand
-  m_TagString: Untagged
+  m_TagString: Material
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
