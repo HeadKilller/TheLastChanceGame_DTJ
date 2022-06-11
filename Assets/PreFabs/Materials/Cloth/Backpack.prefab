@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: -6536397954791973149}
   - component: {fileID: 1006553709552949449}
   - component: {fileID: 8183074534270274566}
-  - component: {fileID: 1861911095472005219}
   - component: {fileID: 1710838387875676245}
+  - component: {fileID: 4496418348454253518}
   m_Layer: 9
   m_Name: Backpack
   m_TagString: Material
@@ -30,14 +30,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3413957738985580248}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: 826.93915, y: 200.65746, z: 339.2567}
   m_LocalScale: {x: 0.6086935, y: 0.6086935, z: 0.6086935}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &1406490052020745159
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -136,19 +136,6 @@ MonoBehaviour:
   droppableItems_Objects: []
   minDrops: 0
   maxDrops: 0
---- !u!65 &1861911095472005219
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3413957738985580248}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.49812028, y: 0.6631662, z: 0.9225268}
-  m_Center: {x: -0.23743536, y: 0.004389732, z: -0.0026052739}
 --- !u!54 &1710838387875676245
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -165,3 +152,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &4496418348454253518
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3413957738985580248}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: 5e5111b9f5b3e794c8d8f85359c4fb16, type: 3}

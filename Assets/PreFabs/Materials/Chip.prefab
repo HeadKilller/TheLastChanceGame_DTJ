@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 3588294584516426099}
   m_LocalRotation: {x: 0, y: 0.7069834, z: -0.7072302, w: 0}
   m_LocalPosition: {x: 5.4732175, y: 0.50996745, z: -12.815296}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -133,6 +133,8 @@ MonoBehaviour:
   gun: {fileID: 0}
   droppableItems_Names: []
   droppableItems_Objects: []
+  minDrops: 0
+  maxDrops: 0
 --- !u!114 &2668000035306221824
 MonoBehaviour:
   m_ObjectHideFlags: 0
