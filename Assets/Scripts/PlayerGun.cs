@@ -216,19 +216,8 @@ public class PlayerGun : MonoBehaviour
                 break;
             case GunType.AssaultRifle:
 
-                AudioClip tempAudio = null;
+                audioSource.PlayOneShot(audioCLip_AK);
 
-                if (selectedGun.GetComponent<ItemData>().Gun.name == "AK-47")
-                {
-                    tempAudio = audioCLip_AK;
-                }
-                else if(selectedGun.GetComponent<ItemData>().Gun.name == "M16")
-                {
-                    tempAudio = audioClip_M16;
-                }
-
-                if(tempAudio != null)
-                    audioSource.PlayOneShot(audioCLip_AK);
 
                 break;
             case GunType.SMG:

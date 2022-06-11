@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChangeScreens : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class ChangeScreens : MonoBehaviour
     float time = 0;
     bool startTimer;
     bool change_MainToOptions,change_OptionsToMain, change_MainToCredits,change_CreditsToMain;
+    
+    public void StartMenu()
+    {
+        SceneManager.LoadScene("GameMap");
+    }
+
     private void Update()
     {
         if(startTimer)
